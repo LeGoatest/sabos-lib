@@ -1,297 +1,254 @@
 # WDBASIC Architecture Rules
 
 > **Authority:** Highest-authority WDBASIC technical contract  
-> **Core entry point:** [`README.md`](README.md)
+> **Core entry point:** [`README.md`](README.md)  
+> **Standards registry:** [`STANDARDS.md`](STANDARDS.md)
 
 This document governs rendering, state ownership, request and response behavior, routing, security boundaries, progressive enhancement, resilience, and technical exceptions.
 
-## 1. Rendering ownership
+## 1. Server ownership
 
 The server owns:
 
-- Primary page content.
+- Primary page and fragment content.
 - Routing outcomes.
 - Authentication and authorization.
 - Business rules and validation.
 - Persistent state.
-- Canonical component and fragment state.
+- Canonical component state.
 - Search-indexable content.
-- Final success, empty, validation, and error outcomes.
+- Final success, empty, conflict, validation, and error outcomes.
 
-Public pages must return meaningful complete HTML before JavaScript executes.
-
-The initial response must contain enough structure, content, navigation, and metadata for users and search engines to understand the page without requiring client rendering.
+Client state may mirror server state for continuity but is never authorization evidence or the sole recoverable source of material business state.
 
 ## 2. Progressive enhancement
 
-The baseline path uses normal links, native controls, forms, server validation, and server responses.
+The baseline uses:
 
-Enhancements may improve continuity or speed but may not remove the baseline path for primary public workflows unless a product constraint is explicitly documented.
+- Meaningful HTML.
+- Native links and controls.
+- Normal form submission.
+- Server validation.
+- Direct URLs and server responses.
 
-Enhanced and baseline paths must preserve equivalent:
+Enhancement may improve speed or continuity but must preserve equivalent authorization, validation, names, labels, errors, URLs, outcomes, and security behavior.
 
-- Authorization and validation.
-- Accessible names and labels.
-- Error and success outcomes.
-- URLs and navigation meaning.
-- Content integrity.
-- Security and abuse-prevention behavior.
+A product constraint that removes the baseline path must be explicit, narrow, and evaluated for accessibility, resilience, security, and search impact.
 
 ## 3. HTMX-first interaction
 
-Use HTMX when the server can reasonably own the interaction, including:
+Use HTMX when the server can own the interaction, including forms, validation, filtering, sorting, pagination, search, inline editing, modal content, and status changes.
 
-- Form submission and validation.
-- Filtering, sorting, and search.
-- Pagination and load-more behavior.
-- Inline editing.
-- Server-confirmed state changes.
-- Modal or panel content.
-- Partial page refreshes.
+Every fragment defines:
 
-Every fragment must define:
+- Request method and inputs.
+- Authorization and CSRF requirements.
+- Target and swap strategy.
+- Loading, busy, empty, validation, conflict, error, and success states.
+- Focus and announcement behavior.
+- History and direct-load behavior.
+- Cache policy.
+- Correct language, direction, and accessibility relationships.
 
-- Input contract.
-- Authorization requirement.
-- Target container.
-- Swap strategy.
-- Loading and busy state.
-- Empty state.
-- Validation and request error state.
-- Success state.
-- Focus behavior.
-- Announcement behavior.
-- History behavior when relevant.
-- Correct accessibility state after replacement.
-
-Fragments must not depend on client state the server cannot reconstruct.
+Fragments must not depend on hidden client-only state the server cannot reconstruct.
 
 ## 4. JavaScript boundary
 
-JavaScript may own local ephemeral behavior such as:
-
-- Menu disclosure.
-- Focus traps and focus restoration.
-- Local dropdowns.
-- Lightboxes and media controls.
-- Measured CSS variables.
-- Clipboard or device APIs requiring browser execution.
-- External integrations unavailable through server interaction.
+JavaScript may own local ephemeral behavior such as menu disclosure, focus management, media controls, clipboard interaction, or device APIs requiring browser execution.
 
 JavaScript must not own:
 
 - Canonical routing.
-- Authentication or authorization decisions.
+- Authentication or authorization.
 - Persistent business state.
+- Server validation.
 - Primary public content.
-- Server validation rules.
 - Search-indexable content.
 - Responsive appearance through generated utility strings.
 
-Client state may mirror server state for interaction continuity, but the server remains authoritative.
-
 ## 5. Semantic HTML
 
-Use the native element that matches the behavior:
+Use native elements for their defined behavior. Do not create generic clickable containers, custom form controls, or ARIA substitutes where valid native HTML provides the required semantics and interaction.
 
-- Links navigate.
-- Buttons perform actions.
-- Labels identify controls.
-- Fieldsets group related controls.
-- Headings represent document structure.
-- Tables represent tabular data.
-- Landmarks identify major page regions.
-- Details and summary provide simple disclosure behavior.
-- Dialog is preferred for supported dialog semantics.
+See [`tokens/accessibility.md`](tokens/accessibility.md).
 
-Do not use generic containers plus ARIA where native HTML provides the required semantics and behavior.
-
-See [`tokens/accessibility.md`](tokens/accessibility.md) for the complete accessibility contract.
-
-## 6. Component architecture
-
-Major interface elements must be reusable server-side components or fragments with explicit inputs and no hidden global dependency.
-
-Components must preserve semantic HTML and expose relevant state variants. Product-specific wrappers may compose universal components but must not fork shared behavior without a documented reason.
-
-Reusable component behavior is governed by [`components/component-contracts.md`](components/component-contracts.md).
-
-## 7. Routing and URL contract
+## 6. Routing and URL contract
 
 - Primary navigation uses crawlable anchors.
-- Direct requests and browser refreshes work.
-- Unknown paths return a real `404` response.
-- Unauthorized and forbidden states use appropriate authentication or `403` behavior.
-- Redirects use deliberate status codes and do not conceal routing errors.
-- HTMX history changes preserve valid direct URLs and reconstructable server state.
-- Internal implementation endpoints are not presented as canonical public routes.
-- Trailing slash, case, locale, and canonical URL behavior are consistent.
-- Query parameters affecting indexable content are normalized and documented.
+- Direct requests and refreshes work.
+- Unknown routes return real `404` responses.
+- Unauthorized and forbidden states are distinct.
+- Redirect status codes match intent.
+- Canonical, locale, case, query, and trailing-slash behavior is documented.
+- HTMX history creates valid reconstructable URLs.
+- Internal endpoints are not presented as canonical public routes.
 
-## 8. HTTP response contract
+## 7. HTTP response contract
 
-Responses must use status codes that match the outcome.
+Status codes represent actual outcomes.
 
-Examples:
+Typical use:
 
-- `200` for a successful page or fragment.
-- `201` when a request creates a resource and that distinction matters.
-- `204` only when an intentionally empty response is valid.
-- `303` after a successful non-idempotent form submission when redirecting to a result page.
-- `400` for malformed requests.
-- `401` when authentication is required.
-- `403` when an authenticated actor lacks permission.
-- `404` when the requested resource does not exist.
-- `409` for a documented state conflict.
-- `422` for recoverable semantic validation failures when the implementation uses that convention.
-- `429` for rate limiting.
-- `500` only for unexpected server failure.
+- `200` successful page or fragment.
+- `201` resource created when material.
+- `204` intentionally empty successful response.
+- `303` redirect after successful non-idempotent form submission.
+- `400` malformed request.
+- `401` authentication required.
+- `403` authenticated but forbidden.
+- `404` resource not found.
+- `409` state conflict.
+- `422` recoverable semantic validation failure when that convention is used.
+- `429` rate limited.
+- `500` unexpected server failure.
 
-Do not return the homepage with status `200` for unknown routes. Do not represent validation failure as success merely to simplify client code.
+Do not return a homepage with `200` for an unknown route or disguise validation failure as success for client convenience.
 
-HTMX responses must remain understandable as server responses and must not depend on an undocumented client-only interpretation.
-
-## 9. Forms and validation
+## 8. Forms, validation, and consequential actions
 
 The server is authoritative for validation.
 
-Client validation may improve feedback but must not replace server validation. Recoverable failures preserve submitted values and return associated field errors. Complex forms return an error summary linked to invalid fields.
-
-State-changing requests must define:
+State-changing requests define:
 
 - Authorization.
 - CSRF protection.
 - Validation.
 - Duplicate-submission behavior.
-- Idempotency expectations where relevant.
+- Idempotency expectations.
 - Success destination.
-- Error recovery.
-- Audit behavior when the action is security- or business-sensitive.
+- Error and conflict recovery.
+- Audit requirements.
+- Review, confirmation, or reversibility for consequential actions.
 
-## 10. State, concurrency, and idempotency
+Recoverable errors preserve user input.
 
-- The server decides the canonical state transition.
-- Duplicate requests must not silently create duplicate business effects.
-- Destructive or financial actions require explicit conflict and retry behavior.
-- Optimistic UI must reconcile with the server response.
-- Concurrent edits must use a documented conflict strategy when overwriting would lose data.
-- A fragment response must represent state valid at the time it is returned.
+## 9. State, concurrency, and idempotency
 
-Use idempotency keys or equivalent controls where repeated submission could create material harm or duplicate records.
+- Duplicate requests must not silently duplicate business effects.
+- Financial, destructive, invitation, upload, and other material actions define retry behavior.
+- Concurrent edits use a documented conflict strategy.
+- Optimistic UI reconciles with the server.
+- Idempotency keys or equivalent controls are used where repetition could create material harm.
 
-## 11. Security boundaries
+## 10. Security boundaries
 
-- Never trust role, ownership, price, status, or authorization data supplied by the client.
-- Protect state-changing requests against CSRF.
+- Never trust client-supplied role, ownership, price, permission, status, or tenant data.
 - Escape untrusted output by default.
-- Validate uploads by type, size, destination, ownership, and authorization.
-- Store uploaded files outside executable paths where practical.
-- Do not expose credentials, filesystem paths, stack traces, or internal identifiers unnecessarily.
-- Apply rate limiting and abuse prevention proportionate to the endpoint.
+- Validate uploads by authorization, actual content, size, destination, and later access.
+- Keep secrets and internal paths out of client-visible output.
+- Apply least privilege.
+- Rate-limit and protect abuse-sensitive endpoints.
 - Keep security decisions server-side.
-- Do not use hidden fields, query parameters, or JavaScript state as authorization evidence.
-- Apply least privilege to integrations, storage, and background processing.
 
-## 12. Cache boundaries
+The cross-cutting browser, third-party, privacy, consent, and telemetry rules are in [`security-and-privacy.md`](security-and-privacy.md).
 
-Caching must not cross authorization, identity, tenant, locale, or personalization boundaries.
+## 11. Authoring boundaries
+
+A product that creates or edits content must follow:
+
+- [`authoring/atag-2.0.md`](authoring/atag-2.0.md)
+- [`authoring/accessible-output.md`](authoring/accessible-output.md)
+
+Generated output is part of the product’s conformance scope.
+
+## 12. Internationalization and media
+
+Localized output follows [`internationalization.md`](internationalization.md).
+
+Audio, video, animation, carousels, and comparison media follow [`media-accessibility.md`](media-accessibility.md).
+
+These requirements apply to server output and HTMX fragments.
+
+## 13. Cache boundaries
+
+Caching must not cross identity, authorization, tenant, locale, consent, or personalization boundaries.
 
 Document:
 
-- What is cached.
+- Cached object.
 - Cache key inputs.
-- Invalidation behavior.
+- Invalidation.
 - Maximum acceptable staleness.
-- Whether the response contains user-specific or security-sensitive data.
+- Sensitive or user-specific content.
 
-Public HTML caches must preserve canonical metadata and must not serve stale claims, availability, prices, credentials, or status beyond an acceptable business window.
+Do not serve stale prices, credentials, availability, status, or consent choices beyond an accepted business window.
 
-HTMX fragments require the same cache-boundary review as full pages.
+## 14. Dependency and third-party policy
 
-## 13. Dependency policy
+Add a dependency only when it provides measurable value that cannot be maintained more safely with existing capabilities.
 
-Add a dependency only when it provides measurable value that cannot be maintained more safely with existing platform capabilities.
+Review:
 
-Each retained frontend dependency must have a documented purpose. Production delivery must not depend on a development server.
-
-A dependency review considers:
-
-- Maintenance and release activity.
-- Security posture.
-- Bundle or runtime cost.
-- Accessibility impact.
+- Maintenance and security.
+- Runtime and transfer cost.
+- Accessibility.
+- Privacy and data flow.
 - Server-rendering and fallback behavior.
-- Removal or replacement strategy.
+- Content Security Policy impact.
+- Removal path.
 
-## 14. Performance and resilience
+A third-party failure must not remove primary public content when a practical fallback exists.
+
+## 15. Performance and resilience
 
 - Minimize render-blocking assets.
 - Use explicit media dimensions.
 - Avoid layout shift.
-- Lazy-load below-the-fold media where appropriate.
-- Keep primary workflows usable under slow or failed JavaScript.
-- Avoid requiring a client hydration pass for meaningful public content.
-- Define product-specific performance budgets.
-- Treat third-party scripts as optional failure domains.
-- Preserve readable error and retry behavior under partial failure.
+- Lazy-load appropriate below-fold media.
+- Avoid client hydration for meaningful public content.
+- Define page- and workflow-specific budgets.
+- Preserve user-safe retry and recovery under partial failure.
+- Treat external scripts as optional failure domains.
 
-## 15. Search architecture
+## 16. Search architecture
 
-Public pages provide:
+Public pages provide semantic HTML, crawlable links, canonical behavior, metadata, meaningful headings, structured-data locations, and unique useful content.
 
-- Semantic HTML.
-- Crawlable links.
-- Canonical URL control.
-- Metadata and meaningful headings.
-- Structured-data locations where applicable.
-- Indexable content not embedded only in images or client-generated fragments.
-- Unique and useful location, service, category, and article pages.
-- Correct noindex, redirect, and error behavior.
+Thin doorway pages, duplicate location pages, JavaScript-only primary content, and false `200` error pages are non-conformant.
 
-Thin doorway pages, duplicate location pages, and JavaScript-only primary content are non-compliant.
+## 17. Observability and audit
 
-## 16. Observability and error handling
+Unexpected failures are observable without exposing sensitive details.
 
-Unexpected failures should be observable without exposing sensitive details to the user.
+Document or implement:
 
-Document or implement as appropriate:
-
-- Structured server logs.
-- Correlation or request identifiers.
+- Structured logs.
+- Correlation identifiers.
 - Error categorization.
-- Delivery, integration, or queue failure recording.
-- User-safe error messages.
-- Retry or recovery paths.
+- Integration and queue failure records.
+- User-safe errors.
+- Retry paths.
 - Audit records for sensitive state changes.
 
-The user-facing response must not reveal stack traces, secrets, raw queries, or server paths.
+Do not log secrets, full sensitive fields, or unnecessary personal data.
 
-## 17. Deployment and runtime assumptions
+## 18. Deployment and support baseline
 
-A governed implementation documents:
+Document:
 
-- Supported runtime and browser baseline.
-- Required server extensions and services.
-- Build-time versus runtime dependencies.
-- Writable storage locations.
+- Runtime and browser baseline.
+- Assistive-technology support matrix.
+- Build-time and runtime dependencies.
+- Writable storage.
 - Environment configuration.
-- Migration and rollback expectations.
+- Migrations and rollback.
 - Cache and queue requirements.
+- Validation commands.
 
-A production application must not require an undocumented development server or local-only build process.
+Production must not depend on an undocumented development server.
 
-## 18. Exceptions
+## 19. Exceptions
 
-An exception must document:
+An exception records:
 
-- A stable exception identifier.
-- The rule being bypassed.
-- The reason.
-- Affected routes, components, or environments.
-- Accessibility, security, search, and performance impact.
-- Fallback behavior.
-- Responsible owner.
+- Stable identifier.
+- Rule bypassed.
+- Reason.
+- Scope.
+- Accessibility, security, privacy, search, internationalization, and performance impact.
+- Fallback.
+- Owner.
 - Expiration or review condition.
-- Removal or remediation plan.
+- Remediation plan.
 
-Undocumented architectural exceptions are non-compliant.
+An exception cannot be used to make a false external standards claim.
