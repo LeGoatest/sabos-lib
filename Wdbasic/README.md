@@ -5,7 +5,7 @@
 > **Framework version:** WDBASIC v2  
 > **Applies to:** public websites, landing pages, service and location pages, portals, dashboards, administrative interfaces, authoring tools, hybrid and native shells, generated documents, and reusable server-rendered UI components.
 
-WDBASIC v2 governs architecture, presentation, semantic tokens, accessibility, authoring, component behavior, cognitive clarity, conversion structure, content integrity, internationalization, media, security, privacy, responsive behavior, performance, search visibility, native and non-web output, and standards evidence.
+WDBASIC v2 governs architecture, presentation, semantic tokens, accessibility, authoring, component behavior, cognitive clarity, conversion structure, content integrity, internationalization, media, security, privacy, responsive behavior, performance, search visibility, native and non-web output, organizational maturity, and standards evidence.
 
 ## 1. Document map
 
@@ -22,11 +22,12 @@ Wdbasic/
 ├── security-and-privacy.md
 ├── sustainability.md
 ├── compliance/
+│   ├── accessibility-maturity.md
+│   ├── accessibility-statement-template.md
 │   ├── act-rule-template.md
-│   ├── wcag-2.2-aa-matrix.md
-│   ├── testing-methodology.md
 │   ├── browser-at-matrix.md
-│   └── accessibility-statement-template.md
+│   ├── testing-methodology.md
+│   └── wcag-2.2-aa-matrix.md
 ├── authoring/
 │   ├── atag-2.0.md
 │   └── accessible-output.md
@@ -78,7 +79,7 @@ Before implementing or reviewing a governed surface:
 9. Read [`../docs/TAILWIND_PATTERN.md`](../docs/TAILWIND_PATTERN.md).
 10. Read product-specific requirements, evidence, and exceptions.
 
-Applicability must be resolved explicitly. Do not omit cognitive, non-web, authoring, media, or internationalization review merely because the initial implementation is visually simple.
+Applicability must be resolved explicitly. Do not omit cognitive, non-web, authoring, media, internationalization, or organizational-maturity review merely because the initial implementation is visually simple.
 
 ## 4. Framework priorities
 
@@ -99,6 +100,7 @@ WDBASIC prioritizes:
 13. Maintainable semantic styling.
 14. Accessible generated and non-web output.
 15. Auditable, versioned standards evidence.
+16. Repeatable organizational capability.
 
 ## 5. Core architecture
 
@@ -231,7 +233,7 @@ Native applications, Wails or other web-view shells, custom viewers, PDFs, EPUBs
 
 Web WCAG results, native-shell accessibility, and document-format accessibility must be scoped and reported separately.
 
-WCAG2ICT and UAAG may inform implementation, but their publication status and non-conformance role must be represented accurately. A project must identify the actual platform, format, procurement, legal, or contractual baseline used for a non-web claim.
+WCAG2ICT and UAAG may inform implementation, but their publication status and non-conformance role must be represented accurately. WCAG2Mobile may inform mobile evaluation only as draft guidance. A project must identify the actual platform, format, procurement, legal, or contractual baseline used for a non-web claim.
 
 ## 16. Components
 
@@ -259,7 +261,7 @@ Do not fabricate or imply unverified:
 - Licenses, insurance, guarantees, or warranties.
 - Customer logos.
 - Project counts, response times, success rates, or statistics.
-- Availability, pricing, urgency, accessibility, security, privacy, or sustainability claims.
+- Availability, pricing, urgency, accessibility, security, privacy, sustainability, or maturity claims.
 
 Templates hide unsupported proof or use explicit editable placeholders.
 
@@ -282,7 +284,15 @@ Public pages provide semantic HTML, crawlable links, canonical URL behavior, met
 
 Each project defines performance budgets. [`sustainability.md`](sustainability.md) is informative unless an adopting project makes named budgets binding.
 
-## 20. Design profiles
+## 20. Accessibility maturity
+
+[`compliance/accessibility-maturity.md`](compliance/accessibility-maturity.md) governs organizational capability and continuous improvement.
+
+It evaluates communications, ICT development lifecycle, knowledge and skills, oversight and culture, personnel, procurement, and support using evidence-backed maturity levels.
+
+Maturity assessment is not product conformance. A mature organization may ship a non-conformant product, and one conformant release does not prove sustainable organizational capability.
+
+## 21. Design profiles
 
 Select one active profile:
 
@@ -292,7 +302,7 @@ Select one active profile:
 
 A profile may customize visual character but may not weaken core contracts.
 
-## 21. Required adoption record
+## 22. Required adoption record
 
 ```yaml
 wdbasic:
@@ -313,6 +323,7 @@ wdbasic:
   cognitive_accessibility: applicable | limited | not-applicable-with-rationale
   non_web_applicable: true | false
   non_web_baselines: []
+  accessibility_maturity: <path-or-none>
   security_baseline: <standard-version-and-level>
   browser_at_matrix: <path>
   validation_commands: []
@@ -321,7 +332,7 @@ wdbasic:
 
 Unpinned references such as “latest” are insufficient for reproducible governance.
 
-## 22. WDBASIC conformance outcomes
+## 23. WDBASIC conformance outcomes
 
 Use:
 
@@ -329,11 +340,11 @@ Use:
 - **WDBASIC conformant with documented exception:** A narrow WDBASIC exception exists and does not misrepresent an external standard or claim.
 - **WDBASIC non-conformant:** Binding requirements fail or are bypassed without an approved exception.
 
-WDBASIC conformance and WCAG conformance are separate determinations. A WDBASIC exception may coexist with WDBASIC conformance when governed, but it cannot preserve a WCAG claim if an applicable WCAG requirement fails.
+WDBASIC conformance and WCAG conformance are separate determinations. Accessibility maturity is also separate from both. A WDBASIC exception may coexist with WDBASIC conformance when governed, but it cannot preserve a WCAG claim if an applicable WCAG requirement fails.
 
 A project is not WDBASIC-conformant merely because it uses Tailwind, HTMX, semantic classes, or a profile palette.
 
-## 23. Core review checklist
+## 24. Core review checklist
 
 - Is primary public content server-rendered and usable without JavaScript?
 - Are URLs, status codes, authorization, validation, and fallback behavior correct?
@@ -345,6 +356,7 @@ A project is not WDBASIC-conformant merely because it uses Tailwind, HTMX, seman
 - Are authoring interfaces and generated output covered when applicable?
 - Are cognitive clarity, language, direction, media equivalents, security, privacy, and third-party behavior documented?
 - Are native shells and non-web formats evaluated under separate applicable baselines?
+- Is any maturity claim scoped, dimension-specific, evidence-backed, and distinct from product conformance?
 - Is proof factual?
 - Is the active profile and WDBASIC revision pinned?
 - Are exceptions explicit, owned, narrow, and reviewable?
