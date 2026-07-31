@@ -48,7 +48,7 @@ Agents must not:
 - Scatter repeated Tailwind utility piles through templates.
 - Put styling logic in JavaScript.
 - Fabricate reviews, credentials, guarantees, awards, customer logos, or statistics.
-- Weaken contrast, keyboard access, focus visibility, or form labeling.
+- weaken contrast, keyboard access, focus visibility, or form labeling.
 
 ## Change protocol
 
