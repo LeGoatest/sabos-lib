@@ -1,0 +1,31 @@
+@layer components {
+  .is-loading,
+  [aria-busy="true"] {
+    @apply cursor-progress;
+  }
+
+  .is-loading {
+    @apply relative opacity-70;
+  }
+
+  .is-disabled {
+    @apply pointer-events-none cursor-not-allowed opacity-50;
+  }
+
+  .is-hidden {
+    display: none !important;
+  }
+
+  .has-error {
+    @apply border-error;
+  }
+
+  .htmx-indicator {
+    @apply invisible opacity-0 transition-opacity;
+  }
+
+  .htmx-request .htmx-indicator,
+  .htmx-request.htmx-indicator {
+    @apply visible opacity-100;
+  }
+}

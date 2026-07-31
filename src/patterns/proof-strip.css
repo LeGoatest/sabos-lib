@@ -1,0 +1,25 @@
+@layer components {
+  .pattern-proof-strip {
+    @apply border-y border-border bg-surface;
+  }
+
+  .pattern-proof-strip-inner {
+    @apply mx-auto grid w-full max-w-7xl divide-y divide-border px-4 sm:px-6 md:grid-cols-2 md:divide-x md:divide-y-0 lg:grid-cols-4 lg:px-8;
+  }
+
+  .pattern-proof-item {
+    @apply flex min-h-28 items-start gap-3 px-4 py-6;
+  }
+
+  .pattern-proof-icon {
+    @apply mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-component bg-primary/10 text-primary;
+  }
+
+  .pattern-proof-title {
+    @apply font-semibold text-text;
+  }
+
+  .pattern-proof-copy {
+    @apply text-sm leading-5 text-muted;
+  }
+}

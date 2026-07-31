@@ -1,0 +1,21 @@
+@layer utilities {
+  .util-sr-only {
+    @apply absolute -m-px size-px overflow-hidden whitespace-nowrap border-0 p-0 [clip:rect(0,0,0,0)];
+  }
+
+  .util-content-narrow {
+    @apply mx-auto max-w-3xl;
+  }
+
+  .util-content-reading {
+    @apply mx-auto max-w-2xl;
+  }
+
+  .util-text-balance {
+    text-wrap: balance;
+  }
+
+  .util-text-pretty {
+    text-wrap: pretty;
+  }
+}

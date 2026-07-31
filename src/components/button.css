@@ -1,0 +1,39 @@
+@layer components {
+  .button {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-component border border-transparent px-5 py-2.5 text-sm font-semibold leading-none no-underline transition-colors;
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2;
+    @apply disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .button-primary {
+    @apply bg-primary text-on-primary hover:bg-primary-hover focus-visible:outline-primary;
+  }
+
+  .button-secondary {
+    @apply bg-secondary text-on-secondary hover:bg-secondary-hover focus-visible:outline-secondary;
+  }
+
+  .button-outline {
+    @apply border-border bg-surface text-text hover:bg-surface-muted focus-visible:outline-primary;
+  }
+
+  .button-ghost {
+    @apply bg-transparent text-text hover:bg-surface-muted focus-visible:outline-primary;
+  }
+
+  .button-small {
+    @apply min-h-9 px-3.5 py-2 text-xs;
+  }
+
+  .button-large {
+    @apply min-h-12 px-6 py-3 text-base;
+  }
+
+  .button-block {
+    @apply w-full;
+  }
+
+  .button-icon {
+    @apply size-11 p-0;
+  }
+}

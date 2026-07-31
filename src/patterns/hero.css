@@ -1,0 +1,37 @@
+@layer components {
+  .pattern-hero {
+    @apply relative overflow-hidden bg-secondary text-on-secondary;
+  }
+
+  .pattern-hero-inner {
+    @apply mx-auto grid w-full max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 md:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24;
+  }
+
+  .pattern-hero-content {
+    @apply flex flex-col items-start gap-6;
+  }
+
+  .pattern-hero-eyebrow {
+    @apply text-sm font-bold uppercase tracking-[0.16em] text-accent;
+  }
+
+  .pattern-hero-title {
+    @apply text-4xl font-semibold leading-tight tracking-tight text-on-secondary md:text-5xl lg:text-6xl;
+  }
+
+  .pattern-hero-copy {
+    @apply max-w-2xl text-lg leading-8 text-on-secondary/80;
+  }
+
+  .pattern-hero-actions {
+    @apply flex w-full flex-col gap-3 sm:w-auto sm:flex-row;
+  }
+
+  .pattern-hero-media {
+    @apply aspect-[4/3] w-full overflow-hidden rounded-card bg-surface-muted shadow-elevated;
+  }
+
+  .pattern-hero-media > img {
+    @apply size-full object-cover;
+  }
+}

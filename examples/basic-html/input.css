@@ -1,0 +1,8 @@
+@import "../../src/index.css";
+@source "./index.html";
+
+:root {
+  --semantic-color-primary: oklch(48% 0.18 255);
+  --semantic-color-primary-hover: oklch(40% 0.17 255);
+  --semantic-color-accent: oklch(80% 0.16 78);
+}

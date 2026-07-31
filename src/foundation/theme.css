@@ -1,0 +1,30 @@
+@theme inline {
+  --color-primary: var(--semantic-color-primary);
+  --color-primary-hover: var(--semantic-color-primary-hover);
+  --color-secondary: var(--semantic-color-secondary);
+  --color-secondary-hover: var(--semantic-color-secondary-hover);
+  --color-accent: var(--semantic-color-accent);
+  --color-background: var(--semantic-color-background);
+  --color-surface: var(--semantic-color-surface);
+  --color-surface-muted: var(--semantic-color-surface-muted);
+  --color-text: var(--semantic-color-text);
+  --color-muted: var(--semantic-color-text-muted);
+  --color-border: var(--semantic-color-border);
+  --color-on-primary: var(--semantic-color-on-primary);
+  --color-on-secondary: var(--semantic-color-on-secondary);
+  --color-success: var(--semantic-color-success);
+  --color-warning: var(--semantic-color-warning);
+  --color-error: var(--semantic-color-error);
+  --color-info: var(--semantic-color-info);
+
+  --font-display: var(--semantic-font-display);
+  --font-body: var(--semantic-font-body);
+  --font-mono: var(--semantic-font-mono);
+
+  --radius-component: var(--semantic-radius-component);
+  --radius-card: var(--semantic-radius-card);
+  --radius-pill: var(--semantic-radius-pill);
+
+  --shadow-component: var(--semantic-shadow-component);
+  --shadow-elevated: var(--semantic-shadow-elevated);
+}

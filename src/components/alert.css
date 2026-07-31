@@ -1,0 +1,25 @@
+@layer components {
+  .alert {
+    @apply rounded-component border p-4 text-sm leading-6;
+  }
+
+  .alert-title {
+    @apply mb-1 font-semibold;
+  }
+
+  .alert-info {
+    @apply border-info/30 bg-info/10 text-text;
+  }
+
+  .alert-success {
+    @apply border-success/30 bg-success/10 text-text;
+  }
+
+  .alert-warning {
+    @apply border-warning/40 bg-warning/10 text-text;
+  }
+
+  .alert-error {
+    @apply border-error/30 bg-error/10 text-text;
+  }
+}
