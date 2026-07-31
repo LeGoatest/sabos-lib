@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS Semantic Layer example</title>
+    <link rel="stylesheet" href="./output.css">
+  </head>
+  <body>
+    <main>
+      <section class="pattern-hero">
+        <div class="pattern-hero-inner">
+          <div class="pattern-hero-content">
+            <span class="pattern-hero-eyebrow">Semantic Tailwind architecture</span>
+            <h1 class="pattern-hero-title">Readable templates without abandoning Tailwind CSS.</h1>
+            <p class="pattern-hero-copy">
+              Move repeated utility compositions into a documented semantic layer built with Tailwind CSS v4.
+            </p>
+            <div class="pattern-hero-actions">
+              <a class="button button-primary button-large" href="#components">View components</a>
+              <a class="button button-outline button-large" href="../../README.md">Read documentation</a>
+            </div>
+          </div>
+          <div class="pattern-hero-media" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="pattern-proof-strip" aria-label="Architecture principles">
+        <div class="pattern-proof-strip-inner">
+          <article class="pattern-proof-item">
+            <div class="pattern-proof-icon">1</div>
+            <div>
+              <h2 class="pattern-proof-title">Semantic HTML API</h2>
+              <p class="pattern-proof-copy">Templates express purpose instead of utility implementation.</p>
+            </div>
+          </article>
+          <article class="pattern-proof-item">
+            <div class="pattern-proof-icon">2</div>
+            <div>
+              <h2 class="pattern-proof-title">Design tokens</h2>
+              <p class="pattern-proof-copy">Raw values map to stable Tailwind theme roles.</p>
+            </div>
+          </article>
+          <article class="pattern-proof-item">
+            <div class="pattern-proof-icon">3</div>
+            <div>
+              <h2 class="pattern-proof-title">Server rendered</h2>
+              <p class="pattern-proof-copy">Components work without a client-side framework.</p>
+            </div>
+          </article>
+          <article class="pattern-proof-item">
+            <div class="pattern-proof-icon">4</div>
+            <div>
+              <h2 class="pattern-proof-title">Accessible states</h2>
+              <p class="pattern-proof-copy">Focus, disabled, loading, and validation states are included.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="components" class="layout-section">
+        <div class="layout-container layout-stack">
+          <div class="util-content-narrow layout-stack-tight text-center">
+            <span class="badge badge-primary self-center">Starter component set</span>
+            <h2>Composable semantic classes</h2>
+            <p class="text-muted">
+              Use base classes and explicit modifiers so the public class contract stays clear.
+            </p>
+          </div>
+
+          <div class="layout-grid">
+            <article class="card card-interactive">
+              <div class="card-body layout-stack-tight">
+                <span class="badge badge-info self-start">Component</span>
+                <h3 class="card-title">Buttons</h3>
+                <p class="card-description">Primary, secondary, outline, ghost, size, block, and icon variants.</p>
+                <div class="layout-cluster">
+                  <button class="button button-primary">Primary</button>
+                  <button class="button button-outline">Outline</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card card-interactive">
+              <div class="card-body layout-stack-tight">
+                <span class="badge badge-success self-start">Accessible</span>
+                <h3 class="card-title">Feedback</h3>
+                <p class="card-description">Alerts and states support semantic roles and native attributes.</p>
+                <div class="alert alert-success" role="status">
+                  <p class="alert-title">Saved successfully</p>
+                  <p>Your changes are now available.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-body layout-stack">
+                <div>
+                  <h3 class="card-title">Form controls</h3>
+                  <p class="card-description">Consistent labels, help text, validation, and actions.</p>
+                </div>
+                <form class="layout-stack" action="#" method="post">
+                  <div class="form-group">
+                    <label class="form-label" for="email">Email address</label>
+                    <input class="form-input" id="email" name="email" type="email" placeholder="you@example.com">
+                    <p class="form-help">We will only use this for the example.</p>
+                  </div>
+                  <div class="form-actions">
+                    <button class="button button-outline" type="reset">Reset</button>
+                    <button class="button button-primary" type="submit">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+{
+  "name": "tailwindcss-semantic-layer",
+  "version": "0.1.0",
+  "description": "A semantic component and design-token layer for Tailwind CSS v4.",
+  "keywords": [
+    "tailwindcss",
+    "css",
+    "semantic-css",
+    "design-system",
+    "components",
+    "design-tokens"
+  ],
+  "license": "GPL-3.0-only",
+  "style": "./src/index.css",
+  "exports": {
+    ".": {
+      "style": "./src/index.css",
+      "default": "./src/index.css"
+    },
+    "./tokens": "./src/foundation/tokens.css",
+    "./theme": "./src/foundation/theme.css"
+  },
+  "files": [
+    "src",
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tailwindcss -i ./src/index.css -o ./dist/semantic-layer.css --minify",
+    "build:example": "tailwindcss -i ./examples/basic-html/input.css -o ./examples/basic-html/output.css --minify",
+    "dev": "tailwindcss -i ./examples/basic-html/input.css -o ./examples/basic-html/output.css --watch",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "tailwindcss": ">=4.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

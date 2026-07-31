@@ -1,0 +1,35 @@
+@layer components {
+  .card {
+    @apply overflow-hidden rounded-card border border-border bg-surface shadow-component;
+  }
+
+  .card-interactive {
+    @apply transition-[transform,box-shadow,border-color] hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-elevated;
+  }
+
+  .card-media {
+    @apply aspect-[4/3] w-full object-cover;
+  }
+
+  .card-header,
+  .card-body,
+  .card-footer {
+    @apply p-6;
+  }
+
+  .card-header {
+    @apply border-b border-border;
+  }
+
+  .card-footer {
+    @apply border-t border-border bg-surface-muted;
+  }
+
+  .card-title {
+    @apply text-xl font-semibold leading-snug text-text;
+  }
+
+  .card-description {
+    @apply text-sm leading-6 text-muted;
+  }
+}
