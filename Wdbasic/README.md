@@ -3,21 +3,30 @@
 > **Status:** Binding  
 > **Canonical entry point:** `Wdbasic/README.md`  
 > **Framework version:** WDBASIC v2  
-> **Applies to:** public websites, landing pages, service and location pages, portals, dashboards, administrative interfaces, and reusable server-rendered UI components.
+> **Applies to:** public websites, landing pages, service and location pages, portals, dashboards, administrative interfaces, authoring tools, and reusable server-rendered UI components.
 
-WDBASIC v2 is the governing implementation contract for architecture, presentation, semantic design tokens, accessibility, component behavior, conversion structure, content integrity, responsive behavior, performance, and search visibility.
+WDBASIC v2 governs architecture, presentation, semantic tokens, accessibility, authoring, component behavior, conversion structure, content integrity, internationalization, media, security, privacy, responsive behavior, performance, search visibility, and standards evidence.
 
-The rename from `wdbasic_v2.md` to `README.md` does not change the authority or version of the framework. This file is now the canonical human and agent entry point for the complete WDBASIC document set.
-
----
-
-## 1. Document Map
+## 1. Document map
 
 ```text
 Wdbasic/
 ├── README.md
 ├── AGENTS.md
+├── STANDARDS.md
 ├── architecture_rules.md
+├── internationalization.md
+├── media-accessibility.md
+├── security-and-privacy.md
+├── sustainability.md
+├── compliance/
+│   ├── wcag-2.2-aa-matrix.md
+│   ├── testing-methodology.md
+│   ├── browser-at-matrix.md
+│   └── accessibility-statement-template.md
+├── authoring/
+│   ├── atag-2.0.md
+│   └── accessible-output.md
 ├── profiles/
 │   ├── field-service.md
 │   ├── professional-services.md
@@ -31,352 +40,213 @@ Wdbasic/
     └── component-contracts.md
 ```
 
-| Document | Responsibility |
-|---|---|
-| [`architecture_rules.md`](architecture_rules.md) | Rendering, state ownership, progressive enhancement, routing, security boundaries, HTTP behavior, and technical architecture. |
-| [`AGENTS.md`](AGENTS.md) | Required behavior for automated agents, coding assistants, reviewers, and contributors. |
-| [`tokens/semantic-colors.md`](tokens/semantic-colors.md) | Semantic color, surface, state, and contrast roles. |
-| [`tokens/typography.md`](tokens/typography.md) | Type hierarchy, font roles, line length, loading, and readable rendering. |
-| [`tokens/spacing.md`](tokens/spacing.md) | Spacing, content width, control size, radius, elevation, and layering roles. |
-| [`tokens/accessibility.md`](tokens/accessibility.md) | WCAG, native semantics, ARIA, keyboard, focus, announcements, and HTMX accessibility. |
-| [`components/component-contracts.md`](components/component-contracts.md) | Reusable server-rendered components, state models, fragments, forms, actions, and validation. |
-| [`profiles/field-service.md`](profiles/field-service.md) | Field-service market positioning, proof, layout, imagery, and conversion defaults. |
-| [`profiles/professional-services.md`](profiles/professional-services.md) | Expertise-led service positioning, evidence, engagement, and editorial layout defaults. |
-| [`profiles/custom-brand.md`](profiles/custom-brand.md) | Controlled mapping of an established or exceptional brand into WDBASIC semantics. |
-| [`../docs/TAILWIND_PATTERN.md`](../docs/TAILWIND_PATTERN.md) | Repository-specific Tailwind CSS v4 organization and semantic-class pattern. |
+## 2. Authority and conflict order
 
----
-
-## 2. Authority and Conflict Order
-
-Apply the WDBASIC document set in this order:
+Apply the document set in this order:
 
 1. [`architecture_rules.md`](architecture_rules.md)
-2. This README and core WDBASIC rules
-3. [`tokens/`](tokens/)
-4. [`components/component-contracts.md`](components/component-contracts.md)
-5. The active file under [`profiles/`](profiles/)
-6. Product-specific documentation
-7. Explicit, documented, time-bounded exceptions
+2. This README
+3. [`STANDARDS.md`](STANDARDS.md)
+4. Binding cross-cutting contracts: accessibility, internationalization, media, security, privacy, and authoring
+5. Token contracts
+6. Component contracts
+7. Active design profile
+8. Product-specific requirements
+9. Explicit, owned, time-bounded exceptions
 
-A lower-level document may specialize a higher-level contract but may not weaken architecture, accessibility, security, truthful-content, semantic, or progressive-enhancement requirements.
+A lower-level document may specialize but may not weaken architecture, accessibility, security, privacy, truthful-content, semantic, or progressive-enhancement requirements.
 
-When two documents appear inconsistent, preserve the stricter requirement until the conflict is resolved in the governing documentation.
+When requirements appear inconsistent, preserve the stricter requirement until the governing documents are corrected.
 
----
+## 3. Required reading order
 
-## 3. Required Reading Order
-
-Before implementing or reviewing a governed interface:
+Before implementing or reviewing a governed surface:
 
 1. Read [`architecture_rules.md`](architecture_rules.md).
 2. Read this README.
-3. Read [`AGENTS.md`](AGENTS.md) when automated tooling or coding agents are involved.
-4. Read the relevant token contracts.
-5. Read [`components/component-contracts.md`](components/component-contracts.md).
-6. Select and read one active design profile.
-7. Read [`../docs/TAILWIND_PATTERN.md`](../docs/TAILWIND_PATTERN.md) for repository styling organization.
-8. Read product-specific requirements and approved exceptions.
+3. Read [`STANDARDS.md`](STANDARDS.md).
+4. Read [`AGENTS.md`](AGENTS.md) when automated tooling is involved.
+5. Read applicable cross-cutting contracts.
+6. Read relevant token contracts.
+7. Read [`components/component-contracts.md`](components/component-contracts.md).
+8. Read one active profile.
+9. Read [`../docs/TAILWIND_PATTERN.md`](../docs/TAILWIND_PATTERN.md).
+10. Read product-specific requirements and exceptions.
 
-Do not begin from a visual mockup or isolated component without resolving the controlling contracts first.
-
----
-
-## 4. Framework Priorities
+## 4. Framework priorities
 
 WDBASIC prioritizes:
 
-1. Declarative, semantic HTML.
-2. Server-rendered pages and fragments.
+1. Semantic native HTML.
+2. Server-rendered content and reconstructable server state.
 3. Progressive enhancement.
-4. Accessibility.
-5. Search visibility.
-6. Performance and resilience.
-7. Conversion clarity.
-8. Reusable components.
-9. Truthful content and proof.
-10. Maintainable semantic styling.
-11. Reconstructable server state.
-12. Explicit governance and exceptions.
+4. Accessibility and user agency.
+5. Security and privacy.
+6. Search visibility.
+7. Performance and resilience.
+8. Conversion clarity.
+9. Reusable components.
+10. Truthful content and proof.
+11. Internationalization.
+12. Maintainable semantic styling.
+13. Auditable standards evidence.
 
----
-
-## 5. Core Architecture
+## 5. Core architecture
 
 Every public page must:
 
-- Render primary content as complete server-generated HTML.
+- Render primary content as meaningful server-generated HTML.
 - Remain readable, navigable, and indexable without JavaScript.
 - Use crawlable links for primary navigation.
-- Use normal form submission as the baseline workflow.
-- Use one clear primary heading unless a documented exception applies.
-- Expose meaningful internal links in the initial HTML response.
-- Return correct HTTP status codes and direct-loadable URLs.
-- Preserve a meaningful response when enhancement scripts fail.
+- Use native controls and normal form submission as the baseline.
+- Return correct HTTP status codes.
+- Use direct-loadable URLs.
+- Preserve equivalent authorization, validation, labels, errors, and outcomes in enhanced and baseline paths.
 
-HTMX is the preferred enhancement layer when the server can own an interaction. Suitable uses include forms, validation, pagination, filtering, search, sorting, inline editing, status changes, modal contents, and fragment replacement.
+HTMX is preferred for interaction the server can own. JavaScript is limited to local, ephemeral behavior and must not become the authority for routing, authentication, authorization, business state, validation, or primary public content.
 
-JavaScript is limited to local behavior that does not reasonably belong to a server round trip, such as focus management, local menus, accessible dialogs, media controls, measured layout values, and unavoidable third-party integrations.
+See [`architecture_rules.md`](architecture_rules.md).
 
-JavaScript must not become the authoritative owner of routing, authentication, authorization, business state, primary page content, validation rules, or persistent application state.
+## 6. Accessibility target and conformance
 
-See [`architecture_rules.md`](architecture_rules.md) for the complete contract.
+WDBASIC is designed to support WCAG 2.2 Level AA.
 
----
+Use precise claim language:
 
-## 6. Progressive Enhancement
+- **Target:** The implementation is designed toward WCAG 2.2 Level AA but has not completed a formal evaluation.
+- **Evaluated:** The declared scope has been tested and the report identifies passes and failures.
+- **Conformant:** Every applicable Level A and AA success criterion passes across the declared full-page scope and complete processes using accessibility-supported technologies.
+- **Non-conformant:** One or more applicable criteria fail or remain unreviewed.
 
-The baseline experience must work with:
+“Where practical,” “mostly accessible,” and undocumented exceptions are not valid WCAG conformance qualifications.
 
-- Semantic HTML.
-- Normal links.
-- Native controls.
-- Normal form submission.
-- Server validation.
-- Server responses.
+A WDBASIC exception cannot preserve a WCAG conformance claim when it causes an applicable success criterion to fail.
 
-HTMX and JavaScript may improve speed and continuity, but users must not require them to understand or complete a primary public workflow unless a documented product constraint makes that impossible.
+Required evidence:
 
-Enhanced controls must preserve equivalent names, labels, states, errors, URLs, outcomes, and security checks in the non-enhanced path.
+- [`compliance/wcag-2.2-aa-matrix.md`](compliance/wcag-2.2-aa-matrix.md)
+- [`compliance/testing-methodology.md`](compliance/testing-methodology.md)
+- [`compliance/browser-at-matrix.md`](compliance/browser-at-matrix.md)
 
----
+## 7. Semantic design system
 
-## 7. Semantic Design System
+Implementations use semantic roles rather than scattered visual values.
 
-Implementations must use semantic roles instead of scattering unexplained visual values through templates and components.
+Required groups include:
 
-Required token groups include:
+- Color, surface, and state.
+- Typography and measure.
+- Spacing and content width.
+- Control sizing.
+- Radius, border, elevation, and layers.
+- Focus and accessibility.
+- Motion where used.
 
-- Color and state roles.
-- Typography roles.
-- Spacing and content-width roles.
-- Control-size roles.
-- Radius, border, elevation, and layering roles.
-- Focus and accessibility roles.
-- Motion and transition roles where motion is used.
+Components consume roles such as `action-primary`, `surface-muted`, and `text-secondary`, not page-, campaign-, trade-, or literal-color names.
 
-Components consume semantic roles such as `action-primary`, `surface-muted`, and `text-secondary`, not trade-specific, campaign-specific, or page-specific visual names.
+Binding token contracts are under [`tokens/`](tokens/).
 
-Token values must be centrally configurable. A design profile may change token values without changing component semantics.
-
-The binding token contracts are:
-
-- [`tokens/semantic-colors.md`](tokens/semantic-colors.md)
-- [`tokens/typography.md`](tokens/typography.md)
-- [`tokens/spacing.md`](tokens/spacing.md)
-- [`tokens/accessibility.md`](tokens/accessibility.md)
-
----
-
-## 8. Tailwind CSS Standards
+## 8. Tailwind CSS standards
 
 Tailwind CSS v4 is the primary styling mechanism for this repository.
 
 - Repeated utility combinations become semantic utilities or component classes.
-- Markup describes structure and intent; the stylesheet owns reusable appearance.
-- Repeated values are promoted into approved tokens, utilities, or component abstractions.
-- Unbounded one-off values are avoided.
-- Custom CSS is reserved for token definitions, pseudo-elements, browser behavior, third-party integrations, documented shared primitives, and effects not cleanly expressible through approved utilities.
-- JavaScript must not build long Tailwind class strings or own responsive styling.
+- Markup describes intent and structure.
+- The stylesheet owns reusable appearance and responsive behavior.
+- Repeated values become tokens or approved abstractions.
+- JavaScript must not assemble long Tailwind strings or own responsive styling.
+- Custom CSS is reserved for tokens, pseudo-elements, browser behavior, third-party integration, and documented exceptions.
 
-Avoid by default:
+The repository pattern is defined in [`../docs/TAILWIND_PATTERN.md`](../docs/TAILWIND_PATTERN.md).
 
-- Glassmorphism.
-- Neon effects.
-- Excessive gradients.
-- Heavy parallax.
-- Decorative animation dependencies.
-- Low-contrast text.
-- Extremely large empty sections.
-- Generic dashboard-card layouts on marketing pages.
-- Visual novelty that weakens comprehension, trust, or conversion.
+## 9. Authoring tools and generated output
 
-The repository-specific implementation pattern is binding through [`../docs/TAILWIND_PATTERN.md`](../docs/TAILWIND_PATTERN.md).
+A CMS, editor, builder, template system, importer, generator, or AI authoring feature must comply with:
 
----
+- [`authoring/atag-2.0.md`](authoring/atag-2.0.md)
+- [`authoring/accessible-output.md`](authoring/accessible-output.md)
 
-## 9. Accessibility
+The authoring interface must be accessible, and the tool must support accessible output by default. Accessible editing alone is insufficient when generated pages are inaccessible.
 
-Implementations target WCAG 2.2 AA where practical and follow [`tokens/accessibility.md`](tokens/accessibility.md).
+## 10. Internationalization
 
-Minimum expectations include:
+Products claiming localization support follow [`internationalization.md`](internationalization.md).
 
-- Normal text contrast of at least `4.5:1`.
-- Large text and meaningful graphical objects at least `3:1` where applicable.
-- Visible and unobscured keyboard focus.
-- Keyboard-operable controls.
-- Programmatically associated labels, descriptions, and errors.
-- Logical heading, landmark, source, and focus order.
-- Meaningful alternative text.
-- Reduced-motion support.
-- Resilience near `320px` CSS width and at browser zoom.
-- Touch targets generally at least `44px × 44px`.
-- Accurate accessible names, roles, states, values, relationships, and announcements.
+They must preserve language, direction, locale formatting, Unicode input, translation expansion, logical layout, and bidirectional isolation across server rendering and fragment replacement.
 
-Native HTML takes precedence over ARIA. ARIA supplements correct structure and behavior; it does not repair incorrect markup or missing keyboard behavior.
+## 11. Media
 
----
+Audio, video, animation, carousels, and before-and-after content follow [`media-accessibility.md`](media-accessibility.md).
 
-## 10. Typography
+Applicable captions, transcripts, audio description, controls, pause behavior, motion alternatives, and quality review are required.
 
-Typography prioritizes readability, hierarchy, and reliable rendering.
+## 12. Security and privacy
 
-- Default body text is generally `16px` to `18px`.
-- Mobile form controls and primary buttons use text of at least `16px`.
-- Body line height generally remains between `1.5` and `1.65`.
-- Long-form text targets approximately `50` to `75` characters per line.
-- Ultra-light body weights and extended all-capital text are prohibited.
-- Font loading must not hide essential content.
-- System fallbacks are required.
-- Visual heading size must not replace semantic heading order.
+Products follow both [`architecture_rules.md`](architecture_rules.md) and [`security-and-privacy.md`](security-and-privacy.md).
 
-The detailed type contract is defined in [`tokens/typography.md`](tokens/typography.md).
+Security requires a testable verification baseline, server-side authorization, controlled browser policy, safe third-party integration, and user-safe failure behavior.
 
----
+Privacy requires purpose limitation, data minimization, retention rules, user agency, third-party inventory, and prohibition of deceptive consent patterns.
 
-## 11. Component Modularity
+## 13. Components
 
-Major interface elements are reusable server-side components or fragments.
+Major interface elements are reusable server-side components or fragments with:
 
-Each component must:
-
-- Have a clear responsibility.
-- Accept explicit input data.
-- Avoid hidden global dependencies.
-- Preserve semantic HTML.
-- Define relevant loading, empty, error, success, disabled, hover, focus, active, selected, expanded, and read-only states.
-- Work independently where practical.
-- Return correct accessibility and server state after every render or HTMX replacement.
-- Define fallback, focus, history, and announcement behavior when interactive.
+- Explicit inputs.
+- Semantic output.
+- Complete state variants.
+- Stable accessibility behavior.
+- Correct server and HTTP outcomes.
+- Defined HTMX swap, focus, history, announcement, and fallback behavior.
+- Token-driven styling.
+- Versioning and deprecation rules when shared.
 
 See [`components/component-contracts.md`](components/component-contracts.md).
 
----
+## 14. Conversion, trust, and content integrity
 
-## 12. Conversion Architecture
-
-Where conversion is a page objective, use this sequence or a documented equivalent:
-
-1. Outcome-focused hero.
-2. Immediate verified trust signal.
-3. Services or solutions organized around user intent.
-4. Benefits and differentiation.
-5. Real project, customer, or outcome proof.
-6. Clear process and next steps.
-7. Service-area, eligibility, or audience-fit confirmation.
-8. FAQ and objection handling.
-9. Final conversion section.
-
-Calls to action recur at natural decision points without becoming aggressive or repetitive.
-
-Button color is secondary to clear wording, strong contrast, predictable meaning, appropriate placement, low friction, and credible surrounding content.
-
----
-
-## 13. Trust, Proof, and Content Integrity
+Where conversion is a page objective, use an outcome-focused sequence with verified trust, clear services, evidence, process, eligibility, objection handling, and a final action.
 
 Do not fabricate or imply unverified:
 
-- Reviews or ratings.
-- Credentials, licenses, or insurance status.
-- Awards or certifications.
+- Reviews, ratings, awards, or certifications.
+- Licenses, insurance, guarantees, or warranties.
 - Customer logos.
-- Guarantees or warranties.
-- Project counts or success rates.
-- Response times or service availability.
-- Statistics or outcome claims.
+- Project counts, response times, success rates, or statistics.
+- Availability, pricing, or urgency.
 
-Templates use editable placeholders or hide unsupported proof by default.
+Templates hide unsupported proof or use explicit editable placeholders.
 
-Case studies describe the initial condition, work performed, and result. Before-and-after media must not misrepresent the project. Trust badges require a defined source and meaning.
+## 15. Responsive and input resilience
 
-Content must be concise, credible, specific, and oriented toward user decisions. Avoid unsupported superlatives, fake scarcity, fake urgency, and vague corporate filler.
+Layouts preserve semantic source order and remain usable under:
 
----
+- Narrow width near `320px`.
+- Browser zoom and text resizing.
+- Increased text spacing.
+- Portrait and landscape orientation.
+- Keyboard, touch, coarse pointer, and speech input where applicable.
+- Reduced motion and forced colors.
 
-## 14. Forms and Actions
+Sticky content must not obscure focus or essential content.
 
-Forms must:
+## 16. Performance, search, and sustainability
 
-- Use visible labels.
-- Group related fields.
-- Explain required formats before submission where practical.
-- Preserve submitted values after recoverable errors.
-- Associate errors with affected controls.
-- Provide an error summary for complex forms.
-- Provide clear loading, success, and failure states.
-- Avoid unnecessary fields.
-- Support normal server submission when enhanced through HTMX.
-- Include proportionate abuse prevention.
+Public pages provide semantic HTML, crawlable links, canonical URL behavior, metadata, structured-data locations, responsive media, explicit dimensions, minimal layout shift, and no essential text confined to images.
 
-Primary calls to action use specific action-oriented text and do not rely solely on color to communicate priority.
+Each project defines performance budgets. [`sustainability.md`](sustainability.md) is informative unless an adopting project makes named budgets binding.
 
-Destructive actions use explicit wording and confirmation proportionate to impact.
+## 17. Design profiles
 
----
-
-## 15. Responsive Behavior
-
-Layouts are designed around content priority rather than desktop compression.
-
-Required behavior includes:
-
-- Preserving semantic source order.
-- Stacking sections logically.
-- Avoiding compressed multi-column card layouts.
-- Keeping forms readable and touch-friendly.
-- Preserving access to primary actions.
-- Preventing sticky controls from obscuring content or focus.
-- Avoiding the removal of important mobile content.
-- Using responsive media with stable dimensions.
-
-Recommended review widths include approximately `1440px`, `1280px`, `768px`, `390px`, and `320px`.
-
----
-
-## 16. Performance and Search
-
-Public pages support:
-
-- Semantic HTML.
-- Crawlable navigation.
-- One primary page topic.
-- Appropriate breadcrumbs.
-- Indexable FAQ content.
-- Meaningful internal linking.
-- Canonical URL control.
-- Page-title and description management.
-- Open Graph metadata.
-- Structured-data placement where applicable.
-- Responsive images with explicit dimensions.
-- Lazy loading below the fold.
-- Minimal layout shift.
-- Minimal render-blocking assets.
-- No essential text embedded only in images.
-
-Performance budgets are defined per product. A page is not compliant solely because it achieves a single synthetic performance score.
-
----
-
-## 17. Design Profiles
-
-WDBASIC core does not require one universal palette, typeface, logo style, or photography treatment.
-
-Select and document one active profile:
+Select one active profile:
 
 - [`profiles/field-service.md`](profiles/field-service.md)
 - [`profiles/professional-services.md`](profiles/professional-services.md)
 - [`profiles/custom-brand.md`](profiles/custom-brand.md)
 
-A profile maps semantic roles to a market and brand position. It may customize appearance but may not weaken core architecture, accessibility, truth, or component requirements.
+A profile may customize visual character but may not weaken core contracts.
 
-A project using `custom-brand.md` must document why an existing profile is insufficient and must provide a complete semantic token mapping.
-
----
-
-## 18. Required Adoption Record
-
-Every adopting project should maintain a short WDBASIC record containing:
+## 18. Required adoption record
 
 ```yaml
 wdbasic:
@@ -384,107 +254,41 @@ wdbasic:
   source: LeGoatest/tailwindcss-semantic-layer
   source_ref: <tag-or-commit>
   active_profile: field-service | professional-services | custom-brand
+  standards_record: <path>
   token_source: <path>
   component_inventory: <path>
   tailwind_entrypoint: <path>
-  validation_commands:
-    - <command>
-  approved_exceptions:
-    - <exception-id-or-none>
+  wcag_target: "2.2 AA"
+  wcag_claim_status: target | evaluated | conformant | non-conformant
+  atag_applicable: true | false
+  security_baseline: <standard-and-level>
+  browser_at_matrix: <path>
+  validation_commands: []
+  approved_exceptions: []
 ```
 
-The record establishes which WDBASIC revision and profile a product claims to implement. Unpinned references such as “latest” are insufficient for reproducible governance.
+Unpinned references such as “latest” are insufficient for reproducible governance.
 
----
+## 19. Conformance outcomes
 
-## 19. Conformance
+Use:
 
-A project may claim WDBASIC v2 conformance only when it satisfies:
+- **WDBASIC conformant:** Applicable WDBASIC contracts pass.
+- **WDBASIC conformant with documented exception:** A narrow WDBASIC exception exists and does not misrepresent external conformance.
+- **WDBASIC non-conformant:** Binding requirements fail or are bypassed without an approved exception.
 
-- Core architecture and progressive-enhancement rules.
-- Applicable token contracts.
-- Component and fragment contracts.
-- Accessibility requirements.
-- Truthful-content and proof rules.
-- The selected design profile.
-- Product-specific validation and documented exceptions.
+A project is not WDBASIC-conformant merely because it uses Tailwind, HTMX, semantic classes, or a profile palette.
 
-A project is not WDBASIC-compliant merely because it uses Tailwind, HTMX, semantic class names, or a profile palette.
+## 20. Core review checklist
 
-Use these review outcomes:
-
-- **Conformant:** applicable requirements pass.
-- **Conformant with documented exception:** a narrow exception is recorded with impact, fallback, owner, and review condition.
-- **Non-conformant:** one or more binding requirements are not met or are bypassed without an approved exception.
-
-Avoid vague claims such as “mostly WDBASIC.”
-
----
-
-## 20. Implementation Governance
-
-Each implementation documents:
-
-- Active design profile.
-- Semantic token values.
-- Typography and fallbacks.
-- Component inventory.
-- Conversion objective by page type.
-- Accessibility checks.
-- Structured-data strategy.
-- Image and proof sources.
-- Validation commands.
-- Approved exceptions.
-- WDBASIC source revision.
-
-Contract changes must update every affected subordinate document and implementation example in the same change set.
-
----
-
-## 21. Core Compliance Checklist
-
-### Architecture
-
-- Is primary public content server-rendered?
-- Is the page usable without JavaScript?
-- Is server-owned interaction HTMX-first?
-- Are components reusable server-side fragments?
-- Do direct URLs, refreshes, and HTTP status codes behave correctly?
-
-### Semantics and accessibility
-
-- Are semantic tokens used consistently?
-- Do text and controls meet contrast requirements?
-- Are keyboard focus states visible and unobscured?
-- Are form labels and errors programmatically associated?
-- Are accessible names, roles, states, relationships, and live announcements accurate?
-- Does responsive source order remain logical?
-
-### Conversion and trust
-
-- Is the next action clear?
-- Are services and eligibility immediately understandable?
-- Is proof real, contextual, and non-fabricated?
-- Does the page explain what happens next?
-- Are calls to action placed only at relevant decision points?
-
-### Performance and search
-
-- Can search engines reach primary content and links?
-- Are images responsive and dimensioned?
-- Is essential text represented as HTML?
-- Is layout shift minimized?
-- Are metadata, canonical controls, and structured-data locations defined?
-
-### Governance
-
-- Is the active profile documented?
-- Is the WDBASIC source revision pinned?
-- Are exceptions explicit, owned, and reviewable?
-- Were affected build, accessibility, and behavior checks run?
-
----
-
-## 22. Final Principle
-
-Architecture establishes reliability. Semantic tokens establish consistency. Accessibility establishes usability. Proof establishes credibility. Conversion structure establishes direction. Components establish reuse. A selected design profile establishes appropriate visual character without weakening any core contract.
+- Is primary public content server-rendered and usable without JavaScript?
+- Are URLs, status codes, authorization, validation, and fallback behavior correct?
+- Are semantic tokens and shared components used consistently?
+- Are all applicable WCAG A and AA criteria mapped, tested, and evidenced?
+- Are complete processes tested?
+- Is the declared browser and assistive-technology support recorded?
+- Are authoring interfaces and generated output covered when applicable?
+- Are language, direction, media equivalents, security, privacy, and third-party behavior documented?
+- Is proof factual?
+- Is the active profile and WDBASIC revision pinned?
+- Are exceptions explicit, owned, narrow, and reviewable?
