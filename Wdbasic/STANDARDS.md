@@ -21,6 +21,7 @@ WDBASIC requirements can be stricter than an external baseline but cannot redefi
 | Standard | Status used by WDBASIC | Applicability |
 |---|---|---|
 | WCAG 2.2 | W3C Recommendation | Web-content and web-interface accessibility target and conformance baseline. |
+| ISO/IEC 40500:2025 | ISO/IEC International Standard | International publication of the October 2023 WCAG 2.2 version. Record explicitly when a contract or jurisdiction requires this publication rather than the latest W3C errata publication. |
 | WAI-ARIA 1.2 | W3C Recommendation | Roles, states, properties, and authoring requirements when native HTML is insufficient. |
 | Accessible Name and Description Computation 1.1 | W3C Recommendation | Stable reference for computed accessible names and descriptions until a later version reaches Recommendation. |
 | HTML Living Standard | Living Standard | Native document, form, media, and interaction semantics. |
@@ -31,6 +32,8 @@ WDBASIC requirements can be stricter than an external baseline but cannot redefi
 | HTTP Semantics and applicable stable web-platform specifications | Stable IETF or web-platform baseline | Methods, status, redirects, caching, headers, and response meaning. |
 
 Conditional standards apply only when the product uses the governed technology or output format.
+
+WCAG 2.2 conformance at the latest W3C publication and a contractual ISO/IEC 40500:2025 claim may need separate version records because the ISO/IEC 2025 publication corresponds to the October 2023 WCAG 2.2 version.
 
 ## 3. WAI-ARIA and accessibility-tree interoperability
 
@@ -47,7 +50,7 @@ Draft mapping documents may guide interoperability debugging. They must not sile
 
 ## 4. Informative W3C guidance
 
-The following resources are informative and do not independently establish conformance:
+The following resources are informative and do not independently establish product conformance:
 
 - Understanding WCAG 2.2.
 - WCAG techniques and common failures.
@@ -59,8 +62,12 @@ The following resources are informative and do not independently establish confo
 - W3C internationalization guidance.
 - W3C accessibility-statement guidance.
 - UAAG 2.0 for products that act as browsers, readers, media players, or other user agents.
+- Accessibility Maturity Model, 2025 Group Note, for organizational capability and continuous improvement.
+- Evaluation and Report Language 1.0 Working Group Notes for optional vendor-neutral exchange of evaluation results.
 
 WDBASIC may turn selected informative guidance into binding WDBASIC requirements. That does not convert the source Note into a W3C Recommendation or WCAG success criterion.
+
+[`compliance/accessibility-maturity.md`](compliance/accessibility-maturity.md) governs organizational maturity records and keeps them separate from product conformance.
 
 ## 5. Non-web software and documents
 
@@ -75,6 +82,8 @@ WCAG2ICT is informative guidance. A project must separately identify any applica
 - Native application test baseline.
 
 Do not describe native software as WCAG-conformant using the web-page conformance model without a valid basis for that claim.
+
+WCAG2Mobile is draft informative guidance for applying WCAG 2.2 concepts to native, mobile-web, and hybrid applications. It may inform testing but must not be cited as a stable standard or independent conformance baseline.
 
 ## 6. ACT test rules
 
@@ -91,29 +100,53 @@ ACT Rules Format 1.1 supports transparent and repeatable automated and manual ru
 
 A passing ACT rule does not prove an entire WCAG success criterion unless the rule explicitly covers every condition required by that criterion.
 
-## 7. Draft and experimental material
+Approved, proposed, deprecated, and locally authored ACT rules must be distinguished. An ACT rule is informative evidence; WCAG does not require use of ACT rules to determine conformance.
 
-Draft specifications may inform progressive enhancement but may not become the only path to required content or operation.
+## 7. Evaluation-result exchange
+
+A project may use Evaluation and Report Language (EARL) 1.0 terms to exchange tool results in a vendor-neutral format.
+
+EARL 1.0 Schema and its Developer Guide are W3C Working Group Notes, not Recommendations. An EARL serialization does not establish the validity of the test rule, the accuracy of the result, or conformance.
+
+When EARL is used, retain the equivalent WDBASIC fields for rule version, implementation, subject, environment, outcome, evidence, and execution date.
+
+## 8. Draft and experimental material
+
+Draft specifications may inform research or progressive enhancement but may not become the only path to required content or operation.
 
 Examples include:
 
+- WCAG 3.0, Working Draft dated 2026-03-03.
 - WCAG-EM 2.0 work in progress.
+- WCAG2Mobile draft guidance.
 - Accessible Name and Description Computation 1.2 while draft.
 - Core Accessibility API Mappings 1.2 before Recommendation.
 - HTML Accessibility API Mappings 1.0 while draft.
+- WAI-Adapt draft Notes and modules.
 - Draft media-query preference features not supported by the declared browser baseline.
 - Web Sustainability Guidelines while published as draft group guidance.
 - Experimental HTML, CSS, accessibility, privacy, and device APIs.
 
-Every draft-dependent feature must document:
+WCAG 3 does not replace WCAG 2 while it remains a Working Draft. It has a developing and materially different conformance model. WDBASIC may monitor it and run exploratory gap assessments, but it must not make a WCAG 3 conformance claim or silently rewrite WCAG 2.2 evidence around draft requirements.
+
+Every draft-dependent feature or exploratory requirement must document:
 
 - Exact specification and publication status.
+- Reason for use.
 - Support detection.
 - Functional fallback.
-- Accessibility, security, and privacy impact.
+- Accessibility, security, privacy, and evidence impact.
 - Stabilization, replacement, or removal condition.
 
-## 8. Security and privacy references
+## 9. Personalization and WAI-Adapt
+
+WDBASIC supports user-controlled simplification, reduced distraction, language preference, contrast, motion, and other adaptive presentation where practical.
+
+WAI-Adapt documents may inform future semantic personalization, but their draft status must be preserved. Draft WAI-Adapt attributes or taxonomies must not be required for access to primary content and must have a functional semantic baseline.
+
+Personalization must remain user-controlled, privacy-preserving, and non-discriminatory.
+
+## 10. Security and privacy references
 
 WDBASIC uses these external references where applicable:
 
@@ -124,7 +157,7 @@ WDBASIC uses these external references where applicable:
 
 The adopting project records the exact security baseline version and verification level it claims.
 
-## 9. WCAG conformance requirements
+## 11. WCAG conformance requirements
 
 A WCAG 2.2 conformance determination requires all five conformance requirements:
 
@@ -144,7 +177,7 @@ Conformance claims are optional. When a claim is made, it must include:
 
 Recommended additional information includes tested user agents and assistive technologies, technologies used but not relied upon, criteria met beyond the claimed level, and accessibility characteristics.
 
-## 10. Statements of partial conformance
+## 12. Statements of partial conformance
 
 “Partially conformant” is not a general WCAG conformance level.
 
@@ -165,7 +198,23 @@ Do not use a partial-conformance statement for:
 
 Use `evaluated-nonconformant` for an evaluated scope with ordinary known failures.
 
-## 11. Standards update protocol
+## 13. Accessibility maturity
+
+Accessibility maturity describes the organization's repeatable ability to create and sustain accessible outcomes. It does not prove product conformance.
+
+Use [`compliance/accessibility-maturity.md`](compliance/accessibility-maturity.md) to assess:
+
+- Communications.
+- ICT development lifecycle.
+- Knowledge and skills.
+- Oversight and culture.
+- Personnel.
+- Procurement.
+- Support.
+
+Maturity claims require scope, proof points, dimension-level results, adaptations, and review dates.
+
+## 14. Standards update protocol
 
 When a referenced standard changes:
 
@@ -177,22 +226,27 @@ When a referenced standard changes:
 6. Publish the change under semantic versioning.
 7. Do not silently redefine an existing claim.
 
-## 12. Project standards record
+## 15. Project standards record
 
 ```yaml
 standards:
   wdbasic_ref: <tag-or-commit>
   wcag_target: "2.2 AA"
+  wcag_publication: <W3C-version-date-or-ISO-publication>
   wcag_claim_status: target | evaluated-conformant | evaluated-nonconformant | partial-statement-third-party | partial-statement-language
   wcag_claim: <path-or-none>
+  wcag3_monitoring: none | exploratory
   aria_baseline: "1.2"
   accessible_name_baseline: "1.1"
   atag_applicable: true | false
   act_rules_format: "1.1"
   act_ruleset: <path-or-none>
+  earl_export: true | false
   non_web_applicable: true | false
   non_web_baselines: []
+  wcag2mobile_guidance_used: true | false
   cognitive_contract: applicable | limited | not-applicable-with-rationale
+  maturity_assessment: <path-or-none>
   security_baseline: <standard-version-and-level>
   supported_browsers: <path>
   supported_assistive_technology: <path>
