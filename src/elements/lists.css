@@ -1,0 +1,25 @@
+@layer components {
+  .element-list {
+    @apply grid list-disc gap-2 ps-5 text-text marker:text-primary;
+  }
+
+  .element-list-ordered {
+    @apply grid list-decimal gap-2 ps-5 text-text marker:font-semibold marker:text-primary;
+  }
+
+  .element-list-plain {
+    @apply m-0 grid list-none gap-2 p-0;
+  }
+
+  .element-definition-list {
+    @apply grid gap-4;
+  }
+
+  .element-definition-list dt {
+    @apply font-semibold text-text;
+  }
+
+  .element-definition-list dd {
+    @apply m-0 text-muted;
+  }
+}

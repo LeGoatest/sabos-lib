@@ -2,6 +2,7 @@
   "name": "tailwindcss-semantic-layer",
   "version": "0.1.0",
   "description": "A semantic component and design-token layer for Tailwind CSS v4.",
+  "type": "module",
   "keywords": [
     "tailwindcss",
     "css",
@@ -11,32 +12,44 @@
     "design-tokens"
   ],
   "license": "GPL-3.0-only",
-  "style": "./src/index.css",
+  "style": "./dist/semantic-layer.css",
   "exports": {
     ".": {
-      "style": "./src/index.css",
+      "style": "./dist/semantic-layer.css",
       "default": "./src/index.css"
     },
+    "./source": "./src/index.css",
+    "./dist": "./dist/semantic-layer.css",
+    "./dist/min": "./dist/semantic-layer.min.css",
     "./tokens": "./src/foundation/tokens.css",
     "./theme": "./src/foundation/theme.css"
   },
   "files": [
     "src",
     "dist",
+    "docs",
     "README.md",
-    "LICENSE"
+    "CHANGELOG.md",
+    "LICENSE",
+    "postcss.config.mjs"
   ],
   "scripts": {
-    "build": "tailwindcss -i ./src/index.css -o ./dist/semantic-layer.css --minify",
+    "build": "npm run build:css && npm run build:min",
+    "build:css": "tailwindcss -i ./src/index.css -o ./dist/semantic-layer.css",
+    "build:min": "tailwindcss -i ./src/index.css -o ./dist/semantic-layer.min.css --minify",
     "build:example": "tailwindcss -i ./examples/basic-html/input.css -o ./examples/basic-html/output.css --minify",
     "dev": "tailwindcss -i ./examples/basic-html/input.css -o ./examples/basic-html/output.css --watch",
-    "prepack": "npm run build"
+    "test": "node --test tests/*.test.js",
+    "check": "npm test && npm run build",
+    "prepack": "npm run check"
   },
   "peerDependencies": {
-    "tailwindcss": ">=4.0.0"
+    "tailwindcss": ">=4.0.0 <5.0.0"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/postcss": "^4.3.3",
+    "postcss": "^8.5.6",
     "tailwindcss": "^4.3.3"
   },
   "engines": {

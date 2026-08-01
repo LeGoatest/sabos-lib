@@ -1,0 +1,17 @@
+@layer components {
+  .layout-section {
+    @apply py-14 sm:py-18 lg:py-24;
+  }
+
+  .layout-section-compact {
+    @apply py-8 sm:py-12;
+  }
+
+  .layout-section-muted {
+    @apply bg-surface-muted;
+  }
+
+  .section-spacing {
+    @apply py-10 sm:py-14 lg:py-18;
+  }
+}

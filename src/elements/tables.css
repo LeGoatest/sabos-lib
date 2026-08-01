@@ -1,0 +1,17 @@
+@layer components {
+  .element-table {
+    @apply w-full border-collapse text-left text-sm;
+  }
+
+  .element-table caption {
+    @apply pb-3 text-left font-semibold text-text;
+  }
+
+  .element-table th {
+    @apply border-b border-border bg-surface-muted px-4 py-3 font-semibold text-text;
+  }
+
+  .element-table td {
+    @apply border-b border-border px-4 py-3 text-text;
+  }
+}

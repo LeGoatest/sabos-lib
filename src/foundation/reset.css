@@ -1,0 +1,53 @@
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-block-size: 100vh;
+    margin: 0;
+    background: var(--semantic-color-background);
+    color: var(--semantic-color-text);
+    font-family: var(--semantic-font-body);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-inline-size: 100%;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button,
+  [role="button"] {
+    touch-action: manipulation;
+  }
+
+  :target {
+    scroll-margin-block: 6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

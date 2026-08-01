@@ -1,0 +1,9 @@
+@layer utilities {
+  .util-text-balance {
+    text-wrap: balance;
+  }
+
+  .util-text-pretty {
+    text-wrap: pretty;
+  }
+}

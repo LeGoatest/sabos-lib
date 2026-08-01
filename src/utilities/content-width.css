@@ -1,0 +1,13 @@
+@layer utilities {
+  .util-content-reading {
+    max-inline-size: 65ch;
+  }
+
+  .util-content-narrow {
+    max-inline-size: 48rem;
+  }
+
+  .util-content-wide {
+    max-inline-size: 80rem;
+  }
+}

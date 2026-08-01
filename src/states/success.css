@@ -1,0 +1,9 @@
+@layer utilities {
+  .is-success {
+    @apply text-success;
+  }
+
+  .has-success {
+    @apply border-success ring-3 ring-success/20;
+  }
+}

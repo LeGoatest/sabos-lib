@@ -1,0 +1,13 @@
+@layer components {
+  .layout-sidebar {
+    @apply grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,22rem)];
+  }
+
+  .layout-sidebar-start {
+    @apply grid items-start gap-8 lg:grid-cols-[minmax(16rem,22rem)_minmax(0,1fr)];
+  }
+
+  .layout-sidebar-panel {
+    @apply lg:sticky lg:top-6;
+  }
+}

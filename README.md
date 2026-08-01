@@ -16,13 +16,19 @@ A reusable Tailwind CSS v4 architecture for teams that prefer short, meaningful 
 npm install tailwindcss-semantic-layer tailwindcss @tailwindcss/cli
 ```
 
-Create an input stylesheet:
+Use the source package when Tailwind should process and customize the layer:
 
 ```css
-@import "tailwindcss-semantic-layer";
+@import "tailwindcss-semantic-layer/source";
 ```
 
-Build it with the Tailwind CLI:
+Use the prebuilt distribution when no Tailwind compilation is required:
+
+```css
+@import "tailwindcss-semantic-layer/dist";
+```
+
+Build a project stylesheet with the Tailwind CLI:
 
 ```bash
 npx @tailwindcss/cli -i ./input.css -o ./public/app.css --watch
@@ -31,27 +37,36 @@ npx @tailwindcss/cli -i ./input.css -o ./public/app.css --watch
 ## Usage
 
 ```html
-<a class="button button-primary" href="/estimate">
-  Request an estimate
-</a>
+<a class="button button-primary" href="/estimate">Request an estimate</a>
 
 <article class="card card-interactive">
   <div class="card-body layout-stack">
     <span class="badge badge-info">Featured</span>
     <h2 class="card-title">Semantic components</h2>
-    <p class="card-description">
-      Templates stay readable while Tailwind remains the implementation layer.
-    </p>
+    <p class="card-description">Templates stay readable while Tailwind remains the implementation layer.</p>
   </div>
 </article>
 ```
 
+## Architecture
+
+```text
+src/
+├── foundation/  tokens, theme mapping, reset, typography, accessibility
+├── elements/    semantic element treatments
+├── layout/      reusable spatial primitives
+├── components/  interface objects and variants
+├── patterns/    larger component compositions
+├── states/      loading, empty, error, success, disabled
+└── utilities/   intentionally limited escape hatches
+```
+
+The import graph is defined in `src/index.css`. Raw values live in `src/foundation/tokens.css`; `src/foundation/theme.css` maps those values into Tailwind theme namespaces.
+
 ## Customization
 
-Override raw semantic variables after importing the package:
-
 ```css
-@import "tailwindcss-semantic-layer";
+@import "tailwindcss-semantic-layer/source";
 
 :root {
   --semantic-color-primary: oklch(45% 0.17 255);
@@ -61,30 +76,50 @@ Override raw semantic variables after importing the package:
 }
 ```
 
-The `@theme inline` mappings expose those variables as Tailwind utilities such as `bg-primary`, `text-muted`, `rounded-card`, and `shadow-component`.
+See [`docs/customization.md`](docs/customization.md).
 
 ## Class model
 
 | Category | Prefix or form | Examples |
 | --- | --- | --- |
 | Layout primitive | `layout-` | `.layout-container`, `.layout-stack` |
+| Element treatment | `element-` | `.element-link`, `.element-heading` |
 | Reusable component | semantic noun | `.button`, `.card`, `.form-input` |
 | Component variant | noun + modifier | `.button-primary`, `.card-interactive` |
-| Composition pattern | `pattern-` | `.pattern-hero`, `.pattern-proof-strip` |
+| Composition pattern | `pattern-` | `.pattern-hero`, `.pattern-feature-grid` |
 | State | `is-` / `has-` | `.is-loading`, `.is-disabled`, `.has-error` |
 | Limited utility | `util-` | `.util-content-narrow`, `.util-text-balance` |
 
-See [`docs/architecture.md`](docs/architecture.md) and [`docs/naming-conventions.md`](docs/naming-conventions.md).
+## Examples
+
+- [`examples/basic-html/`](examples/basic-html/)
+- [`examples/laravel-blade/`](examples/laravel-blade/)
+- [`examples/htmx/`](examples/htmx/)
+
+## Documentation
+
+- [`docs/architecture.md`](docs/architecture.md)
+- [`docs/naming-conventions.md`](docs/naming-conventions.md)
+- [`docs/customization.md`](docs/customization.md)
+- [`docs/migration-guide.md`](docs/migration-guide.md)
+- [`docs/components.md`](docs/components.md)
+
+WDBASIC remains a separate standards and implementation-contract layer under `Wdbasic/`; the core package does not require WDBASIC-specific class names.
 
 ## Development
 
 ```bash
 npm install
+npm test
 npm run build
 npm run build:example
 ```
 
-The generated files are written to `dist/` and `examples/basic-html/output.css`.
+`npm run build` writes the readable and minified distributions under `dist/`. The test suite verifies imports, package exports, naming boundaries, and committed browser CSS.
+
+## Releases
+
+A semantic version tag such as `v0.1.0` triggers the release workflow. The tag must match `package.json`. The workflow tests the package, rebuilds `dist/`, and attaches the source archive and both CSS distributions to the GitHub release.
 
 ## License
 

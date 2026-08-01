@@ -1,0 +1,62 @@
+name: Bug report
+description: Report a reproducible defect in the semantic layer.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting a defect. Include the smallest reproducible example possible.
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: tailwind
+    attributes:
+      label: Tailwind CSS version
+      placeholder: 4.x
+    validations:
+      required: true
+  - type: dropdown
+    id: integration
+    attributes:
+      label: Integration
+      options:
+        - Plain HTML
+        - Laravel Blade
+        - HTMX
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Provide markup, CSS, commands, or a repository that reproduces the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I tested the current default branch.
+          required: true
+        - label: I searched for an existing issue.
+          required: true

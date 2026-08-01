@@ -8,6 +8,17 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ### Added
 
+- Complete GitHub issue-template, build-workflow, and release-workflow scaffolding.
+- Customization, migration, and component-contract documentation.
+- Laravel Blade and HTMX integration examples.
+- Element, layout, component, pattern, state, and limited-utility source modules matching the documented architecture.
+- Node-based structural and package-export tests with fixture markup.
+- PostCSS configuration and checked-in readable and minified distribution files.
 - Tailwind CSS v4 semantic token architecture.
-- Foundation, layout, component, pattern, state, and utility layers.
 - Basic HTML example and initial documentation.
+
+### Changed
+
+- Expanded `src/index.css` from the initial reduced scaffold to the complete ordered layer graph.
+- Updated package exports, scripts, development dependencies, and prepack validation for source and distribution consumers.
+- Expanded the root README with source, distribution, examples, testing, and release guidance.

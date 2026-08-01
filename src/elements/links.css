@@ -1,0 +1,20 @@
+@layer components {
+  .element-link,
+  .element-link-subtle {
+    @apply font-semibold underline underline-offset-4 transition-colors;
+    @apply focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-primary;
+  }
+
+  .element-link {
+    @apply text-primary decoration-primary/35 hover:text-primary-hover hover:decoration-current;
+  }
+
+  .element-link-subtle {
+    @apply text-text decoration-border hover:text-primary;
+  }
+
+  .element-skip-link {
+    @apply fixed start-4 top-4 z-50 -translate-y-24 rounded-component bg-primary px-4 py-3 font-semibold text-on-primary shadow-elevated transition-transform;
+    @apply focus:translate-y-0;
+  }
+}

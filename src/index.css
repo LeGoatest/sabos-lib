@@ -1,50 +1,57 @@
 @import "tailwindcss";
 
-/*
-|-------------------------------------------------------------------------------
-| Foundation
-|-------------------------------------------------------------------------------
-*/
-
+/* Foundation */
 @import "./foundation/tokens.css";
 @import "./foundation/theme.css";
-@import "./foundation/base.css";
+@import "./foundation/reset.css";
+@import "./foundation/typography.css";
 @import "./foundation/accessibility.css";
 
-/*
-|-------------------------------------------------------------------------------
-| Layout primitives
-|-------------------------------------------------------------------------------
-*/
+/* Elements */
+@import "./elements/headings.css";
+@import "./elements/links.css";
+@import "./elements/lists.css";
+@import "./elements/media.css";
+@import "./elements/tables.css";
 
-@import "./layout/primitives.css";
+/* Layout */
+@import "./layout/container.css";
+@import "./layout/section.css";
+@import "./layout/stack.css";
+@import "./layout/cluster.css";
+@import "./layout/grid.css";
+@import "./layout/sidebar.css";
 
-/*
-|-------------------------------------------------------------------------------
-| Components
-|-------------------------------------------------------------------------------
-*/
-
-@import "./components/button.css";
-@import "./components/card.css";
-@import "./components/form.css";
+/* Components */
 @import "./components/alert.css";
 @import "./components/badge.css";
+@import "./components/breadcrumb.css";
+@import "./components/button.css";
+@import "./components/card.css";
+@import "./components/dropdown.css";
+@import "./components/form.css";
+@import "./components/modal.css";
+@import "./components/navigation.css";
+@import "./components/pagination.css";
+@import "./components/table.css";
 
-/*
-|-------------------------------------------------------------------------------
-| Patterns
-|-------------------------------------------------------------------------------
-*/
-
+/* Patterns */
+@import "./patterns/call-to-action.css";
+@import "./patterns/feature-grid.css";
 @import "./patterns/hero.css";
+@import "./patterns/media-object.css";
 @import "./patterns/proof-strip.css";
+@import "./patterns/split-content.css";
 
-/*
-|-------------------------------------------------------------------------------
-| States and limited utilities
-|-------------------------------------------------------------------------------
-*/
+/* States */
+@import "./states/disabled.css";
+@import "./states/empty.css";
+@import "./states/error.css";
+@import "./states/loading.css";
+@import "./states/success.css";
 
-@import "./states/status.css";
-@import "./utilities/content.css";
+/* Limited utilities */
+@import "./utilities/aspect-ratios.css";
+@import "./utilities/content-width.css";
+@import "./utilities/screen-reader.css";
+@import "./utilities/text-balance.css";
