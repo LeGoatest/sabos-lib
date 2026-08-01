@@ -2,7 +2,8 @@
 
 > **Authority:** Highest-authority WDBASIC technical contract  
 > **Core entry point:** [`README.md`](README.md)  
-> **Standards registry:** [`STANDARDS.md`](STANDARDS.md)
+> **Standards registry:** [`STANDARDS.md`](STANDARDS.md)  
+> **Form contract:** [`forms/README.md`](forms/README.md)
 
 This document governs rendering, state ownership, request and response behavior, routing, security boundaries, progressive enhancement, resilience, and technical exceptions.
 
@@ -42,15 +43,18 @@ Use HTMX when the server can own the interaction, including forms, validation, f
 Every fragment defines:
 
 - Request method and inputs.
+- Request-admission requirements, including accepted content type and size limits where applicable.
 - Authorization and CSRF requirements.
 - Target and swap strategy.
-- Loading, busy, empty, validation, conflict, error, and success states.
+- Loading, busy, empty, validation, conflict, rate-limit, error, and success states.
 - Focus and announcement behavior.
 - History and direct-load behavior.
 - Cache policy.
 - Correct language, direction, and accessibility relationships.
 
 Fragments must not depend on hidden client-only state the server cannot reconstruct.
+
+An HTMX form submission follows the same validation, authorization, anti-abuse, idempotency, logging, and persistence rules as a normal form submission.
 
 ## 4. JavaScript boundary
 
@@ -66,11 +70,13 @@ JavaScript must not own:
 - Search-indexable content.
 - Responsive appearance through generated utility strings.
 
+Client-side validation improves feedback only. It is not a security mechanism and may not be the only implementation of a rule.
+
 ## 5. Semantic HTML
 
 Use native elements for their defined behavior. Do not create generic clickable containers, custom form controls, or ARIA substitutes where valid native HTML provides the required semantics and interaction.
 
-See [`tokens/accessibility.md`](tokens/accessibility.md).
+See [`tokens/accessibility.md`](tokens/accessibility.md) and [`forms/README.md`](forms/README.md).
 
 ## 6. Routing and URL contract
 
@@ -82,6 +88,8 @@ See [`tokens/accessibility.md`](tokens/accessibility.md).
 - Canonical, locale, case, query, and trailing-slash behavior is documented.
 - HTMX history creates valid reconstructable URLs.
 - Internal endpoints are not presented as canonical public routes.
+- State-changing actions are not exposed through `GET` or another safe HTTP method.
+- Redirect or callback destinations derived from input use a server-controlled allowlist.
 
 ## 7. HTTP response contract
 
@@ -98,49 +106,66 @@ Typical use:
 - `403` authenticated but forbidden.
 - `404` resource not found.
 - `409` state conflict.
+- `413` request body or upload too large.
+- `415` unsupported media or content type.
 - `422` recoverable semantic validation failure when that convention is used.
 - `429` rate limited.
 - `500` unexpected server failure.
 
-Do not return a homepage with `200` for an unknown route or disguise validation failure as success for client convenience.
+Do not return a homepage with `200` for an unknown route or disguise validation, authorization, conflict, or security failure as success for client convenience.
 
 ## 8. Forms, validation, and consequential actions
 
-The server is authoritative for validation.
+Forms follow:
 
-State-changing requests define:
+- [`forms/README.md`](forms/README.md)
+- [`forms/validation.md`](forms/validation.md)
+- [`forms/security.md`](forms/security.md)
 
-- Authorization.
-- CSRF protection.
-- Validation.
-- Duplicate-submission behavior.
-- Idempotency expectations.
-- Success destination.
-- Error and conflict recovery.
-- Audit requirements.
-- Review, confirmation, or reversibility for consequential actions.
+The server is authoritative for validation, authorization, business rules, and persistence.
 
-Recoverable errors preserve user input.
+Before a form effect occurs, the server verifies:
+
+- Route and HTTP method.
+- Accepted content type, encoding, request size, field count, nesting, and file count.
+- Authentication and session state.
+- CSRF and request-origin policy when applicable.
+- Explicit field allowlist and submitted shape.
+- Syntactic and semantic validation.
+- Object-level authorization, ownership, and tenant boundaries.
+- Duplicate-submission, replay, concurrency, and idempotency behavior.
+- Rate limits, upload controls, and proportionate abuse defenses.
+- Audit and notification requirements.
+
+Recoverable errors preserve non-sensitive user input and return accessible field and summary errors.
+
+Legal, financial, destructive, identity, permission, publication, and other consequential actions provide review, correction, reversibility, or confirmation proportionate to impact.
 
 ## 9. State, concurrency, and idempotency
 
 - Duplicate requests must not silently duplicate business effects.
-- Financial, destructive, invitation, upload, and other material actions define retry behavior.
+- Financial, destructive, invitation, upload, notification, and other material actions define retry behavior.
 - Concurrent edits use a documented conflict strategy.
 - Optimistic UI reconciles with the server.
 - Idempotency keys or equivalent controls are used where repetition could create material harm.
+- Validation or availability checks that can become stale are repeated or enforced atomically at persistence time.
+- A valid signed or hidden value does not replace current authorization or business-rule evaluation.
 
 ## 10. Security boundaries
 
-- Never trust client-supplied role, ownership, price, permission, status, or tenant data.
-- Escape untrusted output by default.
-- Validate uploads by authorization, actual content, size, destination, and later access.
+- Never trust client-supplied role, ownership, price, permission, status, tenant, path, or workflow data.
+- Use explicit form field allowlists and mapping; unrestricted mass assignment is prohibited.
+- Escape untrusted output for its rendering context.
+- Use parameterized queries and safe structured APIs rather than concatenating input into interpreters.
+- Validate uploads by authorization, actual content, size, destination, processing state, and later access.
 - Keep secrets and internal paths out of client-visible output.
 - Apply least privilege.
 - Rate-limit and protect abuse-sensitive endpoints.
 - Keep security decisions server-side.
+- Do not place sensitive form data or security tokens in URLs.
+- Do not log secrets or unnecessary submitted content.
 
-The cross-cutting browser, third-party, privacy, consent, and telemetry rules are in [`security-and-privacy.md`](security-and-privacy.md).
+The detailed form threat contract is [`forms/security.md`](forms/security.md). Cross-cutting browser, third-party, privacy, consent, telemetry, authentication, and device rules are in [`security-and-privacy.md`](security-and-privacy.md).
 
 ## 11. Authoring boundaries
 
@@ -151,6 +176,8 @@ A product that creates or edits content must follow:
 
 Generated output is part of the product’s conformance scope.
 
+A generated form must use the same field allowlist, validation, authorization, CSRF, privacy, retention, and error contracts as a hand-authored form. An authoring interface may not grant content authors control over privileged processing routes, model properties, storage paths, recipients, or permission fields without explicit authorization.
+
 ## 12. Internationalization and media
 
 Localized output follows [`internationalization.md`](internationalization.md).
@@ -159,9 +186,11 @@ Audio, video, animation, carousels, and comparison media follow [`media-accessib
 
 These requirements apply to server output and HTMX fragments.
 
+Form parsing and validation must distinguish canonical machine values from locale-aware display and input assistance. Language-specific presentation must not weaken server-side validation or security.
+
 ## 13. Cache boundaries
 
-Caching must not cross identity, authorization, tenant, locale, consent, or personalization boundaries.
+Caching must not cross identity, authorization, tenant, locale, consent, CSRF, or personalization boundaries.
 
 Document:
 
@@ -170,6 +199,8 @@ Document:
 - Invalidation.
 - Maximum acceptable staleness.
 - Sensitive or user-specific content.
+
+Do not cache pages or fragments containing reusable security tokens, sensitive submitted values, or another user’s validation state.
 
 Do not serve stale prices, credentials, availability, status, or consent choices beyond an accepted business window.
 
@@ -187,6 +218,8 @@ Review:
 - Content Security Policy impact.
 - Removal path.
 
+A validation, CAPTCHA, identity, payment, address, upload, or anti-abuse provider does not become authoritative for authorization or business state merely because it is external.
+
 A third-party failure must not remove primary public content when a practical fallback exists.
 
 ## 15. Performance and resilience
@@ -199,12 +232,15 @@ A third-party failure must not remove primary public content when a practical fa
 - Define page- and workflow-specific budgets.
 - Preserve user-safe retry and recovery under partial failure.
 - Treat external scripts as optional failure domains.
+- Apply request-size, processing-time, queue, and upload limits before resource exhaustion occurs.
 
 ## 16. Search architecture
 
 Public pages provide semantic HTML, crawlable links, canonical behavior, metadata, meaningful headings, structured-data locations, and unique useful content.
 
 Thin doorway pages, duplicate location pages, JavaScript-only primary content, and false `200` error pages are non-conformant.
+
+Search and filter forms use crawlable canonical destinations where appropriate and do not expose sensitive submitted values in URLs.
 
 ## 17. Observability and audit
 
@@ -219,8 +255,9 @@ Document or implement:
 - User-safe errors.
 - Retry paths.
 - Audit records for sensitive state changes.
+- Security-relevant form events such as CSRF failure, authorization denial, protected-field submission, upload rejection, replay, and rate limiting.
 
-Do not log secrets, full sensitive fields, or unnecessary personal data.
+Do not log secrets, passwords, tokens, full payment data, or unnecessary personal form content. Sanitize submitted values before they enter logs or administrative viewers.
 
 ## 18. Deployment and support baseline
 
@@ -233,7 +270,9 @@ Document:
 - Environment configuration.
 - Migrations and rollback.
 - Cache and queue requirements.
+- Request, upload, and processing limits.
 - Validation commands.
+- Form validation and security test commands.
 
 Production must not depend on an undocumented development server.
 
@@ -251,4 +290,4 @@ An exception records:
 - Expiration or review condition.
 - Remediation plan.
 
-An exception cannot be used to make a false external standards claim.
+An exception cannot be used to make a false external standards claim or to treat client validation as a security boundary.
