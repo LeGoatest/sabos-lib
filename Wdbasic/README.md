@@ -25,6 +25,9 @@ Wdbasic/
 │   ├── README.md
 │   ├── validation.md
 │   └── security.md
+├── glossaries/
+│   ├── README.md
+│   └── security.md
 ├── compliance/
 │   ├── accessibility-maturity.md
 │   ├── accessibility-statement-template.md
@@ -68,6 +71,8 @@ When requirements appear inconsistent, preserve the stricter requirement until t
 
 External standards retain their own conformance language. A WDBASIC exception cannot turn a failed external requirement into a pass.
 
+The files under [`glossaries/`](glossaries/) are non-normative terminology references. They explain recurring terms but do not override or replace binding contracts.
+
 ## 3. Required reading order
 
 Before implementing or reviewing a governed surface:
@@ -82,7 +87,10 @@ Before implementing or reviewing a governed surface:
 8. Read [`components/component-contracts.md`](components/component-contracts.md).
 9. Read one active design profile.
 10. Read [`../docs/TAILWIND_PATTERN.md`](../docs/TAILWIND_PATTERN.md).
-11. Read product-specific requirements, evidence, and exceptions.
+11. Consult [`glossaries/README.md`](glossaries/README.md) when terminology is unfamiliar or ambiguous.
+12. Read product-specific requirements, evidence, and exceptions.
+
+Normative documents still expand acronyms on first use. A reader must not be required to open a glossary to understand a binding requirement.
 
 Applicability must be resolved explicitly. Do not omit form, cognitive, non-web, authoring, media, internationalization, security, privacy, or organizational-maturity review merely because the initial implementation is visually simple.
 
@@ -266,6 +274,8 @@ Security requires a testable verification baseline, server-side authorization, c
 
 Privacy requires purpose limitation, data minimization, retention rules, user agency, third-party inventory, and prohibition of deceptive consent patterns.
 
+The categorized [`glossaries/security.md`](glossaries/security.md) reference distinguishes weaknesses, attacks, impacts, controls, testing methods, operational capabilities, and vulnerability identifiers. It is explanatory and does not replace the security contracts.
+
 ## 16. Native, hybrid, and non-web output
 
 Native applications, Wails or other web-view shells, custom viewers, PDFs, EPUBs, office documents, and other exported formats follow [`non-web-accessibility.md`](non-web-accessibility.md).
@@ -358,6 +368,7 @@ wdbasic:
   source_ref: <tag-or-commit>
   active_profile: field-service | professional-services | custom-brand
   standards_record: <path>
+  glossary_index: Wdbasic/glossaries/README.md
   token_source: <path>
   component_inventory: <path>
   tailwind_entrypoint: <path>
@@ -399,7 +410,7 @@ Use:
 
 WDBASIC conformance and WCAG conformance are separate determinations. Accessibility maturity is also separate from both. A WDBASIC exception may coexist with WDBASIC conformance when governed, but it cannot preserve a WCAG claim if an applicable WCAG requirement fails.
 
-A project is not WDBASIC-conformant merely because it uses Tailwind, HTMX, semantic classes, browser validation, or a profile palette.
+A project is not WDBASIC-conformant merely because it uses Tailwind, HTMX, semantic classes, browser validation, a security acronym, or a profile palette.
 
 ## 25. Core review checklist
 
@@ -421,6 +432,7 @@ A project is not WDBASIC-conformant merely because it uses Tailwind, HTMX, seman
 - Are cognitive clarity, language, direction, media equivalents, security, privacy, and third-party behavior documented?
 - Are native shells and non-web formats evaluated under separate applicable baselines?
 - Is any maturity claim scoped, dimension-specific, evidence-backed, and distinct from product conformance?
+- Are acronyms expanded on first use, ambiguous terms qualified, and deprecated terminology marked?
 - Is proof factual?
 - Is the active profile and WDBASIC revision pinned?
 - Are exceptions explicit, owned, narrow, and reviewable?
