@@ -4,7 +4,10 @@
 > **Core entry point:** [`../README.md`](../README.md)  
 > **Architecture dependency:** [`../architecture_rules.md`](../architecture_rules.md)  
 > **Accessibility dependency:** [`../tokens/accessibility.md`](../tokens/accessibility.md)  
-> **Cognitive dependency:** [`../cognitive-accessibility.md`](../cognitive-accessibility.md)
+> **Cognitive dependency:** [`../cognitive-accessibility.md`](../cognitive-accessibility.md)  
+> **Form dependency:** [`../forms/README.md`](../forms/README.md)  
+> **Form validation dependency:** [`../forms/validation.md`](../forms/validation.md)  
+> **Form security dependency:** [`../forms/security.md`](../forms/security.md)
 
 This document governs reusable server-rendered components, form controls, actions, custom elements, composite widgets, and HTMX fragments.
 
@@ -21,6 +24,7 @@ A component is a reusable unit of content or interaction with:
 - A stable accessibility contract.
 - A documented fallback when enhanced.
 - A defined rendering boundary.
+- A validation and security contract when it accepts or submits data.
 
 A fragment is a server-rendered component response intended for replacement inside an existing shell.
 
@@ -44,7 +48,8 @@ Document or make evident:
 - Focus behavior.
 - Accessible name, description, role, value, and state requirements.
 - Accessibility-tree expectations.
-- Empty, loading, error, success, conflict, and unavailable behavior.
+- Empty, loading, error, success, conflict, rate-limit, and unavailable behavior.
+- Form field, validation, authorization, CSRF, request-limit, and security dependencies when applicable.
 - Baseline fallback behavior.
 - Version or deprecation status when shared across products.
 
@@ -52,24 +57,29 @@ Recommended record:
 
 ```yaml
 component:
-  name: service-card
-  purpose: Link a user to one service detail page
-  owner: content
+  name: email-field
+  purpose: collect and validate an email address
+  owner: forms
   rendering: server-html
-  root: article
+  root: div
   inputs:
-    required: [title, url]
-    optional: [summary, image, proof]
-  states: [default, hover, focus-visible, unavailable]
-  tokens: [surface, text-primary, border, radius-card, shadow-card]
-  fallback: normal-anchor-navigation
+    required: [id, name, label]
+    optional: [value, hint, autocomplete]
+  states: [default, focus-visible, invalid, disabled, pending]
+  tokens: [field-surface, field-border, field-error, focus-ring]
+  fallback: native-email-input
   accessibility:
-    name_source: visible-link-text
-    relationships: []
-    tree_expectation: link-nested-in-article
-  cognitive:
-    primary_task: choose-a-service
-    memory_dependency: none
+    name_source: visible-label
+    description_source: hint-and-error
+    tree_expectation: textbox-with-email-semantics
+  validation:
+    client: native-email-constraint
+    server: email-address
+    unexpected_fields: reject
+  security:
+    sensitive: personal
+    redisplay_after_error: true
+    output_encoding: html-text-and-attribute
   htmx: null
   version: 1.0.0
 ```
@@ -94,14 +104,19 @@ success
 read-only
 unavailable
 pending
+validating
+invalid
 conflict
+rate-limited
 expired
 offline
+uploading
+processing
 ```
 
 Do not implement only the visually ideal state.
 
-A state must have consistent semantic, visual, keyboard, cognitive, and server behavior. A visual state class must not contradict native, ARIA, platform, or server state.
+A state must have consistent semantic, visual, keyboard, cognitive, validation, security, and server behavior. A visual state class must not contradict native, ARIA, platform, or server state.
 
 ## 4. Markup and naming
 
@@ -126,8 +141,9 @@ Rules:
 - IDs are unique and generated predictably when a component can repeat.
 - Visible labels remain available to speech input and sighted users.
 - DOM order remains meaningful without styling.
+- Form names and submitted values follow an explicit schema rather than visual labels or client-generated property paths.
 
-JavaScript may toggle state classes and attributes; it may not own component appearance through generated utility strings.
+JavaScript may toggle state classes and attributes; it may not own component appearance, validation authority, authorization, or security behavior.
 
 ## 5. Tailwind ownership
 
@@ -138,6 +154,8 @@ JavaScript may toggle state classes and attributes; it may not own component app
 - Raw CSS is reserved for token definitions, pseudo-elements, complex effects, browser behavior, and documented exceptions.
 - Responsive behavior for repeated components belongs in the stylesheet.
 - Component variants consume semantic tokens rather than raw palette values.
+- Validation styles consume semantic field, error, warning, pending, disabled, and success roles.
+- Styling must not be the only representation of invalid, required, selected, disabled, or destructive state.
 
 The repository-specific organization pattern is defined in [`../../docs/TAILWIND_PATTERN.md`](../../docs/TAILWIND_PATTERN.md).
 
@@ -157,6 +175,8 @@ Server rendering determines:
 - Whether an action is available.
 - Language and direction.
 - IDs and relationships.
+- Accepted field schema and safe redisplay values.
+- Authoritative validation and security outcomes.
 
 Client code may improve continuity but may not invent authoritative state.
 
@@ -170,13 +190,14 @@ Components may compose other components when:
 - Focus and announcement behavior remain predictable.
 - Token and profile dependencies remain semantic.
 - Cognitive purpose and task sequence remain clear.
+- Form schemas, validation errors, and authorization requirements remain traceable.
 - The composition does not duplicate an existing universal contract.
 
 Avoid deeply nested wrappers that exist only to reproduce a visual mockup.
 
 Do not place interactive controls inside other interactive controls.
 
-A composite must not hide the name, error, state, or permission contract of its child components.
+A composite must not hide the name, error, state, permission, validation, or security contract of its child components.
 
 ## 8. Custom elements and shadow DOM
 
@@ -194,6 +215,7 @@ A custom-element record must define:
 - Keyboard and focus behavior.
 - Form participation when applicable.
 - Browser and assistive-technology support evidence.
+- Submitted value shape, reset, restore, disabled, required, invalid, and security behavior when form associated.
 - Server-rendered fallback.
 
 ### Pre-upgrade behavior
@@ -205,6 +227,7 @@ Before JavaScript upgrades the element:
 - The element does not expose a misleading incomplete control.
 - Layout shift is controlled.
 - The user is not required to act before the upgrade completes.
+- A protected form must not submit an incomplete or unvalidated custom-element value silently.
 
 ### Shadow DOM rules
 
@@ -216,8 +239,9 @@ Shadow DOM must not conceal required semantics or relationships.
 - Labels and descriptions reach the actual exposed control.
 - Host and internal semantics do not create duplicate or conflicting roles.
 - Hidden internal controls are not reachable.
-- Error, help, and status content remains exposed.
+- Error, help, status, and required state remain exposed.
 - Forced-colors, text scaling, zoom, and user styles remain effective where applicable.
+- Client-side encapsulation does not conceal submitted values from the server validation and field allowlist.
 
 Do not assume source markup determines the computed accessibility tree.
 
@@ -228,11 +252,13 @@ When `ElementInternals` or form-associated custom elements are used:
 - Role, state, value, validity, name, and form value remain synchronized.
 - Label association is tested.
 - Required, disabled, read-only, invalid, reset, restore, and submission behavior is documented.
+- Native constraint validation and custom validity messages are accurate.
 - Server validation remains authoritative.
+- Submitted values match the documented scalar, list, file, or structured shape.
 - Browser and assistive-technology support is recorded.
 - A native or ordinary form-control fallback exists when the supported baseline cannot expose the control reliably.
 
-A custom form control is prohibited when it cannot match the complete behavior of the appropriate native control.
+A custom form control is prohibited when it cannot match the complete behavior of the appropriate native control or cannot fail safely when its upgrade is unavailable.
 
 ## 9. Accessibility-tree contract
 
@@ -246,6 +272,7 @@ For every interactive or semantically complex shared component, define the expec
 - Position and count when relevant.
 - Focused and selected object.
 - Live-region or status exposure.
+- Invalid, required, disabled, read-only, and validation-message exposure for form controls.
 
 Validate the computed result in supported browsers and assistive technologies. DOM inspection alone is insufficient for custom elements, shadow DOM, canvas, SVG, native wrappers, or browser-specific semantics.
 
@@ -255,16 +282,17 @@ Draft accessibility-API mapping documents may inform debugging but must be repre
 
 Each fragment defines:
 
-- Trigger.
-- Request method.
-- Request inputs.
-- Authorization and CSRF requirements.
+- Trigger and submitter.
+- Request method and endpoint.
+- Accepted content type and request limits where applicable.
+- Request inputs and explicit field shape.
+- Authentication, authorization, ownership, tenant, and CSRF requirements.
 - Target.
 - Swap strategy.
-- Loading indicator.
+- Loading indicator and duplicate-submission behavior.
 - Busy state.
 - Empty result.
-- Validation, conflict, or request error.
+- Validation, conflict, rate-limit, authorization, or request error.
 - Success result.
 - Focus destination.
 - Announcement behavior.
@@ -285,6 +313,7 @@ Fragments must:
 - Avoid replacing the complete document body for ordinary navigation.
 - Reinitialize custom elements without duplicating listeners or corrupting state.
 - Preserve slotted content and relationships after replacement.
+- Return the same authoritative validation, authorization, security, idempotency, and error outcome as the full-page path.
 
 ## 11. Accessibility
 
@@ -294,7 +323,7 @@ Components preserve:
 - Accurate accessible names and descriptions.
 - Keyboard operation.
 - Visible and unobscured focus.
-- Correct expanded, selected, pressed, checked, invalid, busy, current, and modal state.
+- Correct expanded, selected, pressed, checked, required, invalid, busy, current, and modal state.
 - Valid ID relationships.
 - Logical source and focus order.
 - Appropriate live announcements.
@@ -316,31 +345,45 @@ They must:
 - Have one identifiable purpose.
 - Use consistent labels and placement for the same function.
 - Expose consequences before destructive or high-impact actions.
-- Preserve context during loading, errors, and multi-step interaction.
+- Preserve context during loading, errors, validation, and multi-step interaction.
 - Avoid unnecessary interruption or hidden instructions.
 - Provide explicit recovery and next actions.
 - Avoid requiring memory of transient content.
+- Delay validation until the user has had a reasonable opportunity to complete the field.
 
-## 13. Forms
+## 13. Form components
 
-Reusable form controls define:
+Every form component follows:
 
-- Label.
-- Control.
-- Name and submitted value.
-- Hint.
+- [`../forms/README.md`](../forms/README.md)
+- [`../forms/validation.md`](../forms/validation.md)
+- [`../forms/security.md`](../forms/security.md)
+
+A reusable field component defines:
+
+- Field purpose.
+- Visible label.
+- Native control or justified custom control.
+- Stable `id` and `name`.
+- Submitted scalar, list, file, or structured representation.
 - Required or optional status.
-- Format constraints.
-- Error association.
+- Hint and format instructions.
+- Native constraint attributes.
+- Server syntactic and semantic rule identifiers.
+- Normalization policy.
+- Error code, inline message, and summary-link behavior.
 - Disabled and read-only behavior.
-- Loading behavior when submission is pending.
-- Success confirmation.
-- Autocomplete behavior where applicable.
-- Redundant-entry behavior in multi-step processes.
+- Loading or asynchronous advisory validation behavior.
+- Safe value preservation after failure.
+- Sensitive-data and redisplay policy.
+- Autocomplete behavior.
+- Output-encoding and sanitization requirements.
+- Unexpected-field and mass-assignment policy.
+- Reset, restore, and multi-step behavior.
 
 Validation remains server-authoritative.
 
-A field component must not hide the actual native control unless the replacement preserves complete keyboard, focus, name, value, form, validation, reset, and error behavior.
+A field component must not hide the actual native control unless the replacement preserves complete keyboard, focus, name, value, form, validation, reset, security, and error behavior.
 
 Example:
 
@@ -354,12 +397,53 @@ Example:
     name="email"
     type="email"
     autocomplete="email"
+    required
     aria-describedby="email-hint email-error"
     aria-invalid="true"
   >
-  <p class="form-field__error" id="email-error">Enter a valid email address.</p>
+  <p class="form-field__error" id="email-error">Enter an email address in the form name@example.com.</p>
 </div>
 ```
+
+### Form container
+
+A reusable form container defines:
+
+- Purpose and owner.
+- Action and method.
+- Field allowlist.
+- CSRF transmission.
+- Authentication and authorization.
+- Request and upload limits.
+- Error-summary target and focus behavior.
+- Pending and duplicate-submission behavior.
+- Full-page and HTMX response behavior.
+- Success destination.
+- Conflict, rate-limit, expired-session, and unexpected-failure recovery.
+- Idempotency and replay policy.
+- Audit and notification events.
+
+### Error summary
+
+An error-summary component:
+
+- Has a clear heading.
+- States the number of errors when useful.
+- Links each item to the affected field.
+- Uses the same field label and correction message as the inline error.
+- Receives focus or is announced according to the form contract.
+- Does not expose secrets, internal rule names, raw payloads, or protected object existence.
+- Is not replaced by a toast alone.
+
+### Sensitive controls
+
+Password, one-time-code, payment, identity, secret, and other sensitive controls:
+
+- Use appropriate native types and autocomplete values.
+- Support password managers and paste where applicable.
+- Are not repopulated after validation failure unless the security policy explicitly permits it.
+- Are excluded from analytics, session replay, logs, and unsafe client persistence.
+- Do not silently truncate or transform values.
 
 ## 14. CAPTCHA and human verification
 
@@ -372,7 +456,10 @@ A CAPTCHA or proof-of-humanity component must define:
 - Data preservation after failure.
 - Third-party failure fallback.
 - Privacy and telemetry behavior.
+- Rate-limit and escalation behavior.
 - Bot-defense behavior that does not rely on disability-hostile interaction as the only path.
+
+It also follows [`../forms/security.md`](../forms/security.md).
 
 A challenge that blocks the only submission path without an accessible alternative is non-conformant.
 
@@ -397,9 +484,11 @@ Rules:
 - Destructive actions use explicit wording and confirmation proportionate to impact.
 - Color alone does not communicate destructive meaning.
 - Disabled actions explain unavailable state when the reason is not obvious.
-- Loading actions prevent duplicate effects without erasing the action label.
+- Loading actions prevent accidental repetition without erasing the action label.
 - Toggle actions expose pressed or checked state as appropriate.
 - Pointer actions occur on release or provide cancellation, abort, or undo where required.
+- Disabling a submit button does not replace server idempotency or replay protection.
+- Buttons and links do not carry privileged values as trusted authority.
 
 ## 16. Navigation components
 
@@ -432,6 +521,7 @@ Required documentation includes:
 - Baseline or fallback behavior.
 - Accessibility-tree expectation.
 - Support matrix.
+- Validation and submission behavior when a form is contained inside the surface.
 
 Do not ship a partially implemented tab, menu, dialog, accordion, combobox, tree, grid, or listbox pattern.
 
@@ -446,10 +536,11 @@ Alerts, notices, toasts, progress, and status regions define:
 - Focus behavior.
 - Live-region behavior.
 - Recovery or next action.
+- Whether the state is validation, conflict, authorization, security, rate limit, upload processing, or unexpected failure.
 
 Use assertive announcements only when immediate attention is required. Do not repeatedly announce the same status.
 
-A toast must not be the only location of critical instructions or irreversible-action results.
+A toast must not be the only location of critical instructions, form errors, security failures, or irreversible-action results.
 
 ## 19. Media components
 
@@ -463,6 +554,8 @@ Image, gallery, before-and-after, video, and lightbox components define:
 - Reduced-motion behavior.
 - Permission and proof source where applicable.
 
+Upload and media-authoring controls also follow the file-upload requirements in [`../forms/security.md`](../forms/security.md).
+
 Before-and-after components must not exaggerate or misrepresent results.
 
 ## 20. Responsive behavior
@@ -473,6 +566,8 @@ Responsive behavior belongs in the stylesheet for repeated components.
 
 A desktop table or grid must not become mobile cards if doing so destroys header, label, source-order, or comparison relationships.
 
+Form labels, hints, errors, summaries, buttons, and pending states remain visible, associated, and operable at zoom and narrow widths.
+
 ## 21. Content integrity
 
 Components displaying reviews, credentials, ratings, metrics, guarantees, licenses, badges, prices, availability, accessibility claims, or customer identities require verified source data.
@@ -480,6 +575,8 @@ Components displaying reviews, credentials, ratings, metrics, guarantees, licens
 Missing proof is hidden or represented as an editable placeholder, never fabricated.
 
 A component should make the source or context of important proof available when that improves credibility or interpretation.
+
+Submitted content remains untrusted when displayed in staff-only components. Administrative viewers must encode and sanitize hostile values safely.
 
 ## 22. Versioning and deprecation
 
@@ -491,7 +588,8 @@ A deprecated component defines:
 - Migration guidance.
 - Compatibility period.
 - Removal condition.
-- Known accessibility or behavior differences.
+- Known accessibility, validation, security, or behavior differences.
+- Form schema and server-handler migration requirements.
 - Evidence and ACT rules requiring re-execution.
 
 Do not maintain two universal components for the same responsibility without a documented migration or product distinction.
@@ -504,10 +602,17 @@ Review applicable behavior under:
 - Pre-upgrade custom-element state.
 - Failed JavaScript upgrade.
 - No JavaScript.
+- Native browser constraint validation.
+- Client validation bypass.
 - HTMX success.
-- HTMX validation or conflict failure.
+- HTMX validation, authorization, CSRF, rate-limit, or conflict failure.
+- Full-page and HTMX response equivalence.
 - Network or server failure.
 - Empty data.
+- Missing, malformed, boundary, Unicode, duplicate, and unexpected form values.
+- Tampered hidden fields, IDs, owner, tenant, role, price, and status values.
+- Duplicate submission, replay, idempotency, stale state, and concurrency conflict.
+- Upload type spoofing, excessive size, processing failure, quarantine, and provider failure.
 - Long and translated content.
 - Right-to-left layout where supported.
 - Keyboard-only use.
@@ -521,6 +626,7 @@ Review applicable behavior under:
 - Unauthorized or unavailable action.
 - Native web-view embedding where applicable.
 - CAPTCHA provider failure where applicable.
+- Sensitive-value exposure in URLs, HTML, source maps, analytics, logs, and administrative viewers.
 
 Reusable procedures follow [`../compliance/act-rule-template.md`](../compliance/act-rule-template.md).
 
@@ -536,10 +642,15 @@ Reusable procedures follow [`../compliance/act-rule-template.md`](../compliance/
 - Is HTMX state reconstructable by the server?
 - Are names, roles, states, focus, relationships, and announcements correct?
 - Does the computed accessibility tree match the contract?
-- Do custom elements and shadow DOM preserve labels, slots, focus, and form behavior?
+- Do custom elements and shadow DOM preserve labels, slots, focus, form, validation, and security behavior?
+- Does every form component follow the canonical form, validation, and security contracts?
+- Are field names, submitted shapes, normalization, validation rules, and unexpected-field policy explicit?
+- Are authentication, object authorization, tenant boundaries, CSRF, request limits, and idempotency defined?
+- Are mass assignment, injection, output encoding, rich-content sanitization, redirects, and uploads secured?
+- Does the component preserve safe values and exclude sensitive values from redisplay, analytics, and logs?
 - Does the component remain understandable without unnecessary memory or hidden context?
 - Does it remain usable at narrow widths and zoom?
-- Are HTTP, validation, and authorization outcomes correct?
+- Are HTTP, validation, conflict, security, and authorization outcomes correct?
 - Is displayed proof factual?
 - Is any deprecation or compatibility impact documented?
-- Were affected rules and evidence re-run?
+- Were affected validation, security, accessibility, and evidence rules re-run?
