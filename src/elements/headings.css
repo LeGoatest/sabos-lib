@@ -1,0 +1,24 @@
+@layer components {
+  .element-heading,
+  .element-heading-display,
+  .element-heading-section,
+  .element-heading-card {
+    @apply font-display font-bold leading-tight tracking-tight text-text text-balance;
+  }
+
+  .element-heading-display {
+    @apply text-4xl sm:text-5xl lg:text-7xl;
+  }
+
+  .element-heading-section {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+
+  .element-heading-card {
+    @apply text-xl sm:text-2xl;
+  }
+
+  .element-eyebrow {
+    @apply text-sm font-bold uppercase tracking-[0.16em] text-primary;
+  }
+}

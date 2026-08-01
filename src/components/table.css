@@ -1,0 +1,33 @@
+@layer components {
+  .table-wrapper {
+    @apply max-w-full overflow-x-auto rounded-card border border-border bg-surface;
+  }
+
+  .table {
+    @apply w-full border-collapse text-left text-sm;
+  }
+
+  .table-caption {
+    @apply px-4 py-3 text-left font-semibold text-text;
+  }
+
+  .table-head {
+    @apply bg-surface-muted;
+  }
+
+  .table-header {
+    @apply border-b border-border px-4 py-3 font-semibold text-text;
+  }
+
+  .table-cell {
+    @apply border-b border-border px-4 py-3 align-top text-text;
+  }
+
+  .table-row:last-child .table-cell {
+    @apply border-b-0;
+  }
+
+  .table-row:hover {
+    @apply bg-surface-muted/65;
+  }
+}

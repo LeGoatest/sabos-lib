@@ -1,0 +1,51 @@
+name: Feature request
+description: Propose a reusable semantic class, token, pattern, example, or integration.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the recurring implementation problem this should solve.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed semantic API
+      description: Include proposed class names, tokens, variants, and representative markup.
+    validations:
+      required: true
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Layer
+      options:
+        - Foundation
+        - Element
+        - Layout
+        - Component
+        - Pattern
+        - State
+        - Utility
+        - Documentation or example
+    validations:
+      required: true
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility and progressive enhancement
+      description: Explain keyboard, screen-reader, no-JavaScript, and reduced-motion behavior where applicable.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope checks
+      options:
+        - label: The proposal is reusable and is not tied to one page or business.
+          required: true
+        - label: The proposal can be implemented with Tailwind CSS v4 and standards-based HTML.
+          required: true

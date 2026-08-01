@@ -1,0 +1,13 @@
+@layer components {
+  .layout-cluster {
+    @apply flex flex-wrap items-center gap-3;
+  }
+
+  .layout-cluster-between {
+    @apply flex flex-wrap items-center justify-between gap-4;
+  }
+
+  .layout-cluster-end {
+    @apply flex flex-wrap items-center justify-end gap-3;
+  }
+}

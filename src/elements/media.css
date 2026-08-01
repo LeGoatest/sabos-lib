@@ -1,0 +1,22 @@
+@layer components {
+  .element-media {
+    @apply overflow-hidden rounded-card bg-surface-muted;
+  }
+
+  .element-media img,
+  .element-media video {
+    @apply size-full object-cover;
+  }
+
+  .element-figure {
+    @apply grid gap-3;
+  }
+
+  .element-caption {
+    @apply text-sm leading-5 text-muted;
+  }
+
+  .element-avatar {
+    @apply size-12 shrink-0 rounded-full object-cover;
+  }
+}

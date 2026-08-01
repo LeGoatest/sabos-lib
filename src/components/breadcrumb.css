@@ -1,0 +1,26 @@
+@layer components {
+  .breadcrumb {
+    @apply text-sm text-muted;
+  }
+
+  .breadcrumb-list {
+    @apply m-0 flex flex-wrap items-center gap-x-2 gap-y-1 list-none p-0;
+  }
+
+  .breadcrumb-item {
+    @apply inline-flex items-center gap-2;
+  }
+
+  .breadcrumb-item:not(:last-child)::after {
+    content: "/";
+    @apply text-border;
+  }
+
+  .breadcrumb-link {
+    @apply rounded-sm font-medium text-muted no-underline hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+  }
+
+  .breadcrumb-current {
+    @apply font-semibold text-text;
+  }
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTMX semantic layer example</title>
+  <link rel="stylesheet" href="./output.css">
+  <script src="https://unpkg.com/htmx.org@2.0.8" defer></script>
+</head>
+<body>
+  <main class="layout-container layout-stack section-spacing" id="main-content">
+    <header class="layout-stack util-content-reading">
+      <p class="element-eyebrow">Progressively enhanced example</p>
+      <h1>Available services</h1>
+      <p>The links and form remain meaningful without HTMX. HTMX replaces only the service fragment.</p>
+    </header>
+
+    <nav class="layout-cluster" aria-label="Service filters">
+      <a class="button button-outline" href="?category=all" hx-get="./fragments/service-list.html" hx-target="#service-results" hx-push-url="true">All services</a>
+      <a class="button button-outline" href="?category=property" hx-get="./fragments/service-list.html?category=property" hx-target="#service-results" hx-push-url="true">Property</a>
+    </nav>
+
+    <section id="service-results" class="layout-stack" aria-live="polite" aria-busy="false">
+      <div class="htmx-indicator is-loading" role="status">
+        <span class="loading-spinner" aria-hidden="true"></span>
+        <span>Loading services</span>
+      </div>
+      <div class="pattern-feature-grid">
+        <article class="card card-body layout-stack">
+          <h2 class="card-title">Exterior cleaning</h2>
+          <p class="card-description">A server-rendered card that can also arrive as an HTMX fragment.</p>
+          <a class="button button-primary" href="/services/exterior-cleaning">View service</a>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

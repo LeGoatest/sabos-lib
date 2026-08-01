@@ -1,0 +1,9 @@
+@layer utilities {
+  .has-error {
+    @apply border-error ring-3 ring-error/20;
+  }
+
+  .is-error {
+    @apply text-error;
+  }
+}

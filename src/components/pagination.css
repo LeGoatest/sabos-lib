@@ -1,0 +1,27 @@
+@layer components {
+  .pagination {
+    @apply flex justify-center;
+  }
+
+  .pagination-list {
+    @apply m-0 flex flex-wrap items-center justify-center gap-1 list-none p-0;
+  }
+
+  .pagination-link,
+  .pagination-current,
+  .pagination-gap {
+    @apply inline-flex min-h-11 min-w-11 items-center justify-center rounded-component px-3 text-sm font-semibold;
+  }
+
+  .pagination-link {
+    @apply border border-border bg-surface text-text no-underline hover:bg-surface-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+  }
+
+  .pagination-current {
+    @apply bg-primary text-on-primary;
+  }
+
+  .pagination-gap {
+    @apply text-muted;
+  }
+}

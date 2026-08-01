@@ -1,0 +1,13 @@
+@layer components {
+  .pattern-media-object {
+    @apply grid items-start gap-4 sm:grid-cols-[auto_minmax(0,1fr)];
+  }
+
+  .pattern-media-object-media {
+    @apply size-16 shrink-0 overflow-hidden rounded-component bg-surface-muted;
+  }
+
+  .pattern-media-object-body {
+    @apply flex min-w-0 flex-col gap-3;
+  }
+}

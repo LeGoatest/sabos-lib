@@ -1,0 +1,13 @@
+@layer components {
+  .layout-stack {
+    @apply flex flex-col gap-6;
+  }
+
+  .layout-stack-tight {
+    @apply flex flex-col gap-3;
+  }
+
+  .layout-stack-loose {
+    @apply flex flex-col gap-10;
+  }
+}

@@ -1,0 +1,13 @@
+@layer utilities {
+  .util-aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  .util-aspect-photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .util-aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+}

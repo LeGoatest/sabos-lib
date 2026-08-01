@@ -1,0 +1,48 @@
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    color: var(--semantic-color-text);
+    font-family: var(--semantic-font-display);
+    font-weight: 700;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 5vw, 4.5rem);
+    letter-spacing: -0.035em;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3.5vw, 3rem);
+    letter-spacing: -0.025em;
+  }
+
+  h3 {
+    font-size: clamp(1.375rem, 2.5vw, 2rem);
+  }
+
+  p,
+  ul,
+  ol,
+  blockquote,
+  figure {
+    margin-block: 0;
+  }
+
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--semantic-font-mono);
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--semantic-color-primary) 25%, transparent);
+  }
+}

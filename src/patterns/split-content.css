@@ -1,0 +1,17 @@
+@layer components {
+  .pattern-split-content {
+    @apply grid items-center gap-10 lg:grid-cols-2 lg:gap-16;
+  }
+
+  .pattern-split-content-reverse > :first-child {
+    @apply lg:order-2;
+  }
+
+  .pattern-split-content-reverse > :last-child {
+    @apply lg:order-1;
+  }
+
+  .pattern-split-content-media {
+    @apply overflow-hidden rounded-card bg-surface-muted shadow-component;
+  }
+}
