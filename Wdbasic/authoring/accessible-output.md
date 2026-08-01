@@ -3,13 +3,16 @@
 > **Authority:** Binding generated-content and export contract  
 > **ATAG dependency:** [`atag-2.0.md`](atag-2.0.md)  
 > **Component dependency:** [`../components/component-contracts.md`](../components/component-contracts.md)  
+> **Form dependency:** [`../forms/README.md`](../forms/README.md)  
+> **Form validation dependency:** [`../forms/validation.md`](../forms/validation.md)  
+> **Form security dependency:** [`../forms/security.md`](../forms/security.md)  
 > **Non-web dependency:** [`../non-web-accessibility.md`](../non-web-accessibility.md)
 
-This contract governs HTML, fragments, templates, emails, exports, native-shell content, and other output produced or transformed by an authoring tool.
+This contract governs HTML, fragments, templates, emails, exports, native-shell content, forms, and other output produced or transformed by an authoring tool.
 
 ## 1. Output principle
 
-Generated output must be accessible by default and must not depend on post-publication repair for predictable failures.
+Generated output must be accessible and secure by default and must not depend on post-publication repair for predictable failures.
 
 The output contract applies to:
 
@@ -17,7 +20,7 @@ The output contract applies to:
 - HTMX fragments.
 - Reusable sections and widgets.
 - Custom-element markup and configuration.
-- Form markup.
+- Form markup, field schemas, and processing configuration.
 - Navigation.
 - Structured data tables.
 - Media embeds.
@@ -26,7 +29,7 @@ The output contract applies to:
 - PDF, office-document, EPUB, and other non-web formats.
 - Content embedded inside native or hybrid application shells.
 
-Each output type must identify its applicable accessibility baseline. Web WCAG evidence cannot silently stand in for a native-shell or document-format evaluation.
+Each output type must identify its applicable accessibility, validation, security, and format baseline. Web WCAG evidence cannot silently stand in for a native-shell, form-processing, or document-format evaluation.
 
 ## 2. Output inventory and ownership
 
@@ -38,13 +41,15 @@ Maintain an inventory containing:
 - Applicable standards and versions.
 - Source semantics available.
 - Accessibility metadata supported.
+- Form-processing destination and owner where applicable.
+- Field schema, validation, authorization, CSRF, request-limit, upload, retention, and audit policy where applicable.
 - Sanitizer or transformation policy.
-- Validation commands.
+- Validation and security commands.
 - Readers, clients, browsers, or platforms tested.
 - Known limitations.
 - Owner and review condition.
 
-Uninventoried output must not be included in a broad accessibility claim.
+Uninventoried output must not be included in a broad accessibility or security claim.
 
 ## 3. Complete HTML document output
 
@@ -72,10 +77,11 @@ It must preserve:
 - Current, selected, expanded, invalid, busy, and disabled state.
 - Language and direction.
 - Focus and announcement expectations.
-- Correct empty, validation, conflict, error, and success output.
+- Correct empty, validation, conflict, rate-limit, error, and success output.
 - Direct-load or full-response fallback when required.
+- Equivalent authorization, CSRF, field allowlist, validation, and security behavior when the fragment submits data.
 
-A fragment must not depend on an undocumented script to repair missing semantics after insertion.
+A fragment must not depend on an undocumented script to repair missing semantics or security state after insertion.
 
 ## 5. Component and custom-element output
 
@@ -93,8 +99,10 @@ Generated components must:
 When output includes custom elements or shadow DOM:
 
 - The generated host, internals, slots, labels, descriptions, focus behavior, and form participation must follow [`../components/component-contracts.md`](../components/component-contracts.md).
+- Form-associated custom elements also follow [`../forms/validation.md`](../forms/validation.md) and [`../forms/security.md`](../forms/security.md).
 - Accessibility must be verified in the computed accessibility tree, not inferred from source markup alone.
 - A functional light-DOM or native fallback must exist when the selected platform or browser baseline cannot expose the custom control reliably.
+- Client-defined form values remain untrusted and are validated and authorized by the server.
 
 Do not generate a visual component without the behavior required by its semantic role.
 
@@ -124,22 +132,49 @@ AI-generated alternative text remains a suggestion until reviewed against the im
 - New-window behavior is deliberate and communicated when material.
 - Download links identify file type and size when that information materially affects the user.
 - Generated actions do not rely on color, icon shape, hover, or pointer precision alone.
+- State-changing actions do not use `GET`.
+- Redirect, callback, and destination values are server-controlled or strictly allowlisted.
 
-## 8. Forms and human verification
+## 8. Generated forms and human verification
+
+Generated forms must comply with:
+
+- [`../forms/README.md`](../forms/README.md)
+- [`../forms/validation.md`](../forms/validation.md)
+- [`../forms/security.md`](../forms/security.md)
 
 Generated forms must include:
 
+- Explicit purpose, owner, action, and HTTP method.
 - Persistent labels.
-- Correct control type.
-- Name and submitted value.
+- Correct native control type.
+- Stable field name and submitted representation.
+- Explicit required and optional status.
 - Autocomplete when appropriate.
 - Instructions and constraints.
-- Required status.
-- Error association.
-- Error summary for complex forms.
-- Server validation and preserved input.
-- Success and recovery states.
+- Explicit field allowlist and unexpected-field policy.
+- Server-authoritative syntactic, semantic, cross-field, state, and business validation.
+- Error association and error summary for multi-field forms.
+- Preserved non-sensitive input.
+- Success, pending, conflict, rate-limit, and recovery states.
 - Review or reversibility for consequential submissions.
+- Authentication, object-level authorization, tenant, and ownership policy.
+- CSRF decision and implementation.
+- Request, field, nesting, file, processing, and rate limits.
+- Duplicate-submission, replay, concurrency, and idempotency policy.
+- Output encoding and rich-content sanitization policy where applicable.
+- Sensitive-data classification, retention, redisplay, logging, and audit policy.
+- Secure upload handling where files are accepted.
+
+Authoring security rules:
+
+- Content authors may select only approved processing handlers, field types, recipients, integrations, and storage policies.
+- Privileged fields such as role, owner, tenant, price, approval, status, path, audit, or permission values are not author-configurable without explicit authorization.
+- Generated handlers use explicit mapping rather than unrestricted object binding.
+- Generated output never concatenates form input into queries, commands, templates, headers, paths, or redirects.
+- Preview submissions are isolated from production effects.
+- Draft and test forms cannot send production notifications, charges, invitations, or irreversible actions without an explicit governed mode.
+- Schema, handler, and security-policy changes are versioned and reviewable.
 
 CAPTCHA, proof-of-humanity, anti-bot, or risk challenges must:
 
@@ -148,8 +183,10 @@ CAPTCHA, proof-of-humanity, anti-bot, or risk challenges must:
 - Preserve entered form data after challenge failure.
 - Avoid blocking password managers, paste, assistive technology, or legitimate privacy tools without a documented and tested reason.
 - Fail safely when the third-party provider is unavailable.
+- Disclose and govern data sent to the provider.
+- Remain an escalation control rather than the sole validation or authorization mechanism.
 
-An authoring tool must not generate an inaccessible challenge as the only submission path.
+An authoring tool must not generate an inaccessible or insecure challenge as the only submission path.
 
 ## 9. Tables and structured data
 
@@ -165,7 +202,7 @@ Generated data tables must preserve:
 
 A visual card transformation must not destroy tabular relationships.
 
-Complex grids require documented keyboard, focus, selection, editing, and accessibility-tree behavior.
+Complex grids require documented keyboard, focus, selection, editing, validation, authorization, and accessibility-tree behavior.
 
 ## 10. Media
 
@@ -187,6 +224,8 @@ Generated output must preserve:
 - Unicode content.
 - Logical layout and reading order.
 
+Generated validation separates canonical values from localized display and input assistance. A translated form must not silently change accepted server values, enum identifiers, decimal meaning, date meaning, or security policy.
+
 See [`../internationalization.md`](../internationalization.md).
 
 ## 12. Cognitive clarity
@@ -201,6 +240,8 @@ Templates must not generate:
 - Important consequences hidden only in tooltips.
 - Multi-step processes without progress and recovery context.
 - Repeated requests for information already available in the process without a valid reason.
+- Validation that appears before a user has had a reasonable opportunity to complete the field.
+- Security challenges with no understandable reason or recovery path.
 
 ## 13. Sanitization and preservation
 
@@ -219,6 +260,8 @@ The sanitizer policy must deliberately handle:
 
 Unsafe ARIA is not preserved merely because it is accessibility-related.
 
+Rich form content is sanitized with an explicit parser-based policy and encoded for its later output context. Validation alone never marks content safe.
+
 When sanitization removes or rewrites accessibility metadata, the tool must report that transformation or provide a review path.
 
 ## 14. Import and migration
@@ -232,9 +275,11 @@ When importing existing content:
 - Provide a review queue for uncertain repairs.
 - Preserve source language and direction.
 - Preserve caption, transcript, alternative-text, and table metadata.
-- Record which original accessibility claims no longer apply after transformation.
+- Preserve form labels and field meaning only when the destination processing contract exists.
+- Do not import privileged routes, handlers, recipients, hidden fields, scripts, or security configuration without explicit review.
+- Record which original accessibility and security claims no longer apply after transformation.
 
-Automatic repair must not invent author intent without review.
+Automatic repair must not invent author intent or security policy without review.
 
 ## 15. Email output
 
@@ -251,6 +296,8 @@ At minimum:
 - Use table markup for layout only when necessary and prevent layout tables from being announced as data tables.
 - Ensure actions remain understandable when images, CSS, or scripts are unavailable.
 - Provide a browser or plain-text alternative when required by the product.
+- Avoid placing secrets, passwords, full sensitive form content, or long-lived bearer tokens in messages.
+- Use bounded, single-purpose, expiring action links for verification or recovery workflows.
 
 Do not claim web-page WCAG conformance for an email solely because its source template passed a browser-based checker.
 
@@ -284,14 +331,14 @@ The generator must preserve, where supported:
 - Table headers and relationships.
 - Alternative text.
 - Link purpose.
-- Form labels and instructions.
+- Form labels, instructions, tab order, validation, and submission behavior where interactive forms are supported.
 - Bookmarks or navigation for long documents.
 - Color and contrast.
 - Metadata required by the selected format.
 
 An image-only PDF or flattened visual export is prohibited when an accessible structured document is expected.
 
-When a format cannot preserve required semantics, the tool must warn the author and provide another accessible format or equivalent.
+When a format cannot preserve required semantics or secure interactive behavior, the tool must warn the author and provide another accessible format or equivalent.
 
 ## 18. Native and hybrid output
 
@@ -305,6 +352,7 @@ Verify:
 - Platform scaling and accessibility settings.
 - Permission, install, offline, and update flows.
 - Embedded web-view accessibility-tree behavior.
+- Secure request transport, authentication, authorization, replay protection, local draft storage, and error recovery for native or hybrid forms.
 
 ## 19. Output verification
 
@@ -314,8 +362,13 @@ Test generated output for:
 - WCAG coverage.
 - Repeated component rendering.
 - Custom-element and shadow-DOM behavior.
+- Generated form field allowlists, validation, authorization, CSRF, request limits, output encoding, and error behavior.
+- Client-validation bypass and unexpected fields.
+- Duplicate submission, replay, concurrency, and idempotency.
+- Upload rejection, quarantine, processing, serving, and cleanup.
+- Sensitive-value exposure in URLs, responses, analytics, logs, and exports.
 - No-JavaScript baseline where applicable.
-- HTMX replacement.
+- HTMX replacement and full-page equivalence.
 - Localization and RTL.
 - Cognitive clarity.
 - Media equivalents.
@@ -335,8 +388,15 @@ accessible_output:
   inventory: <path>
   templates: <path>
   components: <path>
+  forms: <path-or-none>
+  form_schema_source: <path-or-none>
+  form_processing_handlers: <path-or-none>
+  form_validation_policy: Wdbasic/forms/validation.md
+  form_security_policy: Wdbasic/forms/security.md
   sanitizer_policy: <path>
   generated_markup_tests: <path-or-command>
+  generated_form_tests: <path-or-command>
+  security_tests: <path-or-command>
   act_ruleset: <path-or-none>
   accessibility_checks: <path-or-command>
   import_mapping: <path>
