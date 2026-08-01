@@ -3,9 +3,10 @@
 > **Authority:** Binding interface security and privacy contract  
 > **Core entry point:** [`README.md`](README.md)  
 > **Architecture dependency:** [`architecture_rules.md`](architecture_rules.md)  
-> **Accessibility dependency:** [`tokens/accessibility.md`](tokens/accessibility.md)
+> **Accessibility dependency:** [`tokens/accessibility.md`](tokens/accessibility.md)  
+> **Form security dependency:** [`forms/security.md`](forms/security.md)
 
-This contract supplements server-side application security with browser policy, privacy, consent, telemetry, third-party, device, anti-abuse, and user-agency requirements.
+This contract supplements server-side application security with browser policy, privacy, consent, telemetry, third-party, device, anti-abuse, form, and user-agency requirements.
 
 ## 1. Verification baseline
 
@@ -14,6 +15,8 @@ Each adopting application selects and pins a testable application-security basel
 The OWASP Top 10 may inform risk awareness but does not replace verification requirements.
 
 Security controls remain within accessibility and cognitive-accessibility scope. A control that prevents legitimate disabled users from authenticating, recovering, or submitting is not acceptable merely because it reduces abuse.
+
+Form-specific security requirements are binding through [`forms/security.md`](forms/security.md).
 
 ## 2. Browser security policy
 
@@ -28,10 +31,11 @@ Document and validate as applicable:
 - Cross-origin isolation or resource policy where required.
 - Secure, HttpOnly, and SameSite cookie attributes.
 - Allowed origins for APIs, forms, and integrations.
+- Fetch Metadata and origin-verification policy for state-changing requests where used.
 
-Content Security Policy is defense in depth. It does not replace output encoding, validation, or authorization.
+Content Security Policy is defense in depth. It does not replace output encoding, validation, authorization, or CSRF protection.
 
-Security policy must not silently block required captions, fonts, assistive scripts, authentication callbacks, or accessible fallbacks. Required resources must be explicitly governed rather than broadly exempted.
+Security policy must not silently block required captions, fonts, assistive scripts, authentication callbacks, validation feedback, or accessible fallbacks. Required resources must be explicitly governed rather than broadly exempted.
 
 ## 3. Script and resource governance
 
@@ -42,7 +46,7 @@ Maintain an inventory of:
 - Stylesheets and fonts.
 - Frames and embeds.
 - Analytics and advertising tools.
-- Chat, CAPTCHA, map, video, payment, identity, and scheduling providers.
+- Chat, CAPTCHA, map, video, payment, identity, validation, upload, address, and scheduling providers.
 
 For each resource record:
 
@@ -58,7 +62,7 @@ For each resource record:
 
 Do not load a third-party resource merely because a template includes it.
 
-A third-party integration does not inherit trust merely because it is widely used.
+A third-party integration does not inherit trust merely because it is widely used. A provider response does not replace server-side authorization, business validation, or persistence constraints.
 
 ## 4. Secrets and configuration
 
@@ -68,6 +72,7 @@ A third-party integration does not inherit trust merely because it is widely use
 - Key rotation and revocation must be possible.
 - Build-time substitution must not leak server credentials.
 - Example and test configuration must not contain usable production credentials.
+- CSRF, recovery, invitation, verification, idempotency, and other security tokens must not appear in URLs, analytics, or ordinary logs.
 
 ## 5. Privacy principles
 
@@ -86,7 +91,7 @@ Document:
 
 Do not collect optional information by default merely because storage is available.
 
-Accessibility preferences, assistive-technology information, barrier reports, and accommodation requests may reveal sensitive information and require deliberate access, retention, and disclosure rules.
+Accessibility preferences, assistive-technology information, barrier reports, accommodation requests, form drafts, uploaded metadata, and challenge failures may reveal sensitive information and require deliberate access, retention, and disclosure rules.
 
 ## 6. Consent and user agency
 
@@ -100,6 +105,7 @@ Consent interfaces must:
 - Provide a withdrawal mechanism.
 - Avoid deceptive color, placement, urgency, obstruction, or repeated prompting.
 - Remain keyboard, screen-reader, zoom, and speech-input accessible.
+- Preserve the user’s other valid form input when a consent choice changes.
 
 Dark patterns are prohibited.
 
@@ -114,8 +120,9 @@ Telemetry requires an inventory and purpose.
 - Separate operational diagnostics from marketing analytics.
 - Avoid recording sensitive field values in analytics, logs, replay, or error tools.
 - Do not infer disability, health status, or assistive-technology use for marketing or eligibility decisions.
+- Do not capture passwords, one-time codes, payment data, CSRF tokens, or unredacted private messages through session replay or form analytics.
 
-Session-replay tooling requires explicit privacy, security, and accessibility review.
+Session-replay tooling requires explicit privacy, security, accessibility, and form-field exclusion review.
 
 ## 8. Permissions and device APIs
 
@@ -128,6 +135,7 @@ Before requesting permission:
 - Avoid requesting permissions unrelated to the current task.
 - Provide a recovery path after denial where possible.
 - Ensure the requesting control and explanation are accessible.
+- Preserve other submitted or drafted form information when permission is denied where safe.
 
 Permission denial must not leave the user in an empty, unlabeled, or unrecoverable state.
 
@@ -135,14 +143,28 @@ Native and hybrid permission flows also follow [`non-web-accessibility.md`](non-
 
 ## 9. Forms and sensitive data
 
+All form workflows follow:
+
+- [`forms/README.md`](forms/README.md)
+- [`forms/validation.md`](forms/validation.md)
+- [`forms/security.md`](forms/security.md)
+
+At minimum:
+
+- Use explicit field allowlists and mapping; unrestricted mass assignment is prohibited.
+- Validate syntactic and semantic rules on the server.
+- Authorize the action and resolved object independently of submitted identifiers.
+- Protect cookie-authenticated state changes against CSRF.
+- Use parameterized queries, safe APIs, and context-sensitive output encoding.
 - Mark sensitive fields for appropriate autocomplete behavior.
 - Support password managers and paste unless a documented tested security requirement proves otherwise.
 - Do not put sensitive data in URLs.
 - Do not retain recoverable sensitive values longer than necessary.
-- Prevent accidental duplicate submission.
+- Prevent accidental duplicate submission and material replay.
 - Confirm consequential actions proportionate to risk.
 - Avoid exposing whether a private account or record exists when that creates enumeration risk.
 - Preserve non-sensitive form work after a recoverable security or challenge failure where practical.
+- Keep validation errors, security rejections, authorization failures, conflicts, and rate limits distinct internally.
 
 ## 10. Authentication and recovery
 
@@ -155,14 +177,18 @@ Authentication and recovery must balance security with accessible operation.
 - Avoid inaccessible security questions based on obscure personal memory.
 - Provide an accessible support or escalation method for account recovery.
 - Do not weaken authorization merely to improve interface convenience.
+- Use generic user-safe responses when account enumeration is a risk.
+- Verify session state and authorization again when the form is submitted.
+- Rotate or replace session identifiers after authentication and material privilege changes.
 
 ## 11. CAPTCHA, risk scoring, and bot defense
 
-Prefer layered server-side defenses such as rate limiting, honeypots, timing analysis, request validation, reputation signals, and risk-based escalation over universal interactive challenges.
+Prefer layered server-side defenses such as rate limiting, honeypots, timing analysis, request validation, reputation signals, queue controls, and risk-based escalation over universal interactive challenges.
 
 When a challenge is used:
 
 - Follow the CAPTCHA and human-verification requirements in [`tokens/accessibility.md`](tokens/accessibility.md).
+- Follow the rate-limit and abuse requirements in [`forms/security.md`](forms/security.md).
 - Provide an accessible alternative and recovery path.
 - Preserve entered data after failure or timeout.
 - Provide fallback when the provider is unavailable or blocked.
@@ -175,11 +201,15 @@ An inaccessible challenge must not be the only path to a primary form, account, 
 
 ## 12. Uploads and media
 
-Uploads require validation of authorization, size, type, actual content, filename, storage destination, and later access.
+Uploads follow the complete file controls in [`forms/security.md`](forms/security.md).
 
-Strip or preserve metadata deliberately. Location, device, and identity metadata must not be published accidentally.
+Uploads require validation of authorization, count, size, extension, detected type, actual content, filename, storage destination, processing state, and later access.
+
+Strip or preserve metadata deliberately. Location, device, identity, and document metadata must not be published accidentally.
 
 Scanning and processing failures must produce accessible status and recovery rather than silent rejection.
+
+Uploaded files remain untrusted after extension, MIME, antivirus, or image checks. Parsing and transformation use patched libraries, least privilege, resource limits, and isolation proportionate to risk.
 
 ## 13. Third-party failure and fallback
 
@@ -194,6 +224,8 @@ Document fallback for:
 - Chat.
 - Payments.
 - Identity verification.
+- Address or email verification.
+- Upload scanning and transformation.
 - Analytics.
 - External fonts and icons.
 
@@ -216,6 +248,8 @@ Document:
 - Retention.
 - Access controls.
 
+Security-relevant form events include CSRF failure, authorization denial, protected-field submission, account enumeration attempts, repeated replay, rate limiting, upload quarantine, and consequential state change.
+
 Accessibility barrier reports and challenge failures should be distinguishable from malicious events without storing unnecessary disability information.
 
 ## 15. Adoption record
@@ -230,6 +264,11 @@ security_privacy:
   csp_policy: <path-or-header-test>
   retention_policy: <path>
   consent_required: true | false
+  form_security_policy: Wdbasic/forms/security.md
+  csrf_policy: <path>
+  request_limits: <path>
+  output_encoding_policy: <path>
+  upload_policy: <path-or-none>
   captcha_or_bot_defense: <path-or-none>
   authentication_recovery_review: <path>
   incident_owner: <role>
