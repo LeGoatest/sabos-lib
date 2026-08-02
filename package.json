@@ -27,9 +27,8 @@
   "files": [
     "src",
     "dist",
-    "docs",
+    "TCbasic",
     "README.md",
-    "CHANGELOG.md",
     "LICENSE",
     "postcss.config.mjs"
   ],
