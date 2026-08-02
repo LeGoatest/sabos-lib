@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to the Tailwind CSS semantic layer will be documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project intends to use semantic versioning.
 
@@ -19,6 +19,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ### Changed
 
+- Moved Tailwind-specific documentation into `TCbasic/` and replaced the root README with a neutral repository index.
 - Expanded `src/index.css` from the initial reduced scaffold to the complete ordered layer graph.
 - Updated package exports, scripts, development dependencies, and prepack validation for source and distribution consumers.
-- Expanded the root README with source, distribution, examples, testing, and release guidance.
+- Expanded the TCBasic README with source, distribution, examples, testing, and release guidance.
