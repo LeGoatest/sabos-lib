@@ -2,8 +2,11 @@
 
 ## Development setup
 
+Run package commands from `TCbasic/`:
+
 ```bash
 npm install
+npm test
 npm run build
 npm run build:example
 ```
@@ -12,11 +15,11 @@ npm run build:example
 
 1. Keep the package framework-independent.
 2. Use semantic, reusable class names rather than page-specific names.
-3. Keep raw values in `foundation/tokens.css` and semantic Tailwind mappings in `foundation/theme.css`.
+3. Keep raw values in `src/foundation/tokens.css` and semantic Tailwind mappings in `src/foundation/theme.css`.
 4. Use `@apply` for Tailwind utilities inside semantic classes.
 5. Do not make primary content depend on JavaScript.
 6. Include accessible focus, disabled, error, and loading states.
-7. Update documentation and the changelog when changing the public class API.
+7. Update documentation and `CHANGELOG.md` when changing the public class API.
 
 ## Pull requests
 

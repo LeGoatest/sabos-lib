@@ -1,25 +1,39 @@
 # Tailwind CSS Semantic Layer
 
-This repository contains two related documentation systems plus the reusable Tailwind CSS package implementation.
+This repository contains two independently organized systems.
 
-## Documentation systems
+## TCBasic
 
-- [`TCbasic/`](TCbasic/README.md) — Tailwind CSS v4 semantic-layer architecture, class conventions, customization, migration guidance, component contracts, and the canonical Tailwind pattern.
-- [`Wdbasic/`](Wdbasic/README.md) — framework-independent web design, accessibility, security, validation, compliance, and implementation contracts.
-
-## Package implementation
-
-The installable Tailwind CSS package remains at the repository root:
+[`TCbasic/`](TCbasic/README.md) is the complete Tailwind CSS v4 semantic-layer package and documentation root.
 
 ```text
-src/       semantic CSS source
-dist/      compiled distributions
-examples/  HTML, Laravel Blade, and HTMX examples
-tests/     structural and package-export tests
+TCbasic/
+├── src/
+├── dist/
+├── tests/
+├── examples/
+├── README.md
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── TAILWIND_PATTERN.md
+├── architecture.md
+├── components.md
+├── customization.md
+├── migration-guide.md
+├── naming-conventions.md
+├── .editorconfig
+├── .gitignore
+├── LICENSE
+├── package.json
+└── postcss.config.mjs
 ```
 
-For installation, usage, customization, development, and release instructions, see [`TCbasic/README.md`](TCbasic/README.md).
+Run package commands from `TCbasic/`.
 
-## License
+## WDBASIC
+
+[`Wdbasic/`](Wdbasic/README.md) is the framework-independent web design, accessibility, security, validation, compliance, and implementation-contract system.
+
+## Repository license
 
 GPL-3.0-only. See [`LICENSE`](LICENSE).
