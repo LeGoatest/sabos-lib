@@ -27,8 +27,16 @@
   "files": [
     "src",
     "dist",
-    "TCbasic",
+    "examples",
     "README.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "TAILWIND_PATTERN.md",
+    "architecture.md",
+    "components.md",
+    "customization.md",
+    "migration-guide.md",
+    "naming-conventions.md",
     "LICENSE",
     "postcss.config.mjs"
   ],

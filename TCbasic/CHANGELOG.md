@@ -19,6 +19,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ### Changed
 
+- Moved the complete Tailwind package implementation and configuration into `TCbasic/`, making it the package root.
 - Moved Tailwind-specific documentation into `TCbasic/` and replaced the root README with a neutral repository index.
 - Expanded `src/index.css` from the initial reduced scaffold to the complete ordered layer graph.
 - Updated package exports, scripts, development dependencies, and prepack validation for source and distribution consumers.

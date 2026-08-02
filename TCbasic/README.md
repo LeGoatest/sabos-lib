@@ -10,6 +10,18 @@ A reusable Tailwind CSS v4 architecture for teams that prefer short, meaningful 
 - Preserve Tailwind's responsive, state, and accessibility utilities.
 - Remain framework-independent and compatible with server-rendered HTML, Laravel Blade, and HTMX.
 
+## Package structure
+
+```text
+TCbasic/
+├── src/          semantic CSS source
+├── dist/         compiled distributions
+├── tests/        structural and package-export tests
+├── examples/     HTML, Laravel Blade, and HTMX examples
+├── package.json
+└── postcss.config.mjs
+```
+
 ## Installation
 
 ```bash
@@ -51,7 +63,7 @@ npx @tailwindcss/cli -i ./input.css -o ./public/app.css --watch
 ## Architecture
 
 ```text
-../src/
+src/
 ├── foundation/  tokens, theme mapping, reset, typography, accessibility
 ├── elements/    semantic element treatments
 ├── layout/      reusable spatial primitives
@@ -61,7 +73,7 @@ npx @tailwindcss/cli -i ./input.css -o ./public/app.css --watch
 └── utilities/   intentionally limited escape hatches
 ```
 
-The import graph is defined in [`../src/index.css`](../src/index.css). Raw values live in [`../src/foundation/tokens.css`](../src/foundation/tokens.css); [`../src/foundation/theme.css`](../src/foundation/theme.css) maps those values into Tailwind theme namespaces.
+The import graph is defined in [`src/index.css`](src/index.css). Raw values live in [`src/foundation/tokens.css`](src/foundation/tokens.css); [`src/foundation/theme.css`](src/foundation/theme.css) maps those values into Tailwind theme namespaces.
 
 ## Customization
 
@@ -92,9 +104,9 @@ See [`customization.md`](customization.md).
 
 ## Examples
 
-- [`../examples/basic-html/`](../examples/basic-html/)
-- [`../examples/laravel-blade/`](../examples/laravel-blade/)
-- [`../examples/htmx/`](../examples/htmx/)
+- [`examples/basic-html/`](examples/basic-html/)
+- [`examples/laravel-blade/`](examples/laravel-blade/)
+- [`examples/htmx/`](examples/htmx/)
 
 ## Documentation
 
@@ -107,11 +119,11 @@ See [`customization.md`](customization.md).
 - [`CHANGELOG.md`](CHANGELOG.md)
 - [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
-WDBASIC remains a separate standards and implementation-contract layer under [`../Wdbasic/`](../Wdbasic/); the core package does not require WDBASIC-specific class names.
+WDBASIC remains a separate standards and implementation-contract layer under [`../Wdbasic/`](../Wdbasic/); the package does not require WDBASIC-specific class names.
 
 ## Development
 
-Run these commands from the repository root:
+Run these commands from `TCbasic/`:
 
 ```bash
 npm install
@@ -120,12 +132,12 @@ npm run build
 npm run build:example
 ```
 
-`npm run build` writes the readable and minified distributions under [`../dist/`](../dist/). The test suite verifies imports, package exports, naming boundaries, and committed browser CSS.
+`npm run build` writes the readable and minified distributions under [`dist/`](dist/). The test suite verifies imports, package exports, naming boundaries, and committed browser CSS.
 
 ## Releases
 
-A semantic version tag such as `v0.1.0` triggers the release workflow. The tag must match [`../package.json`](../package.json). The workflow tests the package, rebuilds `dist/`, and attaches the source archive and both CSS distributions to the GitHub release.
+A semantic version tag such as `v0.1.0` triggers the repository release workflow. The tag must match [`package.json`](package.json). The workflow runs from `TCbasic/`, rebuilds `dist/`, and attaches the package archive and both CSS distributions to the GitHub release.
 
 ## License
 
-GPL-3.0-only. See [`../LICENSE`](../LICENSE).
+GPL-3.0-only. See [`LICENSE`](LICENSE).
