@@ -1,6 +1,10 @@
-# Component catalog
+# Component Catalog
 
-Every public component has a base class, optional variants, supported states, and an HTML contract.
+> **System index:** [`components/README.md`](components/README.md)  
+> **Contract framework:** [`components/component-contracts.md`](components/component-contracts.md)  
+> **Accessibility boundary:** [`components/accessibility.md`](components/accessibility.md)
+
+Every public component has a base class, optional variants, supported states, an HTML contract, token dependencies, and versioning status.
 
 ## Buttons
 
@@ -96,3 +100,9 @@ Patterns define a composition, not page ownership. Content order must remain log
 ## State classes
 
 State classes include `.is-loading`, `.is-disabled`, `.is-empty`, `.has-error`, `.is-error`, and `.is-success`. Prefer native attributes when available; state classes supplement rather than replace `disabled`, `aria-busy`, `aria-invalid`, and semantic status messages.
+
+See [`components/variants-and-states.md`](components/variants-and-states.md).
+
+## Stability rule
+
+A class listed here is part of the documented package API. Removal, renaming, changed required anatomy, or changed semantic responsibility requires versioning and migration analysis.
