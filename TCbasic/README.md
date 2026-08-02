@@ -1,28 +1,118 @@
 # TCBasic: Tailwind CSS Semantic Layer
 
-A reusable Tailwind CSS v4 architecture for teams that prefer short, meaningful HTML classes while keeping Tailwind utilities organized in CSS with `@theme`, `@layer`, and `@apply`.
+> **Status:** Active package and governance system  
+> **Tailwind baseline:** v4.x  
+> **Package root:** `TCbasic/`
 
-## Goals
+TCBasic is a reusable Tailwind CSS v4 architecture for teams that prefer short, meaningful HTML classes while keeping utility composition, tokens, responsive behavior, states, and component styling in CSS.
 
-- Keep utility-heavy styling out of templates.
-- Expose stable semantic classes such as `.button`, `.card`, and `.form-input`.
-- Separate raw design tokens from semantic theme roles.
-- Preserve Tailwind's responsive, state, and accessibility utilities.
-- Remain framework-independent and compatible with server-rendered HTML, Laravel Blade, and HTMX.
+## 1. Core model
 
-## Package structure
+```text
+raw semantic variables
+        ↓
+Tailwind theme variables
+        ↓
+Tailwind utilities
+        ↓
+semantic classes and variants
+        ↓
+readable templates
+```
+
+Templates name intent:
+
+```html
+<a class="button button-primary" href="/estimate">Request an estimate</a>
+```
+
+CSS owns reusable appearance:
+
+```css
+@layer components {
+  .button-primary {
+    @apply bg-primary text-on-primary hover:bg-primary-hover;
+  }
+}
+```
+
+## 2. Authority and reading order
+
+Apply TCBasic documents in this order:
+
+1. [`architecture_rules.md`](architecture_rules.md)
+2. This README
+3. [`STANDARDS.md`](STANDARDS.md)
+4. [`AGENTS.md`](AGENTS.md) for automated changes
+5. Applicable build, token, component, integration, and compliance contracts
+6. Active adoption profile
+7. Package source, examples, and tests
+8. Explicit reviewed exceptions
+
+## 3. Package and document map
 
 ```text
 TCbasic/
-├── src/          semantic CSS source
-├── dist/         compiled distributions
-├── tests/        structural and package-export tests
-├── examples/     HTML, Laravel Blade, and HTMX examples
+├── README.md
+├── AGENTS.md
+├── STANDARDS.md
+├── architecture_rules.md
+├── TAILWIND_PATTERN.md
+├── architecture.md
+├── naming-conventions.md
+├── customization.md
+├── migration-guide.md
+├── components.md
+├── build/
+│   ├── README.md
+│   ├── source-detection.md
+│   ├── tooling.md
+│   └── package-and-release.md
+├── tokens/
+│   ├── README.md
+│   ├── theme-variables.md
+│   ├── semantic-tokens.md
+│   └── responsive-and-containers.md
+├── components/
+│   ├── README.md
+│   ├── component-contracts.md
+│   ├── variants-and-states.md
+│   └── accessibility.md
+├── integrations/
+│   ├── README.md
+│   ├── server-rendered.md
+│   └── component-frameworks.md
+├── compliance/
+│   ├── README.md
+│   ├── browser-and-build-matrix.md
+│   ├── migration-checklist.md
+│   └── release-checklist.md
+├── profiles/
+│   ├── README.md
+│   ├── semantic-application.md
+│   └── legacy-migration.md
+├── glossaries/
+│   ├── README.md
+│   └── tailwind-css.md
+├── src/
+├── dist/
+├── tests/
+├── examples/
 ├── package.json
 └── postcss.config.mjs
 ```
 
-## Installation
+## 4. Goals
+
+- Keep repeated utility-heavy styling out of templates.
+- Expose stable semantic classes such as `.button`, `.card`, and `.form-input`.
+- Separate raw consumer tokens from Tailwind-facing theme variables.
+- Preserve Tailwind responsive, state, data, ARIA, and preference variants.
+- Remain framework-independent at the package core.
+- Support server-rendered HTML, Laravel Blade, HTMX, and component frameworks through explicit integration contracts.
+- Keep build, browser, package, and release claims evidence-based.
+
+## 5. Installation
 
 ```bash
 npm install tailwindcss-semantic-layer tailwindcss @tailwindcss/cli
@@ -40,27 +130,44 @@ Use the prebuilt distribution when no Tailwind compilation is required:
 @import "tailwindcss-semantic-layer/dist";
 ```
 
-Build a project stylesheet with the Tailwind CLI:
+## 6. Build adapters
 
-```bash
-npx @tailwindcss/cli -i ./input.css -o ./public/app.css --watch
+Core supported adapters:
+
+- Tailwind CLI.
+- PostCSS with `@tailwindcss/postcss`.
+
+Optional adapters:
+
+- Vite with `@tailwindcss/vite` in the consuming project.
+- Official standalone CLI.
+
+TCBasic does not require Vite and does not support Sass, Less, or Stylus as part of the Tailwind v4 pipeline.
+
+See [`build/tooling.md`](build/tooling.md).
+
+## 7. Source detection
+
+Tailwind scans files as plain text. Every required class candidate must appear as a complete static string.
+
+Allowed:
+
+```js
+const variants = {
+  primary: "button button-primary",
+  secondary: "button button-secondary",
+};
 ```
 
-## Usage
+Prohibited:
 
-```html
-<a class="button button-primary" href="/estimate">Request an estimate</a>
-
-<article class="card card-interactive">
-  <div class="card-body layout-stack">
-    <span class="badge badge-info">Featured</span>
-    <h2 class="card-title">Semantic components</h2>
-    <p class="card-description">Templates stay readable while Tailwind remains the implementation layer.</p>
-  </div>
-</article>
+```js
+const className = `bg-${color}-500`;
 ```
 
-## Architecture
+See [`build/source-detection.md`](build/source-detection.md).
+
+## 8. Source architecture
 
 ```text
 src/
@@ -73,24 +180,27 @@ src/
 └── utilities/   intentionally limited escape hatches
 ```
 
-The import graph is defined in [`src/index.css`](src/index.css). Raw values live in [`src/foundation/tokens.css`](src/foundation/tokens.css); [`src/foundation/theme.css`](src/foundation/theme.css) maps those values into Tailwind theme namespaces.
+`src/index.css` is the canonical import graph. `dist/` is generated output and is never the editing source.
 
-## Customization
+## 9. Token architecture
+
+Raw values use `--semantic-*` variables. Tailwind mappings use official theme namespaces.
 
 ```css
-@import "tailwindcss-semantic-layer/source";
-
 :root {
-  --semantic-color-primary: oklch(45% 0.17 255);
-  --semantic-color-primary-hover: oklch(38% 0.16 255);
-  --semantic-color-accent: oklch(78% 0.16 75);
+  --semantic-color-primary: oklch(0.45 0.17 255);
   --semantic-radius-card: 1rem;
+}
+
+@theme inline {
+  --color-primary: var(--semantic-color-primary);
+  --radius-card: var(--semantic-radius-card);
 }
 ```
 
-See [`customization.md`](customization.md).
+See [`tokens/README.md`](tokens/README.md).
 
-## Class model
+## 10. Class model
 
 | Category | Prefix or form | Examples |
 | --- | --- | --- |
@@ -100,44 +210,61 @@ See [`customization.md`](customization.md).
 | Component variant | noun + modifier | `.button-primary`, `.card-interactive` |
 | Composition pattern | `pattern-` | `.pattern-hero`, `.pattern-feature-grid` |
 | State | `is-` / `has-` | `.is-loading`, `.is-disabled`, `.has-error` |
-| Limited utility | `util-` | `.util-content-narrow`, `.util-text-balance` |
+| Limited utility | `util-` or `@utility` | `.util-content-narrow`, `.util-text-balance` |
 
-## Examples
+See [`naming-conventions.md`](naming-conventions.md) and [`components/README.md`](components/README.md).
+
+## 11. Accessibility boundary
+
+TCBasic provides styling hooks for visible focus, states, responsive behavior, reduced motion, and forced colors. The consuming application remains responsible for correct native HTML, state truth, keyboard interaction, focus management, announcements, validation, and end-to-end testing.
+
+See [`components/accessibility.md`](components/accessibility.md).
+
+## 12. Browser baseline
+
+TCBasic inherits the Tailwind CSS v4 baseline:
+
+- Chrome 111+
+- Safari 16.4+
+- Firefox 128+
+
+See [`STANDARDS.md`](STANDARDS.md) and [`compliance/browser-and-build-matrix.md`](compliance/browser-and-build-matrix.md).
+
+## 13. Adoption profiles
+
+- [`profiles/semantic-application.md`](profiles/semantic-application.md) — default for new applications.
+- [`profiles/legacy-migration.md`](profiles/legacy-migration.md) — temporary controlled migration profile.
+
+## 14. Examples
 
 - [`examples/basic-html/`](examples/basic-html/)
 - [`examples/laravel-blade/`](examples/laravel-blade/)
 - [`examples/htmx/`](examples/htmx/)
 
-## Documentation
+## 15. Development
 
-- [`TAILWIND_PATTERN.md`](TAILWIND_PATTERN.md)
-- [`architecture.md`](architecture.md)
-- [`naming-conventions.md`](naming-conventions.md)
-- [`customization.md`](customization.md)
-- [`migration-guide.md`](migration-guide.md)
-- [`components.md`](components.md)
-- [`CHANGELOG.md`](CHANGELOG.md)
-- [`CONTRIBUTING.md`](CONTRIBUTING.md)
-
-WDBASIC remains a separate standards and implementation-contract layer under [`../Wdbasic/`](../Wdbasic/); the package does not require WDBASIC-specific class names.
-
-## Development
-
-Run these commands from `TCbasic/`:
+Run from `TCbasic/`:
 
 ```bash
 npm install
 npm test
 npm run build
 npm run build:example
+npm pack --dry-run
 ```
 
-`npm run build` writes the readable and minified distributions under [`dist/`](dist/). The test suite verifies imports, package exports, naming boundaries, and committed browser CSS.
+The test suite verifies imports, exports, naming boundaries, generated CSS, required governance documents, and relative Markdown links.
 
-## Releases
+## 16. Releases
 
-A semantic version tag such as `v0.1.0` triggers the repository release workflow. The tag must match [`package.json`](package.json). The workflow runs from `TCbasic/`, rebuilds `dist/`, and attaches the package archive and both CSS distributions to the GitHub release.
+A semantic version tag such as `v0.2.0` must match `package.json`. The release workflow tests the package, rebuilds `dist/`, verifies the package subtree, and attaches readable CSS, minified CSS, and the TCBasic source archive.
 
-## License
+See [`build/package-and-release.md`](build/package-and-release.md) and [`compliance/release-checklist.md`](compliance/release-checklist.md).
+
+## 17. Relationship to WDBASIC
+
+[`../Wdbasic/`](../Wdbasic/) is a separate framework-independent standards and implementation-contract system. TCBasic supplies a Tailwind-specific styling architecture; using TCBasic alone does not establish WDBASIC, WCAG, security, privacy, or application conformance.
+
+## 18. License
 
 GPL-3.0-only. See [`LICENSE`](LICENSE).
