@@ -39,11 +39,9 @@ jobs:
 
       - name: Package TCBasic release files
         shell: bash
-        run: |
-          git archive             --format=tar.gz             --prefix="tailwindcss-semantic-layer-${GITHUB_REF_NAME}/"             --output="tailwindcss-semantic-layer-${GITHUB_REF_NAME}.tar.gz"             "${GITHUB_SHA}:TCbasic"
+        run: git archive --format=tar.gz --prefix="tailwindcss-semantic-layer-${GITHUB_REF_NAME}/" --output="tailwindcss-semantic-layer-${GITHUB_REF_NAME}.tar.gz" "${GITHUB_SHA}:TCbasic"
 
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          gh release create "$GITHUB_REF_NAME"             --verify-tag             --generate-notes             TCbasic/dist/semantic-layer.css             TCbasic/dist/semantic-layer.min.css             tailwindcss-semantic-layer-${GITHUB_REF_NAME}.tar.gz
+        run: gh release create "$GITHUB_REF_NAME" --verify-tag --generate-notes TCbasic/dist/semantic-layer.css TCbasic/dist/semantic-layer.min.css tailwindcss-semantic-layer-${GITHUB_REF_NAME}.tar.gz
