@@ -1,6 +1,6 @@
 # SEObasic Social Media Agent Instructions
 
-> **Scope:** `SEObasic/social-media/`  
+> **Scope:** `SEObasic/docs/social-media/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Mission
@@ -32,4 +32,4 @@ Stable cross-campaign rules SHOULD be formalized as contracts when silent drift 
 
 ## Changelog
 
-Material changes require an entry in [`../CHANGELOG.md`](../CHANGELOG.md).
+Material changes require an entry in [`../../CHANGELOG.md`](../../CHANGELOG.md).
