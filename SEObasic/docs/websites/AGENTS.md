@@ -1,6 +1,6 @@
 # SEObasic Websites Agent Instructions
 
-> **Scope:** `SEObasic/websites/`  
+> **Scope:** `SEObasic/docs/websites/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 Agents working on website strategy MUST distinguish search/content guidance from WDBASIC implementation authority.
@@ -13,7 +13,7 @@ Read applicable:
 - [`../technical/AGENTS.md`](../technical/AGENTS.md) for crawl/index/metadata mechanics;
 - [`../entities/AGENTS.md`](../entities/AGENTS.md) for internal relationships;
 - [`../local-search/AGENTS.md`](../local-search/AGENTS.md) for local intent;
-- [`../../Wdbasic/AGENTS.md`](../../Wdbasic/AGENTS.md) when implementation architecture, accessibility, security, forms, or progressive enhancement are affected.
+- [`../../../Wdbasic/AGENTS.md`](../../../Wdbasic/AGENTS.md) when implementation architecture, accessibility, security, forms, or progressive enhancement are affected.
 
 ## Preserve
 
@@ -31,4 +31,4 @@ Website contracts SHOULD capture stable obligations such as page-purpose clarity
 
 ## Changelog
 
-Material changes require an entry in [`../CHANGELOG.md`](../CHANGELOG.md).
+Material changes require an entry in [`../../CHANGELOG.md`](../../CHANGELOG.md).
