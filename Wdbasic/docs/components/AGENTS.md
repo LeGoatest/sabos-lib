@@ -1,6 +1,6 @@
 # WDBASIC Component Agent Instructions
 
-> **Status:** Binding for work under `Wdbasic/components/`  
+> **Status:** Binding for work under `Wdbasic/docs/components/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)  
 > **Primary contract:** [`component-contracts.md`](component-contracts.md)
 
@@ -9,7 +9,7 @@ This directory governs reusable component behavior and contracts.
 ## Read first
 
 1. [`../architecture_rules.md`](../architecture_rules.md)
-2. [`../README.md`](../README.md)
+2. [`../framework-contract.md`](../framework-contract.md)
 3. [`component-contracts.md`](component-contracts.md)
 4. Applicable token, accessibility, form, media, internationalization, and profile contracts
 
@@ -27,4 +27,4 @@ Validate all applicable component states, responsive behavior, keyboard/focus be
 
 ## Changelog
 
-Notable component-contract changes update [`../CHANGELOG.md`](../CHANGELOG.md).
+Notable component-contract changes update [`../../CHANGELOG.md`](../../CHANGELOG.md).
