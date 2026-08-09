@@ -1,6 +1,6 @@
 # WDBASIC Profile Agent Instructions
 
-> **Status:** Binding for work under `Wdbasic/profiles/`  
+> **Status:** Binding for work under `Wdbasic/docs/profiles/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 Profiles specialize WDBASIC for particular project classes. They may choose defaults and emphasis; they may not weaken repository or WDBASIC invariants.
@@ -24,4 +24,4 @@ When a profile changes, review affected examples/implementations for changed def
 
 ## Changelog
 
-Notable profile changes update [`../CHANGELOG.md`](../CHANGELOG.md).
+Notable profile changes update [`../../CHANGELOG.md`](../../CHANGELOG.md).
