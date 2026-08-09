@@ -1,53 +1,131 @@
 # SEObasic
 
-> **Status:** Initial framework  
+> **Status:** Evolving knowledge framework  
 > **Canonical entry point:** `SEObasic/README.md`  
-> **Applies to:** public websites, landing pages, editorial content, knowledge bases, service pages, location pages, case studies, and other crawlable server-rendered content.
+> **Scope:** Websites, technical SEO, content, entities/internal linking, local search, Google Business Profile and maps/local-pack visibility, organic social media, paid media/PPC, YouTube, research, standards, and related digital discovery/conversion knowledge.
 
-SEObasic is the repository's search visibility and content-discovery layer. It defines a practical baseline for content strategy, semantic page metadata, structured data, internal linking, entity relationships, sitemaps, feeds, and recurring content collection.
+SEObasic is a living body of practitioner knowledge and governed guidance for how people, businesses, content, websites, and campaigns are discovered and understood across search and digital channels.
 
-SEObasic complements WDBASIC rather than replacing it. WDBASIC continues to govern architecture, accessibility, security, semantics, performance, and progressive enhancement. SEObasic specializes the search and content-discovery layer.
+It is not intended to be a generic “SEO checklist.” It preserves accumulated practical experience, explicitly adopted positions, industry practice, platform guidance, formal standards, empirical research, historical lessons, examples, terminology, and binding contracts while keeping those source types distinguishable.
 
-## 1. Document map
+SEObasic complements WDBASIC rather than replacing it. WDBASIC continues to govern web architecture, accessibility, security, semantics, progressive enhancement, forms, and implementation behavior. SEObasic governs discovery, content/channel strategy, search/local/paid/social/video knowledge, and related evidence/contracts.
+
+## Knowledge model
+
+```text
+practitioner experience + historical lessons
+                +
+industry practice + platform guidance
+                +
+standards + research evidence
+                ↓
+       documented positions
+                ↓
+          binding contracts
+                ↓
+channel / implementation / campaign practice
+                ↓
+        validation and outcomes
+                ↓
+     new lessons and research
+```
+
+The framework does not assume that the most common industry practice is automatically the preferred practice. A deliberate practitioner position may diverge from conventional advice as long as the distinction and rationale remain visible.
+
+## Domain map
 
 ```text
 SEObasic/
 ├── README.md
-├── testing-philosophy.md
-├── testing-method.md
-├── structured-data.md
-├── entity-graph.md
-├── reference/
+├── AGENTS.md
+├── CHANGELOG.md
+├── contracts/
 │   ├── README.md
+│   ├── AGENTS.md
+│   ├── truth-and-evidence.md
+│   └── channel-boundaries.md
+├── content/
+│   ├── README.md
+│   ├── AGENTS.md
+│   ├── testing-philosophy.md
+│   └── testing-method.md
+├── websites/
+│   ├── README.md
+│   └── AGENTS.md
+├── technical/
+│   ├── README.md
+│   ├── AGENTS.md
+│   └── structured-data.md
+├── entities/
+│   ├── README.md
+│   ├── AGENTS.md
+│   └── entity-graph.md
+├── local-search/
+│   ├── README.md
+│   └── AGENTS.md
+├── social-media/
+│   ├── README.md
+│   └── AGENTS.md
+├── paid-media/
+│   ├── README.md
+│   └── AGENTS.md
+├── youtube/
+│   ├── README.md
+│   └── AGENTS.md
+├── research/
+│   ├── README.md
+│   └── AGENTS.md
+├── standards/
+│   ├── README.md
+│   └── AGENTS.md
+├── references/
+│   ├── README.md
+│   ├── AGENTS.md
 │   ├── testing-history.md
 │   └── source-excerpts/
-│       └── 2026-08-09-testing-method.md
+├── glossaries/
+│   ├── README.md
+│   ├── AGENTS.md
+│   └── seo-and-marketing.md
 └── examples/
+    ├── README.md
+    ├── AGENTS.md
     └── go/
         └── jsonld.go
 ```
 
-The canonical T.E.S.T.I.N.G. wording is defined in [`testing-philosophy.md`](testing-philosophy.md). Historical findings and recovered prior applications are preserved under [`reference/`](reference/README.md). Reference files are non-normative and do not override the current framework contracts.
+The tree is intentionally expected to deepen over time. New folders should be created when a subject establishes a real knowledge or authority boundary, not merely to make the structure symmetrical.
 
-## 2. Core goals
+## Authority and knowledge types
 
-SEObasic prioritizes:
+SEObasic distinguishes:
 
-1. Useful, original, audience-centered content.
-2. Crawlable semantic HTML.
-3. Accurate titles, descriptions, canonicals, and page metadata.
-4. Structured data that truthfully matches visible page content.
-5. Strong internal linking and explicit entity relationships.
-6. Discoverable tag, category, service, and location relationships.
-7. XML sitemap and feed generation where applicable.
-8. Consistent publication and modification metadata.
-9. Repeatable content gathering and publishing workflows.
-10. Search visibility without fabricated proof, keyword stuffing, doorway pages, or schema spam.
-11. Regression protection for generators, metadata, internal links, structured data, routes, and other automated SEO behavior.
+1. **Canonical practitioner philosophy/definition** — preserved wording or explicitly adopted definitions.
+2. **Practitioner position** — preferred approaches grounded in accumulated practical experience.
+3. **Contract** — adopted normative obligations that implementations/agents must preserve.
+4. **Industry practice** — useful common professional practice, not automatic authority.
+5. **Platform/vendor guidance** — authoritative for a platform's documented behavior and policy within its scope.
+6. **Formal standard/specification** — normative within its defined scope/version.
+7. **Research evidence** — empirical or scholarly evidence with method/scope/limitations preserved.
+8. **Historical reference** — prior applications, decisions, and lessons that explain context without automatically governing the present.
+9. **Example** — illustrative implementation, never authority merely because it exists.
 
-## 3. T.E.S.T.I.N.G. philosophy
+Do not collapse these into an undifferentiated category called “best practices.”
 
-SEObasic uses one authoritative T.E.S.T.I.N.G. philosophy:
+See [`AGENTS.md`](AGENTS.md) for agent behavior and [`contracts/README.md`](contracts/README.md) for how positions become binding implementation contracts.
+
+## Cross-domain contracts
+
+Current binding cross-domain contracts include:
+
+- [`contracts/truth-and-evidence.md`](contracts/truth-and-evidence.md) — material claims and signals must remain truthful and supported.
+- [`contracts/channel-boundaries.md`](contracts/channel-boundaries.md) — reusable source material does not make channel mechanics interchangeable.
+
+Future stable obligations may live as domain-local contracts when the rule belongs primarily to websites, technical SEO, local search, paid media, social media, YouTube, or another subject.
+
+## T.E.S.T.I.N.G. content philosophy
+
+SEObasic preserves one authoritative T.E.S.T.I.N.G. philosophy under [`content/testing-philosophy.md`](content/testing-philosophy.md):
 
 - **T — Talk about the drive behind the passion**
 - **E — Engage the audience**
@@ -57,148 +135,100 @@ SEObasic uses one authoritative T.E.S.T.I.N.G. philosophy:
 - **N — Network responsibly**
 - **G — Gather content regularly**
 
-The complete authoritative wording is preserved in [`testing-philosophy.md`](testing-philosophy.md) and as a verbatim source excerpt in [`reference/source-excerpts/2026-08-09-testing-method.md`](reference/source-excerpts/2026-08-09-testing-method.md).
+The exact wording is also preserved verbatim under [`references/source-excerpts/2026-08-09-testing-method.md`](references/source-excerpts/2026-08-09-testing-method.md).
 
-[`testing-method.md`](testing-method.md) provides application guidance without redefining the philosophy.
+[`content/testing-method.md`](content/testing-method.md) provides application guidance without redefining the philosophy.
 
-The philosophy is holistic: its seven principles may overlap within the same post, project, campaign, or content asset. It must not be reduced to a mandatory one-letter-per-post rotation.
+The method is holistic. Its principles may overlap inside a post, video, project, campaign, website asset, or broader content system; it must not be reduced to a mandatory one-letter-per-post rotation.
 
-## 4. Technical SEO baseline
+## Channel system
 
-Every indexable page should support, where applicable:
+SEObasic explicitly treats the following as connected but separate disciplines:
 
-- One stable canonical URL.
-- A unique page title.
-- A concise meta description.
-- One clear primary topic.
-- Semantic heading hierarchy.
-- Crawlable internal links.
-- Visible author, organization, service, location, or subject context when relevant.
-- Publication and modification dates when the content type uses them.
-- Open Graph and social preview metadata.
-- Responsive images with meaningful alternative text where the image conveys content.
-- Correct HTTP status behavior.
-- Inclusion or exclusion from `sitemap.xml` according to indexability.
-- Structured data that matches the actual page type and visible content.
+### Websites
 
-Primary content must not depend on client-side JavaScript to become available to crawlers.
+Owned, durable surfaces for positioning, service/location information, proof, content depth, conversion paths, internal relationships, and canonical first-party information.
 
-## 5. Structured data
+See [`websites/`](websites/README.md).
 
-SEObasic supports automatic JSON-LD generation from page metadata.
+### Organic social media
 
-The initial editorial/knowledge-content profile uses Schema.org `Article`. Other page types must use a schema type appropriate to the visible content rather than labeling every page as an article.
+Publishing/community surfaces for posts, short-form content, conversation, collaboration, source-material reuse, and audience relationships.
 
-Recommended structured-data profiles include:
+See [`social-media/`](social-media/README.md).
 
-- `Article` for editorial or knowledge content.
-- `BreadcrumbList` for hierarchical navigation.
-- `Organization` or `LocalBusiness` when the page and business context justify it.
-- `Service` for service-specific content where appropriate.
-- Other Schema.org types only when their required and recommended properties are truthfully supported by the page.
+### Paid media / PPC
 
-See [`structured-data.md`](structured-data.md). A self-contained Go reference generator is included at [`examples/go/jsonld.go`](examples/go/jsonld.go).
+Paid acquisition/distribution systems covering paid search and paid social, targeting, creative, landing-page alignment, measurement, bidding/budget, experiments, and business-outcome quality.
 
-## 6. Search graph
+See [`paid-media/`](paid-media/README.md).
 
-The search graph is formed from explicit, crawlable relationships between content.
+### Local search / Google Business Profile / maps
 
-Core graph signals include:
+Local-intent discovery covering Google Business Profile, local/map-pack visibility, real-world business identity, service areas, reviews, citations, local proof, and website/profile relationships.
 
-- Internal entity links.
-- Backlinks between related pages.
-- Tag and category pages.
-- Service-to-location relationships.
-- Case-study-to-service relationships.
-- Breadcrumb hierarchy.
-- Related-content links.
-- Sitemap discovery.
-- RSS or Atom feeds where applicable.
-- Structured JSON-LD relationships.
+See [`local-search/`](local-search/README.md).
 
-See [`entity-graph.md`](entity-graph.md).
+### YouTube
 
-## 7. Content integrity
+Video discovery and durable content covering channel positioning, titles/thumbnails, search/browse discovery, retention, playlists/series, Shorts/long-form relationships, community, analytics, and owned-channel relationships.
 
-SEObasic prohibits:
+See [`youtube/`](youtube/README.md).
 
-- Fabricated reviews, ratings, awards, certifications, customers, or project results.
-- Keyword stuffing.
-- Hidden text or hidden links intended to manipulate rankings.
-- Mass-produced thin location pages.
-- Misleading publication or modification dates.
-- Structured data for content that is not present or supported on the page.
-- Automatically generated internal links that change meaning or damage readability.
-- Publishing third-party content without permission or appropriate attribution.
+A strategy may use several channels at once, but platform mechanics, policies, evidence, and conversion roles must not be copied blindly between them.
 
-Content automation may assist authors, but it must not become an excuse for low-value or misleading pages.
+## Technical and entity foundations
 
-## 8. Engineering validation and regression integrity
+Technical SEO guidance lives under [`technical/`](technical/README.md), including the current structured-data framework at [`technical/structured-data.md`](technical/structured-data.md).
 
-Software testing and regression protection remain engineering requirements, but they are **not a second T.E.S.T.I.N.G. acronym or philosophy**.
+Entity/internal-link guidance lives under [`entities/`](entities/README.md), including [`entities/entity-graph.md`](entities/entity-graph.md).
 
-Changes to parsers, generators, structured-data models, routing, canonicalization, entity extraction, indexes, link generation, or graph construction must not silently weaken established validated behavior.
+Technical foundations should support useful content and real relationships; they do not justify fabricated proof, doorway pages, schema spam, keyword stuffing, or artificial graph density.
 
-An intentional behavior change should state what changes and why, update the relevant tests deliberately, and preserve evidence that the new expected behavior is intentional rather than an unnoticed regression.
+## Research, standards, references, and glossaries
 
-At minimum, mature implementations should be able to detect:
+- [`research/`](research/README.md) preserves empirical/scholarly evidence, methods, limitations, and synthesis.
+- [`standards/`](standards/README.md) records formal standards, platform documentation, platform policy, and applicability.
+- [`references/`](references/README.md) preserves historical applications, source excerpts, and non-normative evidence.
+- [`glossaries/`](glossaries/README.md) clarifies recurring subject terminology without overriding contracts.
+- [`examples/`](examples/README.md) demonstrates concepts without becoming authority.
 
-- Invalid or incomplete metadata.
-- Duplicate or conflicting canonical URLs.
-- Broken internal links.
-- Orphaned content.
-- Invalid sitemap inclusion.
-- Structured-data serialization failures.
-- Incorrect breadcrumb relationships.
-- Entity references that cannot be resolved.
-- Search-index or graph inconsistencies.
-- Unexpected route or HTTP-status regressions.
+## Integrity and regression protection
 
-## 9. Recommended site SEO stack
+SEObasic changes must preserve established behavior and knowledge authority.
 
-A mature SEObasic implementation may provide:
+Agents and implementations must not:
 
-```text
-semantic HTML/content
-        ↓
-page metadata + canonical URLs
-        ↓
-internal entity links + backlinks
-        ↓
-tag/category/service/location pages
-        ↓
-sitemap.xml + RSS/Atom
-        ↓
-JSON-LD structured data
-        ↓
-entity graph and related-content discovery
-        ↓
-validation + regression protection
-```
+- fabricate reviews, locations, customers, credentials, performance, results, partnerships, awards, or search/campaign evidence;
+- rewrite canonical philosophy to fit a new channel;
+- weaken tests/contracts because a new implementation behaves differently;
+- silently change channel strategy, canonicalization, structured-data types, entity-link rules, or business identity as incidental cleanup;
+- present correlation or platform folklore as guaranteed causation;
+- turn one vendor's recommendation into universal law.
 
-This forms a technical knowledge-base and local/service SEO foundation without requiring a client-side application framework.
+Software testing and regression protection remain engineering requirements, but they are not a second T.E.S.T.I.N.G. acronym.
 
-## 10. Adoption record
+## Adoption record
 
-Projects adopting SEObasic should record at minimum:
+Implementations using SEObasic SHOULD be able to identify which framework revision they were designed against when reproducibility matters, for example:
 
 ```yaml
 seobasic:
   source: LeGoatest/tailwindcss-semantic-layer
   source_ref: <tag-or-commit>
-  canonical_base_url: <absolute-url>
-  sitemap: <path-or-route>
-  feed: <path-or-route-or-null>
-  structured_data_generator: <implementation-path>
-  content_metadata_source: <implementation-path>
-  entity_graph_source: <implementation-path-or-null>
-  test_contract: <implementation-path-or-null>
+  domains:
+    - websites
+    - technical
+    - local-search
+  contracts:
+    - truth-and-evidence
+    - channel-boundaries
 ```
 
-## 11. Roadmap
+An adoption record does not require a project to implement every SEObasic domain.
 
-The next major SEObasic capability is automatic entity extraction from source content, followed by safe internal-link suggestions and graph-strength analysis.
+## Ongoing development
 
-Entity extraction must remain reviewable and deterministic enough to avoid incorrect links, accidental over-optimization, or changes in the author's intended meaning.
+SEObasic is intentionally incomplete. New knowledge should be added when there is a real lesson, standard, evidence source, contract, practitioner position, or useful subject boundary to preserve.
 
-Engineering validation should apply to that work from the first parser and extraction rules onward rather than being added only after the feature is complete.
+The goal is not to fill every directory quickly. The goal is to accumulate a durable, reviewable body of professional knowledge without losing where each conclusion came from.
