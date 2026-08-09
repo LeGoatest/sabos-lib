@@ -1,6 +1,6 @@
 # WDBASIC Glossary Agent Instructions
 
-> **Status:** Binding for work under `Wdbasic/glossaries/`  
+> **Status:** Binding for work under `Wdbasic/docs/glossaries/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)  
 > **Glossary entry point:** [`README.md`](README.md)
 
@@ -21,4 +21,4 @@ Critical acronyms and requirements should still be understandable in binding doc
 
 ## Changelog
 
-Material terminology changes that affect interpretation update [`../CHANGELOG.md`](../CHANGELOG.md).
+Material terminology changes that affect interpretation update [`../../CHANGELOG.md`](../../CHANGELOG.md).
