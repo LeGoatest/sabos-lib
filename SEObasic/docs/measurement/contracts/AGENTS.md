@@ -1,6 +1,6 @@
 # SEObasic Measurement Contract Agent Instructions
 
-> **Scope:** `SEObasic/measurement/contracts/`  
+> **Scope:** `SEObasic/docs/measurement/contracts/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md) and [`../../contracts/AGENTS.md`](../../contracts/AGENTS.md)
 
 Measurement contracts are binding semantic/data obligations.
@@ -12,7 +12,7 @@ Agents MUST:
 - state when a rule applies only to a metric family, provider, platform, or reporting context;
 - preserve comparability requirements when adding aggregation or normalization rules;
 - define validation for mechanically checkable measurement behavior;
-- update [`../../CHANGELOG.md`](../../CHANGELOG.md) for material contract changes.
+- update [`../../../CHANGELOG.md`](../../../CHANGELOG.md) for material contract changes.
 
 Agents MUST NOT:
 
