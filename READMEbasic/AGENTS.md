@@ -26,6 +26,7 @@ Before writing or materially restructuring a README, inspect enough repository e
 - Primary source, package, or subsystem entrypoints.
 - Existing architecture and governance documents.
 - Existing contribution/support documents if referenced.
+- Existing changelog when release/change history is relevant.
 - Generated artifacts when the README describes them.
 - Relevant workflows when adding CI/status badges.
 
@@ -42,6 +43,8 @@ Classify the README before selecting its structure:
 5. **Subsystem/component**
 
 Do not force every optional section from [`TEMPLATE.md`](TEMPLATE.md) into every profile.
+
+When templates, examples, badges, visual assets, or authoring tools would help, consult [`resources.md`](resources.md). External resources are pattern references only; they do not prove anything about the local repository.
 
 ## Required top-level information
 
@@ -78,7 +81,7 @@ Agents MUST NOT invent or infer unsupported:
 
 If evidence is unavailable, omit the claim or label the gap accurately.
 
-Do not convert TODOs, roadmap items, examples, or design intentions into completed features.
+Do not convert TODOs, roadmap items, examples, design intentions, template sections, or available badge designs into completed project capabilities.
 
 ## Structure rules
 
@@ -100,6 +103,7 @@ Agents SHOULD NOT:
 - Duplicate a complete architecture specification.
 - Copy full license text into the README.
 - Copy an entire CONTRIBUTING guide into the README.
+- Duplicate changelog history in the README.
 - Add generic acknowledgments/contact/roadmap sections merely because a template includes them.
 - Leave template placeholders, example usernames, fake links, TODO badges, or sample API keys in a final README.
 - Use screenshots or diagrams as the only source of critical instructions.
@@ -114,6 +118,8 @@ Common valid uses:
 - Published release/package version.
 - License.
 - Supported runtime/framework version.
+
+Resources such as [Badges4-README.md-Profile](https://github.com/alexandresanlim/Badges4-README.md-Profile), [Shields.io](https://shields.io/), and [Simple Icons](https://simpleicons.org/) may be used to identify syntax or presentation options. Their catalogs do not establish that a technology, status, affiliation, or capability applies to the project.
 
 Do not add badges for technologies merely to create a visual technology stack unless that presentation materially helps the target reader.
 
@@ -137,8 +143,9 @@ If used, validate every anchor after heading changes.
 6. Verify every command, path, version, badge, and material capability claim.
 7. Verify repository-relative links.
 8. Check that deeper material is routed to canonical documentation instead of duplicated.
-9. Check that no implementation or governance contract was silently changed to make the prose simpler.
-10. Report unverifiable or unresolved claims separately.
+9. Check that release/change history is linked to the changelog rather than copied into the README when applicable.
+10. Check that no implementation or governance contract was silently changed to make the prose simpler.
+11. Report unverifiable or unresolved claims separately.
 
 ## Regression protection
 
@@ -167,6 +174,7 @@ A README task is complete only when, as applicable:
 - Badges are real and high-signal.
 - Placeholder/template debris is removed.
 - Deep material is linked rather than unnecessarily duplicated.
+- Changelog/change-history routing is accurate when relevant.
 - Material limitations are not hidden.
 - No unapproved implementation or governance mutation was introduced.
 
