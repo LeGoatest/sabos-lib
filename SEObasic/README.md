@@ -44,6 +44,9 @@ SEObasic/
 │   ├── AGENTS.md
 │   ├── truth-and-evidence.md
 │   └── channel-boundaries.md
+├── positions/
+│   ├── README.md
+│   └── AGENTS.md
 ├── content/
 │   ├── README.md
 │   ├── AGENTS.md
@@ -109,7 +112,7 @@ The tree is intentionally expected to deepen over time. New folders should be cr
 SEObasic distinguishes:
 
 1. **Canonical practitioner philosophy/definition** — preserved wording or explicitly adopted definitions.
-2. **Practitioner position** — preferred approaches grounded in accumulated practical experience.
+2. **Practitioner position** — preferred approaches grounded in accumulated practical experience; canonical position records live under [`positions/`](positions/README.md) when a stance deserves independent provenance.
 3. **Contract** — adopted normative obligations that implementations/agents must preserve.
 4. **Industry practice** — useful common professional practice, not automatic authority.
 5. **Platform/vendor guidance** — authoritative for a platform's documented behavior and policy within its scope.
@@ -222,8 +225,9 @@ Entity/internal-link guidance lives under [`entities/`](entities/README.md), inc
 
 Technical foundations should support useful content and real relationships; they do not justify fabricated proof, doorway pages, schema spam, keyword stuffing, or artificial graph density.
 
-## Research, standards, references, and glossaries
+## Positions, research, standards, references, and glossaries
 
+- [`positions/`](positions/README.md) preserves deliberate practitioner preferences/bias, their rationale, tradeoffs, and divergence from common practice.
 - [`research/`](research/README.md) preserves empirical/scholarly evidence, methods, limitations, and synthesis.
 - [`standards/`](standards/README.md) records formal standards, platform documentation, platform policy, and applicability.
 - [`references/`](references/README.md) preserves historical applications, source excerpts, and non-normative evidence.
@@ -241,7 +245,8 @@ Agents and implementations must not:
 - weaken tests/contracts because a new implementation behaves differently;
 - silently change channel strategy, canonicalization, structured-data types, entity-link rules, business identity, metric definitions, denominators, attribution, or sampling as incidental cleanup;
 - present correlation or platform folklore as guaranteed causation;
-- turn one vendor's recommendation or proprietary score into universal law.
+- turn one vendor's recommendation or proprietary score into universal law;
+- erase an explicit practitioner position merely because a more common industry pattern exists.
 
 Software testing and regression protection remain engineering requirements, but they are not a second T.E.S.T.I.N.G. acronym.
 
