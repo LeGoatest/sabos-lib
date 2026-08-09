@@ -1,22 +1,40 @@
-# TCBasic Source Agent Instructions
+# TCBasic Reference Source Agent Instructions
 
 > **Status:** Binding for work under `TCbasic/src/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
-`src/` is the canonical CSS source for the TCBasic package.
+`src/` is the canonical reference CSS implementation of TCBasic's documented architecture. It is not package source awaiting compilation by SABOS Lib.
 
-## Rules
+## Preserve
 
-Agents MUST preserve the documented layer graph, Tailwind CSS v4 CSS-first syntax, static class detection, semantic naming, token/component boundaries, and public API compatibility.
+Agents MUST preserve:
 
-Do not:
+- the documented layer graph;
+- Tailwind CSS v4 CSS-first concepts;
+- semantic naming and token/component boundaries;
+- static, complete Tailwind candidates;
+- native semantic/accessibility responsibilities;
+- consistency with contracts under [`../docs/`](../docs/README.md).
 
-- use `dist/` as the source of truth;
-- introduce Tailwind v3 directives;
+## Do not
+
+Agents MUST NOT:
+
+- create or regenerate `dist/` merely because source CSS exists;
+- introduce repository package/build metadata around this reference source;
+- add Tailwind v3 directives as current guidance;
 - add dynamic class-name fragments that Tailwind cannot detect;
-- scatter business-specific/project-specific names into the reusable package;
-- change public class/token behavior without reviewing contracts, tests, migration/version impact, and documentation.
+- introduce project/customer-specific names into reusable reference architecture;
+- change a documented class/token responsibility without reviewing the governing contract, migration implications, examples, and changelog.
 
 ## Validation
 
-After source CSS changes, run applicable tests and `npm run build` from `TCbasic/`, inspect generated CSS, and update related documentation/changelog when public behavior changes.
+Reference-source validation is primarily consistency review inside SABOS Lib:
+
+- confirm imports/layers remain coherent;
+- confirm referenced token/class names exist where expected;
+- compare changed source with governing documentation and examples;
+- review syntax and Tailwind-v4 assumptions;
+- update documentation and [`../CHANGELOG.md`](../CHANGELOG.md) when public reference behavior changes.
+
+Do not claim that SABOS Lib compiled or browser-tested the reference source unless such validation actually occurred in a separately identified adopter environment.
