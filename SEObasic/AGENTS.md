@@ -2,9 +2,10 @@
 
 > **Status:** Binding for automated work under `SEObasic/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md) and [`../governance/`](../governance/README.md)  
-> **Canonical entry point:** [`README.md`](README.md)
+> **Canonical entry point:** [`README.md`](README.md)  
+> **Knowledge index:** [`docs/README.md`](docs/README.md)
 
-SEObasic is a living knowledge system. It preserves practitioner knowledge, project-specific positions, industry standards, platform guidance, research evidence, historical lessons, contracts, measurement semantics, and implementation patterns without pretending those sources have equal authority.
+SEObasic is a living knowledge system. It preserves practitioner knowledge, positions, contracts, platform/vendor guidance, standards, research, historical references, metric semantics, and examples without pretending those sources have equal authority.
 
 ## Mission
 
@@ -12,86 +13,86 @@ SEObasic is a living knowledge system. It preserves practitioner knowledge, proj
 
 ## Required routing
 
-Before changing a SEObasic subject, read:
+Before changing a SEObasic subject:
 
-1. This file.
-2. [`README.md`](README.md).
-3. The nearest applicable nested `AGENTS.md`.
-4. The subject README and binding contracts.
-5. Applicable position/glossary entries.
-6. Standards, research, references, or examples only when they are relevant to the claim or change.
+1. Read [`README.md`](README.md).
+2. Read [`docs/AGENTS.md`](docs/AGENTS.md).
+3. Read the nearest applicable nested `AGENTS.md`.
+4. Read the subject README and binding contracts.
+5. Read applicable practitioner positions and glossary definitions.
+6. Consult standards, research, references, or examples only when relevant to the claim/change.
 
 ## Knowledge-source discipline
 
-Agents MUST distinguish at least these source types when the distinction matters:
+Agents MUST distinguish:
 
-- **Canonical practitioner philosophy or definition** — user-authored or explicitly adopted wording that must not be silently rewritten.
-- **Practitioner position** — an intentional preferred approach based on accumulated experience, with rationale/tradeoffs preserved under [`positions/`](positions/README.md) when material.
-- **Contract** — an adopted normative obligation defining what an implementation, workflow, report, or agent MUST, SHOULD, or MUST NOT do.
-- **Industry practice** — common professional practice that may inform but does not automatically override a project position.
-- **Platform/vendor guidance** — authoritative for that platform's documented behavior, not universal law.
-- **Formal standard/specification** — normative only within its actual scope and version.
-- **Research evidence** — empirical or scholarly evidence whose method, scope, and limitations must remain visible.
-- **Historical lesson/reference** — preserved context that may explain a rule without automatically governing current behavior.
-- **Example** — illustrative implementation, never authority merely because it exists.
+- canonical practitioner philosophy/definition;
+- practitioner position;
+- binding contract;
+- industry practice;
+- platform/vendor guidance;
+- formal standard/specification;
+- research evidence;
+- historical reference;
+- example;
+- measurement definition.
 
-Do not flatten these into a single category called “best practice.”
+Do not flatten these into one category called “best practices.”
 
 ## Domain routing
 
-- [`contracts/`](contracts/README.md) — contract model and cross-domain binding obligations.
-- [`positions/`](positions/README.md) — deliberate practitioner preferences/bias, rationale, tradeoffs, and divergence from common practice.
-- [`content/`](content/README.md) — content philosophy, content strategy, T.E.S.T.I.N.G., reuse, editorial/community practice.
-- [`websites/`](websites/README.md) — websites, landing pages, service/location content, conversion/search relationships, first-party durable content.
-- [`technical/`](technical/README.md) — crawling, indexing, metadata, canonicals, structured data, sitemaps, feeds, technical diagnostics.
-- [`entities/`](entities/README.md) — entity relationships, internal linking, knowledge graphs, backlinks, topical/service/location relationships.
-- [`local-search/`](local-search/README.md) — local intent, Google Business Profile, local/map-pack visibility, citations, reviews, service areas, local proof.
-- [`social-media/`](social-media/README.md) — organic social-media marketing, posts, community interaction, channel-specific content use.
-- [`paid-media/`](paid-media/README.md) — PPC and paid campaigns, including paid search and paid social, measurement and landing-page relationships.
-- [`youtube/`](youtube/README.md) — YouTube channel/video strategy, discovery, search, packaging, retention, and cross-channel relationships.
-- [`measurement/`](measurement/README.md) — metric semantics, analytics vocabulary, ranking/visibility/traffic/conversion distinctions, geographic measurement, and cross-channel comparability.
-- [`research/`](research/README.md) — research collection, evidence review, methods, limitations, and synthesis.
-- [`standards/`](standards/README.md) — formal standards, specifications, platform documentation, and applicability records.
-- [`references/`](references/README.md) — historical records, source excerpts, recovered applications, and non-normative source material.
-- [`examples/`](examples/README.md) — illustrative/reference implementations.
-- [`glossaries/`](glossaries/README.md) — subject terminology and disambiguation.
+All governed knowledge domains now live under [`docs/`](docs/README.md):
+
+- [`docs/contracts/`](docs/contracts/README.md)
+- [`docs/positions/`](docs/positions/README.md)
+- [`docs/content/`](docs/content/README.md)
+- [`docs/websites/`](docs/websites/README.md)
+- [`docs/technical/`](docs/technical/README.md)
+- [`docs/entities/`](docs/entities/README.md)
+- [`docs/local-search/`](docs/local-search/README.md)
+- [`docs/social-media/`](docs/social-media/README.md)
+- [`docs/paid-media/`](docs/paid-media/README.md)
+- [`docs/youtube/`](docs/youtube/README.md)
+- [`docs/measurement/`](docs/measurement/README.md)
+- [`docs/research/`](docs/research/README.md)
+- [`docs/standards/`](docs/standards/README.md)
+- [`docs/references/`](docs/references/README.md)
+- [`docs/glossaries/`](docs/glossaries/README.md)
+
+[`examples/`](examples/README.md) remains a root artifact and is illustrative rather than normative.
 
 ## Contracts
 
-Contracts are the bridge between knowledge and governed implementation.
+Research, standards, platform guidance, experience, references, positions, and measurements may inform a contract, but they do not become binding merely because they exist.
 
-Research, standards, platform guidance, practitioner experience, historical lessons, positions, and measurements can inform a contract, but they do not become binding merely because they exist.
+Agents MUST NOT weaken contracts to match a regression or silently create a new binding rule from one external source.
 
-When a reusable position becomes an implementation or reporting obligation, formalize it through [`contracts/`](contracts/README.md) or a domain-local contract and preserve the rationale/evidence that justified it.
-
-Agents MUST NOT weaken contracts to match a regression or silently create new binding rules from one external source.
+Current cross-domain contracts begin under [`docs/contracts/`](docs/contracts/README.md). Measurement semantics are separately governed under [`docs/measurement/contracts/`](docs/measurement/contracts/README.md).
 
 ## Practitioner positions
-
-When a task touches a documented stance, read [`positions/AGENTS.md`](positions/AGENTS.md) and the applicable position record.
 
 Agents MUST NOT:
 
 - erase a documented preference because common industry practice differs;
 - present a practitioner position as a search-engine/platform guarantee;
 - silently convert a position into a contract;
-- silently convert external guidance into a replacement position.
+- silently replace a position with vendor guidance.
 
-If new evidence materially challenges a position, preserve the conflict until the position is deliberately reviewed.
+If evidence materially challenges a documented position, preserve the conflict until the position is deliberately reviewed.
 
 ## Measurement semantics
 
-When work uses metrics such as rank, position, visibility, traffic, conversion, authority, local visibility, or geo-grid rank, read:
+When work uses rank, position, visibility, traffic, conversion, authority, local visibility, or geo-grid concepts, read:
 
-1. [`measurement/AGENTS.md`](measurement/AGENTS.md)
-2. [`measurement/contracts/metric-semantics.md`](measurement/contracts/metric-semantics.md)
-3. [`glossaries/measurement-and-analytics.md`](glossaries/measurement-and-analytics.md)
+1. [`docs/measurement/AGENTS.md`](docs/measurement/AGENTS.md)
+2. [`docs/measurement/contracts/metric-semantics.md`](docs/measurement/contracts/metric-semantics.md)
+3. [`docs/glossaries/measurement-and-analytics.md`](docs/glossaries/measurement-and-analytics.md)
 
-Do not use materially different metrics interchangeably merely because industry tools use similar labels.
+Do not use materially different metrics interchangeably merely because tools use similar labels.
 
 ## Canonical T.E.S.T.I.N.G. protection
 
-The canonical T.E.S.T.I.N.G. philosophy lives under [`content/testing-philosophy.md`](content/testing-philosophy.md).
+The canonical T.E.S.T.I.N.G. philosophy lives at [`docs/content/testing-philosophy.md`](docs/content/testing-philosophy.md).
 
 Agents MUST NOT:
 
@@ -101,44 +102,36 @@ Agents MUST NOT:
 - replace it with an engineering-testing acronym;
 - treat platform-specific examples as changes to the definition.
 
-Application guidance belongs in [`content/testing-method.md`](content/testing-method.md).
+Application guidance belongs in [`docs/content/testing-method.md`](docs/content/testing-method.md). The canonical source excerpt remains under [`docs/references/source-excerpts/`](docs/references/source-excerpts/2026-08-09-testing-method.md).
 
 ## Cross-channel rule
 
-SEObasic treats channels as connected but non-identical.
+Websites, Google Business Profile/Maps/local search, organic social, paid media, and YouTube may support one strategy while retaining different mechanics, policies, audiences, conversion roles, attribution, and measurement definitions.
 
-A website page, Google Business Profile post, organic social post, paid campaign, local/map-pack signal, and YouTube video may support one strategy while retaining different platform mechanics, audiences, evidence, conversion roles, and measurement definitions.
-
-Do not copy advice or metric assumptions from one channel into another without checking whether the behavior and measurement actually transfer.
+Do not copy advice or metric assumptions from one channel into another without checking whether the behavior actually transfers.
 
 ## Research and standards rule
-
-Research, standards, vendor documentation, and industry consensus may strengthen, challenge, or contextualize a practitioner position. They MUST NOT silently erase an explicitly documented position or binding contract.
 
 When evidence conflicts with an established SEObasic position or contract:
 
 1. identify the existing position/contract;
 2. identify the conflicting evidence and source type;
-3. explain the scope of the conflict;
+3. explain the scope of conflict;
 4. preserve both until an intentional framework decision is made;
-5. use repository change control when a binding position changes materially.
+5. use repository change control for material binding mutations.
 
 ## Structural rule
 
-Every substantive SEObasic subject directory SHOULD contain:
+The SEObasic root is navigational. Long-form governed knowledge belongs under `docs/`. Examples remain outside `docs/` because they are artifacts.
 
-- `README.md` — human subject entrypoint;
-- `AGENTS.md` — agent routing and preservation rules;
-- deeper knowledge files organized by the subject rather than forced into a universal flat template;
-- domain-local contracts when stable obligations exist;
-- subject glossary material when terminology becomes large or specialized enough to justify it.
+A future `playbooks/` root may be added only when real reusable operational playbooks exist.
 
-A nested directory may add stricter rules but may not weaken parent governance.
+Moving a document does not change its authority by itself. Update local parent links and changelogs when canonical paths move.
 
 ## Changelog
 
-Notable SEObasic changes MUST update [`CHANGELOG.md`](CHANGELOG.md). Repository-wide or cross-system changes may also require [`../CHANGELOG.md`](../CHANGELOG.md).
+Notable SEObasic changes update [`CHANGELOG.md`](CHANGELOG.md). Repository-wide or cross-system changes may also require [`../CHANGELOG.md`](../CHANGELOG.md).
 
 ## Governing maxim
 
-> **Preserve what was learned. Identify where it came from. Test it against evidence. Change it deliberately, not silently.**
+> **Preserve what was learned. Identify where it came from. Change it deliberately, not silently.**
