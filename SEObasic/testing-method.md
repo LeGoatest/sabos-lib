@@ -1,146 +1,121 @@
-# T.E.S.T.I.N.G. Method
+# T.E.S.T.I.N.G. Method Application Guide
 
-The T.E.S.T.I.N.G. Method is SEObasic's repeatable framework for gathering and developing authentic source material for websites, social channels, project galleries, case studies, FAQs, newsletters, and knowledge-base content.
+The canonical T.E.S.T.I.N.G. philosophy is defined in [`testing-philosophy.md`](testing-philosophy.md). This document provides application guidance only and does not redefine the acronym.
 
-The method is intentionally broader than social media. Its output can be repurposed into indexable first-party website content when appropriate.
-
-This is the content and audience-development framework. The separate engineering T.E.S.T.I.N.G. framework is defined in [`testing-philosophy.md`](testing-philosophy.md). Historical applications and recovered prior uses are preserved under [`reference/testing-history.md`](reference/testing-history.md).
+Historical applications and recovered prior uses are preserved under [`reference/testing-history.md`](reference/testing-history.md).
 
 ## Holistic application
 
-The seven letters are principles, not isolated post categories.
+The seven principles can overlap inside the same post, project, campaign, or content asset.
 
-A campaign may use the letters as a planning matrix, but mature application should treat T.E.S.T.I.N.G. as a culmination of all seven ideas. A single strong piece of content may express the drive behind the work, invite audience input, show a real success or failure, recognize another contributor, explore a new idea, strengthen a responsible relationship, and create reusable source material at the same time.
+A strong piece of content may simultaneously:
+
+- Express the drive behind the work.
+- Invite audience input.
+- Show real successes, failures, or lessons.
+- Recognize another person or organization.
+- Explore a new idea publicly.
+- Strengthen a responsible relationship.
+- Produce reusable source material for later publication.
 
 Do not reduce the method to a mandatory one-letter-per-post rotation.
 
-Adapt examples to the company, project, channel, or audience without redefining the acronym itself.
+Adapt examples to the company, project, channel, or audience without redefining the philosophy itself.
 
 ## T — Talk about the drive behind the passion
 
-Highlight the motivation behind the work, what inspired the business or creator, and why the subject matters.
+Useful applications include:
 
-### Examples
-
-- Explain why the company was started.
-- Share the story behind a favorite project.
-- Discuss the craftsmanship, process, or problem-solving that makes the work meaningful.
-- Explain what the team wants customers to experience differently.
-
-### Prompt pattern
-
-> What keeps us interested in this work, and what did this project remind us of?
+- Explain why the company, project, or creative work exists.
+- Share the story behind a meaningful project.
+- Discuss craftsmanship, process, motivation, or problem-solving.
+- Explain what keeps the creator or team interested in the work.
 
 ## E — Engage the audience
 
-Ask relevant questions that invite the audience to share preferences, experiences, problems, or priorities.
+Useful applications include:
 
-### Examples
+- Ask about preferences, experiences, problems, or priorities.
+- Compare options and invite feedback.
+- Use polls, questions, quizzes, comments, or other appropriate interaction formats.
+- Save recurring audience questions for future FAQs or durable content.
 
-- Compare two finishes, styles, layouts, or service options.
-- Ask what problem people encounter most often.
-- Use polls, questions, or quizzes where the platform supports them.
-- Invite comments that can reveal future FAQ or content topics.
-
-### Rule
-
-Engagement should produce useful conversation, not empty interaction bait.
+Engagement should create useful conversation rather than empty interaction bait.
 
 ## S — Share updates of success and failures
 
-Document achievements, setbacks, corrections, lessons, and behind-the-scenes work.
+Useful applications include:
 
-### Examples
+- Completed projects and transformations.
+- Behind-the-scenes progress.
+- Problems encountered during a project.
+- Corrections, setbacks, and lessons learned.
+- What the team would do differently next time.
 
-- Show a completed transformation with before-and-after media.
-- Explain a difficult preparation problem and how it was solved.
-- Document a scheduling, material, or site-condition challenge.
-- Share what the team would do differently next time.
-
-### Rule
-
-Do not manufacture failure, drama, or success metrics. The value comes from credible process evidence.
+Do not manufacture failure, drama, or success metrics.
 
 ## T — Take time out to talk about others
 
-Create content that recognizes customers, collaborators, suppliers, community organizations, adjacent specialists, authors, or other relevant contributors.
+Useful applications include:
 
-### Examples
+- Recognize collaborators and partners.
+- Credit creators, authors, specialists, or sources of inspiration.
+- Feature customer-provided material with permission.
+- Highlight organizations or people who contribute meaningfully to the community.
 
-- Highlight a partner who contributed to a project.
-- Credit another craftsperson or source of inspiration.
-- Share customer-provided media with permission.
-- Feature a local organization whose work benefits the community.
-
-### Rule
-
-Recognition must be accurate, permission-aware, and useful to the audience rather than being a disguised link exchange.
+Recognition must remain accurate and permission-aware.
 
 ## I — Investigate new ideas publicly
 
-Experiment with new ideas and invite informed feedback before treating them as established offerings or conclusions.
+Useful applications include:
 
-### Examples
-
-- Share a prototype, sample, finish, workflow, or process experiment.
-- Compare potential new service options.
-- Ask whether a proposed feature solves a real problem.
-- Publish observations from a controlled trial or small test.
-
-### Rule
-
-Clearly distinguish experiments from proven claims, released services, or validated results.
+- Share prototypes, experiments, samples, or potential offerings.
+- Compare new ideas and invite feedback.
+- Ask whether a proposed feature, service, or approach solves a real problem.
+- Publish observations while clearly distinguishing experiments from proven claims.
 
 ## N — Network responsibly
 
-Build useful relationships with relevant businesses, specialists, suppliers, organizations, and creators.
+Useful applications include:
 
-### Examples
+- Build relationships with complementary businesses or specialists.
+- Collaborate on useful projects or educational content.
+- Develop referral relationships that genuinely benefit the audience or community.
+- Credit the people and organizations that materially contribute to work.
 
-- Collaborate with a complementary local service provider.
-- Create a useful referral relationship.
-- Co-document a project where both parties contributed.
-- Share expertise that benefits the local or professional community.
-
-### Rule
-
-Community benefit and relevance come before link acquisition. Do not create manipulative reciprocal-link schemes.
+Community benefit comes before link acquisition or superficial networking metrics.
 
 ## G — Gather content regularly
 
-Make content collection part of normal operations rather than trying to reconstruct everything after a project is finished.
-
-### Useful source material
+Useful source material includes:
 
 - Before photos.
 - Work-in-progress photos.
 - After photos.
-- Short video clips.
+- Short videos.
 - Time-lapse footage.
 - Customer questions.
-- Customer testimonials with permission.
-- Measurements or non-sensitive project facts.
-- Material or process notes.
+- Testimonials with permission.
+- Project facts and measurements that are safe to publish.
+- Process notes.
 - Common problems encountered.
 - Lessons learned.
 - Team commentary.
 - Community submissions with permission.
 
+Make collection part of normal operations rather than reconstructing everything after the fact.
+
 ## Example: Epoxy Bros Instagram
 
-The following example demonstrates how the framework can be applied to an epoxy-flooring business.
+The following example demonstrates how the philosophy can be applied to an epoxy-flooring business without changing its definition.
 
 ### Talk about the drive
 
-Possible post:
+Possible themes:
 
-> When we started Epoxy Bros, our mission was simple: turn ordinary spaces into something people enjoy using. Seeing a garage or patio change from worn concrete into a finished space is what keeps the work interesting. What matters most to you in a space transformation?
-
-Other source material:
-
-- Founder or team-member video about a favorite project.
-- Story about how the business began.
-- Explanation of the creative decisions behind a custom floor.
+- Why the business was started.
+- A team member discussing a favorite transformation.
+- The creative decisions involved in a custom floor.
 
 ### Engage the audience
 
@@ -148,8 +123,6 @@ Possible prompts:
 
 - Which garage design would you choose: metallic or flake?
 - What floor-color combination would you use in your space?
-
-Interactive platform features such as polls and question stickers can be used when available.
 
 ### Share success and failures
 
@@ -163,7 +136,7 @@ Possible topics:
 
 Possible topics:
 
-- Credit a local contractor or partner involved in a project.
+- Credit a contractor or partner involved in a project.
 - Highlight another epoxy artist's work when genuinely relevant and properly attributed.
 - Feature customer-provided project photos with permission.
 
@@ -173,7 +146,7 @@ Possible topics:
 
 - Test interest in glow-in-the-dark designs before adding them as an offering.
 - Compare experimental metallic and flake combinations.
-- Share sample boards and ask which direction people prefer.
+- Share sample boards and invite feedback.
 
 ### Network responsibly
 
@@ -190,7 +163,7 @@ Suggested operating rhythm:
 - Capture work-in-progress material during active projects.
 - Preserve before-and-after sets for completed projects.
 - Save recurring customer questions for FAQ development.
-- Collect short process clips that can later become social posts, case studies, or service-page proof.
+- Collect short process clips for later reuse.
 
 ## Repurposing workflow
 
@@ -209,7 +182,7 @@ FAQ or knowledge-base answer
     ↓
 social post or short video
     ↓
-internal links back to the durable website content
+internal links back to durable website content
 ```
 
-The durable website page should normally remain the canonical source when the same substantive content is distributed across multiple channels.
+The durable website page should normally remain the canonical source when the same substantive material is distributed across multiple channels.
