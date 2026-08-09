@@ -1,6 +1,6 @@
 # READMEbasic Profile Agent Instructions
 
-> **Status:** Binding for work under `READMEbasic/profiles/`  
+> **Status:** Binding for work under `READMEbasic/docs/profiles/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 Profiles adapt READMEbasic to audience/repository class.
@@ -11,4 +11,4 @@ Do not add sections merely because another profile uses them. Do not remove mate
 
 Profile guidance should be supported by practitioner reasoning, examples, research, or platform behavior where relevant, and should document meaningful tradeoffs.
 
-Notable profile changes update [`../CHANGELOG.md`](../CHANGELOG.md).
+Notable profile changes update [`../../CHANGELOG.md`](../../CHANGELOG.md).
