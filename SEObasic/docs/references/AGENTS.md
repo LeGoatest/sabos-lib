@@ -1,6 +1,6 @@
 # SEObasic References Agent Instructions
 
-> **Scope:** `SEObasic/references/`  
+> **Scope:** `SEObasic/docs/references/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Preserve historical truth
@@ -30,4 +30,4 @@ When a complete historical source is unavailable:
 
 Historical examples may inform current contracts and practitioner positions, but a historical record becomes binding only through an explicit current adoption/canonicalization decision.
 
-Material reference restructuring must preserve links/provenance and update [`../CHANGELOG.md`](../CHANGELOG.md).
+Material reference restructuring must preserve links/provenance and update [`../../CHANGELOG.md`](../../CHANGELOG.md).
