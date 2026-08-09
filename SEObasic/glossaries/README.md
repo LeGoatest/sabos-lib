@@ -1,15 +1,22 @@
 # SEObasic Glossaries
 
 > **Status:** Informative terminology registry  
-> **Purpose:** Define recurring SEO, marketing, local-search, paid-media, social-media, website, entity, and YouTube terms without forcing every binding document to re-explain established vocabulary.
+> **Purpose:** Define recurring SEO, marketing, measurement, local-search, paid-media, social-media, website, entity, and YouTube terms without forcing every binding document to re-explain established vocabulary.
 
 Glossaries clarify terminology. They do not override contracts, canonical philosophies, standards, or platform definitions.
 
-## Current glossary
+## Current glossaries
 
-- [`seo-and-marketing.md`](seo-and-marketing.md) — cross-domain terminology and disambiguation.
+- [`seo-and-marketing.md`](seo-and-marketing.md) — cross-domain SEO/marketing terminology and disambiguation.
+- [`measurement-and-analytics.md`](measurement-and-analytics.md) — search-result, ranking, visibility, traffic, conversion, local-search, authority/link, technical, and geographic measurement vocabulary.
 
-Future subject-specific glossaries may be split out as the framework grows, for example local search, paid media, analytics/measurement, structured data, social media, and YouTube.
+## Measurement relationship
+
+The measurement glossary explains recurring terms. Binding semantic requirements for stored/reported metrics live in [`../measurement/contracts/metric-semantics.md`](../measurement/contracts/metric-semantics.md).
+
+This distinction prevents glossary shorthand from weakening the measurement contract.
+
+Future subject-specific glossaries may be split out as the framework grows, for example local search, paid media, structured data, social media, and YouTube.
 
 ## Usage rule
 
