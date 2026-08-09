@@ -1,6 +1,6 @@
 # READMEbasic Glossary Agent Instructions
 
-> **Scope:** `READMEbasic/glossaries/`  
+> **Scope:** `READMEbasic/docs/glossaries/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 Agents MUST preserve the difference between explanatory terminology and binding README requirements.
@@ -10,3 +10,5 @@ Agents MUST preserve the difference between explanatory terminology and binding 
 - Do not turn one template's vocabulary into a universal rule.
 - Link normative behavior back to READMEbasic contracts/instructions rather than hiding requirements in a glossary.
 - Keep examples illustrative and remove invented project claims.
+
+Material terminology changes affecting interpretation update [`../../CHANGELOG.md`](../../CHANGELOG.md).
