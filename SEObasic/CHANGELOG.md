@@ -22,10 +22,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - `social-media/` knowledge domain for organic social publishing, community, content reuse, and channel-specific interaction.
 - `paid-media/` knowledge domain for PPC, paid search/social campaigns, targeting, landing-page alignment, attribution, and business-outcome measurement.
 - `youtube/` knowledge domain for channel/video discovery, packaging, retention, series/playlists, analytics, and cross-channel relationships.
+- `measurement/` knowledge domain for ranking, visibility, traffic, conversion, local, authority/link, technical, geographic, and cross-channel analytics semantics.
+- `measurement/contracts/metric-semantics.md` defining provider-neutral metric naming, scope, source, denominator, attribution, geographic context, comparability, and proprietary-score rules.
+- `glossaries/measurement-and-analytics.md` defining SERP/result terminology, ranking metrics, visibility metrics, traffic/conversion metrics, local metrics, authority/link metrics, technical metrics, and geographic measurement vocabulary.
 - `research/` knowledge domain for scholarly/empirical evidence, method, limitations, and synthesis.
 - `standards/` knowledge domain for formal standards, platform documentation, policies, and applicability records.
 - `references/` knowledge domain for historical records, source excerpts, and non-normative evidence.
-- `glossaries/` with a cross-domain SEO and marketing glossary plus glossary agent governance.
+- `glossaries/` with cross-domain SEO/marketing and measurement/analytics glossaries plus glossary agent governance.
 - `examples/README.md` and `examples/AGENTS.md` to distinguish illustrative implementations from authority.
 - This subsystem changelog.
 
@@ -37,6 +40,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Moved entity-graph/internal-link guidance under `entities/`.
 - Moved historical T.E.S.T.I.N.G. material and the verbatim source excerpt from `reference/` to `references/`.
 - Removed obsolete flat duplicates after updating canonical links to the new hierarchy.
-- Expanded SEObasic scope to explicitly include websites, organic social media, paid media/PPC, Google Business Profile/local/maps visibility, YouTube, research, standards, contracts, references, and glossaries.
-- Clarified the separation between canonical philosophy, practitioner positions, contracts, industry practice, platform guidance, formal standards, research evidence, historical references, and examples.
+- Expanded SEObasic scope to explicitly include websites, organic social media, paid media/PPC, Google Business Profile/local/maps visibility, YouTube, measurement/analytics, research, standards, contracts, references, and glossaries.
+- Clarified the separation between canonical philosophy, practitioner positions, contracts, industry practice, platform guidance, formal standards, research evidence, historical references, examples, and metric definitions.
+- Added binding routing so metrics such as rank, visibility, traffic, conversion, authority, and geo-grid rank cannot be used interchangeably without explicit definitions.
 - Removed the earlier engineering reinterpretation of T.E.S.T.I.N.G. from canonical SEObasic guidance.
