@@ -1,13 +1,13 @@
 # WDBASIC Compliance Agent Instructions
 
-> **Status:** Binding for work under `Wdbasic/compliance/`  
+> **Status:** Binding for work under `Wdbasic/docs/compliance/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 This directory owns WDBASIC conformance evidence models, maturity matrices, testing methodology, ACT-style procedures, and claim-support material.
 
 ## Read first
 
-1. [`../README.md`](../README.md)
+1. [`../framework-contract.md`](../framework-contract.md)
 2. [`../STANDARDS.md`](../STANDARDS.md)
 3. The compliance/evidence document being changed
 4. Applicable architecture, accessibility, form, security, media, authoring, internationalization, or non-web contract
@@ -32,4 +32,4 @@ When a compliance procedure or matrix changes, review dependent claims and evide
 
 ## Changelog
 
-Notable compliance-contract changes update [`../CHANGELOG.md`](../CHANGELOG.md).
+Notable compliance-contract changes update [`../../CHANGELOG.md`](../../CHANGELOG.md).
