@@ -1,20 +1,20 @@
 # Tailwind CSS Semantic Layer
 
-A governed collection of reusable standards and tooling for semantic Tailwind CSS, accessible server-rendered web architecture, search/content visibility, README quality, and regression-resistant agent-assisted development.
+A governed collection of reusable knowledge frameworks and tooling for semantic Tailwind CSS, accessible server-rendered web architecture, search/discovery/marketing practice, README quality, and regression-resistant agent-assisted development.
 
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)](TCbasic/README.md)
 
-The repository contains four complementary systems plus a repository-wide governance layer. Each system owns a distinct responsibility so projects can adopt the parts they need without collapsing implementation, accessibility, SEO, documentation, and agent governance into one monolithic framework.
+The repository contains four complementary `*basic` knowledge systems plus a repository-wide governance layer. The systems are intended to accumulate practitioner experience, explicit positions, contracts, standards, research, examples, glossaries, and implementation knowledge over time rather than remain flat checklists.
 
 ## What lives here
 
 | Area | Purpose | Status | Start here |
 | --- | --- | --- | --- |
-| **TCBasic** | Executable Tailwind CSS v4 semantic-layer package, tokens, components, build adapters, examples, and tests. | Active package and governance system | [`TCbasic/README.md`](TCbasic/README.md) |
-| **WDBASIC** | Framework-independent architecture, accessibility, security, validation, semantics, forms, performance, and implementation contracts. | WDBASIC v2 — binding | [`Wdbasic/README.md`](Wdbasic/README.md) |
-| **SEObasic** | Search visibility, content strategy, structured data, internal linking, entity relationships, and the T.E.S.T.I.N.G. content philosophy. | Initial framework | [`SEObasic/README.md`](SEObasic/README.md) |
-| **READMEbasic** | Evidence-based README structure, maintenance rules, reusable template, and agent instructions for documentation quality. | Initial framework | [`READMEbasic/README.md`](READMEbasic/README.md) |
+| **TCBasic** | Executable Tailwind CSS v4 semantic-layer package plus build, token, component, integration, compliance, profile, glossary, test, and contract knowledge. | Active package and governance system | [`TCbasic/README.md`](TCbasic/README.md) |
+| **WDBASIC** | Framework-independent web architecture, accessibility, security, validation, semantics, forms, performance, implementation contracts, standards evidence, profiles, and glossaries. | WDBASIC v2 — binding | [`Wdbasic/README.md`](Wdbasic/README.md) |
+| **SEObasic** | Websites, technical SEO, content, entities/internal linking, local search/GBP/maps, organic social, paid media/PPC, YouTube, research, standards, contracts, references, and glossaries. | Evolving knowledge framework | [`SEObasic/README.md`](SEObasic/README.md) |
+| **READMEbasic** | README/documentation knowledge framework covering evidence-backed structure, contracts, agent guidance, templates, research/best practices, resources, changelogs, and glossaries. | Evolving framework | [`READMEbasic/README.md`](READMEbasic/README.md) |
 | **Governance** | Repository-wide authority, invariants, change control, validation, and anti-regression rules for agent-assisted work. | Binding | [`governance/README.md`](governance/README.md) |
 
 ## How the pieces fit
@@ -23,18 +23,19 @@ The repository contains four complementary systems plus a repository-wide govern
 repository governance
         │
         ├── WDBASIC     → web architecture and implementation contracts
-        ├── TCBasic     → Tailwind CSS v4 implementation layer
-        ├── SEObasic    → search and content-discovery layer
-        └── READMEbasic → README/documentation entrypoint standards
+        ├── TCBasic     → Tailwind CSS v4 implementation and package knowledge
+        ├── SEObasic    → search, discovery, content and channel knowledge
+        └── READMEbasic → README/documentation knowledge and contracts
 ```
 
-The systems are complementary rather than interchangeable:
+Each system owns a distinct subject area while sharing the same repository principles:
 
-- **WDBASIC** defines how web implementations should behave and what evidence they should preserve.
-- **TCBasic** implements a reusable semantic styling architecture for Tailwind CSS v4.
-- **SEObasic** specializes search visibility and content discovery without replacing WDBASIC's architecture/accessibility rules.
-- **READMEbasic** defines how project entrypoint documentation should orient readers without duplicating the entire documentation set.
-- **Governance** controls how agents and automated tooling may change any of the above without silently introducing architectural drift or regression.
+- **Preserve practitioner knowledge and explicit project positions.**
+- **Distinguish contracts from research, standards, examples, and historical references.**
+- **Keep subject terminology in glossaries.**
+- **Use local `AGENTS.md` files to route automated work into the right authority.**
+- **Maintain `CHANGELOG.md` at the scope where notable changes occur.**
+- **Turn stable, repeatable obligations into documented contracts when silent drift would be harmful.**
 
 ## TCBasic quick start
 
@@ -51,21 +52,31 @@ npm run check
 
 For package installation, source imports, prebuilt distribution usage, build adapters, customization, and migration guidance, see [`TCbasic/README.md`](TCbasic/README.md).
 
-## Core design direction
+## Knowledge and contract model
 
-Across the repository, the recurring design goals are:
+Across the documentation frameworks, the repository increasingly separates several kinds of knowledge:
 
-- Semantic native HTML and readable templates.
-- Server-rendered primary content and progressive enhancement.
-- Tailwind CSS v4 with reusable semantic classes rather than repeated utility piles.
-- Accessibility, security, validation, and user agency as implementation contracts rather than optional polish.
-- Search metadata and structured data that match visible, truthful content.
-- Documentation that is concise at the entrypoint and routes depth to canonical sources.
-- Small, evidence-backed changes that preserve established behavior and prevent silent refactoring drift.
+```text
+practitioner experience + historical lessons
+                +
+industry practice + platform/vendor guidance
+                +
+formal standards + research evidence
+                ↓
+       documented positions
+                ↓
+          binding contracts
+                ↓
+ implementation / campaign / documentation practice
+                ↓
+       validation and new evidence
+```
+
+Not every lesson becomes a contract. Contracts are used when an adopted rule is stable enough that implementations or agents should not reinterpret it each time.
 
 ## Agent-assisted changes
 
-[`AGENTS.md`](AGENTS.md) is the compact repository entrypoint for coding agents and automated tools. Detailed governance lives under [`governance/`](governance/README.md).
+[`AGENTS.md`](AGENTS.md) is the compact repository entrypoint for coding agents and automated tools. Detailed governance lives under [`governance/`](governance/README.md), with more specific `AGENTS.md` files inside the subject systems and their governed subdomains.
 
 The governing doctrine is:
 
@@ -82,9 +93,15 @@ Unrequested architecture changes, broad refactors, framework/build replacements,
 | Tailwind architecture rules | [`TCbasic/architecture_rules.md`](TCbasic/architecture_rules.md) |
 | Web design/implementation governance | [`Wdbasic/README.md`](Wdbasic/README.md) |
 | WDBASIC engineering validation | [`Wdbasic/engineering-validation.md`](Wdbasic/engineering-validation.md) |
-| SEO/content discovery | [`SEObasic/README.md`](SEObasic/README.md) |
-| T.E.S.T.I.N.G. philosophy | [`SEObasic/testing-philosophy.md`](SEObasic/testing-philosophy.md) |
+| Search/discovery/marketing knowledge | [`SEObasic/README.md`](SEObasic/README.md) |
+| T.E.S.T.I.N.G. philosophy | [`SEObasic/content/testing-philosophy.md`](SEObasic/content/testing-philosophy.md) |
+| SEObasic contracts | [`SEObasic/contracts/README.md`](SEObasic/contracts/README.md) |
+| Local search / GBP / maps | [`SEObasic/local-search/README.md`](SEObasic/local-search/README.md) |
+| Paid media / PPC | [`SEObasic/paid-media/README.md`](SEObasic/paid-media/README.md) |
+| Organic social media | [`SEObasic/social-media/README.md`](SEObasic/social-media/README.md) |
+| YouTube | [`SEObasic/youtube/README.md`](SEObasic/youtube/README.md) |
 | README framework and template | [`READMEbasic/README.md`](READMEbasic/README.md) |
+| README contracts | [`READMEbasic/contracts/README.md`](READMEbasic/contracts/README.md) |
 | README best practices/research | [`READMEbasic/best-practices.md`](READMEbasic/best-practices.md) |
 | README resources and badge references | [`READMEbasic/resources.md`](READMEbasic/resources.md) |
 | Agent governance | [`AGENTS.md`](AGENTS.md) |
