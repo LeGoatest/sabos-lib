@@ -1,6 +1,6 @@
 # WDBASIC Token Agent Instructions
 
-> **Status:** Binding for work under `Wdbasic/tokens/`  
+> **Status:** Binding for work under `Wdbasic/docs/tokens/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 This directory owns WDBASIC semantic design-token contracts.
@@ -8,7 +8,7 @@ This directory owns WDBASIC semantic design-token contracts.
 ## Read first
 
 1. [`../architecture_rules.md`](../architecture_rules.md)
-2. [`../README.md`](../README.md)
+2. [`../framework-contract.md`](../framework-contract.md)
 3. The token file being changed
 4. [`../components/component-contracts.md`](../components/component-contracts.md) when token changes affect components
 
@@ -27,4 +27,4 @@ Review affected components/profiles and any evidence tied to contrast, typograph
 
 ## Changelog
 
-Notable token-contract changes update [`../CHANGELOG.md`](../CHANGELOG.md).
+Notable token-contract changes update [`../../CHANGELOG.md`](../../CHANGELOG.md).
