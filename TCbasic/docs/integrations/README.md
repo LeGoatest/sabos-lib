@@ -1,36 +1,41 @@
 # TCBasic Integration Contracts
 
-Integrations adapt TCBasic to a host environment without redefining the package architecture.
+Integrations adapt TCBasic concepts and reference CSS to a host environment without redefining the core architecture.
 
 ## Documents
 
 - [`server-rendered.md`](server-rendered.md) — HTML, PHP, Laravel Blade, HTMX, Twig, and similar systems.
-- [`component-frameworks.md`](component-frameworks.md) — Vue, Svelte, React, CSS modules, and single-file component boundaries.
-- [`../build/tooling.md`](../build/tooling.md) — CLI, PostCSS, and Vite adapters.
+- [`component-frameworks.md`](component-frameworks.md) — Vue, Svelte, React, Astro, CSS modules, and single-file component boundaries.
+- [`../architecture/tooling.md`](../architecture/tooling.md) — CLI, PostCSS, Vite, and other adopter tooling guidance.
+- [`../architecture/source-detection.md`](../architecture/source-detection.md) — static candidate and source-discovery rules.
 
 ## Integration invariants
 
-Every integration must preserve:
+Every integration should preserve:
 
-- `TCbasic/src/index.css` as the source entry point or the installed package export equivalent.
-- Static, complete class candidates.
-- The public token and component API.
-- Semantic HTML and native attributes.
-- Server or application ownership of business state.
-- Equivalent focus, error, disabled, loading, and responsive behavior.
-- The upstream Tailwind v4 browser baseline.
+- the semantic responsibilities documented by TCBasic;
+- static, complete Tailwind candidates;
+- token and component contracts;
+- semantic HTML and native attributes;
+- server/application ownership of business state;
+- focus, error, disabled, loading, responsive, reduced-motion, and forced-colors responsibilities where applicable;
+- honest separation between upstream browser/tool support and actual adopter validation.
+
+## Reference-source boundary
+
+[`../../src/`](../../src/) is a canonical reference implementation, not an installable package contract. Adopters may copy, adapt, or re-express the architecture in their own project while preserving the documented responsibilities.
 
 ## Dependency boundary
 
-An integration example may require a host framework. That dependency belongs to the consuming project unless TCBasic explicitly adds an adapter package.
+An integration example may require a host framework or build tool. That dependency belongs to the adopting project. Its presence in documentation does not make it a SABOS Lib dependency.
 
 ## Example policy
 
 Examples must:
 
-- Be small and focused.
-- Identify which behavior belongs to TCBasic and which belongs to the host.
-- Avoid fake production security or accessibility claims.
-- Use complete class strings.
-- Include baseline behavior where progressive enhancement applies.
-- Link to the governing contract.
+- be small and focused;
+- identify which behavior belongs to TCBasic and which belongs to the host;
+- avoid fabricated production security, accessibility, performance, or compatibility claims;
+- use complete class strings;
+- include baseline behavior where progressive enhancement applies;
+- link to the governing contract when the relationship is material.
