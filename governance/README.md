@@ -2,7 +2,7 @@
 
 > **Status:** Binding  
 > **Scope:** Entire repository  
-> **Purpose:** Define the authority, invariants, change-control process, and validation expectations that agent instructions route into.
+> **Purpose:** Define the authority, invariants, knowledge-system structure, change-control process, and validation expectations that agent instructions route into.
 
 The repository uses a layered governance model:
 
@@ -13,6 +13,7 @@ governance/
     ├── AGENTS.md
     ├── authority.md
     ├── invariants.md
+    ├── knowledge-system-model.md
     ├── change-control.md
     ├── validation.md
     └── research-basis.md
@@ -59,6 +60,9 @@ Defines instruction hierarchy, human authority, subsystem ownership, and the lim
 ### [`invariants.md`](invariants.md)
 Defines repository-wide truths that ordinary implementation work must preserve.
 
+### [`knowledge-system-model.md`](knowledge-system-model.md)
+Defines how the `*basic` systems preserve practitioner experience, explicit positions/bias, contracts, industry practice, standards, platform guidance, research, references, examples, glossaries, local agent authority, and changelog history without flattening their source or authority.
+
 ### [`change-control.md`](change-control.md)
 Defines when a normal implementation becomes a governed mutation and what approval is required.
 
@@ -68,16 +72,39 @@ Defines the evidence model and the Thorough, Early, Systematic, Transparent, Ind
 ### [`research-basis.md`](research-basis.md)
 Records the external and internal evidence used to design this governance model. It is informative rather than normative.
 
+## Knowledge-system rule
+
+The repository's `*basic` directories are evolving professional knowledge systems, not flat checklists.
+
+As defined by [`knowledge-system-model.md`](knowledge-system-model.md), they may preserve:
+
+- canonical practitioner philosophies/definitions;
+- practitioner experience and explicit positions/bias;
+- contracts;
+- industry practice;
+- platform/vendor guidance;
+- formal standards/specifications;
+- research evidence;
+- historical references;
+- examples;
+- profiles/patterns/anti-patterns;
+- subject glossaries;
+- implementation and validation evidence.
+
+A knowledge type does not gain authority merely because it exists. Binding obligations must be adopted deliberately as contracts or controlling governance.
+
 ## Layering rule
 
 Governance should be loaded progressively rather than copied into every agent instruction file.
 
 - Root instructions contain only high-salience repository-wide rules and routing.
 - Subsystem root instructions route work into the correct local knowledge/contract boundary.
-- Nested `AGENTS.md` files specialize behavior where a subject establishes a distinct authority, evidence, terminology, measurement, or contract boundary.
+- Nested `AGENTS.md` files specialize behavior where a subject establishes a distinct authority, evidence, terminology, measurement, source-of-truth, generated-output, or contract boundary.
 - Detailed architecture, standards, research, references, glossaries, examples, measurements, and procedures remain in their canonical locations.
 - Build and test commands remain in the package/configuration that actually owns them when possible.
 - Mechanical requirements should migrate into tests, CI, schema validation, linters, or other executable checks when practical.
+
+Not every implementation leaf directory requires its own `AGENTS.md`; local agent files should correspond to real authority/behavior boundaries rather than duplicate identical text throughout the tree.
 
 This avoids turning persistent agent context into a duplicate encyclopedia of the repository while preserving deep subject knowledge.
 
@@ -85,10 +112,10 @@ This avoids turning persistent agent context into a duplicate encyclopedia of th
 
 Subsystems retain authority over their own domain:
 
-- `Wdbasic/` — web architecture, semantics, accessibility, security, implementation behavior, validation, profiles, glossaries, and related contracts.
-- `TCbasic/` — Tailwind/package implementation contracts, executable tooling, tests, build/token/component/integration knowledge, examples, and glossaries.
-- `SEObasic/` — search/discovery/marketing knowledge spanning websites, technical SEO, content, local search/GBP/maps, organic social, paid media/PPC, YouTube, entities, measurement/analytics semantics, contracts, research, standards, references, and glossaries.
-- `READMEbasic/` — README/documentation knowledge, integrity contracts, templates, research/best practices, resources, glossaries, and agent behavior for accurate project entrypoints.
+- `Wdbasic/` — web architecture, semantics, accessibility, security, implementation behavior, validation, profiles, glossaries, and related distributed contracts.
+- `TCbasic/` — Tailwind/package implementation contracts, executable tooling, tests, build/token/component/integration knowledge, examples, source/generated-output boundaries, and glossaries.
+- `SEObasic/` — search/discovery/marketing knowledge spanning websites, technical SEO, content, local search/GBP/maps, organic social, paid media/PPC, YouTube, entities, measurement/analytics semantics, contracts, research, standards, references, examples, and glossaries.
+- `READMEbasic/` — README/documentation knowledge spanning profiles, integrity contracts, templates, research, standards, references, examples, resources, glossaries, and agent behavior for accurate project entrypoints.
 
 A subsystem may strengthen repository-wide requirements but may not silently weaken repository invariants.
 
