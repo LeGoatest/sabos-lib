@@ -1,6 +1,6 @@
 # SEObasic Measurement Agent Instructions
 
-> **Scope:** `SEObasic/measurement/`  
+> **Scope:** `SEObasic/docs/measurement/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Mission
@@ -72,4 +72,4 @@ Use [`../glossaries/measurement-and-analytics.md`](../glossaries/measurement-and
 
 ## Changelog
 
-Material measurement-framework changes require an entry in [`../CHANGELOG.md`](../CHANGELOG.md).
+Material measurement-framework changes require an entry in [`../../CHANGELOG.md`](../../CHANGELOG.md).
