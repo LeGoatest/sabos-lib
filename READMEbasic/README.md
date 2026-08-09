@@ -1,10 +1,10 @@
 # READMEbasic
 
-> **Status:** Initial framework  
+> **Status:** Evolving framework  
 > **Canonical entry point:** `READMEbasic/README.md`  
 > **Applies to:** repository root READMEs, package/library READMEs, application READMEs, documentation/governance repositories, and subsystem READMEs.
 
-READMEbasic is a reusable framework for creating README files that are accurate, scannable, useful, and maintainable.
+READMEbasic is a reusable knowledge framework for creating README files that are accurate, scannable, useful, maintainable, and evidence-backed.
 
 It treats a README as the project's **front door**, not as a copy of the entire documentation set.
 
@@ -19,19 +19,17 @@ The goal is to help a reader answer, in order:
 ## Core model
 
 ```text
-identify the audience
-        ↓
-state purpose and value
-        ↓
-show current status
-        ↓
-provide the shortest verified path to first success
-        ↓
-show a concrete usage example
-        ↓
-route to deeper documentation
-        ↓
-keep claims synchronized with repository evidence
+real-world README experience + examples
+             +
+GitHub/platform guidance + research
+             ↓
+       documented positions
+             ↓
+        README contracts
+             ↓
+audience/profile-specific README structure
+             ↓
+ verification + maintenance
 ```
 
 READMEbasic favors **progressive disclosure**. A root README should provide enough information to orient and activate a reader without becoming an encyclopedia of implementation details.
@@ -42,17 +40,37 @@ READMEbasic favors **progressive disclosure**. A root README should provide enou
 READMEbasic/
 ├── README.md
 ├── AGENTS.md
+├── CHANGELOG.md
 ├── TEMPLATE.md
+├── contracts/
+│   ├── README.md
+│   ├── AGENTS.md
+│   └── readme-integrity.md
+├── glossaries/
+│   ├── README.md
+│   ├── AGENTS.md
+│   └── readme-and-documentation.md
 ├── best-practices.md
-├── resources.md
-└── CHANGELOG.md
+└── resources.md
 ```
 
 - [`AGENTS.md`](AGENTS.md) — binding instructions for agents creating or updating README files.
+- [`contracts/`](contracts/README.md) — stable README obligations derived from adopted knowledge and evidence.
 - [`TEMPLATE.md`](TEMPLATE.md) — adaptable README scaffold; optional sections must be removed when they do not serve the project.
-- [`best-practices.md`](best-practices.md) — evidence, reference analysis, and practical rules derived from GitHub guidance, established README projects, empirical research, and supplied examples.
+- [`best-practices.md`](best-practices.md) — practitioner analysis, evidence, reference comparison, and practical guidance.
 - [`resources.md`](resources.md) — curated official guidance, standards, templates, real-world examples, badge resources, changelog guidance, and README tooling.
+- [`glossaries/`](glossaries/README.md) — subject terminology and disambiguation.
 - [`CHANGELOG.md`](CHANGELOG.md) — notable evolution of READMEbasic itself.
+
+## Contracts
+
+READMEbasic separates **what informed a decision** from **what a README must now preserve**.
+
+Current binding contract:
+
+- [`contracts/readme-integrity.md`](contracts/readme-integrity.md) — user-facing README claims must be supported by evidence and synchronized with the implementation/project record.
+
+A template, article, badge catalog, GitHub example, or research paper does not become a contract automatically. It informs an explicit READMEbasic position first.
 
 ## README principles
 
@@ -66,6 +84,7 @@ Common profiles include:
 - **Library/package** — consumers need purpose, installation, API-level usage examples, compatibility, and version expectations.
 - **Multi-system repository/monorepo** — readers need orientation, subsystem boundaries, entrypoints, and per-subsystem commands.
 - **Documentation/governance repository** — readers need purpose, authority, scope, navigation, adoption instructions, and status.
+- **Subsystem/component** — readers need responsibility boundaries, local usage, governing contracts, and links to parent documentation.
 
 A template is a menu, not a mandatory checklist.
 
@@ -101,6 +120,8 @@ Do not invent or assume:
 - Maintainers or contact details.
 
 When repository evidence is incomplete, omit the claim or state the limitation.
+
+See the binding [`README Integrity Contract`](contracts/readme-integrity.md).
 
 ### 4. First success should be reproducible
 
@@ -162,7 +183,7 @@ When maturity materially affects adoption, state it near the top.
 
 ### 11. Keep the README synchronized
 
-README commands, paths, package names, versions, and features are implementation contracts from a user's perspective.
+README commands, paths, package names, versions, and features are user-facing contracts.
 
 A code change that invalidates them creates a documentation regression.
 
@@ -209,6 +230,8 @@ External README resources are classified in [`resources.md`](resources.md) as:
 
 Use them to learn patterns, not to invent facts about the repository being documented.
 
+Terms such as *first success*, *progressive disclosure*, *template debris*, and *user-facing contract* are defined under [`glossaries/`](glossaries/README.md).
+
 ## Relationship to repository governance
 
 README work remains subject to the repository root [`AGENTS.md`](../AGENTS.md) and [`governance/`](../governance/README.md).
@@ -216,6 +239,12 @@ README work remains subject to the repository root [`AGENTS.md`](../AGENTS.md) a
 READMEbasic specializes documentation behavior; it does not authorize agents to change implementation, architecture, package contracts, release state, or project terminology merely to make a README easier to write.
 
 If the README exposes an inconsistency in the implementation or documentation, report the inconsistency. Do not silently redefine the implementation to match the desired prose.
+
+## Ongoing development
+
+READMEbasic is intended to accumulate real-world README lessons, external guidance, research, examples, contracts, tooling resources, and anti-patterns over time.
+
+The goal is not to force every project into one ideal template. The goal is to preserve what actually produces clear, reliable project entrypoints and make the reasoning reusable.
 
 ## Governing maxim
 
