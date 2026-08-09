@@ -14,7 +14,7 @@ The goal is to help a reader answer, in order:
 2. **Why would I use or care about it?**
 3. **What is its current status?**
 4. **How do I get started?**
-5. **Where do I go for deeper documentation, contribution rules, support, or governance?**
+5. **Where do I go for deeper documentation, contribution rules, support, governance, or change history?**
 
 ## Core model
 
@@ -43,12 +43,16 @@ READMEbasic/
 ├── README.md
 ├── AGENTS.md
 ├── TEMPLATE.md
-└── best-practices.md
+├── best-practices.md
+├── resources.md
+└── CHANGELOG.md
 ```
 
 - [`AGENTS.md`](AGENTS.md) — binding instructions for agents creating or updating README files.
 - [`TEMPLATE.md`](TEMPLATE.md) — adaptable README scaffold; optional sections must be removed when they do not serve the project.
 - [`best-practices.md`](best-practices.md) — evidence, reference analysis, and practical rules derived from GitHub guidance, established README projects, empirical research, and supplied examples.
+- [`resources.md`](resources.md) — curated official guidance, standards, templates, real-world examples, badge resources, changelog guidance, and README tooling.
+- [`CHANGELOG.md`](CHANGELOG.md) — notable evolution of READMEbasic itself.
 
 ## README principles
 
@@ -148,6 +152,8 @@ Only use badges that communicate useful, verified state such as:
 
 Avoid vanity or technology-logo walls when they overwhelm the project description.
 
+For badge catalogs, generators, and icon sources, see [`resources.md`](resources.md). Resource availability does not prove that a badge applies to the local project.
+
 ### 10. State limitations and maturity clearly
 
 A reader should not have to infer whether a project is experimental, active, stable, deprecated, or incomplete.
@@ -161,6 +167,12 @@ README commands, paths, package names, versions, and features are implementation
 A code change that invalidates them creates a documentation regression.
 
 Where practical, mechanically validate README links, commands, generated snippets, or other facts that can drift.
+
+### 12. Separate current state from change history
+
+The README describes the project **as it exists now**. The changelog describes **how notable behavior, interfaces, or documentation evolved**.
+
+When release or change history matters, link to `CHANGELOG.md` rather than reproducing historical entries in the README.
 
 ## Recommended default order
 
@@ -180,10 +192,22 @@ Architecture or repository map (only if needed for orientation)
 Documentation
 Development / contributing
 Support (when a real channel exists)
+Changelog (link when useful)
 License
 ```
 
 The order follows the reader's likely questions rather than the historical order of a generic template.
+
+## Resource use
+
+External README resources are classified in [`resources.md`](resources.md) as:
+
+1. official platform/specification guidance;
+2. established standards/templates;
+3. curated real-world examples;
+4. badge, visual, and authoring tools.
+
+Use them to learn patterns, not to invent facts about the repository being documented.
 
 ## Relationship to repository governance
 
