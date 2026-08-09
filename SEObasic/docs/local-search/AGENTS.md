@@ -1,6 +1,6 @@
 # SEObasic Local Search Agent Instructions
 
-> **Scope:** `SEObasic/local-search/`  
+> **Scope:** `SEObasic/docs/local-search/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Mission
@@ -32,4 +32,4 @@ Reusable local-search obligations SHOULD be formalized under this domain's futur
 
 ## Changelog
 
-Material changes require an entry in [`../CHANGELOG.md`](../CHANGELOG.md).
+Material changes require an entry in [`../../CHANGELOG.md`](../../CHANGELOG.md).
