@@ -18,11 +18,12 @@ Before material README work, read:
 
 1. [`contracts/readme-integrity.md`](contracts/readme-integrity.md).
 2. The applicable guidance in this file and [`README.md`](README.md).
-3. The matching profile under [`profiles/`](profiles/README.md) when one applies.
-4. [`TEMPLATE.md`](TEMPLATE.md) only as an adaptable scaffold, not a checklist.
-5. [`standards/`](standards/README.md) when platform/specification behavior controls the question.
-6. [`research/`](research/README.md), [`references/`](references/README.md), [`examples/`](examples/README.md), [`resources.md`](resources.md), or [`best-practices.md`](best-practices.md) only when that evidence/source type is relevant.
-7. [`glossaries/`](glossaries/README.md) when terminology is ambiguous.
+3. Applicable practitioner positions under [`positions/`](positions/README.md) when the task touches an explicit READMEbasic preference.
+4. The matching profile under [`profiles/`](profiles/README.md) when one applies.
+5. [`TEMPLATE.md`](TEMPLATE.md) only as an adaptable scaffold, not a checklist.
+6. [`standards/`](standards/README.md) when platform/specification behavior controls the question.
+7. [`research/`](research/README.md), [`references/`](references/README.md), [`examples/`](examples/README.md), [`resources.md`](resources.md), or [`best-practices.md`](best-practices.md) only when that evidence/source type is relevant.
+8. [`glossaries/`](glossaries/README.md) when terminology is ambiguous.
 
 Follow the nearest nested `AGENTS.md` for work inside those knowledge domains.
 
@@ -31,6 +32,7 @@ Follow the nearest nested `AGENTS.md` for work inside those knowledge domains.
 READMEbasic distinguishes:
 
 - practitioner experience and best-practice synthesis;
+- explicit practitioner positions/bias;
 - audience/repository profiles;
 - contracts;
 - formal standards/specifications;
@@ -41,7 +43,20 @@ READMEbasic distinguishes:
 - templates/resources/tooling;
 - glossary terminology.
 
-Do not flatten these into one category called “best practice.” A template or example is not a contract. A research paper is not automatically a contract. Platform behavior is authoritative only for that platform/scope.
+Do not flatten these into one category called “best practice.” A template or example is not a contract. A research paper is not automatically a contract. Platform behavior is authoritative only for that platform/scope. A practitioner preference should be represented as a position rather than mislabeled as an external requirement.
+
+## Position rule
+
+When a documented READMEbasic position applies, read [`positions/AGENTS.md`](positions/AGENTS.md) and the applicable position record.
+
+Agents MUST NOT:
+
+- erase a documented preference merely because a popular README template uses another structure;
+- present a READMEbasic preference as GitHub/GFM behavior;
+- silently convert a preference into a binding contract;
+- silently replace a position when new evidence challenges it.
+
+Conflicting evidence should trigger explicit review, not automatic normalization.
 
 ## Required inspection
 
@@ -171,7 +186,7 @@ If used, validate every anchor after heading changes.
 1. Resolve audience and README profile.
 2. Inspect authoritative repository evidence.
 3. Identify inaccurate, stale, missing, duplicated, or overly detailed content.
-4. Preserve authoritative terminology and project identity.
+4. Preserve authoritative terminology, project identity, and applicable practitioner positions.
 5. Draft the smallest coherent README structure.
 6. Verify every command, path, version, badge, and material capability claim.
 7. Verify repository-relative links.
