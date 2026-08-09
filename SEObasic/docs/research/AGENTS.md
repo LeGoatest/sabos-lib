@@ -1,6 +1,6 @@
 # SEObasic Research Agent Instructions
 
-> **Scope:** `SEObasic/research/`  
+> **Scope:** `SEObasic/docs/research/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 Agents handling research MUST preserve evidence quality and uncertainty.
@@ -25,3 +25,5 @@ Agents MUST NOT:
 - fabricate citations, sample sizes, findings, or statistical significance.
 
 When research materially challenges a binding contract, report the conflict and use deliberate contract/change-control review rather than silently changing the rule.
+
+Material research changes that alter framework interpretation should update [`../../CHANGELOG.md`](../../CHANGELOG.md).
