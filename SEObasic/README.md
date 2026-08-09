@@ -17,10 +17,15 @@ SEObasic/
 ├── testing-philosophy.md
 ├── structured-data.md
 ├── entity-graph.md
+├── reference/
+│   ├── README.md
+│   └── testing-history.md
 └── examples/
     └── go/
         └── jsonld.go
 ```
+
+Historical findings and recovered prior applications are preserved under [`reference/`](reference/README.md). Reference files are non-normative and do not override the current framework contracts.
 
 ## 2. Core goals
 
@@ -57,6 +62,8 @@ Used for gathering and developing authentic source material:
 See [`testing-method.md`](testing-method.md).
 
 The method is intended to produce useful source material for website content, case studies, social posts, FAQs, project updates, galleries, knowledge-base entries, and other indexable content. It is not a requirement to publish every gathered item on every channel.
+
+The method is holistic: its seven principles may overlap within the same post, project, or campaign. It must not be reduced to a mandatory one-letter-per-post rotation.
 
 ### Engineering T.E.S.T.I.N.G. Philosophy
 
