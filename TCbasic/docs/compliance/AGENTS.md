@@ -1,23 +1,28 @@
-# TCBasic Compliance Agent Instructions
+# TCBasic Validation and Evidence Agent Instructions
 
-> **Status:** Binding for work under `TCbasic/compliance/`  
+> **Status:** Binding for work under `TCbasic/docs/compliance/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)  
-> **Compliance entry point:** [`README.md`](README.md)
+> **Entry point:** [`README.md`](README.md)
 
-This directory owns TCBasic browser/build baselines, migration/release checklists, and related evidence requirements.
+This directory governs how TCBasic compatibility, migration, reference consistency, and adopter validation claims are represented.
 
 ## Rules
 
-Agents MUST distinguish documented support from assumed support and observed evidence from untested claims.
+Agents MUST distinguish:
 
-Do not claim browser compatibility, build integrity, package completeness, or migration safety without the evidence required by the applicable compliance document.
+- documented/upstream support from observed adopter evidence;
+- reference-source consistency from a successful consumer build;
+- example behavior from production validation;
+- `not_tested`, `blocked`, and `manual_review_required` from `passed`.
 
-Changes to a baseline or checklist that alter interpretation are contract changes and must be reflected in dependent documentation/tests.
+Agents MUST NOT claim package integrity, generated-distribution integrity, or SABOS Lib build success because those are no longer TCBasic repository concepts.
 
-## Validation
+Changes to a compatibility baseline or evidence interpretation are governed knowledge changes and must be reflected in dependent documentation.
 
-Use actual build/package/test results and recorded compatibility evidence. Unknown or untested conditions remain unknown/untested.
+## Validation language
+
+Use the actual scope of evidence. If a real adopting project performed build/browser/accessibility tests, identify that project/environment. Otherwise report only the documentation/reference review that actually occurred.
 
 ## Changelog
 
-Notable compliance/baseline changes update [`../CHANGELOG.md`](../CHANGELOG.md).
+Notable compliance/evidence changes update [`../../CHANGELOG.md`](../../CHANGELOG.md).
