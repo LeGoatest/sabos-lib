@@ -1,6 +1,14 @@
 # Tailwind CSS Semantic Layer
 
-This repository contains three independently organized systems.
+This repository contains three independently organized systems plus a repository-wide governance layer.
+
+## Repository governance
+
+[`AGENTS.md`](AGENTS.md) is the compact agent entrypoint. Detailed authority, invariants, change control, validation, and the research basis live under [`governance/`](governance/README.md).
+
+The governing doctrine is:
+
+> **Agents may implement within established contracts. They may not silently redefine those contracts.**
 
 ## TCBasic
 
