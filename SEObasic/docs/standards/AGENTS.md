@@ -1,6 +1,6 @@
 # SEObasic Standards Agent Instructions
 
-> **Scope:** `SEObasic/standards/`  
+> **Scope:** `SEObasic/docs/standards/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 Agents MUST preserve publication status, version, authority, and scope of external standards/platform guidance.
@@ -22,3 +22,5 @@ Agents MUST NOT:
 - present obsolete/draft guidance as current without qualification;
 - use third-party summaries as a substitute for authoritative platform policy when the official source is available;
 - silently alter a practitioner or SEObasic contract merely because an external source uses different terminology.
+
+Material standards/platform interpretation changes should update [`../../CHANGELOG.md`](../../CHANGELOG.md).
