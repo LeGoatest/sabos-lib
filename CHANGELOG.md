@@ -31,6 +31,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Changed
 
+- Renamed the repository from `tailwindcss-semantic-layer` to `sabos-lib` to reflect its role as the umbrella library for multiple governed knowledge systems rather than a Tailwind-only repository.
+- Reframed the root `README.md` around SABOS Lib as the repository identity, with WDBASIC, TCBasic, SEObasic, READMEbasic, and governance presented as peer systems with distinct authority domains.
+- Removed Tailwind-specific branding from the repository-level identity while preserving `tailwindcss-semantic-layer` as the verified TCBasic npm package name.
+- Updated repository clone/getting-started examples from `LeGoatest/tailwindcss-semantic-layer` to `LeGoatest/sabos-lib`.
 - Reworked the root `README.md` into a concise repository entrypoint describing the `*basic` directories as evolving knowledge systems rather than flat checklists.
 - Expanded the root knowledge model to explicitly preserve practitioner positions and acknowledged bias separately from standards/research and binding contracts.
 - Updated the root `AGENTS.md` to route work through the shared Knowledge System Model plus each subsystem's own `AGENTS.md`, explicit practitioner positions, nested domain agents, contracts, and applicable knowledge sources.
