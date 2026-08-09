@@ -2,7 +2,7 @@
 
 > **Status:** Binding  
 > **Scope:** Entire repository  
-> **Purpose:** Route agents into the repository's authoritative governance while keeping persistent instruction context small.
+> **Purpose:** Route agents into authoritative governance while keeping persistent instruction context small.
 
 ## Mission
 
@@ -17,43 +17,58 @@ For any repository change:
 1. Read [`governance/README.md`](governance/README.md).
 2. Read [`governance/authority.md`](governance/authority.md).
 3. Read [`governance/invariants.md`](governance/invariants.md).
-4. For `*basic` knowledge/framework changes, follow [`governance/knowledge-system-model.md`](governance/knowledge-system-model.md).
-5. Read the nearest applicable subsystem `AGENTS.md`, README, binding contracts, and explicit practitioner positions.
-6. Use [`governance/change-control.md`](governance/change-control.md) if the task crosses a mutation gate.
-7. Validate according to [`governance/validation.md`](governance/validation.md).
+4. For `*basic` work, read [`governance/knowledge-system-model.md`](governance/knowledge-system-model.md).
+5. Read the affected subsystem `README.md` and `AGENTS.md`.
+6. Read the subsystem's `docs/README.md` / `docs/AGENTS.md` when present.
+7. Read the nearest local `AGENTS.md`, binding contracts, and applicable practitioner positions.
+8. Use [`governance/change-control.md`](governance/change-control.md) when the task crosses a mutation gate.
+9. Validate according to [`governance/validation.md`](governance/validation.md).
 
-The research supporting this structure is recorded in [`governance/research-basis.md`](governance/research-basis.md); it is not required reading for ordinary implementation work.
+The research supporting this structure is recorded in [`governance/research-basis.md`](governance/research-basis.md); it is not ordinary required reading.
 
 ## Non-negotiable invariants
 
 Agents MUST:
 
-- Preserve working behavior outside requested scope.
-- Make the smallest coherent change that fully satisfies the request.
-- Inspect actual repository state before asserting implementation facts.
-- Preserve user-established architecture, naming, tooling, workflow, terminology, and generated-output conventions unless explicitly changed.
-- Preserve the distinction between practitioner positions, contracts, standards, research, references, examples, glossaries, and implementation evidence.
-- Treat existing intentional tests and observable behavior as regression evidence.
-- Distinguish pre-existing failures from failures introduced by the current change.
-- Report validation honestly.
+- preserve working behavior outside requested scope;
+- make the smallest coherent change that fully satisfies the request;
+- inspect actual repository state before asserting implementation facts;
+- preserve user-established architecture, naming, terminology, workflow, and knowledge authority unless explicitly changed;
+- preserve the distinction between practitioner positions, contracts, standards, research, references, examples, glossaries, subject artifacts, and validation evidence;
+- distinguish pre-existing failures from failures introduced by the current change;
+- report validation honestly.
 
 Agents MUST NOT:
 
-- Perform opportunistic refactors or cleanup.
-- Rewrite, rename, move, reorganize, replace, or modernize working architecture merely because another approach appears cleaner.
-- Add or replace dependencies without a concrete requirement.
-- Delete code, tests, files, or configuration merely because they appear unused.
-- Weaken tests or rewrite expected output solely to accommodate a regression.
-- Hand-edit generated artifacts when the repository defines a canonical source-generation workflow.
-- Overwrite unrelated user work or use destructive shortcuts for validation.
-- Silently reinterpret authoritative terminology, acronyms, historical source material, practitioner positions, or subsystem contracts.
-- Turn one research source, platform recommendation, example, or common industry practice into a binding contract without an explicit adoption step.
+- perform opportunistic refactors or cleanup;
+- reorganize working architecture merely because another structure appears cleaner;
+- add/remove dependencies or build systems without a concrete requirement;
+- delete code/files/configuration merely because they look unused;
+- weaken tests/contracts to accommodate a regression;
+- overwrite unrelated user work or use destructive shortcuts for validation;
+- silently reinterpret canonical terminology, acronyms, historical material, practitioner positions, or subsystem contracts;
+- turn one research source, platform recommendation, example, or common industry practice into a binding contract without explicit adoption.
 
 Full invariant definitions: [`governance/invariants.md`](governance/invariants.md).
 
+## Knowledge-system structure
+
+Where applicable, a `*basic` system separates:
+
+```text
+root        identity / authority routing / changelog
+docs/       accumulated governed knowledge
+artifact    canonical source, templates, playbooks, schemas, etc. when real
+examples/   illustrative usage/cases
+```
+
+Do not create artifact directories merely for symmetry. Use `dist/` only for actual generated/distribution output.
+
+Moving a document does not change its substantive authority by itself.
+
 ## Mutation gate
 
-A change is a **governed mutation** when it changes architecture, framework/build tooling, public contracts, persistent data semantics, established directory/naming conventions, subsystem authority, canonical philosophy/definitions, or repository governance.
+A governed mutation changes architecture, tooling assumptions, public contracts, persistent semantics, established directory/naming conventions, subsystem authority, canonical definitions, or repository governance.
 
 Before an **unrequested** governed mutation, provide:
 
@@ -66,11 +81,9 @@ Smaller alternative considered:
 Validation plan:
 ```
 
-Then obtain explicit user approval before modifying the governed contract.
+Then obtain explicit approval.
 
-If the user already explicitly requested that exact mutation, additional permission is not required; keep affected governance and implementation synchronized.
-
-See [`governance/change-control.md`](governance/change-control.md).
+If the user explicitly requested that exact mutation, additional permission is not required; keep affected governance, documentation, artifacts, and changelogs synchronized.
 
 ## Required workflow
 
@@ -79,9 +92,8 @@ inspect
 → resolve authority and scope
 → establish baseline when material
 → make smallest coherent change
-→ validate locally
-→ inspect integration/generated output
-→ compare against baseline
+→ validate available evidence
+→ compare against baseline/contract
 → report evidence and gaps
 ```
 
@@ -89,84 +101,83 @@ Do not repeatedly re-inspect unchanged material without a concrete reason.
 
 ## Subsystem routing
 
-### TCBasic
-
-For changes under `TCbasic/` read:
-
-1. [`TCbasic/AGENTS.md`](TCbasic/AGENTS.md)
-2. [`TCbasic/README.md`](TCbasic/README.md)
-3. The nearest local `AGENTS.md` for positions, build, tokens, components, integrations, compliance, profiles, glossaries, examples, source, generated distribution, or tests when applicable.
-4. Applicable TCBasic architecture, standards, contracts, tests, and package files.
-
-Run commands from `TCbasic/`.
-
-Authoritative package commands include:
-
-```text
-npm test
-npm run build
-npm run check
-```
-
-Use the more specific commands in `TCbasic/AGENTS.md` when applicable.
-
 ### WDBASIC
 
-For changes under `Wdbasic/` read:
+Read:
 
-1. [`Wdbasic/AGENTS.md`](Wdbasic/AGENTS.md)
-2. [`Wdbasic/README.md`](Wdbasic/README.md)
-3. [`Wdbasic/architecture_rules.md`](Wdbasic/architecture_rules.md)
-4. The nearest local `AGENTS.md` for positions, forms, tokens, components, compliance, authoring, profiles, or glossaries when applicable.
-5. Applicable WDBASIC contracts.
+1. [`Wdbasic/README.md`](Wdbasic/README.md)
+2. [`Wdbasic/AGENTS.md`](Wdbasic/AGENTS.md)
+3. [`Wdbasic/docs/README.md`](Wdbasic/docs/README.md)
+4. [`Wdbasic/docs/architecture_rules.md`](Wdbasic/docs/architecture_rules.md)
+5. [`Wdbasic/docs/framework-contract.md`](Wdbasic/docs/framework-contract.md)
+6. nearest local `AGENTS.md` and applicable contracts
 
-Implementation validation follows [`Wdbasic/engineering-validation.md`](Wdbasic/engineering-validation.md).
+Implementation/review validation guidance: [`Wdbasic/docs/engineering-validation.md`](Wdbasic/docs/engineering-validation.md).
+
+### TCBasic
+
+Read:
+
+1. [`TCbasic/README.md`](TCbasic/README.md)
+2. [`TCbasic/AGENTS.md`](TCbasic/AGENTS.md)
+3. [`TCbasic/docs/README.md`](TCbasic/docs/README.md)
+4. [`TCbasic/docs/architecture/rules.md`](TCbasic/docs/architecture/rules.md)
+5. nearest local `AGENTS.md` and applicable contracts/positions
+6. [`TCbasic/src/`](TCbasic/src/) only as canonical reference CSS when implementation detail matters
+7. [`TCbasic/examples/`](TCbasic/examples/) only as illustrative adoption evidence
+
+SABOS Lib does **not** build, package, publish, or release TCBasic. Do not recreate `package.json`, `dist/`, repository build pipelines, or npm-release machinery without explicit governed scope.
 
 ### SEObasic
 
-For changes under `SEObasic/` read:
+Read:
 
-1. [`SEObasic/AGENTS.md`](SEObasic/AGENTS.md)
-2. [`SEObasic/README.md`](SEObasic/README.md)
-3. The nearest domain `AGENTS.md` and README, including [`SEObasic/positions/`](SEObasic/positions/README.md) when an explicit practitioner stance applies.
-4. Applicable SEObasic contracts.
-5. Research, standards, references, glossaries, examples, or measurement definitions only when relevant to the task.
+1. [`SEObasic/README.md`](SEObasic/README.md)
+2. [`SEObasic/AGENTS.md`](SEObasic/AGENTS.md)
+3. [`SEObasic/docs/README.md`](SEObasic/docs/README.md)
+4. nearest domain `AGENTS.md` / README and applicable contracts
+5. positions, research, standards, references, glossaries, measurement definitions, or examples only as relevant
 
-Do not redefine the canonical T.E.S.T.I.N.G. Method from inference or industry convention. Its canonical location is [`SEObasic/content/testing-philosophy.md`](SEObasic/content/testing-philosophy.md).
+Canonical T.E.S.T.I.N.G. location: [`SEObasic/docs/content/testing-philosophy.md`](SEObasic/docs/content/testing-philosophy.md). Do not redefine its letters or normalize its canonical wording.
+
+Measurement work follows [`SEObasic/docs/measurement/contracts/metric-semantics.md`](SEObasic/docs/measurement/contracts/metric-semantics.md).
+
+[`SEObasic/examples/`](SEObasic/examples/) is illustrative. A future `playbooks/` artifact root should be created only when real reusable operational playbooks exist.
 
 ### READMEbasic
 
-For creation or material restructuring of README files, and for changes under `READMEbasic/`, read:
+For README creation/material restructuring or READMEbasic changes, read:
 
-1. [`READMEbasic/AGENTS.md`](READMEbasic/AGENTS.md)
-2. [`READMEbasic/README.md`](READMEbasic/README.md)
-3. [`READMEbasic/contracts/readme-integrity.md`](READMEbasic/contracts/readme-integrity.md)
-4. The nearest local `AGENTS.md` under positions, profiles, research, standards, references, examples, contracts, or glossaries when applicable.
-5. [`READMEbasic/best-practices.md`](READMEbasic/best-practices.md), [`READMEbasic/resources.md`](READMEbasic/resources.md), or other evidence only when relevant.
+1. [`READMEbasic/README.md`](READMEbasic/README.md)
+2. [`READMEbasic/AGENTS.md`](READMEbasic/AGENTS.md)
+3. [`READMEbasic/docs/README.md`](READMEbasic/docs/README.md)
+4. [`READMEbasic/docs/contracts/readme-integrity.md`](READMEbasic/docs/contracts/readme-integrity.md)
+5. applicable profile/position/local `AGENTS.md`
+6. research, standards, references, resources, templates, or examples only when relevant
 
-Use [`READMEbasic/TEMPLATE.md`](READMEbasic/TEMPLATE.md) as a modular scaffold, not as a mandatory section checklist.
-
-README claims must be verified against repository evidence; do not invent commands, status, compatibility, features, badges, contacts, or project state to complete a template.
+[`READMEbasic/templates/README-template.md`](READMEbasic/templates/README-template.md) is a reusable starting artifact, not a mandatory checklist. README claims must be verified against project evidence.
 
 ## Commands and evidence
 
-Never invent build or test commands from convention. Read the package manifest, workflow, task runner, or subsystem documentation that owns them.
+Never invent build/test commands from convention. Read the owning project manifest/workflow/documentation when an adopting implementation actually has commands.
 
-When a check cannot be run, state that it was not run and why.
+SABOS Lib itself is primarily a knowledge repository; absence of repository build tooling is not a validation failure.
+
+When a check cannot be run, state that it was not run and why. Do not convert documentation inspection into a build/browser/conformance pass.
 
 ## Definition of done
 
-A material task is not complete until, as applicable:
+A material task is complete only when, as applicable:
 
-- the requested behavior exists;
+- requested behavior/knowledge exists;
 - intended files were actually changed;
-- relevant available validation was run;
-- required generated output was regenerated from canonical sources;
-- unrelated behavioral drift was checked;
+- canonical paths and local authority links are correct;
+- relevant available validation/evidence was reviewed;
+- unrelated drift was checked;
 - pre-existing and new failures were distinguished;
 - unperformed validation was disclosed;
 - no unapproved governed mutation was introduced;
-- applicable subsystem and root changelogs were updated for notable changes.
+- subsystem/root changelogs were updated for notable changes.
 
 ## Governing maxim
 
