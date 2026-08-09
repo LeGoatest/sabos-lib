@@ -1,0 +1,21 @@
+# Changelog
+
+All notable changes to READMEbasic will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
+
+## [Unreleased]
+
+### Added
+
+- READMEbasic framework defining audience-first, evidence-based README structure.
+- Binding `AGENTS.md` for automated README creation and maintenance.
+- Reusable `TEMPLATE.md` with optional sections and verification rules.
+- `best-practices.md` synthesizing GitHub guidance, established README projects, supplied examples, and empirical research.
+- `resources.md` with curated official guidance, templates, examples, badge resources, and README tooling.
+- This subsystem changelog.
+
+### Changed
+
+- Added READMEbasic to the repository root README and governance authority map.
+- Established README facts such as commands, versions, paths, badges, and status as user-facing contracts that must be verified against repository evidence.
