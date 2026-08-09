@@ -1,6 +1,6 @@
 # Tailwind CSS Semantic Layer
 
-This repository contains two independently organized systems.
+This repository contains three independently organized systems.
 
 ## TCBasic
 
@@ -33,6 +33,12 @@ Run package commands from `TCbasic/`.
 ## WDBASIC
 
 [`Wdbasic/`](Wdbasic/README.md) is the framework-independent web design, accessibility, security, validation, compliance, and implementation-contract system.
+
+## SEObasic
+
+[`SEObasic/`](SEObasic/README.md) is the search visibility, content strategy, structured-data, internal-linking, and entity-graph system.
+
+It includes the T.E.S.T.I.N.G. content method, automatic JSON-LD guidance, breadcrumb structured data, and the entity-extraction/internal-linking roadmap.
 
 ## Repository license
 
