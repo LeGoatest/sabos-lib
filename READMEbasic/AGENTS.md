@@ -2,7 +2,7 @@
 
 > **Status:** Binding for automated README creation and maintenance  
 > **Scope:** README files governed by READMEbasic  
-> **Parent authority:** [`../AGENTS.md`](../AGENTS.md) and [`../governance/`](../governance/README.md)
+> **Parent authority:** [`../AGENTS.md`](../AGENTS.md), [`../governance/`](../governance/README.md), and [`../governance/knowledge-system-model.md`](../governance/knowledge-system-model.md)
 
 These instructions specialize repository governance for agents that create, rewrite, or materially update README files.
 
@@ -18,9 +18,30 @@ Before material README work, read:
 
 1. [`contracts/readme-integrity.md`](contracts/readme-integrity.md).
 2. The applicable guidance in this file and [`README.md`](README.md).
-3. [`TEMPLATE.md`](TEMPLATE.md) only as an adaptable scaffold, not a checklist.
-4. [`resources.md`](resources.md) or [`best-practices.md`](best-practices.md) when external patterns/evidence are relevant.
-5. [`glossaries/`](glossaries/README.md) when terminology is ambiguous.
+3. The matching profile under [`profiles/`](profiles/README.md) when one applies.
+4. [`TEMPLATE.md`](TEMPLATE.md) only as an adaptable scaffold, not a checklist.
+5. [`standards/`](standards/README.md) when platform/specification behavior controls the question.
+6. [`research/`](research/README.md), [`references/`](references/README.md), [`examples/`](examples/README.md), [`resources.md`](resources.md), or [`best-practices.md`](best-practices.md) only when that evidence/source type is relevant.
+7. [`glossaries/`](glossaries/README.md) when terminology is ambiguous.
+
+Follow the nearest nested `AGENTS.md` for work inside those knowledge domains.
+
+## Knowledge-source discipline
+
+READMEbasic distinguishes:
+
+- practitioner experience and best-practice synthesis;
+- audience/repository profiles;
+- contracts;
+- formal standards/specifications;
+- platform/vendor guidance;
+- research evidence;
+- historical/comparative references;
+- examples;
+- templates/resources/tooling;
+- glossary terminology.
+
+Do not flatten these into one category called “best practice.” A template or example is not a contract. A research paper is not automatically a contract. Platform behavior is authoritative only for that platform/scope.
 
 ## Required inspection
 
@@ -51,6 +72,8 @@ Classify the README before selecting its structure:
 3. **Multi-system repository/monorepo**
 4. **Documentation/governance repository**
 5. **Subsystem/component**
+
+Use [`profiles/`](profiles/README.md) as profile-specific knowledge grows.
 
 Do not force every optional section from [`TEMPLATE.md`](TEMPLATE.md) into every profile.
 
