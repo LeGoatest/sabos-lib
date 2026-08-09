@@ -31,6 +31,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 ### Changed
 
 - Expanded the canonical README into a governed package entry point with authority order, subsystem map, browser baseline, and adoption profiles.
+- Expanded the canonical README map/reading order to expose `positions/`, local domain `AGENTS.md` files, and the distinct `src/` canonical-source, `dist/` generated-output, and `tests/` regression-evidence boundaries.
 - Expanded published package contents to include build, token, component, integration, compliance, profile, and glossary contracts.
 - Clarified local source-of-truth boundaries: `src/` is canonical source, `dist/` is generated output, and `tests/` are regression evidence governed by their nearest instructions.
 - Separated TCBasic practitioner preferences from upstream Tailwind requirements and binding package contracts so deliberate divergence is preserved without misrepresenting upstream behavior.
