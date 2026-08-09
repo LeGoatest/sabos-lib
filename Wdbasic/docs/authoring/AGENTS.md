@@ -1,13 +1,13 @@
 # WDBASIC Authoring Agent Instructions
 
-> **Status:** Binding for work under `Wdbasic/authoring/`  
+> **Status:** Binding for work under `Wdbasic/docs/authoring/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 This directory governs authoring tools and generated accessible output.
 
 ## Read first
 
-1. [`../README.md`](../README.md)
+1. [`../framework-contract.md`](../framework-contract.md)
 2. [`atag-2.0.md`](atag-2.0.md)
 3. [`accessible-output.md`](accessible-output.md)
 4. Applicable architecture, form, component, media, internationalization, security, and non-web contracts
@@ -26,4 +26,4 @@ Inspect generated output, not only generator source. When import/export or trans
 
 ## Changelog
 
-Notable authoring-contract changes update [`../CHANGELOG.md`](../CHANGELOG.md).
+Notable authoring-contract changes update [`../../CHANGELOG.md`](../../CHANGELOG.md).
