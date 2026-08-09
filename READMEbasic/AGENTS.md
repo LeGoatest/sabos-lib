@@ -12,6 +12,16 @@ These instructions specialize repository governance for agents that create, rewr
 
 A README is not permission to redesign the project it documents.
 
+## Required READMEbasic sources
+
+Before material README work, read:
+
+1. [`contracts/readme-integrity.md`](contracts/readme-integrity.md).
+2. The applicable guidance in this file and [`README.md`](README.md).
+3. [`TEMPLATE.md`](TEMPLATE.md) only as an adaptable scaffold, not a checklist.
+4. [`resources.md`](resources.md) or [`best-practices.md`](best-practices.md) when external patterns/evidence are relevant.
+5. [`glossaries/`](glossaries/README.md) when terminology is ambiguous.
+
 ## Required inspection
 
 Before writing or materially restructuring a README, inspect enough repository evidence to verify:
