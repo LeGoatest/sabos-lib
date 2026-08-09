@@ -1,6 +1,6 @@
 # WDBASIC Forms Agent Instructions
 
-> **Status:** Binding for work under `Wdbasic/forms/`  
+> **Status:** Binding for work under `Wdbasic/docs/forms/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)  
 > **Primary contract:** [`README.md`](README.md)
 
@@ -9,7 +9,7 @@ This directory governs form architecture, validation, submission lifecycle, secu
 ## Read first
 
 1. [`../architecture_rules.md`](../architecture_rules.md)
-2. [`../README.md`](../README.md)
+2. [`../framework-contract.md`](../framework-contract.md)
 3. [`README.md`](README.md)
 4. [`validation.md`](validation.md)
 5. [`security.md`](security.md)
@@ -44,4 +44,4 @@ Use the testing requirements in [`README.md`](README.md) plus applicable WDBASIC
 
 ## Changelog
 
-Notable form-contract changes update [`../CHANGELOG.md`](../CHANGELOG.md).
+Notable form-contract changes update [`../../CHANGELOG.md`](../../CHANGELOG.md).
