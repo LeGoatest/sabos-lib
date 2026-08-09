@@ -1,6 +1,6 @@
 # SEObasic YouTube Agent Instructions
 
-> **Scope:** `SEObasic/youtube/`  
+> **Scope:** `SEObasic/docs/youtube/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Mission
@@ -32,4 +32,4 @@ Stable YouTube obligations SHOULD become contracts when repeatable channel work 
 
 ## Changelog
 
-Material changes require an entry in [`../CHANGELOG.md`](../CHANGELOG.md).
+Material changes require an entry in [`../../CHANGELOG.md`](../../CHANGELOG.md).
