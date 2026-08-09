@@ -13,19 +13,21 @@ SEObasic complements WDBASIC rather than replacing it. WDBASIC continues to gove
 ```text
 SEObasic/
 ├── README.md
-├── testing-method.md
 ├── testing-philosophy.md
+├── testing-method.md
 ├── structured-data.md
 ├── entity-graph.md
 ├── reference/
 │   ├── README.md
-│   └── testing-history.md
+│   ├── testing-history.md
+│   └── source-excerpts/
+│       └── 2026-08-09-testing-method.md
 └── examples/
     └── go/
         └── jsonld.go
 ```
 
-Historical findings and recovered prior applications are preserved under [`reference/`](reference/README.md). Reference files are non-normative and do not override the current framework contracts.
+The canonical T.E.S.T.I.N.G. wording is defined in [`testing-philosophy.md`](testing-philosophy.md). Historical findings and recovered prior applications are preserved under [`reference/`](reference/README.md). Reference files are non-normative and do not override the current framework contracts.
 
 ## 2. Core goals
 
@@ -41,15 +43,11 @@ SEObasic prioritizes:
 8. Consistent publication and modification metadata.
 9. Repeatable content gathering and publishing workflows.
 10. Search visibility without fabricated proof, keyword stuffing, doorway pages, or schema spam.
-11. Repeatable engineering validation that prevents SEO automation from silently introducing regressions.
+11. Regression protection for generators, metadata, internal links, structured data, routes, and other automated SEO behavior.
 
-## 3. The two T.E.S.T.I.N.G. frameworks
+## 3. T.E.S.T.I.N.G. philosophy
 
-SEObasic preserves two distinct frameworks that share the T.E.S.T.I.N.G. name. They must not be conflated.
-
-### Content T.E.S.T.I.N.G. Method
-
-Used for gathering and developing authentic source material:
+SEObasic uses one authoritative T.E.S.T.I.N.G. philosophy:
 
 - **T — Talk about the drive behind the passion**
 - **E — Engage the audience**
@@ -59,27 +57,11 @@ Used for gathering and developing authentic source material:
 - **N — Network responsibly**
 - **G — Gather content regularly**
 
-See [`testing-method.md`](testing-method.md).
+The complete authoritative wording is preserved in [`testing-philosophy.md`](testing-philosophy.md) and as a verbatim source excerpt in [`reference/source-excerpts/2026-08-09-testing-method.md`](reference/source-excerpts/2026-08-09-testing-method.md).
 
-The method is intended to produce useful source material for website content, case studies, social posts, FAQs, project updates, galleries, knowledge-base entries, and other indexable content. It is not a requirement to publish every gathered item on every channel.
+[`testing-method.md`](testing-method.md) provides application guidance without redefining the philosophy.
 
-The method is holistic: its seven principles may overlap within the same post, project, or campaign. It must not be reduced to a mandatory one-letter-per-post rotation.
-
-### Engineering T.E.S.T.I.N.G. Philosophy
-
-Used for validating software, generators, content engines, indexes, graph relationships, routes, and other technical systems:
-
-- **T — Thorough**
-- **E — Early**
-- **S — Systematic**
-- **T — Transparent**
-- **I — Independent**
-- **N — Non-destructive**
-- **G — Gradual**
-
-See [`testing-philosophy.md`](testing-philosophy.md).
-
-The engineering philosophy treats tests as regression boundaries and requires generated SEO output to remain observable, reproducible, reversible, and traceable to its source data.
+The philosophy is holistic: its seven principles may overlap within the same post, project, campaign, or content asset. It must not be reduced to a mandatory one-letter-per-post rotation.
 
 ## 4. Technical SEO baseline
 
@@ -151,11 +133,13 @@ SEObasic prohibits:
 
 Content automation may assist authors, but it must not become an excuse for low-value or misleading pages.
 
-## 8. Testing and regression integrity
+## 8. Engineering validation and regression integrity
 
-Changes to parsers, generators, structured-data models, routing, canonicalization, entity extraction, indexes, link generation, or graph construction must be validated according to [`testing-philosophy.md`](testing-philosophy.md).
+Software testing and regression protection remain engineering requirements, but they are **not a second T.E.S.T.I.N.G. acronym or philosophy**.
 
-A refactor must not silently redefine expected behavior merely to make a test suite pass. Intentional behavior changes require an explicit reason, deliberate test updates, and documentation of the new expectation.
+Changes to parsers, generators, structured-data models, routing, canonicalization, entity extraction, indexes, link generation, or graph construction must not silently weaken established validated behavior.
+
+An intentional behavior change should state what changes and why, update the relevant tests deliberately, and preserve evidence that the new expected behavior is intentional rather than an unnoticed regression.
 
 At minimum, mature implementations should be able to detect:
 
@@ -189,7 +173,7 @@ JSON-LD structured data
         ↓
 entity graph and related-content discovery
         ↓
-repeatable T.E.S.T.I.N.G. validation
+validation + regression protection
 ```
 
 This forms a technical knowledge-base and local/service SEO foundation without requiring a client-side application framework.
@@ -217,4 +201,4 @@ The next major SEObasic capability is automatic entity extraction from source co
 
 Entity extraction must remain reviewable and deterministic enough to avoid incorrect links, accidental over-optimization, or changes in the author's intended meaning.
 
-The engineering T.E.S.T.I.N.G. philosophy applies to that work from the first parser and extraction rules onward rather than being added only after the feature is complete.
+Engineering validation should apply to that work from the first parser and extraction rules onward rather than being added only after the feature is complete.
