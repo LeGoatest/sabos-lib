@@ -20,3 +20,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Strengthened regression boundaries for automated implementation work through the repository governance layer.
 - Clarified distributed contract ownership: forms, tokens, components, compliance, authoring, and profiles keep their contracts with the subject domain rather than being flattened into one central contract directory.
 - Separated practitioner positions from formal standards and binding contracts so WDBASIC preferences can be preserved without being mislabeled as universal requirements.
+- Updated the canonical WDBASIC README document map and reading order to expose `engineering-validation.md`, `positions/`, and the local `AGENTS.md` boundaries for forms, tokens, components, compliance, authoring, profiles, and glossaries.
