@@ -77,6 +77,7 @@ Unrequested architecture changes, broad refactors, framework/build replacements,
 
 | Need | Canonical source |
 | --- | --- |
+| Repository change history | [`CHANGELOG.md`](CHANGELOG.md) |
 | Tailwind semantic package | [`TCbasic/README.md`](TCbasic/README.md) |
 | Tailwind architecture rules | [`TCbasic/architecture_rules.md`](TCbasic/architecture_rules.md) |
 | Web design/implementation governance | [`Wdbasic/README.md`](Wdbasic/README.md) |
@@ -85,6 +86,7 @@ Unrequested architecture changes, broad refactors, framework/build replacements,
 | T.E.S.T.I.N.G. philosophy | [`SEObasic/testing-philosophy.md`](SEObasic/testing-philosophy.md) |
 | README framework and template | [`READMEbasic/README.md`](READMEbasic/README.md) |
 | README best practices/research | [`READMEbasic/best-practices.md`](READMEbasic/best-practices.md) |
+| README resources and badge references | [`READMEbasic/resources.md`](READMEbasic/resources.md) |
 | Agent governance | [`AGENTS.md`](AGENTS.md) |
 | Repository governance | [`governance/README.md`](governance/README.md) |
 
@@ -93,6 +95,8 @@ Unrequested architecture changes, broad refactors, framework/build replacements,
 For TCBasic package changes, follow [`TCbasic/CONTRIBUTING.md`](TCbasic/CONTRIBUTING.md), [`TCbasic/AGENTS.md`](TCbasic/AGENTS.md), and the package's architecture/standards contracts.
 
 Changes to WDBASIC, SEObasic, READMEbasic, or repository governance must preserve the root governance invariants. If a change intentionally redefines an established contract, follow [`governance/change-control.md`](governance/change-control.md) rather than silently rewriting the contract around the implementation.
+
+Notable changes are recorded in the nearest subsystem `CHANGELOG.md`; cross-subsystem or repository-wide changes are also recorded in the root [`CHANGELOG.md`](CHANGELOG.md).
 
 ## License
 
