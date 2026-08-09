@@ -44,7 +44,7 @@ A local instruction may strengthen a requirement.
 
 A local instruction may not silently waive a repository invariant.
 
-Knowledge-system directories may contain deeper `AGENTS.md` files when a subject establishes its own authority, evidence, terminology, or contract boundary.
+Knowledge-system directories may contain deeper `AGENTS.md` files when a subject establishes its own authority, evidence, terminology, measurement, or contract boundary.
 
 ## 5. Sovereign subsystem boundaries
 
@@ -60,9 +60,11 @@ Each subsystem owns its authority domain.
 
 ### SEObasic
 
-`SEObasic/` owns search/discovery/marketing knowledge including websites, technical SEO, content philosophy, entity/internal-link relationships, local search and Google Business Profile/maps, organic social media, paid media/PPC, YouTube, related research/standards/references/glossaries, and SEObasic contracts.
+`SEObasic/` owns search/discovery/marketing knowledge including websites, technical SEO, content philosophy, entity/internal-link relationships, local search and Google Business Profile/maps, organic social media, paid media/PPC, YouTube, measurement/analytics semantics, related research/standards/references/glossaries, and SEObasic contracts.
 
-SEObasic channel domains may share evidence and strategy but one channel must not silently redefine another channel's mechanics or contracts.
+SEObasic measurement owns definitions and comparability rules for metrics such as rank, visibility, traffic, conversion, authority/link measures, technical measures, and geographic/geo-grid reporting. Provider-specific metrics remain provider-specific unless an explicit SEObasic mapping contract exists.
+
+SEObasic channel domains may share evidence and strategy but one channel must not silently redefine another channel's mechanics, metrics, or contracts.
 
 ### READMEbasic
 
@@ -78,7 +80,7 @@ Cross-subsystem changes must respect the controlling contract of each affected s
 
 ## 6. Evidence has interpretive weight, not legislative authority
 
-Existing tests, code, rendered output, routes, data shapes, build artifacts, practitioner records, research, platform guidance, and examples may all provide evidence within their scope.
+Existing tests, code, rendered output, routes, data shapes, build artifacts, practitioner records, research, platform guidance, measurements, and examples may all provide evidence within their scope.
 
 Evidence is not automatically a binding contract.
 
@@ -94,4 +96,4 @@ If evidence conflicts with binding governance or a binding subsystem contract:
 
 When authority is ambiguous and the narrower change can preserve existing behavior, preserve existing behavior.
 
-When resolution requires changing an invariant, public contract, architecture, persistent data semantics, user-established pattern, canonical philosophy, or binding knowledge-system contract, stop at the mutation gate and obtain explicit authority unless the current request already provides it.
+When resolution requires changing an invariant, public contract, architecture, persistent data semantics, user-established pattern, canonical philosophy, measurement definition, or binding knowledge-system contract, stop at the mutation gate and obtain explicit authority unless the current request already provides it.
