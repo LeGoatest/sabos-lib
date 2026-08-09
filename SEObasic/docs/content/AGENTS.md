@@ -1,6 +1,6 @@
 # SEObasic Content Agent Instructions
 
-> **Scope:** `SEObasic/content/`  
+> **Scope:** `SEObasic/docs/content/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Preserve
@@ -37,4 +37,4 @@ Historical examples belong under [`../references/`](../references/README.md). Pr
 
 ## Changelog
 
-Material changes to this content framework require an entry in [`../CHANGELOG.md`](../CHANGELOG.md).
+Material changes to this content framework require an entry in [`../../CHANGELOG.md`](../../CHANGELOG.md).
