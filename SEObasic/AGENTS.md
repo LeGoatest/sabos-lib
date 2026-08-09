@@ -18,7 +18,7 @@ Before changing a SEObasic subject, read:
 2. [`README.md`](README.md).
 3. The nearest applicable nested `AGENTS.md`.
 4. The subject README and binding contracts.
-5. Applicable glossary entries.
+5. Applicable position/glossary entries.
 6. Standards, research, references, or examples only when they are relevant to the claim or change.
 
 ## Knowledge-source discipline
@@ -26,7 +26,7 @@ Before changing a SEObasic subject, read:
 Agents MUST distinguish at least these source types when the distinction matters:
 
 - **Canonical practitioner philosophy or definition** — user-authored or explicitly adopted wording that must not be silently rewritten.
-- **Practitioner position** — an intentional preferred approach based on accumulated experience.
+- **Practitioner position** — an intentional preferred approach based on accumulated experience, with rationale/tradeoffs preserved under [`positions/`](positions/README.md) when material.
 - **Contract** — an adopted normative obligation defining what an implementation, workflow, report, or agent MUST, SHOULD, or MUST NOT do.
 - **Industry practice** — common professional practice that may inform but does not automatically override a project position.
 - **Platform/vendor guidance** — authoritative for that platform's documented behavior, not universal law.
@@ -40,6 +40,7 @@ Do not flatten these into a single category called “best practice.”
 ## Domain routing
 
 - [`contracts/`](contracts/README.md) — contract model and cross-domain binding obligations.
+- [`positions/`](positions/README.md) — deliberate practitioner preferences/bias, rationale, tradeoffs, and divergence from common practice.
 - [`content/`](content/README.md) — content philosophy, content strategy, T.E.S.T.I.N.G., reuse, editorial/community practice.
 - [`websites/`](websites/README.md) — websites, landing pages, service/location content, conversion/search relationships, first-party durable content.
 - [`technical/`](technical/README.md) — crawling, indexing, metadata, canonicals, structured data, sitemaps, feeds, technical diagnostics.
@@ -59,11 +60,24 @@ Do not flatten these into a single category called “best practice.”
 
 Contracts are the bridge between knowledge and governed implementation.
 
-Research, standards, platform guidance, practitioner experience, historical lessons, and measurements can inform a contract, but they do not become binding merely because they exist.
+Research, standards, platform guidance, practitioner experience, historical lessons, positions, and measurements can inform a contract, but they do not become binding merely because they exist.
 
 When a reusable position becomes an implementation or reporting obligation, formalize it through [`contracts/`](contracts/README.md) or a domain-local contract and preserve the rationale/evidence that justified it.
 
 Agents MUST NOT weaken contracts to match a regression or silently create new binding rules from one external source.
+
+## Practitioner positions
+
+When a task touches a documented stance, read [`positions/AGENTS.md`](positions/AGENTS.md) and the applicable position record.
+
+Agents MUST NOT:
+
+- erase a documented preference because common industry practice differs;
+- present a practitioner position as a search-engine/platform guarantee;
+- silently convert a position into a contract;
+- silently convert external guidance into a replacement position.
+
+If new evidence materially challenges a position, preserve the conflict until the position is deliberately reviewed.
 
 ## Measurement semantics
 
