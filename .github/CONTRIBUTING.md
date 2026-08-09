@@ -1,15 +1,24 @@
 # Contributing
 
-The canonical Tailwind CSS contribution guide is [`../TCbasic/CONTRIBUTING.md`](../TCbasic/CONTRIBUTING.md).
+SABOS Lib is a governed knowledge library. Start with the subsystem you are changing and preserve its authority model.
 
-Before opening a pull request:
+## TCBasic
 
-1. Run Tailwind package commands from `TCbasic/`.
-2. Keep additions framework-independent unless they belong under `TCbasic/examples/`.
-3. Put raw values in `TCbasic/src/foundation/tokens.css` and semantic Tailwind mappings in `TCbasic/src/foundation/theme.css`.
-4. Prefer reusable nouns over page-specific or visual class names.
-5. Preserve semantic HTML, keyboard operation, visible focus, reduced motion, and no-JavaScript behavior.
-6. Add or update tests, TCBasic documentation, examples, and `TCbasic/CHANGELOG.md`.
-7. Run `npm test` and `npm run build` from `TCbasic/`.
+The canonical contribution guide is [`../TCbasic/CONTRIBUTING.md`](../TCbasic/CONTRIBUTING.md).
 
-Do not commit changes to `TCbasic/dist/` unless they were generated from the same source revision.
+TCBasic is maintained as a Tailwind CSS semantic-architecture knowledge framework with reference CSS under `TCbasic/src/` and illustrative examples under `TCbasic/examples/`.
+
+Do not assume SABOS Lib builds, packages, publishes, or releases TCBasic. Package/build tooling mentioned in TCBasic documentation belongs to adopter environments unless explicitly stated otherwise.
+
+## Other systems
+
+For WDBASIC, SEObasic, READMEbasic, or governance changes:
+
+1. Read the subsystem `README.md`.
+2. Read the subsystem `AGENTS.md`.
+3. Read the nearest nested `AGENTS.md`.
+4. Preserve contracts, positions, standards, research, references, examples, glossaries, and operational artifacts as distinct knowledge types.
+5. Update the owning `CHANGELOG.md` for notable changes.
+6. Follow [`../governance/change-control.md`](../governance/change-control.md) when intentionally mutating an established contract or architecture.
+
+Repository-wide changes also update [`../CHANGELOG.md`](../CHANGELOG.md) when notable.
