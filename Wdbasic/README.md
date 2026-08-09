@@ -13,22 +13,30 @@ WDBASIC v2 governs architecture, presentation, semantic tokens, accessibility, a
 Wdbasic/
 ├── README.md
 ├── AGENTS.md
+├── CHANGELOG.md
 ├── STANDARDS.md
 ├── architecture_rules.md
+├── engineering-validation.md
 ├── cognitive-accessibility.md
 ├── internationalization.md
 ├── media-accessibility.md
 ├── non-web-accessibility.md
 ├── security-and-privacy.md
 ├── sustainability.md
+├── positions/
+│   ├── README.md
+│   └── AGENTS.md
 ├── forms/
 │   ├── README.md
+│   ├── AGENTS.md
 │   ├── validation.md
 │   └── security.md
 ├── glossaries/
 │   ├── README.md
+│   ├── AGENTS.md
 │   └── security.md
 ├── compliance/
+│   ├── AGENTS.md
 │   ├── accessibility-maturity.md
 │   ├── accessibility-statement-template.md
 │   ├── act-rule-template.md
@@ -36,20 +44,26 @@ Wdbasic/
 │   ├── testing-methodology.md
 │   └── wcag-2.2-aa-matrix.md
 ├── authoring/
+│   ├── AGENTS.md
 │   ├── atag-2.0.md
 │   └── accessible-output.md
 ├── profiles/
+│   ├── AGENTS.md
 │   ├── field-service.md
 │   ├── professional-services.md
 │   └── custom-brand.md
 ├── tokens/
+│   ├── AGENTS.md
 │   ├── semantic-colors.md
 │   ├── typography.md
 │   ├── spacing.md
 │   └── accessibility.md
 └── components/
+    ├── AGENTS.md
     └── component-contracts.md
 ```
+
+Local `AGENTS.md` files mark meaningful authority, contract, terminology, evidence, or implementation boundaries. They specialize the root WDBASIC instructions without weakening repository or WDBASIC invariants.
 
 ## 2. Authority and conflict order
 
@@ -58,7 +72,7 @@ Apply the document set in this order:
 1. [`architecture_rules.md`](architecture_rules.md)
 2. This README
 3. [`STANDARDS.md`](STANDARDS.md)
-4. Binding cross-cutting contracts: accessibility, cognitive accessibility, forms, validation, security, privacy, internationalization, media, non-web accessibility, and authoring
+4. Binding engineering-validation and cross-cutting contracts: [`engineering-validation.md`](engineering-validation.md), accessibility, cognitive accessibility, forms, validation, security, privacy, internationalization, media, non-web accessibility, and authoring
 5. Token contracts
 6. Component contracts
 7. Active design profile
@@ -73,6 +87,8 @@ External standards retain their own conformance language. A WDBASIC exception ca
 
 The files under [`glossaries/`](glossaries/) are non-normative terminology references. They explain recurring terms but do not override or replace binding contracts.
 
+The files under [`positions/`](positions/README.md) preserve explicit practitioner preferences, rationale, tradeoffs, and intentional divergence from common practice. A practitioner position does not silently override a binding WDBASIC contract or external standard.
+
 ## 3. Required reading order
 
 Before implementing or reviewing a governed surface:
@@ -80,15 +96,18 @@ Before implementing or reviewing a governed surface:
 1. Read [`architecture_rules.md`](architecture_rules.md).
 2. Read this README.
 3. Read [`STANDARDS.md`](STANDARDS.md).
-4. Read [`AGENTS.md`](AGENTS.md) when automated tooling is involved.
-5. Read applicable cross-cutting contracts.
-6. Read [`forms/README.md`](forms/README.md), [`forms/validation.md`](forms/validation.md), and [`forms/security.md`](forms/security.md) when any input or state-changing action is involved.
-7. Read relevant token contracts.
-8. Read [`components/component-contracts.md`](components/component-contracts.md).
-9. Read one active design profile.
-10. Read [`../docs/TAILWIND_PATTERN.md`](../docs/TAILWIND_PATTERN.md).
-11. Consult [`glossaries/README.md`](glossaries/README.md) when terminology is unfamiliar or ambiguous.
-12. Read product-specific requirements, evidence, and exceptions.
+4. Read [`engineering-validation.md`](engineering-validation.md) for implementation/change validation.
+5. Read [`AGENTS.md`](AGENTS.md) when automated tooling is involved.
+6. Read the nearest applicable local `AGENTS.md`.
+7. Read applicable cross-cutting contracts.
+8. Read [`forms/README.md`](forms/README.md), [`forms/validation.md`](forms/validation.md), and [`forms/security.md`](forms/security.md) when any input or state-changing action is involved.
+9. Read relevant token contracts.
+10. Read [`components/component-contracts.md`](components/component-contracts.md).
+11. Read one active design profile.
+12. Read applicable explicit practitioner positions under [`positions/`](positions/README.md) when they materially affect the implementation choice.
+13. Read [`../docs/TAILWIND_PATTERN.md`](../docs/TAILWIND_PATTERN.md).
+14. Consult [`glossaries/README.md`](glossaries/README.md) when terminology is unfamiliar or ambiguous.
+15. Read product-specific requirements, evidence, and exceptions.
 
 Normative documents still expand acronyms on first use. A reader must not be required to open a glossary to understand a binding requirement.
 
