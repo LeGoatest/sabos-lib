@@ -4,6 +4,18 @@ The T.E.S.T.I.N.G. Method is SEObasic's repeatable framework for gathering and d
 
 The method is intentionally broader than social media. Its output can be repurposed into indexable first-party website content when appropriate.
 
+This is the content and audience-development framework. The separate engineering T.E.S.T.I.N.G. framework is defined in [`testing-philosophy.md`](testing-philosophy.md). Historical applications and recovered prior uses are preserved under [`reference/testing-history.md`](reference/testing-history.md).
+
+## Holistic application
+
+The seven letters are principles, not isolated post categories.
+
+A campaign may use the letters as a planning matrix, but mature application should treat T.E.S.T.I.N.G. as a culmination of all seven ideas. A single strong piece of content may express the drive behind the work, invite audience input, show a real success or failure, recognize another contributor, explore a new idea, strengthen a responsible relationship, and create reusable source material at the same time.
+
+Do not reduce the method to a mandatory one-letter-per-post rotation.
+
+Adapt examples to the company, project, channel, or audience without redefining the acronym itself.
+
 ## T — Talk about the drive behind the passion
 
 Highlight the motivation behind the work, what inspired the business or creator, and why the subject matters.
