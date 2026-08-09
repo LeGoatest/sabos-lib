@@ -25,7 +25,7 @@ subsystem knowledge + contracts
     ↓
 implementation / campaigns / documentation
     ↓
-validation evidence
+measurement + validation evidence
 ```
 
 The root `AGENTS.md` is intentionally a compact operational entrypoint. It is not the complete governance manual.
@@ -46,7 +46,7 @@ The framework uses five primitives:
 2. **Invariant** — behavior or structure that must not change implicitly.
 3. **Scope** — the smallest area governed or changed by a rule or task.
 4. **Mutation** — an intentional change to an invariant, architecture, public contract, or governance rule.
-5. **Evidence** — tests, builds, rendered output, generated artifacts, research records, platform records, or other observable results used to evaluate a contract or decision.
+5. **Evidence** — tests, builds, rendered output, generated artifacts, measurements, research records, platform records, or other observable results used to evaluate a contract or decision.
 
 ## Document map
 
@@ -74,8 +74,8 @@ Governance should be loaded progressively rather than copied into every agent in
 
 - Root instructions contain only high-salience repository-wide rules and routing.
 - Subsystem root instructions route work into the correct local knowledge/contract boundary.
-- Nested `AGENTS.md` files specialize behavior where a subject establishes a distinct authority or evidence boundary.
-- Detailed architecture, standards, research, references, glossaries, examples, and procedures remain in their canonical locations.
+- Nested `AGENTS.md` files specialize behavior where a subject establishes a distinct authority, evidence, terminology, measurement, or contract boundary.
+- Detailed architecture, standards, research, references, glossaries, examples, measurements, and procedures remain in their canonical locations.
 - Build and test commands remain in the package/configuration that actually owns them when possible.
 - Mechanical requirements should migrate into tests, CI, schema validation, linters, or other executable checks when practical.
 
@@ -87,7 +87,7 @@ Subsystems retain authority over their own domain:
 
 - `Wdbasic/` — web architecture, semantics, accessibility, security, implementation behavior, validation, profiles, glossaries, and related contracts.
 - `TCbasic/` — Tailwind/package implementation contracts, executable tooling, tests, build/token/component/integration knowledge, examples, and glossaries.
-- `SEObasic/` — search/discovery/marketing knowledge spanning websites, technical SEO, content, local search/GBP/maps, organic social, paid media/PPC, YouTube, entities, contracts, research, standards, references, and glossaries.
+- `SEObasic/` — search/discovery/marketing knowledge spanning websites, technical SEO, content, local search/GBP/maps, organic social, paid media/PPC, YouTube, entities, measurement/analytics semantics, contracts, research, standards, references, and glossaries.
 - `READMEbasic/` — README/documentation knowledge, integrity contracts, templates, research/best practices, resources, glossaries, and agent behavior for accurate project entrypoints.
 
 A subsystem may strengthen repository-wide requirements but may not silently weaken repository invariants.
@@ -104,6 +104,7 @@ Where a rule is stable and mechanically testable, prefer encoding it in:
 - schema validation;
 - build checks;
 - generated-output checks;
+- metric/schema validation;
 - repository-specific linters.
 
 The governance documents remain the human-readable source for why the check exists and what authority it protects.
