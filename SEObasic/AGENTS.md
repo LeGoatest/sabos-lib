@@ -4,7 +4,7 @@
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md) and [`../governance/`](../governance/README.md)  
 > **Canonical entry point:** [`README.md`](README.md)
 
-SEObasic is a living knowledge system. It preserves practitioner knowledge, project-specific positions, industry standards, platform guidance, research evidence, historical lessons, contracts, and implementation patterns without pretending those sources have equal authority.
+SEObasic is a living knowledge system. It preserves practitioner knowledge, project-specific positions, industry standards, platform guidance, research evidence, historical lessons, contracts, measurement semantics, and implementation patterns without pretending those sources have equal authority.
 
 ## Mission
 
@@ -27,7 +27,7 @@ Agents MUST distinguish at least these source types when the distinction matters
 
 - **Canonical practitioner philosophy or definition** — user-authored or explicitly adopted wording that must not be silently rewritten.
 - **Practitioner position** — an intentional preferred approach based on accumulated experience.
-- **Contract** — an adopted normative obligation defining what an implementation, workflow, or agent MUST, SHOULD, or MUST NOT do.
+- **Contract** — an adopted normative obligation defining what an implementation, workflow, report, or agent MUST, SHOULD, or MUST NOT do.
 - **Industry practice** — common professional practice that may inform but does not automatically override a project position.
 - **Platform/vendor guidance** — authoritative for that platform's documented behavior, not universal law.
 - **Formal standard/specification** — normative only within its actual scope and version.
@@ -48,6 +48,7 @@ Do not flatten these into a single category called “best practice.”
 - [`social-media/`](social-media/README.md) — organic social-media marketing, posts, community interaction, channel-specific content use.
 - [`paid-media/`](paid-media/README.md) — PPC and paid campaigns, including paid search and paid social, measurement and landing-page relationships.
 - [`youtube/`](youtube/README.md) — YouTube channel/video strategy, discovery, search, packaging, retention, and cross-channel relationships.
+- [`measurement/`](measurement/README.md) — metric semantics, analytics vocabulary, ranking/visibility/traffic/conversion distinctions, geographic measurement, and cross-channel comparability.
 - [`research/`](research/README.md) — research collection, evidence review, methods, limitations, and synthesis.
 - [`standards/`](standards/README.md) — formal standards, specifications, platform documentation, and applicability records.
 - [`references/`](references/README.md) — historical records, source excerpts, recovered applications, and non-normative source material.
@@ -58,11 +59,21 @@ Do not flatten these into a single category called “best practice.”
 
 Contracts are the bridge between knowledge and governed implementation.
 
-Research, standards, platform guidance, practitioner experience, and historical lessons can inform a contract, but they do not become binding merely because they exist.
+Research, standards, platform guidance, practitioner experience, historical lessons, and measurements can inform a contract, but they do not become binding merely because they exist.
 
-When a reusable position becomes an implementation obligation, formalize it through [`contracts/`](contracts/README.md) or a domain-local contract and preserve the rationale/evidence that justified it.
+When a reusable position becomes an implementation or reporting obligation, formalize it through [`contracts/`](contracts/README.md) or a domain-local contract and preserve the rationale/evidence that justified it.
 
 Agents MUST NOT weaken contracts to match a regression or silently create new binding rules from one external source.
+
+## Measurement semantics
+
+When work uses metrics such as rank, position, visibility, traffic, conversion, authority, local visibility, or geo-grid rank, read:
+
+1. [`measurement/AGENTS.md`](measurement/AGENTS.md)
+2. [`measurement/contracts/metric-semantics.md`](measurement/contracts/metric-semantics.md)
+3. [`glossaries/measurement-and-analytics.md`](glossaries/measurement-and-analytics.md)
+
+Do not use materially different metrics interchangeably merely because industry tools use similar labels.
 
 ## Canonical T.E.S.T.I.N.G. protection
 
@@ -82,9 +93,9 @@ Application guidance belongs in [`content/testing-method.md`](content/testing-me
 
 SEObasic treats channels as connected but non-identical.
 
-A website page, Google Business Profile post, organic social post, paid campaign, local/map-pack signal, and YouTube video may support one strategy while retaining different platform mechanics, audiences, evidence, and conversion roles.
+A website page, Google Business Profile post, organic social post, paid campaign, local/map-pack signal, and YouTube video may support one strategy while retaining different platform mechanics, audiences, evidence, conversion roles, and measurement definitions.
 
-Do not copy advice from one channel into another without checking whether the behavior actually transfers.
+Do not copy advice or metric assumptions from one channel into another without checking whether the behavior and measurement actually transfer.
 
 ## Research and standards rule
 
