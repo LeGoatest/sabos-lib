@@ -1,6 +1,6 @@
 # SEObasic Entities Agent Instructions
 
-> **Scope:** `SEObasic/entities/`  
+> **Scope:** `SEObasic/docs/entities/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Preserve meaning before graph density
@@ -29,4 +29,4 @@ Stable relationship rules SHOULD be formalized under this domain's future `contr
 
 ## Changelog
 
-Material changes require an entry in [`../CHANGELOG.md`](../CHANGELOG.md).
+Material changes require an entry in [`../../CHANGELOG.md`](../../CHANGELOG.md).
