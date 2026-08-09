@@ -18,7 +18,7 @@ For any repository change:
 2. Read [`governance/authority.md`](governance/authority.md).
 3. Read [`governance/invariants.md`](governance/invariants.md).
 4. For `*basic` knowledge/framework changes, follow [`governance/knowledge-system-model.md`](governance/knowledge-system-model.md).
-5. Read the nearest applicable subsystem `AGENTS.md`, README, and binding contracts.
+5. Read the nearest applicable subsystem `AGENTS.md`, README, binding contracts, and explicit practitioner positions.
 6. Use [`governance/change-control.md`](governance/change-control.md) if the task crosses a mutation gate.
 7. Validate according to [`governance/validation.md`](governance/validation.md).
 
@@ -95,7 +95,7 @@ For changes under `TCbasic/` read:
 
 1. [`TCbasic/AGENTS.md`](TCbasic/AGENTS.md)
 2. [`TCbasic/README.md`](TCbasic/README.md)
-3. The nearest local `AGENTS.md` for build, tokens, components, integrations, compliance, profiles, glossaries, examples, source, generated distribution, or tests when applicable.
+3. The nearest local `AGENTS.md` for positions, build, tokens, components, integrations, compliance, profiles, glossaries, examples, source, generated distribution, or tests when applicable.
 4. Applicable TCBasic architecture, standards, contracts, tests, and package files.
 
 Run commands from `TCbasic/`.
@@ -117,7 +117,7 @@ For changes under `Wdbasic/` read:
 1. [`Wdbasic/AGENTS.md`](Wdbasic/AGENTS.md)
 2. [`Wdbasic/README.md`](Wdbasic/README.md)
 3. [`Wdbasic/architecture_rules.md`](Wdbasic/architecture_rules.md)
-4. The nearest local `AGENTS.md` for forms, tokens, components, compliance, authoring, profiles, or glossaries when applicable.
+4. The nearest local `AGENTS.md` for positions, forms, tokens, components, compliance, authoring, profiles, or glossaries when applicable.
 5. Applicable WDBASIC contracts.
 
 Implementation validation follows [`Wdbasic/engineering-validation.md`](Wdbasic/engineering-validation.md).
@@ -128,7 +128,7 @@ For changes under `SEObasic/` read:
 
 1. [`SEObasic/AGENTS.md`](SEObasic/AGENTS.md)
 2. [`SEObasic/README.md`](SEObasic/README.md)
-3. The nearest domain `AGENTS.md` and README.
+3. The nearest domain `AGENTS.md` and README, including [`SEObasic/positions/`](SEObasic/positions/README.md) when an explicit practitioner stance applies.
 4. Applicable SEObasic contracts.
 5. Research, standards, references, glossaries, examples, or measurement definitions only when relevant to the task.
 
@@ -141,7 +141,7 @@ For creation or material restructuring of README files, and for changes under `R
 1. [`READMEbasic/AGENTS.md`](READMEbasic/AGENTS.md)
 2. [`READMEbasic/README.md`](READMEbasic/README.md)
 3. [`READMEbasic/contracts/readme-integrity.md`](READMEbasic/contracts/readme-integrity.md)
-4. The nearest local `AGENTS.md` under profiles, research, standards, references, examples, contracts, or glossaries when applicable.
+4. The nearest local `AGENTS.md` under positions, profiles, research, standards, references, examples, contracts, or glossaries when applicable.
 5. [`READMEbasic/best-practices.md`](READMEbasic/best-practices.md), [`READMEbasic/resources.md`](READMEbasic/resources.md), or other evidence only when relevant.
 
 Use [`READMEbasic/TEMPLATE.md`](READMEbasic/TEMPLATE.md) as a modular scaffold, not as a mandatory section checklist.
