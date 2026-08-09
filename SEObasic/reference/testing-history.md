@@ -1,18 +1,11 @@
 # Recovered T.E.S.T.I.N.G. History
 
 > **Status:** Reference / historical record  
-> **Purpose:** Preserve prior uses and applications of the T.E.S.T.I.N.G. name so later documentation does not accidentally erase, merge, or redefine earlier meanings.
+> **Purpose:** Preserve prior uses and applications of T.E.S.T.I.N.G. without allowing later summaries or assistant interpretations to redefine the philosophy.
 
-SEObasic currently recognizes two distinct T.E.S.T.I.N.G. frameworks:
+## Canonical philosophy
 
-1. The **content and audience-development method**.
-2. The **engineering and systems-testing philosophy**.
-
-They share the same acronym name but must remain separate.
-
-## Canonical content-method wording
-
-The recovered original content formulation is:
+There is one authoritative T.E.S.T.I.N.G. philosophy in SEObasic:
 
 - **T — Talk about the drive behind the passion**
 - **E — Engage the audience**
@@ -22,15 +15,17 @@ The recovered original content formulation is:
 - **N — Network responsibly**
 - **G — Gather content regularly**
 
-The wording has been repeatedly reused across different businesses and campaigns. Prior conversation history also includes an explicit correction that the method should not be casually renamed, redefined, or rewritten into a different acronym structure when reused for another company.
+The exact wording supplied by the user is preserved verbatim in [`source-excerpts/2026-08-09-testing-method.md`](source-excerpts/2026-08-09-testing-method.md) and normatively in [`../testing-philosophy.md`](../testing-philosophy.md).
+
+Historical examples may specialize the philosophy for a business, creator, platform, or campaign, but they must not redefine its letters.
 
 ## 2024-08-10 — Restore social-media marketing
 
-The earliest recovered project-specific use applies the content T.E.S.T.I.N.G. Method to **Restore** social-media marketing.
+The earliest recovered project-specific use applies T.E.S.T.I.N.G. to **Restore** social-media marketing.
 
-The method was used to move away from a simple “buy now” mentality and toward a more useful content mix:
+The method was used to move away from a simple “buy now” mentality and toward a broader content mix involving:
 
-- Educational and passion-driven posts.
+- Passion- and purpose-driven content.
 - Audience questions and interaction.
 - Behind-the-scenes progress, wins, failures, and lessons.
 - Community and partner recognition.
@@ -38,49 +33,40 @@ The method was used to move away from a simple “buy now” mentality and towar
 - Responsible networking.
 - Regular collection of reusable source content.
 
-A related Facebook strategy mapped the seven parts of T.E.S.T.I.N.G. into an ongoing publishing rhythm rather than treating each post as a direct sales advertisement.
+A related Facebook strategy mapped the philosophy into an ongoing publishing rhythm instead of treating each post as a direct sales advertisement.
 
 ## 2024-10-18 — STO / Smoke Time Outdoors
 
-The same original content acronym was reused for **STO — Smoke Time Outdoors**.
-
-The method became the basis for a mixed **52-week Instagram campaign** intended to promote and grow the STO YouTube channel.
+T.E.S.T.I.N.G. was reused for **STO — Smoke Time Outdoors** as the basis for a mixed **52-week Instagram campaign** supporting the STO YouTube channel.
 
 Recovered implementation details included:
 
-- Approximately **2–3 posts per week**.
-- **12 monthly themes**.
+- Approximately 2–3 posts per week.
+- 12 monthly themes.
 - Mixed T.E.S.T.I.N.G. content rather than a rigid one-letter-per-post rotation.
 - Instagram used to funnel interest toward durable YouTube content.
 
-This use is important because it demonstrates that the framework was already intended to be:
-
-- Reusable across industries and creator types.
-- Sustainable over a long publishing calendar.
-- Mixed rather than mechanically rotating through only one post type.
-- Useful for supporting durable content elsewhere, such as a YouTube channel.
+This demonstrated that the philosophy was intended to be reusable across industries and creator types and sustainable across a long publishing calendar.
 
 ## 2024-10-27 — Reusable company prompt
 
-A later conversation requested a reusable ChatGPT prompt that could apply the T.E.S.T.I.N.G. Method to other companies.
+A later conversation requested a reusable ChatGPT prompt that could apply T.E.S.T.I.N.G. to other companies.
 
-The recovered reusable campaign shape included:
+Recovered campaign structure included:
 
 - A 52-week planning horizon.
 - Monthly industry-relevant themes.
 - Approximately 2–3 posts per week.
 - Varied post formats.
-- Growth and engagement goals adapted to the company rather than altering the acronym itself.
+- Growth and engagement goals adapted to the company.
 
-A key requirement emerged during that work: **preserve the original method description and structure rather than rewriting the acronym to fit a new company or campaign.**
-
-That requirement now informs SEObasic governance: examples may specialize the method, but they should not silently redefine its letters.
+A key requirement was established: **preserve the original method description and structure rather than rewriting the acronym to fit a new company or campaign.**
 
 ## 2024-10-27 — Holistic application requirement
 
-A further correction established that T.E.S.T.I.N.G. should be treated as a **culmination of all seven principles**, not merely as seven isolated content buckets.
+A further correction established that T.E.S.T.I.N.G. should be treated as a **culmination of all seven principles**, not merely seven isolated content buckets.
 
-The practical implication is that a strong post or campaign may simultaneously:
+A strong post or campaign may simultaneously:
 
 - Express purpose or passion.
 - Invite audience participation.
@@ -90,39 +76,35 @@ The practical implication is that a strong post or campaign may simultaneously:
 - Strengthen a useful relationship.
 - Generate reusable content for later publication.
 
-The framework therefore supports categorization by letter, but its mature use is holistic rather than mechanically assigning exactly one letter to each post.
+The philosophy can support categorization by letter, but mature use is holistic rather than mechanically assigning exactly one letter to each post.
 
 ## 2024-10-27 — `linbouthillierctrc` YouTube campaign
 
-The method was also applied to a separate **52-week social campaign** supporting the YouTube channel `linbouthillierctrc`.
+T.E.S.T.I.N.G. was also applied to a separate **52-week social campaign** supporting the YouTube channel `linbouthillierctrc`.
 
-Recovered campaign details included:
+Recovered details included:
 
-- Approximately **2–3 posts per week**.
+- Approximately 2–3 posts per week.
 - Reels, carousels, stories/polls, collaborations, and live formats.
 - Monthly themes including self-care/burnout, healing fundamentals, trauma triggers, gratitude/reflection, and growth/grace/new beginnings.
-- A requirement that the campaign weave the entire T.E.S.T.I.N.G. philosophy through the content rather than reducing the strategy to separate letter-specific posts.
-
-This application reinforces that the method was intended as a reusable content philosophy, not an industry-specific checklist.
+- A requirement that the campaign weave the entire T.E.S.T.I.N.G. philosophy through the content rather than reduce the strategy to letter-specific posts.
 
 ## 2025-06-24 — Everglow Epoxy
 
-The content T.E.S.T.I.N.G. Method was later applied to **Everglow Epoxy**, an epoxy-flooring business, using the company’s actual services and subject matter as the campaign context.
+T.E.S.T.I.N.G. was later applied to **Everglow Epoxy**, using the company’s services and subject matter as the campaign context.
 
-Recovered implementation details include:
+Recovered implementation details included:
 
-- Cross-platform use across **TikTok, Instagram, Facebook, and YouTube**.
-- A **monthly content cycle**.
+- Cross-platform use across TikTok, Instagram, Facebook, and YouTube.
+- A monthly content cycle.
 - A content strategy combining a marketing funnel with a T.E.S.T.I.N.G. matrix.
 - Phone calls treated as a primary conversion outcome while the website acted as a trust-building destination.
 
-This provides a direct historical bridge between the earlier general/creator uses and later trade-service examples.
-
-Recovered context confirms the method was treated as user-created and reusable, not as a one-off campaign acronym.
+This provides a historical bridge between earlier creator uses and later trade-service applications.
 
 ## 2025-07-03 — Everglow strategy layering
 
-The Everglow work later layered T.E.S.T.I.N.G. with two additional marketing frameworks rather than replacing it.
+The Everglow work layered T.E.S.T.I.N.G. with other marketing frameworks rather than replacing it.
 
 ### L.A.I.D. funnel
 
@@ -142,23 +124,21 @@ Recovered layers:
 - **Connection**
 - **Conversion**
 
-In that strategy, T.E.S.T.I.N.G. remained the content philosophy while L.A.I.D. described funnel progression and the 4 C’s described the broader relationship/conversion system.
-
-This is an important architectural distinction for SEObasic: complementary frameworks can be layered around T.E.S.T.I.N.G. without redefining its seven letters.
+T.E.S.T.I.N.G. remained the content philosophy while L.A.I.D. described funnel progression and the 4 C’s described the broader relationship/conversion system.
 
 ## 2026-08-09 — Epoxy Bros
 
-The method was supplied again for **Epoxy Bros’ Instagram** with detailed examples for every letter:
+The philosophy was supplied again for **Epoxy Bros’ Instagram**, with detailed examples for each principle:
 
 - Passion and origin stories.
 - Metallic-versus-flake audience polls.
 - Uneven-concrete preparation challenges and completed transformations.
-- Contractor, supplier, customer, and other creative recognition.
+- Contractor, supplier, customer, and creative recognition.
 - Public experiments such as glow-in-the-dark designs or metallic/flake combinations.
 - Local collaborations.
-- Daily or weekly collection of project photos, videos, testimonials, and behind-the-scenes material.
+- Regular collection of project photos, videos, testimonials, and behind-the-scenes material.
 
-This version was incorporated into [`../testing-method.md`](../testing-method.md) and generalized beyond Instagram so the same source material can feed:
+This application helped generalize the method beyond Instagram so the same source material can support:
 
 - Case studies.
 - Service pages.
@@ -169,83 +149,27 @@ This version was incorporated into [`../testing-method.md`](../testing-method.md
 - Video content.
 - Internal links back to durable first-party pages.
 
-## 2026-08-09 — Engineering T.E.S.T.I.N.G. philosophy
+## 2026-08-09 — Incorrect engineering reinterpretation
 
-A separate technical framework using the same T.E.S.T.I.N.G. name was then defined:
+During SEObasic documentation work, the assistant incorrectly introduced a second T.E.S.T.I.N.G. expansion using engineering-testing terms such as “Thorough,” “Early,” and “Systematic.”
 
-- **T — Thorough**
-- **E — Early**
-- **S — Systematic**
-- **T — Transparent**
-- **I — Independent**
-- **N — Non-destructive**
-- **G — Gradual**
+The user subsequently clarified that this was **not the true T.E.S.T.I.N.G. philosophy**.
 
-This engineering philosophy applies to software architecture, reliability, systems validation, build pipelines, parsers, search indexes, graph systems, link resolution, rendering, and HTTP behavior.
+That assistant-added reinterpretation is therefore not canonical, must not be presented as a second T.E.S.T.I.N.G. framework, and must not override or compete with the original philosophy.
 
-The initial concrete application was a **Go binary + Markdown knowledge engine**, including validation of:
+Ordinary software testing, regression protection, validation, and non-destructive engineering practices can still be required by SEObasic or WDBASIC, but they must be documented under their own names rather than appropriating the T.E.S.T.I.N.G. acronym.
 
-- Markdown parsing.
-- Metadata/frontmatter.
-- TOC generation.
-- Wiki-link parsing.
-- Backlinks.
-- Tags.
-- Search indexing.
-- Graph relationships.
-- Link resolution.
-- Rendering.
-- HTTP routes.
+## Stable design principles recovered from prior use
 
-It is now documented normatively in [`../testing-philosophy.md`](../testing-philosophy.md).
-
-## Important distinction
-
-The two acronyms must not be merged into a single hybrid expansion.
-
-### Content method
-
-```text
-Talk about the drive behind the passion
-Engage the audience
-Share updates of success and failures
-Take time out to talk about others
-Investigate new ideas publicly
-Network responsibly
-Gather content regularly
-```
-
-### Engineering philosophy
-
-```text
-Thorough
-Early
-Systematic
-Transparent
-Independent
-Non-destructive
-Gradual
-```
-
-The content method governs **what and how to gather, discuss, and develop useful material**.
-
-The engineering philosophy governs **how to validate systems and generated outputs safely and rigorously**.
-
-## Recovered design principles
-
-Across the historical uses, several stable principles emerge:
-
-1. **Preserve the acronym.** Do not rewrite the original content method merely because the industry changes.
-2. **Adapt examples, not definitions.** A flooring company, outdoor creator, local service business, or other project can use different examples while keeping the same seven content principles.
-3. **Use the method holistically.** The seven principles may overlap inside a single post, campaign, project, or content asset; they are not seven isolated silos.
-4. **Avoid sales-only publishing.** The content method is intentionally broader than direct-response promotion.
-5. **Gather once, reuse intelligently.** Project evidence and audience questions can support multiple durable and social content formats.
-6. **Community and collaboration are part of the method.** Networking is not just link acquisition.
-7. **Failure is valid source material when represented truthfully.** Challenges, corrections, and lessons can build useful evidence and trust.
-8. **Complementary frameworks may layer around T.E.S.T.I.N.G.** Funnel or conversion systems such as L.A.I.D. and the 4 C’s can organize distribution and conversion without replacing the content philosophy.
-9. **Testing itself needs governance.** The engineering variant exists to make validation thorough, early, systematic, transparent, independent, non-destructive, and gradual.
-10. **The frameworks are complementary.** Content T.E.S.T.I.N.G. can generate source material; engineering T.E.S.T.I.N.G. can validate the systems that ingest, link, index, render, and publish it.
+1. **Preserve the acronym and its meanings.**
+2. **Adapt examples, not definitions.**
+3. **Use the philosophy holistically.** The seven principles may overlap inside one post, campaign, project, or content asset.
+4. **Avoid sales-only publishing.**
+5. **Gather once and reuse intelligently.**
+6. **Community and collaboration are integral.** Networking is not merely link acquisition.
+7. **Success and failure are both useful source material when represented truthfully.**
+8. **Complementary frameworks may layer around T.E.S.T.I.N.G. without redefining it.**
 
 ## Recovery limitations
 
-This record is based on recoverable prior conversation context. It intentionally distinguishes between confirmed historical wording and later SEObasic generalization. Where an older full transcript was not recoverable, this document records only the details that could be recovered with confidence rather than inventing missing text.
+This record is based on recoverable prior conversation context. Where an older full transcript was not recoverable, only details that could be recovered with confidence are recorded. Missing language should not be invented to make the historical record appear complete.
