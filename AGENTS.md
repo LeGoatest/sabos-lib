@@ -127,6 +127,18 @@ For changes under `SEObasic/` read:
 
 Do not redefine the canonical T.E.S.T.I.N.G. Method from inference or industry convention.
 
+### READMEbasic
+
+For creation or material restructuring of README files, and for changes under `READMEbasic/`, read:
+
+1. [`READMEbasic/AGENTS.md`](READMEbasic/AGENTS.md)
+2. [`READMEbasic/README.md`](READMEbasic/README.md)
+3. [`READMEbasic/best-practices.md`](READMEbasic/best-practices.md) when rationale or structure selection is needed.
+
+Use [`READMEbasic/TEMPLATE.md`](READMEbasic/TEMPLATE.md) as a modular scaffold, not as a mandatory section checklist.
+
+README claims must be verified against repository evidence; do not invent commands, status, compatibility, features, badges, contacts, or project state to complete a template.
+
 ## Commands and evidence
 
 Never invent build or test commands from convention. Read the package manifest, workflow, task runner, or subsystem documentation that owns them.
