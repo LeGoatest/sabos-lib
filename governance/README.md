@@ -19,7 +19,8 @@ governance/
 subsystem contracts
     ├── Wdbasic/
     ├── TCbasic/
-    └── SEObasic/
+    ├── SEObasic/
+    └── READMEbasic/
     ↓
 implementation + tests + generated output
 ```
@@ -80,6 +81,7 @@ Subsystems retain authority over their own domain:
 - `Wdbasic/` — architecture, semantics, accessibility, security, implementation behavior, and related web-framework contracts.
 - `TCbasic/` — Tailwind/package implementation contracts and executable tooling owned by that subsystem.
 - `SEObasic/` — search visibility, structured data, content-discovery, entity relationships, and the canonical T.E.S.T.I.N.G. content philosophy.
+- `READMEbasic/` — README structure, evidence requirements, reusable templates, and agent behavior for accurate repository entrypoint documentation.
 
 A subsystem may strengthen repository-wide requirements but may not silently weaken repository invariants.
 
