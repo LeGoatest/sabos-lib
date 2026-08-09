@@ -5,7 +5,7 @@ A governed collection of reusable knowledge frameworks and tooling for semantic 
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)](TCbasic/README.md)
 
-The repository contains four complementary `*basic` knowledge systems plus a repository-wide governance layer. The systems are intended to accumulate practitioner experience, explicit positions, contracts, standards, research, examples, glossaries, and implementation knowledge over time rather than remain flat checklists.
+The repository contains four complementary `*basic` knowledge systems plus a repository-wide governance layer. The systems are intended to accumulate practitioner experience, explicit positions, contracts, standards, research, examples, glossaries, measurement semantics, and implementation knowledge over time rather than remain flat checklists.
 
 ## What lives here
 
@@ -13,7 +13,7 @@ The repository contains four complementary `*basic` knowledge systems plus a rep
 | --- | --- | --- | --- |
 | **TCBasic** | Executable Tailwind CSS v4 semantic-layer package plus build, token, component, integration, compliance, profile, glossary, test, and contract knowledge. | Active package and governance system | [`TCbasic/README.md`](TCbasic/README.md) |
 | **WDBASIC** | Framework-independent web architecture, accessibility, security, validation, semantics, forms, performance, implementation contracts, standards evidence, profiles, and glossaries. | WDBASIC v2 — binding | [`Wdbasic/README.md`](Wdbasic/README.md) |
-| **SEObasic** | Websites, technical SEO, content, entities/internal linking, local search/GBP/maps, organic social, paid media/PPC, YouTube, research, standards, contracts, references, and glossaries. | Evolving knowledge framework | [`SEObasic/README.md`](SEObasic/README.md) |
+| **SEObasic** | Websites, technical SEO, content, entities/internal linking, local search/GBP/maps, organic social, paid media/PPC, YouTube, measurement/analytics, research, standards, contracts, references, and glossaries. | Evolving knowledge framework | [`SEObasic/README.md`](SEObasic/README.md) |
 | **READMEbasic** | README/documentation knowledge framework covering evidence-backed structure, contracts, agent guidance, templates, research/best practices, resources, changelogs, and glossaries. | Evolving framework | [`READMEbasic/README.md`](READMEbasic/README.md) |
 | **Governance** | Repository-wide authority, invariants, change control, validation, and anti-regression rules for agent-assisted work. | Binding | [`governance/README.md`](governance/README.md) |
 
@@ -24,7 +24,7 @@ repository governance
         │
         ├── WDBASIC     → web architecture and implementation contracts
         ├── TCBasic     → Tailwind CSS v4 implementation and package knowledge
-        ├── SEObasic    → search, discovery, content and channel knowledge
+        ├── SEObasic    → search, discovery, content, channels and measurement knowledge
         └── READMEbasic → README/documentation knowledge and contracts
 ```
 
@@ -33,6 +33,7 @@ Each system owns a distinct subject area while sharing the same repository princ
 - **Preserve practitioner knowledge and explicit project positions.**
 - **Distinguish contracts from research, standards, examples, and historical references.**
 - **Keep subject terminology in glossaries.**
+- **Define metric semantics before interpreting or comparing measurements.**
 - **Use local `AGENTS.md` files to route automated work into the right authority.**
 - **Maintain `CHANGELOG.md` at the scope where notable changes occur.**
 - **Turn stable, repeatable obligations into documented contracts when silent drift would be harmful.**
@@ -69,7 +70,7 @@ formal standards + research evidence
                 ↓
  implementation / campaign / documentation practice
                 ↓
-       validation and new evidence
+ measurement + validation + new evidence
 ```
 
 Not every lesson becomes a contract. Contracts are used when an adopted rule is stable enough that implementations or agents should not reinterpret it each time.
@@ -96,6 +97,8 @@ Unrequested architecture changes, broad refactors, framework/build replacements,
 | Search/discovery/marketing knowledge | [`SEObasic/README.md`](SEObasic/README.md) |
 | T.E.S.T.I.N.G. philosophy | [`SEObasic/content/testing-philosophy.md`](SEObasic/content/testing-philosophy.md) |
 | SEObasic contracts | [`SEObasic/contracts/README.md`](SEObasic/contracts/README.md) |
+| SEObasic measurement/analytics | [`SEObasic/measurement/README.md`](SEObasic/measurement/README.md) |
+| Metric semantics contract | [`SEObasic/measurement/contracts/metric-semantics.md`](SEObasic/measurement/contracts/metric-semantics.md) |
 | Local search / GBP / maps | [`SEObasic/local-search/README.md`](SEObasic/local-search/README.md) |
 | Paid media / PPC | [`SEObasic/paid-media/README.md`](SEObasic/paid-media/README.md) |
 | Organic social media | [`SEObasic/social-media/README.md`](SEObasic/social-media/README.md) |
