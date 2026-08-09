@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Entity-graph guidance for internal linking, backlinks, tags, sitemaps, feeds, and related-content relationships.
 - `AGENTS.md` for SEObasic-wide authority, knowledge-source classification, channel boundaries, contract use, and preservation rules.
 - `contracts/` with a reusable contract model, contract-specific agent instructions, a Truth and Evidence Contract, and a Channel Boundaries Contract.
+- `positions/` with local agent governance as the explicit home for deliberate SEObasic preferences/bias, rationale, tradeoffs, and divergence from common SEO/marketing practice.
 - `content/` knowledge domain with its own README and agent instructions.
 - `websites/` knowledge domain for first-party website, landing-page, service/location, proof, conversion, and channel relationships.
 - `technical/` knowledge domain for crawl/index/metadata/structured-data and technical diagnostics.
@@ -40,7 +41,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Moved entity-graph/internal-link guidance under `entities/`.
 - Moved historical T.E.S.T.I.N.G. material and the verbatim source excerpt from `reference/` to `references/`.
 - Removed obsolete flat duplicates after updating canonical links to the new hierarchy.
-- Expanded SEObasic scope to explicitly include websites, organic social media, paid media/PPC, Google Business Profile/local/maps visibility, YouTube, measurement/analytics, research, standards, contracts, references, and glossaries.
+- Expanded SEObasic scope to explicitly include websites, organic social media, paid media/PPC, Google Business Profile/local/maps visibility, YouTube, measurement/analytics, research, standards, contracts, positions, references, examples, and glossaries.
 - Clarified the separation between canonical philosophy, practitioner positions, contracts, industry practice, platform guidance, formal standards, research evidence, historical references, examples, and metric definitions.
+- Added explicit protection against erasing or normalizing documented practitioner positions merely because a more common industry/vendor convention exists.
 - Added binding routing so metrics such as rank, visibility, traffic, conversion, authority, and geo-grid rank cannot be used interchangeably without explicit definitions.
 - Removed the earlier engineering reinterpretation of T.E.S.T.I.N.G. from canonical SEObasic guidance.
