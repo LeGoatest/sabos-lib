@@ -21,7 +21,7 @@ The goal is to help a reader answer, in order:
 ```text
 real-world README experience + examples
              +
-GitHub/platform guidance + research
+GitHub/platform guidance + standards + research
              ↓
        documented positions
              ↓
@@ -33,6 +33,8 @@ audience/profile-specific README structure
 ```
 
 READMEbasic favors **progressive disclosure**. A root README should provide enough information to orient and activate a reader without becoming an encyclopedia of implementation details.
+
+The broader repository knowledge-system structure is defined by [`../governance/knowledge-system-model.md`](../governance/knowledge-system-model.md).
 
 ## Document map
 
@@ -46,6 +48,21 @@ READMEbasic/
 │   ├── README.md
 │   ├── AGENTS.md
 │   └── readme-integrity.md
+├── profiles/
+│   ├── README.md
+│   └── AGENTS.md
+├── research/
+│   ├── README.md
+│   └── AGENTS.md
+├── standards/
+│   ├── README.md
+│   └── AGENTS.md
+├── references/
+│   ├── README.md
+│   └── AGENTS.md
+├── examples/
+│   ├── README.md
+│   └── AGENTS.md
 ├── glossaries/
 │   ├── README.md
 │   ├── AGENTS.md
@@ -56,8 +73,13 @@ READMEbasic/
 
 - [`AGENTS.md`](AGENTS.md) — binding instructions for agents creating or updating README files.
 - [`contracts/`](contracts/README.md) — stable README obligations derived from adopted knowledge and evidence.
+- [`profiles/`](profiles/README.md) — audience/repository-class specializations such as applications, packages, monorepos, governance repositories, and subsystems.
+- [`research/`](research/README.md) — empirical and scholarly evidence about README/documentation quality and maintenance.
+- [`standards/`](standards/README.md) — formal specifications and platform-owned documentation behavior.
+- [`references/`](references/README.md) — historical notes, source excerpts, comparative analyses, and non-normative evidence.
+- [`examples/`](examples/README.md) — illustrative README structures and case studies.
 - [`TEMPLATE.md`](TEMPLATE.md) — adaptable README scaffold; optional sections must be removed when they do not serve the project.
-- [`best-practices.md`](best-practices.md) — practitioner analysis, evidence, reference comparison, and practical guidance.
+- [`best-practices.md`](best-practices.md) — practitioner analysis, evidence synthesis, reference comparison, and practical guidance.
 - [`resources.md`](resources.md) — curated official guidance, standards, templates, real-world examples, badge resources, changelog guidance, and README tooling.
 - [`glossaries/`](glossaries/README.md) — subject terminology and disambiguation.
 - [`CHANGELOG.md`](CHANGELOG.md) — notable evolution of READMEbasic itself.
@@ -71,6 +93,21 @@ Current binding contract:
 - [`contracts/readme-integrity.md`](contracts/readme-integrity.md) — user-facing README claims must be supported by evidence and synchronized with the implementation/project record.
 
 A template, article, badge catalog, GitHub example, or research paper does not become a contract automatically. It informs an explicit READMEbasic position first.
+
+## Knowledge and evidence layers
+
+READMEbasic keeps source types separate because they answer different questions:
+
+- **Practitioner experience / best practices** — what has repeatedly worked or failed in real README work.
+- **Profiles** — how audience and repository class change structure priorities.
+- **Research** — what empirical/scholarly evidence supports or challenges a position.
+- **Standards/platform guidance** — what GitHub, GFM, or another controlling platform/specification actually defines.
+- **References** — historical/comparative source material whose provenance should be preserved.
+- **Examples** — concrete demonstrations that illustrate, but do not legislate, a pattern.
+- **Contracts** — obligations adopted after the evidence/position has been considered.
+- **Glossaries** — terminology clarification without independent normative authority.
+
+Do not collapse these into one undifferentiated category called “best practices.”
 
 ## README principles
 
@@ -87,6 +124,8 @@ Common profiles include:
 - **Subsystem/component** — readers need responsibility boundaries, local usage, governing contracts, and links to parent documentation.
 
 A template is a menu, not a mandatory checklist.
+
+See [`profiles/`](profiles/README.md) as profile-specific knowledge develops.
 
 ### 2. The first screen carries the highest-value information
 
@@ -234,7 +273,7 @@ Terms such as *first success*, *progressive disclosure*, *template debris*, and 
 
 ## Relationship to repository governance
 
-README work remains subject to the repository root [`AGENTS.md`](../AGENTS.md) and [`governance/`](../governance/README.md).
+README work remains subject to the repository root [`AGENTS.md`](../AGENTS.md), [`governance/`](../governance/README.md), and [`governance/knowledge-system-model.md`](../governance/knowledge-system-model.md).
 
 READMEbasic specializes documentation behavior; it does not authorize agents to change implementation, architecture, package contracts, release state, or project terminology merely to make a README easier to write.
 
@@ -242,7 +281,7 @@ If the README exposes an inconsistency in the implementation or documentation, r
 
 ## Ongoing development
 
-READMEbasic is intended to accumulate real-world README lessons, external guidance, research, examples, contracts, tooling resources, and anti-patterns over time.
+READMEbasic is intended to accumulate real-world README lessons, external guidance, research, standards, examples, contracts, profiles, tooling resources, and anti-patterns over time.
 
 The goal is not to force every project into one ideal template. The goal is to preserve what actually produces clear, reliable project entrypoints and make the reasoning reusable.
 
