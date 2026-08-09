@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - `change-control.md` defining governed mutations and the explicit approval gate.
 - `validation.md` defining evidence expectations and progressive validation principles.
 - `research-basis.md` documenting vendor guidance, empirical research, Google engineering/SRE practices, and SAGE patterns used to justify the model.
+- Changelog traceability invariant requiring notable subsystem changes to update the nearest changelog and cross-subsystem changes to update the root changelog.
 - This governance changelog.
 
 ### Changed
