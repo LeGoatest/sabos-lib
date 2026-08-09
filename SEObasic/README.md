@@ -14,6 +14,7 @@ SEObasic complements WDBASIC rather than replacing it. WDBASIC continues to gove
 SEObasic/
 ├── README.md
 ├── testing-method.md
+├── testing-philosophy.md
 ├── structured-data.md
 ├── entity-graph.md
 └── examples/
@@ -35,10 +36,15 @@ SEObasic prioritizes:
 8. Consistent publication and modification metadata.
 9. Repeatable content gathering and publishing workflows.
 10. Search visibility without fabricated proof, keyword stuffing, doorway pages, or schema spam.
+11. Repeatable engineering validation that prevents SEO automation from silently introducing regressions.
 
-## 3. Content operating method
+## 3. The two T.E.S.T.I.N.G. frameworks
 
-SEObasic uses the **T.E.S.T.I.N.G. Method** as a repeatable content-development framework:
+SEObasic preserves two distinct frameworks that share the T.E.S.T.I.N.G. name. They must not be conflated.
+
+### Content T.E.S.T.I.N.G. Method
+
+Used for gathering and developing authentic source material:
 
 - **T — Talk about the drive behind the passion**
 - **E — Engage the audience**
@@ -51,6 +57,22 @@ SEObasic uses the **T.E.S.T.I.N.G. Method** as a repeatable content-development 
 See [`testing-method.md`](testing-method.md).
 
 The method is intended to produce useful source material for website content, case studies, social posts, FAQs, project updates, galleries, knowledge-base entries, and other indexable content. It is not a requirement to publish every gathered item on every channel.
+
+### Engineering T.E.S.T.I.N.G. Philosophy
+
+Used for validating software, generators, content engines, indexes, graph relationships, routes, and other technical systems:
+
+- **T — Thorough**
+- **E — Early**
+- **S — Systematic**
+- **T — Transparent**
+- **I — Independent**
+- **N — Non-destructive**
+- **G — Gradual**
+
+See [`testing-philosophy.md`](testing-philosophy.md).
+
+The engineering philosophy treats tests as regression boundaries and requires generated SEO output to remain observable, reproducible, reversible, and traceable to its source data.
 
 ## 4. Technical SEO baseline
 
@@ -122,7 +144,26 @@ SEObasic prohibits:
 
 Content automation may assist authors, but it must not become an excuse for low-value or misleading pages.
 
-## 8. Recommended site SEO stack
+## 8. Testing and regression integrity
+
+Changes to parsers, generators, structured-data models, routing, canonicalization, entity extraction, indexes, link generation, or graph construction must be validated according to [`testing-philosophy.md`](testing-philosophy.md).
+
+A refactor must not silently redefine expected behavior merely to make a test suite pass. Intentional behavior changes require an explicit reason, deliberate test updates, and documentation of the new expectation.
+
+At minimum, mature implementations should be able to detect:
+
+- Invalid or incomplete metadata.
+- Duplicate or conflicting canonical URLs.
+- Broken internal links.
+- Orphaned content.
+- Invalid sitemap inclusion.
+- Structured-data serialization failures.
+- Incorrect breadcrumb relationships.
+- Entity references that cannot be resolved.
+- Search-index or graph inconsistencies.
+- Unexpected route or HTTP-status regressions.
+
+## 9. Recommended site SEO stack
 
 A mature SEObasic implementation may provide:
 
@@ -140,11 +181,13 @@ sitemap.xml + RSS/Atom
 JSON-LD structured data
         ↓
 entity graph and related-content discovery
+        ↓
+repeatable T.E.S.T.I.N.G. validation
 ```
 
 This forms a technical knowledge-base and local/service SEO foundation without requiring a client-side application framework.
 
-## 9. Adoption record
+## 10. Adoption record
 
 Projects adopting SEObasic should record at minimum:
 
@@ -158,10 +201,13 @@ seobasic:
   structured_data_generator: <implementation-path>
   content_metadata_source: <implementation-path>
   entity_graph_source: <implementation-path-or-null>
+  test_contract: <implementation-path-or-null>
 ```
 
-## 10. Roadmap
+## 11. Roadmap
 
 The next major SEObasic capability is automatic entity extraction from source content, followed by safe internal-link suggestions and graph-strength analysis.
 
 Entity extraction must remain reviewable and deterministic enough to avoid incorrect links, accidental over-optimization, or changes in the author's intended meaning.
+
+The engineering T.E.S.T.I.N.G. philosophy applies to that work from the first parser and extraction rules onward rather than being added only after the feature is complete.
