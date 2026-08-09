@@ -6,21 +6,25 @@ This profile is for new applications and major redesigns that use semantic class
 
 ## 1. Required structure
 
-The consumer has one canonical stylesheet that:
+The adopting project has one canonical stylesheet architecture that:
 
-1. Imports TCBasic source.
-2. Declares consumer source paths where necessary.
-3. Overrides raw semantic tokens.
-4. Adds project-specific components and patterns in documented layers.
+1. applies or adapts relevant TCBasic reference concepts;
+2. declares consumer source paths where necessary;
+3. owns project-specific raw semantic tokens;
+4. adds project-specific components and patterns in documented layers.
+
+Example project-owned CSS:
 
 ```css
-@import "tailwindcss-semantic-layer/source";
+@import "tailwindcss";
 @source "../views";
 
 :root {
   --semantic-color-primary: oklch(0.48 0.16 255);
 }
 ```
+
+The exact project path/import structure belongs to the adopter. SABOS Lib does not publish an installable TCBasic source package.
 
 ## 2. Markup policy
 
@@ -35,42 +39,39 @@ Markup uses semantic classes for recurring presentation:
 </section>
 ```
 
-One-off responsive or placement utilities are permitted when they remain local and readable. Repeated utility groups must be promoted.
+One-off responsive or placement utilities are permitted when they remain local and readable. Repeated utility groups should be promoted into stable semantic ownership.
 
 ## 3. Project extension
 
 Project classes:
 
-- Use a project namespace when business-specific.
-- Consume TCBasic tokens or documented project tokens.
-- Do not modify package source in `node_modules`.
-- Do not copy components merely to change colors or radius.
-- Stay out of TCBasic upstream unless they are broadly reusable.
+- use a project namespace when business-specific;
+- consume TCBasic-style semantic roles or documented project tokens;
+- remain owned by the consumer project rather than being written back into SABOS Lib unless broadly reusable;
+- do not duplicate whole reusable components merely to change brand values when token customization can represent the change.
 
-## 4. Build
+## 4. Consumer tooling
 
-Preferred adapter order:
+The adopting project selects its own Tailwind CSS v4 tooling. CLI, PostCSS, Vite, standalone, or framework-owned pipelines are consumer decisions.
 
-1. CLI for simple static or server-rendered projects.
-2. PostCSS when the framework already owns that pipeline.
-3. Vite only when the project already uses Vite.
+See [`../architecture/tooling.md`](../architecture/tooling.md).
 
-## 5. Required checks
+## 5. Required review
 
 - Static class candidates.
 - Explicit source paths where needed.
-- Token contrast review.
-- Component state review.
-- No-JavaScript baseline for primary content.
-- Production build and output inspection.
+- Token contrast/state review.
+- Component semantics/state review.
+- Progressive/no-JavaScript baseline where required by the application architecture.
+- Consumer production build/output inspection when the adopter has a build pipeline.
 
 ## 6. Completion criteria
 
 The profile is adopted when:
 
-- Repeated utility piles have semantic ownership.
-- Public tokens are centralized.
-- Templates use stable component and pattern contracts.
-- Build and source detection are documented.
-- Accessibility responsibilities are assigned.
-- Exceptions are explicit and temporary.
+- repeated utility piles have semantic ownership;
+- public/project tokens are centralized appropriately;
+- templates use stable component and pattern responsibilities;
+- the consumer's build/source-detection choices are documented;
+- accessibility responsibilities are assigned;
+- exceptions are explicit and reviewable.
