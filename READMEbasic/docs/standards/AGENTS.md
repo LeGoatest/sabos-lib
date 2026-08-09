@@ -1,6 +1,6 @@
 # READMEbasic Standards Agent Instructions
 
-> **Status:** Binding for work under `READMEbasic/standards/`  
+> **Status:** Binding for work under `READMEbasic/docs/standards/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 Agents MUST distinguish formal standards/specifications from platform documentation, recommendations, examples, and community conventions.
@@ -11,4 +11,4 @@ Do not treat GitHub-specific behavior as universal Markdown behavior or communit
 
 When standards/platform changes affect a binding READMEbasic contract, update that contract deliberately rather than silently rewriting it during a reference refresh.
 
-Notable interpretation changes update [`../CHANGELOG.md`](../CHANGELOG.md).
+Notable interpretation changes update [`../../CHANGELOG.md`](../../CHANGELOG.md).
