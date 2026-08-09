@@ -34,6 +34,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Reworked the root `README.md` into a concise repository entrypoint describing the `*basic` directories as evolving knowledge systems rather than flat checklists.
 - Expanded the root knowledge model to explicitly preserve practitioner positions and acknowledged bias separately from standards/research and binding contracts.
 - Updated the root `AGENTS.md` to route work through the shared Knowledge System Model plus each subsystem's own `AGENTS.md`, explicit practitioner positions, nested domain agents, contracts, and applicable knowledge sources.
+- Updated the canonical WDBASIC and TCBasic READMEs so their document maps and reading orders expose the new local `AGENTS.md`, `positions/`, contract, source-of-truth, generated-output, and regression-evidence boundaries.
 - Expanded governance authority to recognize deep knowledge-system boundaries, local source-of-truth/evidence boundaries, contract ownership, and SEObasic measurement semantics as governed behavior.
 - Clarified that local `AGENTS.md` files belong at meaningful authority/evidence/source-of-truth boundaries rather than being mechanically duplicated into every implementation leaf folder.
 - Clarified that practitioner positions may intentionally diverge from common industry/vendor practice and must not be silently normalized or mislabeled as external standards.
