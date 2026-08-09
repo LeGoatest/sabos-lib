@@ -4,7 +4,7 @@
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md) and [`../governance/`](../governance/README.md)  
 > **Canonical entry point:** [`README.md`](README.md)
 
-SEObasic is a living knowledge system. It preserves practitioner knowledge, project-specific positions, industry standards, platform guidance, research evidence, historical lessons, and implementation patterns without pretending those sources have equal authority.
+SEObasic is a living knowledge system. It preserves practitioner knowledge, project-specific positions, industry standards, platform guidance, research evidence, historical lessons, contracts, and implementation patterns without pretending those sources have equal authority.
 
 ## Mission
 
@@ -27,6 +27,7 @@ Agents MUST distinguish at least these source types when the distinction matters
 
 - **Canonical practitioner philosophy or definition** — user-authored or explicitly adopted wording that must not be silently rewritten.
 - **Practitioner position** — an intentional preferred approach based on accumulated experience.
+- **Contract** — an adopted normative obligation defining what an implementation, workflow, or agent MUST, SHOULD, or MUST NOT do.
 - **Industry practice** — common professional practice that may inform but does not automatically override a project position.
 - **Platform/vendor guidance** — authoritative for that platform's documented behavior, not universal law.
 - **Formal standard/specification** — normative only within its actual scope and version.
@@ -38,19 +39,30 @@ Do not flatten these into a single category called “best practice.”
 
 ## Domain routing
 
+- [`contracts/`](contracts/README.md) — contract model and cross-domain binding obligations.
 - [`content/`](content/README.md) — content philosophy, content strategy, T.E.S.T.I.N.G., reuse, editorial/community practice.
 - [`websites/`](websites/README.md) — websites, landing pages, service/location content, conversion/search relationships, first-party durable content.
 - [`technical/`](technical/README.md) — crawling, indexing, metadata, canonicals, structured data, sitemaps, feeds, technical diagnostics.
 - [`entities/`](entities/README.md) — entity relationships, internal linking, knowledge graphs, backlinks, topical/service/location relationships.
-- [`local-search/`](local-search/README.md) — local intent, Google Business Profile, local/map pack visibility, citations, reviews, service areas, local proof.
+- [`local-search/`](local-search/README.md) — local intent, Google Business Profile, local/map-pack visibility, citations, reviews, service areas, local proof.
 - [`social-media/`](social-media/README.md) — organic social-media marketing, posts, community interaction, channel-specific content use.
 - [`paid-media/`](paid-media/README.md) — PPC and paid campaigns, including paid search and paid social, measurement and landing-page relationships.
 - [`youtube/`](youtube/README.md) — YouTube channel/video strategy, discovery, search, packaging, retention, and cross-channel relationships.
 - [`research/`](research/README.md) — research collection, evidence review, methods, limitations, and synthesis.
 - [`standards/`](standards/README.md) — formal standards, specifications, platform documentation, and applicability records.
 - [`references/`](references/README.md) — historical records, source excerpts, recovered applications, and non-normative source material.
-- [`examples/`](examples/) — illustrative/reference implementations.
+- [`examples/`](examples/README.md) — illustrative/reference implementations.
 - [`glossaries/`](glossaries/README.md) — subject terminology and disambiguation.
+
+## Contracts
+
+Contracts are the bridge between knowledge and governed implementation.
+
+Research, standards, platform guidance, practitioner experience, and historical lessons can inform a contract, but they do not become binding merely because they exist.
+
+When a reusable position becomes an implementation obligation, formalize it through [`contracts/`](contracts/README.md) or a domain-local contract and preserve the rationale/evidence that justified it.
+
+Agents MUST NOT weaken contracts to match a regression or silently create new binding rules from one external source.
 
 ## Canonical T.E.S.T.I.N.G. protection
 
@@ -76,11 +88,11 @@ Do not copy advice from one channel into another without checking whether the be
 
 ## Research and standards rule
 
-Research, standards, vendor documentation, and industry consensus may strengthen, challenge, or contextualize a practitioner position. They MUST NOT silently erase an explicitly documented position.
+Research, standards, vendor documentation, and industry consensus may strengthen, challenge, or contextualize a practitioner position. They MUST NOT silently erase an explicitly documented position or binding contract.
 
-When evidence conflicts with an established SEObasic position:
+When evidence conflicts with an established SEObasic position or contract:
 
-1. identify the existing position;
+1. identify the existing position/contract;
 2. identify the conflicting evidence and source type;
 3. explain the scope of the conflict;
 4. preserve both until an intentional framework decision is made;
@@ -92,7 +104,9 @@ Every substantive SEObasic subject directory SHOULD contain:
 
 - `README.md` — human subject entrypoint;
 - `AGENTS.md` — agent routing and preservation rules;
-- deeper knowledge files organized by the subject rather than forced into a universal flat template.
+- deeper knowledge files organized by the subject rather than forced into a universal flat template;
+- domain-local contracts when stable obligations exist;
+- subject glossary material when terminology becomes large or specialized enough to justify it.
 
 A nested directory may add stricter rules but may not weaken parent governance.
 
