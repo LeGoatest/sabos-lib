@@ -1,6 +1,6 @@
 # SEObasic Contract Agent Instructions
 
-> **Scope:** `SEObasic/contracts/` and contract authoring conventions used by nested SEObasic domains  
+> **Scope:** `SEObasic/docs/contracts/` and contract authoring conventions used by nested SEObasic domains  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Mission
@@ -43,4 +43,4 @@ Not every lesson needs to become a contract. Some knowledge belongs as research,
 
 ## Contract changes
 
-Material contract changes are governed mutations when they alter established expected behavior. Follow [`../../governance/change-control.md`](../../governance/change-control.md) where applicable and update [`../CHANGELOG.md`](../CHANGELOG.md).
+Material contract changes are governed mutations when they alter established expected behavior. Follow [`../../../governance/change-control.md`](../../../governance/change-control.md) where applicable and update [`../../CHANGELOG.md`](../../CHANGELOG.md).
