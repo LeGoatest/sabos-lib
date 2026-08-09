@@ -99,6 +99,18 @@ An implementation MUST NOT cause governance to change implicitly.
 
 If a task intentionally changes an invariant, architecture contract, or authority boundary, the corresponding governance or subsystem contract MUST be changed deliberately through [`change-control.md`](change-control.md).
 
+## INV-13 — Changelog traceability
+
+Notable changes MUST be recorded in the changelog owned by the scope that changed.
+
+- Changes confined to one governed top-level subsystem SHOULD update that subsystem's `CHANGELOG.md`.
+- Repository-wide or cross-subsystem changes MUST also update the root [`CHANGELOG.md`](../CHANGELOG.md).
+- A change that affects both repository governance and a subsystem MAY require both changelogs.
+- Changelogs MUST remain curated for humans; do not dump raw commit logs or record trivial formatting noise as notable changes.
+- Historical entries MUST NOT be rewritten merely to normalize wording unless correcting materially inaccurate history.
+
+A missing changelog entry does not justify inventing a release version or date. Use `Unreleased` until an actual release/version boundary exists.
+
 ## Enforcement
 
 A detected invariant violation requires one of three outcomes:
