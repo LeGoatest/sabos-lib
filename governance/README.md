@@ -18,13 +18,15 @@ governance/
     ├── validation.md
     └── research-basis.md
     ↓
-subsystem knowledge + contracts
+subsystem entrypoints
     ├── Wdbasic/
     ├── TCbasic/
     ├── SEObasic/
     └── READMEbasic/
     ↓
-implementation / campaigns / documentation
+docs/ knowledge + subject artifacts + examples
+    ↓
+implementation / campaigns / documentation practice
     ↓
 measurement + validation evidence
 ```
@@ -46,8 +48,8 @@ The framework uses five primitives:
 1. **Authority** — who or what is allowed to decide a rule or contract.
 2. **Invariant** — behavior or structure that must not change implicitly.
 3. **Scope** — the smallest area governed or changed by a rule or task.
-4. **Mutation** — an intentional change to an invariant, architecture, public contract, or governance rule.
-5. **Evidence** — tests, builds, rendered output, generated artifacts, measurements, research records, platform records, or other observable results used to evaluate a contract or decision.
+4. **Mutation** — an intentional change to an invariant, architecture, public contract, artifact role, or governance rule.
+5. **Evidence** — tests, builds, rendered output, artifacts, measurements, research records, platform records, or other observable results used to evaluate a contract or decision.
 
 ## Document map
 
@@ -61,13 +63,13 @@ Defines instruction hierarchy, human authority, subsystem ownership, and the lim
 Defines repository-wide truths that ordinary implementation work must preserve.
 
 ### [`knowledge-system-model.md`](knowledge-system-model.md)
-Defines how the `*basic` systems preserve practitioner experience, explicit positions/bias, contracts, industry practice, standards, platform guidance, research, references, examples, glossaries, local agent authority, and changelog history without flattening their source or authority.
+Defines how the `*basic` systems preserve practitioner experience, explicit positions/bias, contracts, industry practice, standards, platform guidance, research, references, examples, glossaries, subject artifacts, local agent authority, and changelog history without flattening their source or authority.
 
 ### [`change-control.md`](change-control.md)
-Defines when a normal implementation becomes a governed mutation and what approval is required.
+Defines when normal work becomes a governed mutation and what approval is required.
 
 ### [`validation.md`](validation.md)
-Defines the evidence model and the Thorough, Early, Systematic, Transparent, Independent, Non-destructive, Gradual implementation philosophy.
+Defines the evidence model and the Thorough, Early, Systematic, Transparent, Independent, Non-destructive, Gradual engineering-validation philosophy.
 
 ### [`research-basis.md`](research-basis.md)
 Records the external and internal evidence used to design this governance model. It is informative rather than normative.
@@ -89,41 +91,64 @@ As defined by [`knowledge-system-model.md`](knowledge-system-model.md), they may
 - examples;
 - profiles/patterns/anti-patterns;
 - subject glossaries;
+- subject artifacts such as reference source, templates, playbooks, or schemas;
 - implementation and validation evidence.
 
-A knowledge type does not gain authority merely because it exists. Binding obligations must be adopted deliberately as contracts or controlling governance.
+A knowledge type or artifact does not gain authority merely because it exists. Binding obligations must be adopted deliberately as contracts or controlling governance.
+
+## Root/docs/artifact rule
+
+Where it improves clarity, a top-level knowledge system separates:
+
+```text
+root        identity / authority routing / changelog
+docs/       accumulated governed knowledge
+artifact    concrete reusable subject material when real
+examples/   illustrative usage/cases
+```
+
+This is a responsibility model, not a symmetry requirement.
+
+Current examples:
+
+- `TCbasic/src/` — canonical reference CSS;
+- `READMEbasic/templates/` — reusable README starting artifacts;
+- `SEObasic/examples/` and `READMEbasic/examples/` — illustrative artifacts.
+
+Do not create artifact directories merely to make trees match. Use `dist/` only for actual generated/distribution output.
+
+Repository governance itself remains a dedicated `governance/` namespace and does not need a redundant `governance/docs/` layer.
 
 ## Layering rule
 
 Governance should be loaded progressively rather than copied into every agent instruction file.
 
 - Root instructions contain only high-salience repository-wide rules and routing.
-- Subsystem root instructions route work into the correct local knowledge/contract boundary.
-- Nested `AGENTS.md` files specialize behavior where a subject establishes a distinct authority, evidence, terminology, measurement, source-of-truth, generated-output, or contract boundary.
+- Subsystem root instructions route work into the correct local knowledge/contract/artifact boundary.
+- `docs/AGENTS.md` routes long-form knowledge when the subsystem uses a `docs/` tree.
+- Nested `AGENTS.md` files specialize behavior where a subject establishes a distinct authority, evidence, terminology, measurement, source-of-truth, artifact, generated-output, or contract boundary.
 - Detailed architecture, standards, research, references, glossaries, examples, measurements, and procedures remain in their canonical locations.
-- Build and test commands remain in the package/configuration that actually owns them when possible.
-- Mechanical requirements should migrate into tests, CI, schema validation, linters, or other executable checks when practical.
+- Build/test commands belong to the adopting package/application/tooling context that actually owns them.
+- Mechanical requirements should migrate into tests, CI, schema validation, linters, or other executable checks when a real executable context exists and the check is practical.
 
-Not every implementation leaf directory requires its own `AGENTS.md`; local agent files should correspond to real authority/behavior boundaries rather than duplicate identical text throughout the tree.
-
-This avoids turning persistent agent context into a duplicate encyclopedia of the repository while preserving deep subject knowledge.
+Not every leaf directory requires its own `AGENTS.md`; local agent files should correspond to real authority/behavior boundaries rather than duplicate identical text throughout the tree.
 
 ## Relationship to subsystem governance
 
 Subsystems retain authority over their own domain:
 
-- `Wdbasic/` — web architecture, semantics, accessibility, security, implementation behavior, validation, profiles, glossaries, and related distributed contracts.
-- `TCbasic/` — Tailwind/package implementation contracts, executable tooling, tests, build/token/component/integration knowledge, examples, source/generated-output boundaries, and glossaries.
-- `SEObasic/` — search/discovery/marketing knowledge spanning websites, technical SEO, content, local search/GBP/maps, organic social, paid media/PPC, YouTube, entities, measurement/analytics semantics, contracts, research, standards, references, examples, and glossaries.
-- `READMEbasic/` — README/documentation knowledge spanning profiles, integrity contracts, templates, research, standards, references, examples, resources, glossaries, and agent behavior for accurate project entrypoints.
+- `Wdbasic/` — framework-independent web architecture, semantics, accessibility, security, implementation behavior, validation/evidence, profiles, tokens, components, positions, glossaries, and related distributed contracts; long-form knowledge is under `Wdbasic/docs/`.
+- `TCbasic/` — Tailwind CSS semantic architecture, token/component/integration knowledge, practitioner positions, compatibility guidance, canonical reference CSS under `TCbasic/src/`, and illustrative examples. Current SABOS Lib does not build/package/release TCBasic.
+- `SEObasic/` — search/discovery/marketing knowledge spanning websites, technical SEO, content, local search/GBP/Maps, organic social, paid media/PPC, YouTube, entities, measurement/analytics semantics, contracts, research, standards, references, positions, examples, and glossaries; long-form knowledge is under `SEObasic/docs/`.
+- `READMEbasic/` — README/documentation knowledge spanning profiles, integrity contracts, positions, research, standards, references, resources, glossaries, templates, examples, and agent behavior; long-form knowledge is under `READMEbasic/docs/`, reusable template artifacts under `READMEbasic/templates/`.
 
 A subsystem may strengthen repository-wide requirements but may not silently weaken repository invariants.
 
 ## Enforcement direction
 
-Markdown establishes intent and authority but is not sufficient enforcement by itself.
+Markdown establishes intent and authority but is not sufficient enforcement by itself when a mechanical check is practical in the actual adopting context.
 
-Where a rule is stable and mechanically testable, prefer encoding it in:
+Where a rule is stable and mechanically testable, prefer encoding it in the implementation/project that owns the behavior through appropriate mechanisms such as:
 
 - tests;
 - CI checks;
@@ -132,6 +157,8 @@ Where a rule is stable and mechanically testable, prefer encoding it in:
 - build checks;
 - generated-output checks;
 - metric/schema validation;
-- repository-specific linters.
+- repository/project-specific linters.
+
+SABOS Lib itself need not acquire build tooling merely because an adopting project can validate a contract mechanically.
 
 The governance documents remain the human-readable source for why the check exists and what authority it protects.
