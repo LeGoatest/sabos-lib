@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 ### Added
 
 - `README.md` defining the layered governance model and five governance primitives: Authority, Invariant, Scope, Mutation, and Evidence.
+- `AGENTS.md` defining rules for automated edits to repository governance itself.
 - `authority.md` defining repository and subsystem authority boundaries.
 - `invariants.md` defining anti-regression and anti-drift rules.
 - `change-control.md` defining governed mutations and the explicit approval gate.
@@ -21,3 +22,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 - Reduced the root `AGENTS.md` from a full governance manual to a compact operational entrypoint and router.
 - Moved detailed governance rationale and rules into scoped canonical files so persistent agent context remains focused.
+- Expanded subsystem authority to recognize deep `*basic` knowledge systems, nested `AGENTS.md` files, contracts, glossaries, research/standards/references, and domain-owned measurement semantics.
+- Clarified that evidence, research, platform guidance, measurements, and examples have interpretive weight but do not become binding contracts automatically.
