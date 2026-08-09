@@ -5,17 +5,17 @@ A governed collection of reusable knowledge frameworks and tooling for semantic 
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)](TCbasic/README.md)
 
-The repository contains four complementary `*basic` knowledge systems plus a repository-wide governance layer. The systems are intended to accumulate practitioner experience, explicit positions, contracts, standards, research, examples, glossaries, measurement semantics, and implementation knowledge over time rather than remain flat checklists.
+The repository contains four complementary `*basic` knowledge systems plus a repository-wide governance layer. The systems are intended to accumulate practitioner experience, explicit positions and acknowledged bias, contracts, standards, research, examples, glossaries, measurement semantics, and implementation knowledge over time rather than remain flat checklists.
 
 ## What lives here
 
 | Area | Purpose | Status | Start here |
 | --- | --- | --- | --- |
-| **TCBasic** | Executable Tailwind CSS v4 semantic-layer package plus build, token, component, integration, compliance, profile, glossary, test, and contract knowledge. | Active package and governance system | [`TCbasic/README.md`](TCbasic/README.md) |
-| **WDBASIC** | Framework-independent web architecture, accessibility, security, validation, semantics, forms, performance, implementation contracts, standards evidence, profiles, and glossaries. | WDBASIC v2 — binding | [`Wdbasic/README.md`](Wdbasic/README.md) |
-| **SEObasic** | Websites, technical SEO, content, entities/internal linking, local search/GBP/maps, organic social, paid media/PPC, YouTube, measurement/analytics, research, standards, contracts, references, and glossaries. | Evolving knowledge framework | [`SEObasic/README.md`](SEObasic/README.md) |
-| **READMEbasic** | README/documentation knowledge framework covering evidence-backed structure, contracts, agent guidance, templates, research/best practices, resources, changelogs, and glossaries. | Evolving framework | [`READMEbasic/README.md`](READMEbasic/README.md) |
-| **Governance** | Repository-wide authority, invariants, change control, validation, and anti-regression rules for agent-assisted work. | Binding | [`governance/README.md`](governance/README.md) |
+| **TCBasic** | Executable Tailwind CSS v4 semantic-layer package plus build, token, component, integration, compliance, profile, glossary, test, source/generated-output, and contract knowledge. | Active package and governance system | [`TCbasic/README.md`](TCbasic/README.md) |
+| **WDBASIC** | Framework-independent web architecture, accessibility, security, validation, semantics, forms, performance, distributed implementation contracts, standards evidence, profiles, and glossaries. | WDBASIC v2 — binding | [`Wdbasic/README.md`](Wdbasic/README.md) |
+| **SEObasic** | Websites, technical SEO, content, entities/internal linking, local search/GBP/maps, organic social, paid media/PPC, YouTube, measurement/analytics, research, standards, contracts, references, examples, and glossaries. | Evolving knowledge framework | [`SEObasic/README.md`](SEObasic/README.md) |
+| **READMEbasic** | README/documentation knowledge framework covering evidence-backed structure, profiles, contracts, agent guidance, templates, research, standards, references, examples, resources, changelogs, and glossaries. | Evolving framework | [`READMEbasic/README.md`](READMEbasic/README.md) |
+| **Governance** | Repository-wide authority, invariants, knowledge-system structure, change control, validation, and anti-regression rules for agent-assisted work. | Binding | [`governance/README.md`](governance/README.md) |
 
 ## How the pieces fit
 
@@ -30,13 +30,15 @@ repository governance
 
 Each system owns a distinct subject area while sharing the same repository principles:
 
-- **Preserve practitioner knowledge and explicit project positions.**
-- **Distinguish contracts from research, standards, examples, and historical references.**
+- **Preserve practitioner knowledge and explicit project positions/bias.**
+- **Distinguish contracts from research, standards, examples, platform guidance, and historical references.**
 - **Keep subject terminology in glossaries.**
 - **Define metric semantics before interpreting or comparing measurements.**
-- **Use local `AGENTS.md` files to route automated work into the right authority.**
+- **Use local `AGENTS.md` files at real authority/evidence/source-of-truth boundaries.**
 - **Maintain `CHANGELOG.md` at the scope where notable changes occur.**
 - **Turn stable, repeatable obligations into documented contracts when silent drift would be harmful.**
+
+The binding structural model for these knowledge systems is [`governance/knowledge-system-model.md`](governance/knowledge-system-model.md).
 
 ## TCBasic quick start
 
@@ -55,7 +57,7 @@ For package installation, source imports, prebuilt distribution usage, build ada
 
 ## Knowledge and contract model
 
-Across the documentation frameworks, the repository increasingly separates several kinds of knowledge:
+Across the frameworks, the repository separates several kinds of knowledge:
 
 ```text
 practitioner experience + historical lessons
@@ -64,7 +66,9 @@ industry practice + platform/vendor guidance
                 +
 formal standards + research evidence
                 ↓
-       documented positions
+       documented understanding
+                ↓
+     explicit practitioner positions
                 ↓
           binding contracts
                 ↓
@@ -75,21 +79,24 @@ formal standards + research evidence
 
 Not every lesson becomes a contract. Contracts are used when an adopted rule is stable enough that implementations or agents should not reinterpret it each time.
 
+Research does not automatically become law; examples do not become authority by existence; common industry practice does not automatically override an explicit practitioner position.
+
 ## Agent-assisted changes
 
-[`AGENTS.md`](AGENTS.md) is the compact repository entrypoint for coding agents and automated tools. Detailed governance lives under [`governance/`](governance/README.md), with more specific `AGENTS.md` files inside the subject systems and their governed subdomains.
+[`AGENTS.md`](AGENTS.md) is the compact repository entrypoint for coding agents and automated tools. Detailed governance lives under [`governance/`](governance/README.md), with more specific `AGENTS.md` files inside subject systems and their governed subdomains.
 
 The governing doctrine is:
 
 > **Agents may implement within established contracts. They may not silently redefine those contracts.**
 
-Unrequested architecture changes, broad refactors, framework/build replacements, public-contract changes, and similar governed mutations require the change-control process defined in [`governance/change-control.md`](governance/change-control.md).
+Unrequested architecture changes, broad refactors, framework/build replacements, public-contract changes, canonical-definition changes, and similar governed mutations require the change-control process defined in [`governance/change-control.md`](governance/change-control.md).
 
 ## Documentation map
 
 | Need | Canonical source |
 | --- | --- |
 | Repository change history | [`CHANGELOG.md`](CHANGELOG.md) |
+| Knowledge-system structural model | [`governance/knowledge-system-model.md`](governance/knowledge-system-model.md) |
 | Tailwind semantic package | [`TCbasic/README.md`](TCbasic/README.md) |
 | Tailwind architecture rules | [`TCbasic/architecture_rules.md`](TCbasic/architecture_rules.md) |
 | Web design/implementation governance | [`Wdbasic/README.md`](Wdbasic/README.md) |
@@ -104,8 +111,12 @@ Unrequested architecture changes, broad refactors, framework/build replacements,
 | Organic social media | [`SEObasic/social-media/README.md`](SEObasic/social-media/README.md) |
 | YouTube | [`SEObasic/youtube/README.md`](SEObasic/youtube/README.md) |
 | README framework and template | [`READMEbasic/README.md`](READMEbasic/README.md) |
+| README profiles | [`READMEbasic/profiles/README.md`](READMEbasic/profiles/README.md) |
 | README contracts | [`READMEbasic/contracts/README.md`](READMEbasic/contracts/README.md) |
-| README best practices/research | [`READMEbasic/best-practices.md`](READMEbasic/best-practices.md) |
+| README research | [`READMEbasic/research/README.md`](READMEbasic/research/README.md) |
+| README standards/platform guidance | [`READMEbasic/standards/README.md`](READMEbasic/standards/README.md) |
+| README references/examples | [`READMEbasic/references/README.md`](READMEbasic/references/README.md), [`READMEbasic/examples/README.md`](READMEbasic/examples/README.md) |
+| README best-practice synthesis | [`READMEbasic/best-practices.md`](READMEbasic/best-practices.md) |
 | README resources and badge references | [`READMEbasic/resources.md`](READMEbasic/resources.md) |
 | Agent governance | [`AGENTS.md`](AGENTS.md) |
 | Repository governance | [`governance/README.md`](governance/README.md) |
