@@ -1,6 +1,6 @@
 # READMEbasic Research Agent Instructions
 
-> **Status:** Binding for work under `READMEbasic/research/`  
+> **Status:** Binding for work under `READMEbasic/docs/research/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Rules
@@ -11,4 +11,4 @@ Do not convert one paper, survey, blog post, or benchmark into a universal READM
 
 Conflicting evidence should be preserved and explained rather than silently reconciled.
 
-When research changes a READMEbasic position or contract, update the affected canonical document deliberately and record the change in [`../CHANGELOG.md`](../CHANGELOG.md).
+When research changes a READMEbasic position or contract, update the affected canonical document deliberately and record the change in [`../../CHANGELOG.md`](../../CHANGELOG.md).
