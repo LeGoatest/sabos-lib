@@ -1,6 +1,6 @@
 # Component Framework Integration Contract
 
-This contract applies to React, Vue, Svelte, Astro components, CSS modules, and single-file component styles.
+This contract applies to React, Vue, Svelte, Astro components, CSS modules, and single-file component styles that adopt TCBasic concepts.
 
 ## 1. Public class mapping
 
@@ -13,7 +13,7 @@ const variants = {
 };
 ```
 
-Do not interpolate class fragments:
+Do not interpolate Tailwind/semantic class fragments:
 
 ```js
 // Prohibited
@@ -24,47 +24,39 @@ const className = `button-${variant}`;
 
 A wrapper may improve type safety and reuse, but it must preserve:
 
-- Correct native elements.
-- Required attributes.
-- Consumer-provided class merging rules.
-- Documented variants.
-- Accessible names and content.
-- Ref forwarding where focus management requires it.
+- correct native elements;
+- required attributes;
+- documented variants;
+- accessible names and content;
+- ref forwarding where focus management requires it;
+- deterministic class output.
 
 ## 3. Local component styles
 
-When a component stylesheet needs access to TCBasic theme variables or utilities without emitting duplicate CSS, use Tailwind's `@reference` mechanism as supported by the host build:
+When a framework component stylesheet needs access to Tailwind utilities or theme context, use the mechanism supported by that project's Tailwind/tooling setup. For Tailwind CSS v4 this may include `@reference` where appropriate.
 
-```css
-@reference "tailwindcss-semantic-layer/source";
-
-.component-local-part {
-  @apply text-primary;
-}
-```
-
-The exact path and support depend on the framework and build adapter. Verify generated output.
+The actual import/reference path belongs to the adopter project. SABOS Lib does not publish a `tailwindcss-semantic-layer/source` package path.
 
 ## 4. CSS modules
 
-Tailwind can coexist with CSS modules, but TCBasic does not recommend creating a second parallel component abstraction layer without a clear reason.
+Tailwind can coexist with CSS modules, but TCBasic does not recommend creating a second parallel shared-component abstraction layer without a clear reason.
 
 Prefer:
 
-- TCBasic semantic classes for shared components.
-- CSS modules for genuinely local, encapsulated behavior.
-- Theme variables for shared values.
+- TCBasic semantic responsibilities for shared components;
+- CSS modules for genuinely local, encapsulated behavior;
+- theme variables for shared values.
 
-Avoid re-implementing every TCBasic component inside module-scoped classes.
+Avoid re-implementing every shared semantic component inside module-scoped classes merely because the framework supports modules.
 
 ## 5. Single-file components
 
 For Vue or Svelte component `<style>` blocks:
 
-- Do not use Sass, Less, or Stylus with Tailwind v4.
-- Use `@reference` when required for theme or utility context.
-- Keep global TCBasic imports in the application stylesheet.
-- Verify scoped-style transformations do not break public selectors.
+- use Tailwind-v4-compatible CSS/tooling in the adopting project;
+- use the host's supported reference/theme mechanism when needed;
+- keep global shared semantic architecture in the project-level stylesheet unless there is a deliberate component-local design;
+- verify scoped-style transforms do not invalidate documented selectors.
 
 ## 6. Runtime class libraries
 
@@ -72,9 +64,7 @@ Class-merging libraries are optional consumer dependencies. They must not genera
 
 ## 7. State ownership
 
-The framework owns state truth and event handling. TCBasic owns documented styling hooks.
-
-Example:
+The framework owns state truth and event handling. TCBasic owns documented styling/semantic responsibilities.
 
 ```jsx
 <button
@@ -90,17 +80,19 @@ Example:
 
 Where a framework supports server rendering:
 
-- Initial semantics and content must be correct before hydration.
-- Hydration must not change the meaning of component state unexpectedly.
-- Class output must remain deterministic.
-- Loading fallbacks must be accessible.
+- initial semantics and content should be correct before hydration;
+- hydration must not change the meaning of component state unexpectedly;
+- class output should remain deterministic;
+- loading fallbacks must remain understandable and accessible.
 
 ## 9. Integration review
 
-- Are all candidate strings static and complete?
+- Are candidate strings static and complete?
 - Does the wrapper render the correct native element?
 - Are refs and attributes forwarded correctly?
-- Does local CSS avoid duplicate global output?
-- Does scoped CSS preserve public selectors?
-- Is framework state reflected in native/ARIA attributes?
-- Does server-rendered output remain usable before hydration?
+- Does local CSS avoid unnecessary duplication of shared architecture?
+- Does scoped CSS preserve intended selectors?
+- Is framework state reflected in native/ARIA attributes where appropriate?
+- Does server-rendered output remain usable before hydration when required by the host architecture?
+
+Reference CSS under [`../../src/`](../../src/) demonstrates TCBasic concepts; the adopter owns its actual framework and build validation.
