@@ -1,6 +1,6 @@
 # SEObasic Paid Media Agent Instructions
 
-> **Scope:** `SEObasic/paid-media/`  
+> **Scope:** `SEObasic/docs/paid-media/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Mission
@@ -32,4 +32,4 @@ Stable paid-media obligations SHOULD become contracts when repeated campaigns de
 
 ## Changelog
 
-Material changes require an entry in [`../CHANGELOG.md`](../CHANGELOG.md).
+Material changes require an entry in [`../../CHANGELOG.md`](../../CHANGELOG.md).
