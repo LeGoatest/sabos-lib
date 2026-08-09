@@ -2,13 +2,13 @@
 
 > **Status:** Evolving knowledge framework  
 > **Canonical entry point:** `SEObasic/README.md`  
-> **Scope:** Websites, technical SEO, content, entities/internal linking, local search, Google Business Profile and maps/local-pack visibility, organic social media, paid media/PPC, YouTube, research, standards, and related digital discovery/conversion knowledge.
+> **Scope:** Websites, technical SEO, content, entities/internal linking, local search, Google Business Profile and maps/local-pack visibility, organic social media, paid media/PPC, YouTube, measurement/analytics, research, standards, and related digital discovery/conversion knowledge.
 
-SEObasic is a living body of practitioner knowledge and governed guidance for how people, businesses, content, websites, and campaigns are discovered and understood across search and digital channels.
+SEObasic is a living body of practitioner knowledge and governed guidance for how people, businesses, content, websites, and campaigns are discovered, measured, and understood across search and digital channels.
 
-It is not intended to be a generic “SEO checklist.” It preserves accumulated practical experience, explicitly adopted positions, industry practice, platform guidance, formal standards, empirical research, historical lessons, examples, terminology, and binding contracts while keeping those source types distinguishable.
+It is not intended to be a generic “SEO checklist.” It preserves accumulated practical experience, explicitly adopted positions, industry practice, platform guidance, formal standards, empirical research, historical lessons, examples, terminology, measurement semantics, and binding contracts while keeping those source types distinguishable.
 
-SEObasic complements WDBASIC rather than replacing it. WDBASIC continues to govern web architecture, accessibility, security, semantics, progressive enhancement, forms, and implementation behavior. SEObasic governs discovery, content/channel strategy, search/local/paid/social/video knowledge, and related evidence/contracts.
+SEObasic complements WDBASIC rather than replacing it. WDBASIC continues to govern web architecture, accessibility, security, semantics, progressive enhancement, forms, and implementation behavior. SEObasic governs discovery, content/channel strategy, search/local/paid/social/video knowledge, measurement, and related evidence/contracts.
 
 ## Knowledge model
 
@@ -25,7 +25,7 @@ standards + research evidence
                 ↓
 channel / implementation / campaign practice
                 ↓
-        validation and outcomes
+ measurement + validation + outcomes
                 ↓
      new lessons and research
 ```
@@ -72,6 +72,13 @@ SEObasic/
 ├── youtube/
 │   ├── README.md
 │   └── AGENTS.md
+├── measurement/
+│   ├── README.md
+│   ├── AGENTS.md
+│   └── contracts/
+│       ├── README.md
+│       ├── AGENTS.md
+│       └── metric-semantics.md
 ├── research/
 │   ├── README.md
 │   └── AGENTS.md
@@ -86,7 +93,8 @@ SEObasic/
 ├── glossaries/
 │   ├── README.md
 │   ├── AGENTS.md
-│   └── seo-and-marketing.md
+│   ├── seo-and-marketing.md
+│   └── measurement-and-analytics.md
 └── examples/
     ├── README.md
     ├── AGENTS.md
@@ -109,6 +117,7 @@ SEObasic distinguishes:
 7. **Research evidence** — empirical or scholarly evidence with method/scope/limitations preserved.
 8. **Historical reference** — prior applications, decisions, and lessons that explain context without automatically governing the present.
 9. **Example** — illustrative implementation, never authority merely because it exists.
+10. **Measurement definition** — an explicit semantic/data definition that makes a metric reproducible and comparable rather than relying on ambiguous labels.
 
 Do not collapse these into an undifferentiated category called “best practices.”
 
@@ -121,7 +130,9 @@ Current binding cross-domain contracts include:
 - [`contracts/truth-and-evidence.md`](contracts/truth-and-evidence.md) — material claims and signals must remain truthful and supported.
 - [`contracts/channel-boundaries.md`](contracts/channel-boundaries.md) — reusable source material does not make channel mechanics interchangeable.
 
-Future stable obligations may live as domain-local contracts when the rule belongs primarily to websites, technical SEO, local search, paid media, social media, YouTube, or another subject.
+Measurement-specific binding semantics live under [`measurement/contracts/`](measurement/contracts/README.md).
+
+Future stable obligations may live as domain-local contracts when the rule belongs primarily to websites, technical SEO, local search, paid media, social media, YouTube, measurement, or another subject.
 
 ## T.E.S.T.I.N.G. content philosophy
 
@@ -175,7 +186,33 @@ Video discovery and durable content covering channel positioning, titles/thumbna
 
 See [`youtube/`](youtube/README.md).
 
-A strategy may use several channels at once, but platform mechanics, policies, evidence, and conversion roles must not be copied blindly between them.
+A strategy may use several channels at once, but platform mechanics, policies, evidence, conversion roles, and metric definitions must not be copied blindly between them.
+
+## Measurement and analytics
+
+Measurement is its own SEObasic domain rather than a loose collection of generic SEO terms.
+
+[`measurement/`](measurement/README.md) separates:
+
+- search-result terminology;
+- ranking metrics;
+- visibility metrics;
+- traffic metrics;
+- conversion metrics;
+- local-search metrics;
+- authority/link metrics;
+- technical metrics;
+- geographic measurement.
+
+The binding [`Metric Semantics Contract`](measurement/contracts/metric-semantics.md) prevents reports and implementations from using materially different concepts such as **rank**, **visibility**, **traffic**, **conversion**, **authority**, and **geo-grid rank** interchangeably.
+
+The detailed vocabulary is defined in [`glossaries/measurement-and-analytics.md`](glossaries/measurement-and-analytics.md).
+
+Key measurement rule:
+
+> **Define the measurement before interpreting the result.**
+
+Provider-specific scores such as DA/DR-style authority metrics or proprietary visibility scores must retain their provider definitions and must not be presented as universal search-engine metrics.
 
 ## Technical and entity foundations
 
@@ -202,9 +239,9 @@ Agents and implementations must not:
 - fabricate reviews, locations, customers, credentials, performance, results, partnerships, awards, or search/campaign evidence;
 - rewrite canonical philosophy to fit a new channel;
 - weaken tests/contracts because a new implementation behaves differently;
-- silently change channel strategy, canonicalization, structured-data types, entity-link rules, or business identity as incidental cleanup;
+- silently change channel strategy, canonicalization, structured-data types, entity-link rules, business identity, metric definitions, denominators, attribution, or sampling as incidental cleanup;
 - present correlation or platform folklore as guaranteed causation;
-- turn one vendor's recommendation into universal law.
+- turn one vendor's recommendation or proprietary score into universal law.
 
 Software testing and regression protection remain engineering requirements, but they are not a second T.E.S.T.I.N.G. acronym.
 
@@ -220,15 +257,17 @@ seobasic:
     - websites
     - technical
     - local-search
+    - measurement
   contracts:
     - truth-and-evidence
     - channel-boundaries
+    - measurement/metric-semantics
 ```
 
 An adoption record does not require a project to implement every SEObasic domain.
 
 ## Ongoing development
 
-SEObasic is intentionally incomplete. New knowledge should be added when there is a real lesson, standard, evidence source, contract, practitioner position, or useful subject boundary to preserve.
+SEObasic is intentionally incomplete. New knowledge should be added when there is a real lesson, standard, evidence source, contract, practitioner position, metric definition, or useful subject boundary to preserve.
 
 The goal is not to fill every directory quickly. The goal is to accumulate a durable, reviewable body of professional knowledge without losing where each conclusion came from.
