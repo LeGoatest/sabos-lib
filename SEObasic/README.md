@@ -15,7 +15,10 @@ SEObasic/
 ├── README.md
 ├── testing-method.md
 ├── structured-data.md
-└── entity-graph.md
+├── entity-graph.md
+└── examples/
+    └── go/
+        └── jsonld.go
 ```
 
 ## 2. Core goals
@@ -83,7 +86,7 @@ Recommended structured-data profiles include:
 - `Service` for service-specific content where appropriate.
 - Other Schema.org types only when their required and recommended properties are truthfully supported by the page.
 
-See [`structured-data.md`](structured-data.md).
+See [`structured-data.md`](structured-data.md). A self-contained Go reference generator is included at [`examples/go/jsonld.go`](examples/go/jsonld.go).
 
 ## 6. Search graph
 
