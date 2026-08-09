@@ -44,10 +44,14 @@ Apply TCBasic documents in this order:
 2. This README
 3. [`STANDARDS.md`](STANDARDS.md)
 4. [`AGENTS.md`](AGENTS.md) for automated changes
-5. Applicable build, token, component, integration, and compliance contracts
-6. Active adoption profile
-7. Package source, examples, and tests
-8. Explicit reviewed exceptions
+5. The nearest applicable local `AGENTS.md`
+6. Applicable build, token, component, integration, and compliance contracts
+7. Applicable explicit practitioner positions under [`positions/`](positions/README.md)
+8. Active adoption profile
+9. Package source, examples, and tests
+10. Explicit reviewed exceptions
+
+Practitioner positions preserve deliberate TCBasic preferences and rationale. They do not silently override binding architecture, standards, or contracts.
 
 ## 3. Package and document map
 
@@ -55,6 +59,7 @@ Apply TCBasic documents in this order:
 TCbasic/
 ├── README.md
 ├── AGENTS.md
+├── CHANGELOG.md
 ├── STANDARDS.md
 ├── architecture_rules.md
 ├── TAILWIND_PATTERN.md
@@ -63,44 +68,60 @@ TCbasic/
 ├── customization.md
 ├── migration-guide.md
 ├── components.md
+├── positions/
+│   ├── README.md
+│   └── AGENTS.md
 ├── build/
 │   ├── README.md
+│   ├── AGENTS.md
 │   ├── source-detection.md
 │   ├── tooling.md
 │   └── package-and-release.md
 ├── tokens/
 │   ├── README.md
+│   ├── AGENTS.md
 │   ├── theme-variables.md
 │   ├── semantic-tokens.md
 │   └── responsive-and-containers.md
 ├── components/
 │   ├── README.md
+│   ├── AGENTS.md
 │   ├── component-contracts.md
 │   ├── variants-and-states.md
 │   └── accessibility.md
 ├── integrations/
 │   ├── README.md
+│   ├── AGENTS.md
 │   ├── server-rendered.md
 │   └── component-frameworks.md
 ├── compliance/
 │   ├── README.md
+│   ├── AGENTS.md
 │   ├── browser-and-build-matrix.md
 │   ├── migration-checklist.md
 │   └── release-checklist.md
 ├── profiles/
 │   ├── README.md
+│   ├── AGENTS.md
 │   ├── semantic-application.md
 │   └── legacy-migration.md
 ├── glossaries/
 │   ├── README.md
+│   ├── AGENTS.md
 │   └── tailwind-css.md
 ├── src/
+│   └── AGENTS.md
 ├── dist/
+│   └── AGENTS.md
 ├── tests/
+│   └── AGENTS.md
 ├── examples/
+│   └── AGENTS.md
 ├── package.json
 └── postcss.config.mjs
 ```
+
+Local `AGENTS.md` files mark real authority or evidence boundaries. In particular, `src/` is canonical source, `dist/` is generated output, and `tests/` is regression evidence; these roles must not be collapsed merely because they are all part of the same package.
 
 ## 4. Goals
 
