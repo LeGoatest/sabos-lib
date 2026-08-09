@@ -10,19 +10,22 @@ The repository uses a layered governance model:
 AGENTS.md
     ↓
 governance/
+    ├── AGENTS.md
     ├── authority.md
     ├── invariants.md
     ├── change-control.md
     ├── validation.md
     └── research-basis.md
     ↓
-subsystem contracts
+subsystem knowledge + contracts
     ├── Wdbasic/
     ├── TCbasic/
     ├── SEObasic/
     └── READMEbasic/
     ↓
-implementation + tests + generated output
+implementation / campaigns / documentation
+    ↓
+validation evidence
 ```
 
 The root `AGENTS.md` is intentionally a compact operational entrypoint. It is not the complete governance manual.
@@ -43,9 +46,12 @@ The framework uses five primitives:
 2. **Invariant** — behavior or structure that must not change implicitly.
 3. **Scope** — the smallest area governed or changed by a rule or task.
 4. **Mutation** — an intentional change to an invariant, architecture, public contract, or governance rule.
-5. **Evidence** — tests, builds, rendered output, generated artifacts, or other observable results showing that the implementation satisfies the contract.
+5. **Evidence** — tests, builds, rendered output, generated artifacts, research records, platform records, or other observable results used to evaluate a contract or decision.
 
 ## Document map
+
+### [`AGENTS.md`](AGENTS.md)
+Defines agent behavior for editing governance itself.
 
 ### [`authority.md`](authority.md)
 Defines instruction hierarchy, human authority, subsystem ownership, and the limits of agent discretion.
@@ -67,21 +73,22 @@ Records the external and internal evidence used to design this governance model.
 Governance should be loaded progressively rather than copied into every agent instruction file.
 
 - Root instructions contain only high-salience repository-wide rules and routing.
-- Nested instructions contain rules specific to their subsystem.
-- Detailed architecture, standards, and procedures remain in their canonical documents.
+- Subsystem root instructions route work into the correct local knowledge/contract boundary.
+- Nested `AGENTS.md` files specialize behavior where a subject establishes a distinct authority or evidence boundary.
+- Detailed architecture, standards, research, references, glossaries, examples, and procedures remain in their canonical locations.
 - Build and test commands remain in the package/configuration that actually owns them when possible.
 - Mechanical requirements should migrate into tests, CI, schema validation, linters, or other executable checks when practical.
 
-This avoids turning persistent agent context into a duplicate encyclopedia of the repository.
+This avoids turning persistent agent context into a duplicate encyclopedia of the repository while preserving deep subject knowledge.
 
 ## Relationship to subsystem governance
 
 Subsystems retain authority over their own domain:
 
-- `Wdbasic/` — architecture, semantics, accessibility, security, implementation behavior, and related web-framework contracts.
-- `TCbasic/` — Tailwind/package implementation contracts and executable tooling owned by that subsystem.
-- `SEObasic/` — search visibility, structured data, content-discovery, entity relationships, and the canonical T.E.S.T.I.N.G. content philosophy.
-- `READMEbasic/` — README structure, evidence requirements, reusable templates, and agent behavior for accurate repository entrypoint documentation.
+- `Wdbasic/` — web architecture, semantics, accessibility, security, implementation behavior, validation, profiles, glossaries, and related contracts.
+- `TCbasic/` — Tailwind/package implementation contracts, executable tooling, tests, build/token/component/integration knowledge, examples, and glossaries.
+- `SEObasic/` — search/discovery/marketing knowledge spanning websites, technical SEO, content, local search/GBP/maps, organic social, paid media/PPC, YouTube, entities, contracts, research, standards, references, and glossaries.
+- `READMEbasic/` — README/documentation knowledge, integrity contracts, templates, research/best practices, resources, glossaries, and agent behavior for accurate project entrypoints.
 
 A subsystem may strengthen repository-wide requirements but may not silently weaken repository invariants.
 
