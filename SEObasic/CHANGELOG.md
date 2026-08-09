@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Added
 
+- `docs/` as the canonical home for SEObasic contracts, positions, content, website, technical, entity, local-search, social-media, paid-media, YouTube, measurement, research, standards, reference, and glossary knowledge.
+- `docs/README.md` and `docs/AGENTS.md` as the SEObasic knowledge index and documentation authority router.
 - Canonical T.E.S.T.I.N.G. philosophy using the original content/community definitions.
 - T.E.S.T.I.N.G. application guidance that preserves the canonical acronym and holistic method.
 - Structured-data guidance and a Go JSON-LD reference implementation.
@@ -35,6 +37,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Changed
 
+- Moved all long-form SEObasic knowledge domains under `docs/` while keeping `examples/` as a root illustrative artifact.
+- Reworked root `README.md` and `AGENTS.md` into concise entrypoint/authority routers for the new `docs/` hierarchy.
+- Preserved canonical T.E.S.T.I.N.G. philosophy, source excerpt, measurement semantics, and other domain content byte-for-byte during the structural move before updating routing paths.
+- Clarified that a future `playbooks/` artifact root should be created only when real reusable operational playbooks exist, not for structural symmetry.
 - Reframed SEObasic from a mostly flat technical/content SEO collection into an evolving multi-domain knowledge framework.
 - Moved the canonical T.E.S.T.I.N.G. philosophy and application guide under `content/` without redefining their substance.
 - Moved structured-data guidance under `technical/`.
