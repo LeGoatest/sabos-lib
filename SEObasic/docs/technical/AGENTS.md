@@ -1,6 +1,6 @@
 # SEObasic Technical Agent Instructions
 
-> **Scope:** `SEObasic/technical/`  
+> **Scope:** `SEObasic/docs/technical/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Mission
@@ -36,4 +36,4 @@ Read website, entity, local-search, and WDBASIC contracts whenever a technical c
 
 ## Changelog
 
-Material technical-framework changes require an entry in [`../CHANGELOG.md`](../CHANGELOG.md).
+Material technical-framework changes require an entry in [`../../CHANGELOG.md`](../../CHANGELOG.md).
