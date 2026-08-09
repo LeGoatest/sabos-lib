@@ -17,7 +17,7 @@ For any repository change:
 1. Read [`governance/README.md`](governance/README.md).
 2. Read [`governance/authority.md`](governance/authority.md).
 3. Read [`governance/invariants.md`](governance/invariants.md).
-4. Read the nearest applicable subsystem instructions/contracts.
+4. Read the nearest applicable subsystem `AGENTS.md`, README, and binding contracts.
 5. Use [`governance/change-control.md`](governance/change-control.md) if the task crosses a mutation gate.
 6. Validate according to [`governance/validation.md`](governance/validation.md).
 
@@ -92,7 +92,7 @@ For changes under `TCbasic/` read:
 
 1. [`TCbasic/AGENTS.md`](TCbasic/AGENTS.md)
 2. [`TCbasic/README.md`](TCbasic/README.md)
-3. Applicable TCBasic architecture, standards, tests, and package files.
+3. Applicable TCBasic architecture, standards, contracts, tests, package files, and nested agent instructions.
 
 Run commands from `TCbasic/`.
 
@@ -113,7 +113,7 @@ For changes under `Wdbasic/` read:
 1. [`Wdbasic/AGENTS.md`](Wdbasic/AGENTS.md)
 2. [`Wdbasic/README.md`](Wdbasic/README.md)
 3. [`Wdbasic/architecture_rules.md`](Wdbasic/architecture_rules.md)
-4. Applicable WDBASIC contracts.
+4. Applicable WDBASIC contracts and nested agent instructions.
 
 Implementation validation follows [`Wdbasic/engineering-validation.md`](Wdbasic/engineering-validation.md).
 
@@ -121,11 +121,13 @@ Implementation validation follows [`Wdbasic/engineering-validation.md`](Wdbasic/
 
 For changes under `SEObasic/` read:
 
-1. [`SEObasic/README.md`](SEObasic/README.md)
-2. The specific SEObasic contract being changed.
-3. Historical/reference files only when the task requires them.
+1. [`SEObasic/AGENTS.md`](SEObasic/AGENTS.md)
+2. [`SEObasic/README.md`](SEObasic/README.md)
+3. The nearest domain `AGENTS.md` and README.
+4. Applicable SEObasic contracts.
+5. Research, standards, references, glossaries, or examples only when relevant to the task.
 
-Do not redefine the canonical T.E.S.T.I.N.G. Method from inference or industry convention.
+Do not redefine the canonical T.E.S.T.I.N.G. Method from inference or industry convention. Its canonical location is [`SEObasic/content/testing-philosophy.md`](SEObasic/content/testing-philosophy.md).
 
 ### READMEbasic
 
@@ -133,7 +135,9 @@ For creation or material restructuring of README files, and for changes under `R
 
 1. [`READMEbasic/AGENTS.md`](READMEbasic/AGENTS.md)
 2. [`READMEbasic/README.md`](READMEbasic/README.md)
-3. [`READMEbasic/best-practices.md`](READMEbasic/best-practices.md) when rationale or structure selection is needed.
+3. [`READMEbasic/contracts/readme-integrity.md`](READMEbasic/contracts/readme-integrity.md)
+4. [`READMEbasic/best-practices.md`](READMEbasic/best-practices.md) when rationale or structure selection is needed.
+5. [`READMEbasic/glossaries/`](READMEbasic/glossaries/README.md) when subject terminology is ambiguous.
 
 Use [`READMEbasic/TEMPLATE.md`](READMEbasic/TEMPLATE.md) as a modular scaffold, not as a mandatory section checklist.
 
