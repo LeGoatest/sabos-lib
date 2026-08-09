@@ -1,12 +1,14 @@
-# TCBasic: Tailwind CSS Semantic Layer
+# TCBasic: Tailwind CSS Semantic Architecture
 
-> **Status:** Active package and governance system  
+> **Status:** Evolving knowledge framework with canonical reference source  
 > **Tailwind baseline:** v4.x  
-> **Package root:** `TCbasic/`
+> **Framework root:** `TCbasic/`
 
-TCBasic is a reusable Tailwind CSS v4 architecture for teams that prefer short, meaningful HTML classes while keeping utility composition, tokens, responsive behavior, states, and component styling in CSS.
+TCBasic is SABOS Lib's Tailwind CSS semantic-architecture knowledge system. It documents a CSS-first approach where Tailwind utilities remain the implementation vocabulary while stable semantic classes keep templates readable and intent-oriented.
 
-## 1. Core model
+TCBasic is **not an npm package and SABOS Lib does not build or publish it**. The repository preserves the architecture, contracts, practitioner positions, upstream guidance, reference CSS, and adoption examples so those ideas can be reused consistently in real projects.
+
+## Core model
 
 ```text
 raw semantic variables
@@ -20,13 +22,13 @@ semantic classes and variants
 readable templates
 ```
 
-Templates name intent:
+Example template:
 
 ```html
 <a class="button button-primary" href="/estimate">Request an estimate</a>
 ```
 
-CSS owns reusable appearance:
+Example semantic CSS:
 
 ```css
 @layer components {
@@ -36,159 +38,72 @@ CSS owns reusable appearance:
 }
 ```
 
-## 2. Authority and reading order
-
-Apply TCBasic documents in this order:
-
-1. [`architecture_rules.md`](architecture_rules.md)
-2. This README
-3. [`STANDARDS.md`](STANDARDS.md)
-4. [`AGENTS.md`](AGENTS.md) for automated changes
-5. The nearest applicable local `AGENTS.md`
-6. Applicable build, token, component, integration, and compliance contracts
-7. Applicable explicit practitioner positions under [`positions/`](positions/README.md)
-8. Active adoption profile
-9. Package source, examples, and tests
-10. Explicit reviewed exceptions
-
-Practitioner positions preserve deliberate TCBasic preferences and rationale. They do not silently override binding architecture, standards, or contracts.
-
-## 3. Package and document map
+## Repository roles
 
 ```text
 TCbasic/
 ├── README.md
 ├── AGENTS.md
 ├── CHANGELOG.md
-├── STANDARDS.md
-├── architecture_rules.md
-├── TAILWIND_PATTERN.md
-├── architecture.md
-├── naming-conventions.md
-├── customization.md
-├── migration-guide.md
-├── components.md
-├── positions/
-│   ├── README.md
-│   └── AGENTS.md
-├── build/
-│   ├── README.md
-│   ├── AGENTS.md
-│   ├── source-detection.md
-│   ├── tooling.md
-│   └── package-and-release.md
-├── tokens/
-│   ├── README.md
-│   ├── AGENTS.md
-│   ├── theme-variables.md
-│   ├── semantic-tokens.md
-│   └── responsive-and-containers.md
-├── components/
-│   ├── README.md
-│   ├── AGENTS.md
-│   ├── component-contracts.md
-│   ├── variants-and-states.md
-│   └── accessibility.md
-├── integrations/
-│   ├── README.md
-│   ├── AGENTS.md
-│   ├── server-rendered.md
-│   └── component-frameworks.md
-├── compliance/
-│   ├── README.md
-│   ├── AGENTS.md
-│   ├── browser-and-build-matrix.md
-│   ├── migration-checklist.md
-│   └── release-checklist.md
-├── profiles/
-│   ├── README.md
-│   ├── AGENTS.md
-│   ├── semantic-application.md
-│   └── legacy-migration.md
-├── glossaries/
-│   ├── README.md
-│   ├── AGENTS.md
-│   └── tailwind-css.md
-├── src/
-│   └── AGENTS.md
-├── dist/
-│   └── AGENTS.md
-├── tests/
-│   └── AGENTS.md
-├── examples/
-│   └── AGENTS.md
-├── package.json
-└── postcss.config.mjs
+├── CONTRIBUTING.md
+├── LICENSE
+├── .editorconfig
+├── .gitignore
+│
+├── docs/       accumulated knowledge, contracts, positions and references
+├── src/        canonical reference CSS implementation
+└── examples/   illustrative adoption examples
 ```
 
-Local `AGENTS.md` files mark real authority or evidence boundaries. In particular, `src/` is canonical source, `dist/` is generated output, and `tests/` is regression evidence; these roles must not be collapsed merely because they are all part of the same package.
+The distinction is intentional:
 
-## 4. Goals
+- **`docs/` defines and explains** TCBasic.
+- **`src/` demonstrates** the documented architecture as canonical reference source.
+- **`examples/` show adoption** in concrete environments without becoming authority over the framework.
 
-- Keep repeated utility-heavy styling out of templates.
-- Expose stable semantic classes such as `.button`, `.card`, and `.form-input`.
-- Separate raw consumer tokens from Tailwind-facing theme variables.
-- Preserve Tailwind responsive, state, data, ARIA, and preference variants.
-- Remain framework-independent at the package core.
-- Support server-rendered HTML, Laravel Blade, HTMX, and component frameworks through explicit integration contracts.
-- Keep build, browser, package, and release claims evidence-based.
+There is no repository `dist/`, package manifest, build pipeline, or release artifact contract.
 
-## 5. Installation
+## Authority and reading order
 
-```bash
-npm install tailwindcss-semantic-layer tailwindcss @tailwindcss/cli
-```
+For TCBasic work, read in this order:
 
-Use the source package when Tailwind should process and customize the layer:
+1. This README.
+2. [`docs/architecture/rules.md`](docs/architecture/rules.md).
+3. [`docs/standards.md`](docs/standards.md).
+4. [`AGENTS.md`](AGENTS.md) when automated tooling is involved.
+5. [`docs/AGENTS.md`](docs/AGENTS.md) and the nearest nested `AGENTS.md`.
+6. Applicable contracts and practitioner positions.
+7. Active adoption profile when relevant.
+8. `src/` and examples as reference evidence.
+9. Explicit reviewed exceptions.
 
-```css
-@import "tailwindcss-semantic-layer/source";
-```
+A reference implementation or example may demonstrate a contract; it does not silently redefine one.
 
-Use the prebuilt distribution when no Tailwind compilation is required:
+## Documentation map
 
-```css
-@import "tailwindcss-semantic-layer/dist";
-```
+Start with [`docs/README.md`](docs/README.md).
 
-## 6. Build adapters
+| Subject | Canonical location |
+| --- | --- |
+| Architecture overview and rules | [`docs/architecture/`](docs/architecture/README.md) |
+| Naming conventions | [`docs/architecture/naming-conventions.md`](docs/architecture/naming-conventions.md) |
+| Tailwind source detection | [`docs/architecture/source-detection.md`](docs/architecture/source-detection.md) |
+| Tailwind tooling guidance for adopters | [`docs/architecture/tooling.md`](docs/architecture/tooling.md) |
+| Standards/upstream baseline | [`docs/standards.md`](docs/standards.md) |
+| Component contracts and catalog | [`docs/components/`](docs/components/README.md) |
+| Token architecture | [`docs/tokens/`](docs/tokens/README.md) |
+| Integration guidance | [`docs/integrations/`](docs/integrations/README.md) |
+| Compatibility and migration evidence | [`docs/compliance/`](docs/compliance/README.md) |
+| Adoption profiles | [`docs/profiles/`](docs/profiles/README.md) |
+| Practitioner positions | [`docs/positions/`](docs/positions/README.md) |
+| Historical/project-specific references | [`docs/references/`](docs/references/README.md) |
+| Glossary | [`docs/glossaries/`](docs/glossaries/README.md) |
+| Customization guidance | [`docs/customization.md`](docs/customization.md) |
+| Migration guidance | [`docs/migration-guide.md`](docs/migration-guide.md) |
 
-Core supported adapters:
+## Reference source architecture
 
-- Tailwind CLI.
-- PostCSS with `@tailwindcss/postcss`.
-
-Optional adapters:
-
-- Vite with `@tailwindcss/vite` in the consuming project.
-- Official standalone CLI.
-
-TCBasic does not require Vite and does not support Sass, Less, or Stylus as part of the Tailwind v4 pipeline.
-
-See [`build/tooling.md`](build/tooling.md).
-
-## 7. Source detection
-
-Tailwind scans files as plain text. Every required class candidate must appear as a complete static string.
-
-Allowed:
-
-```js
-const variants = {
-  primary: "button button-primary",
-  secondary: "button button-secondary",
-};
-```
-
-Prohibited:
-
-```js
-const className = `bg-${color}-500`;
-```
-
-See [`build/source-detection.md`](build/source-detection.md).
-
-## 8. Source architecture
+The canonical reference CSS remains under `src/`:
 
 ```text
 src/
@@ -201,91 +116,60 @@ src/
 └── utilities/   intentionally limited escape hatches
 ```
 
-`src/index.css` is the canonical import graph. `dist/` is generated output and is never the editing source.
+`src/index.css` is the reference import graph. It exists to make the architecture concrete; SABOS Lib does not compile it into a checked-in distribution.
 
-## 9. Token architecture
+## Core positions
 
-Raw values use `--semantic-*` variables. Tailwind mappings use official theme namespaces.
+TCBasic favors:
 
-```css
-:root {
-  --semantic-color-primary: oklch(0.45 0.17 255);
-  --semantic-radius-card: 1rem;
-}
+- Tailwind CSS v4 CSS-first configuration.
+- Semantic, reusable class names over repeated utility-heavy template markup.
+- Stable token roles rather than literal brand/page names.
+- `@apply` where it improves maintainable semantic classes.
+- Native HTML semantics and attributes before invented state hooks.
+- Static, complete Tailwind class candidates.
+- Framework-independent core architecture.
+- Progressive enhancement and explicit accessibility responsibilities.
+- Consumer-specific tooling rather than imposing Vite, PostCSS, npm packaging, or another build system on SABOS Lib itself.
 
-@theme inline {
-  --color-primary: var(--semantic-color-primary);
-  --radius-card: var(--semantic-radius-card);
-}
+See [`docs/positions/`](docs/positions/README.md) for explicit practitioner positions and [`docs/architecture/rules.md`](docs/architecture/rules.md) for binding architectural rules.
+
+## Applying TCBasic
+
+TCBasic is intended to be adapted into a real project rather than installed from this repository as a package.
+
+A typical adoption sequence is:
+
+```text
+read applicable TCBasic contracts
+        ↓
+select an adoption profile
+        ↓
+inspect/reference src/
+        ↓
+adapt tokens and semantic classes into the consumer project
+        ↓
+use that project's Tailwind/tooling pipeline
+        ↓
+validate the consumer implementation
 ```
 
-See [`tokens/README.md`](tokens/README.md).
+Tooling examples for CLI, PostCSS, Vite, and source detection are documented for adopters under [`docs/architecture/`](docs/architecture/README.md). Their presence does not make those tools dependencies of SABOS Lib.
 
-## 10. Class model
+## Examples
 
-| Category | Prefix or form | Examples |
-| --- | --- | --- |
-| Layout primitive | `layout-` | `.layout-container`, `.layout-stack` |
-| Element treatment | `element-` | `.element-link`, `.element-heading` |
-| Reusable component | semantic noun | `.button`, `.card`, `.form-input` |
-| Component variant | noun + modifier | `.button-primary`, `.card-interactive` |
-| Composition pattern | `pattern-` | `.pattern-hero`, `.pattern-feature-grid` |
-| State | `is-` / `has-` | `.is-loading`, `.is-disabled`, `.has-error` |
-| Limited utility | `util-` or `@utility` | `.util-content-narrow`, `.util-text-balance` |
-
-See [`naming-conventions.md`](naming-conventions.md) and [`components/README.md`](components/README.md).
-
-## 11. Accessibility boundary
-
-TCBasic provides styling hooks for visible focus, states, responsive behavior, reduced motion, and forced colors. The consuming application remains responsible for correct native HTML, state truth, keyboard interaction, focus management, announcements, validation, and end-to-end testing.
-
-See [`components/accessibility.md`](components/accessibility.md).
-
-## 12. Browser baseline
-
-TCBasic inherits the Tailwind CSS v4 baseline:
-
-- Chrome 111+
-- Safari 16.4+
-- Firefox 128+
-
-See [`STANDARDS.md`](STANDARDS.md) and [`compliance/browser-and-build-matrix.md`](compliance/browser-and-build-matrix.md).
-
-## 13. Adoption profiles
-
-- [`profiles/semantic-application.md`](profiles/semantic-application.md) — default for new applications.
-- [`profiles/legacy-migration.md`](profiles/legacy-migration.md) — temporary controlled migration profile.
-
-## 14. Examples
+Illustrative integrations remain under:
 
 - [`examples/basic-html/`](examples/basic-html/)
 - [`examples/laravel-blade/`](examples/laravel-blade/)
 - [`examples/htmx/`](examples/htmx/)
 
-## 15. Development
+Examples must remain clearly distinguishable from production claims and framework contracts.
 
-Run from `TCbasic/`:
+## Relationship to WDBASIC
 
-```bash
-npm install
-npm test
-npm run build
-npm run build:example
-npm pack --dry-run
-```
+[`../Wdbasic/`](../Wdbasic/) is a separate framework-independent web architecture and implementation-contract knowledge system. TCBasic supplies Tailwind-specific semantic styling architecture and reference CSS; using TCBasic alone does not establish WDBASIC, WCAG, security, privacy, or application conformance.
 
-The test suite verifies imports, exports, naming boundaries, generated CSS, required governance documents, and relative Markdown links.
-
-## 16. Releases
-
-A semantic version tag such as `v0.2.0` must match `package.json`. The release workflow tests the package, rebuilds `dist/`, verifies the package subtree, and attaches readable CSS, minified CSS, and the TCBasic source archive.
-
-See [`build/package-and-release.md`](build/package-and-release.md) and [`compliance/release-checklist.md`](compliance/release-checklist.md).
-
-## 17. Relationship to WDBASIC
-
-[`../Wdbasic/`](../Wdbasic/) is a separate framework-independent standards and implementation-contract system. TCBasic supplies a Tailwind-specific styling architecture; using TCBasic alone does not establish WDBASIC, WCAG, security, privacy, or application conformance.
-
-## 18. License
+## License
 
 GPL-3.0-only. See [`LICENSE`](LICENSE).
