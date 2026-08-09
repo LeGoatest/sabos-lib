@@ -4,36 +4,34 @@
 > **Scope:** README files governed by READMEbasic  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md), [`../governance/`](../governance/README.md), and [`../governance/knowledge-system-model.md`](../governance/knowledge-system-model.md)
 
-These instructions specialize repository governance for agents that create, rewrite, or materially update README files.
+READMEbasic governs evidence-based README work. A README is not permission to redesign the project it documents.
 
 ## Mission
 
 > **Create the shortest README that accurately gets the intended reader oriented and productive without hiding important status, limitations, or entrypoints.**
 
-A README is not permission to redesign the project it documents.
+## Required routing
 
-## Required READMEbasic sources
+Before material README work:
 
-Before material README work, read:
+1. Read the binding [`README Integrity Contract`](docs/contracts/readme-integrity.md).
+2. Read this file and [`README.md`](README.md).
+3. Read [`docs/AGENTS.md`](docs/AGENTS.md).
+4. Read applicable practitioner positions under [`docs/positions/`](docs/positions/README.md).
+5. Select the applicable profile under [`docs/profiles/`](docs/profiles/README.md).
+6. Use [`templates/README-template.md`](templates/README-template.md) only as an adaptable starting artifact.
+7. Consult [`docs/standards/`](docs/standards/README.md), [`docs/research/`](docs/research/README.md), [`docs/references/`](docs/references/README.md), [`examples/`](examples/README.md), [`docs/resources.md`](docs/resources.md), or [`docs/best-practices.md`](docs/best-practices.md) only when relevant.
+8. Use [`docs/glossaries/`](docs/glossaries/README.md) when terminology is ambiguous.
 
-1. [`contracts/readme-integrity.md`](contracts/readme-integrity.md).
-2. The applicable guidance in this file and [`README.md`](README.md).
-3. Applicable practitioner positions under [`positions/`](positions/README.md) when the task touches an explicit READMEbasic preference.
-4. The matching profile under [`profiles/`](profiles/README.md) when one applies.
-5. [`TEMPLATE.md`](TEMPLATE.md) only as an adaptable scaffold, not a checklist.
-6. [`standards/`](standards/README.md) when platform/specification behavior controls the question.
-7. [`research/`](research/README.md), [`references/`](references/README.md), [`examples/`](examples/README.md), [`resources.md`](resources.md), or [`best-practices.md`](best-practices.md) only when that evidence/source type is relevant.
-8. [`glossaries/`](glossaries/README.md) when terminology is ambiguous.
-
-Follow the nearest nested `AGENTS.md` for work inside those knowledge domains.
+Follow the nearest nested `AGENTS.md` for work inside those domains/artifacts.
 
 ## Knowledge-source discipline
 
 READMEbasic distinguishes:
 
-- practitioner experience and best-practice synthesis;
-- explicit practitioner positions/bias;
-- audience/repository profiles;
+- practitioner experience and synthesis;
+- explicit practitioner positions;
+- profiles;
 - contracts;
 - formal standards/specifications;
 - platform/vendor guidance;
@@ -43,188 +41,131 @@ READMEbasic distinguishes:
 - templates/resources/tooling;
 - glossary terminology.
 
-Do not flatten these into one category called “best practice.” A template or example is not a contract. A research paper is not automatically a contract. Platform behavior is authoritative only for that platform/scope. A practitioner preference should be represented as a position rather than mislabeled as an external requirement.
-
-## Position rule
-
-When a documented READMEbasic position applies, read [`positions/AGENTS.md`](positions/AGENTS.md) and the applicable position record.
-
-Agents MUST NOT:
-
-- erase a documented preference merely because a popular README template uses another structure;
-- present a READMEbasic preference as GitHub/GFM behavior;
-- silently convert a preference into a binding contract;
-- silently replace a position when new evidence challenges it.
-
-Conflicting evidence should trigger explicit review, not automatic normalization.
+Do not flatten these into one category called “best practice.” A template or example is not a contract. Research does not automatically become a contract. Platform behavior is authoritative only within its scope. Practitioner preference remains a position unless deliberately promoted.
 
 ## Required inspection
 
-Before writing or materially restructuring a README, inspect enough repository evidence to verify:
+Before writing or materially restructuring a README, inspect enough authoritative project evidence to verify material claims such as:
 
-- Project/repository name and purpose.
-- Intended audience.
-- Current maturity/status when relevant.
-- License.
-- Package or application manifests.
-- Actual installation/build/test/run commands.
-- Supported runtime/framework versions when claimed.
-- Primary source, package, or subsystem entrypoints.
-- Existing architecture and governance documents.
-- Existing contribution/support documents if referenced.
-- Existing changelog when release/change history is relevant.
-- Generated artifacts when the README describes them.
-- Relevant workflows when adding CI/status badges.
+- project/repository name and purpose;
+- intended audience;
+- maturity/status where relevant;
+- license;
+- manifests/configuration actually present;
+- real install/build/test/run commands when claimed;
+- supported runtime/framework versions when claimed;
+- primary entrypoints;
+- architecture/governance documents;
+- contribution/support routes when referenced;
+- changelog/release information when relevant;
+- workflows when adding CI/status badges;
+- generated artifacts when the README describes them.
 
-For a subsystem README, also read the nearest applicable `AGENTS.md` and canonical subsystem entrypoint.
+For subsystem READMEs, also read the subsystem's own `AGENTS.md` and canonical entrypoint.
 
-## Choose a README profile
+## Profile selection
 
-Classify the README before selecting its structure:
+Common profiles include:
 
-1. **Application**
-2. **Library/package**
-3. **Multi-system repository/monorepo**
-4. **Documentation/governance repository**
-5. **Subsystem/component**
+1. Application
+2. Library/package
+3. Multi-system repository/monorepo
+4. Documentation/governance repository
+5. Subsystem/component
 
-Use [`profiles/`](profiles/README.md) as profile-specific knowledge grows.
-
-Do not force every optional section from [`TEMPLATE.md`](TEMPLATE.md) into every profile.
-
-When templates, examples, badges, visual assets, or authoring tools would help, consult [`resources.md`](resources.md). External resources are pattern references only; they do not prove anything about the local repository.
-
-## Required top-level information
-
-A published README SHOULD make the following discoverable with minimal scanning:
-
-- What the project is.
-- Why it is useful or what problem it solves.
-- Current status or maturity when that affects adoption.
-- How to get started or where the authoritative start point lives.
-- Where deeper documentation lives.
-- License.
-
-For executable software or packages, include a verified path to first successful use when repository evidence supports one.
+Use [`docs/profiles/`](docs/profiles/README.md). Do not force every optional template section into every profile.
 
 ## Evidence rules
 
 Agents MUST NOT invent or infer unsupported:
 
-- Commands.
-- Package names.
-- Versions.
-- Ports.
-- Environment variables.
-- Configuration paths.
-- Features.
-- Roadmap commitments.
-- CI status.
-- Benchmarks.
-- Security guarantees.
-- Compatibility claims.
-- Contact information.
-- Maintainer identities.
-- Release state.
+- commands;
+- package names;
+- versions;
+- ports;
+- environment variables;
+- configuration paths;
+- features;
+- roadmap commitments;
+- CI status;
+- benchmarks;
+- security guarantees;
+- compatibility claims;
+- contact information;
+- maintainer identities;
+- release state.
 
 If evidence is unavailable, omit the claim or label the gap accurately.
 
-Do not convert TODOs, roadmap items, examples, design intentions, template sections, or available badge designs into completed project capabilities.
+TODOs, roadmap items, examples, design intentions, template sections, and available badge designs are not completed capabilities.
 
 ## Structure rules
 
 Agents SHOULD:
 
-- Put project identity and value before navigation mechanics.
-- Use meaningful headings and GitHub Flavored Markdown.
-- Use relative links for repository-local files.
-- Put the shortest verified getting-started path before deep reference material.
-- Use concrete examples where they improve comprehension.
-- Link to canonical architecture, API, governance, contribution, security, changelog, and license documents rather than duplicating them.
-- State material caveats or maturity early enough to affect adoption decisions.
-- Keep paragraphs and sections scannable.
+- put identity and value before navigation mechanics;
+- use meaningful headings and GitHub Flavored Markdown;
+- use relative links for repository-local files;
+- put the shortest verified getting-started path before deep reference material;
+- use concrete examples when they improve comprehension;
+- link to canonical architecture/API/governance/contribution/security/changelog/license documents rather than duplicating them;
+- state material caveats/maturity early enough to affect adoption decisions;
+- keep sections scannable.
 
 Agents SHOULD NOT:
 
-- Add a manually maintained table of contents when GitHub's generated outline is sufficient.
-- Add decorative badge walls.
-- Duplicate a complete architecture specification.
-- Copy full license text into the README.
-- Copy an entire CONTRIBUTING guide into the README.
-- Duplicate changelog history in the README.
-- Add generic acknowledgments/contact/roadmap sections merely because a template includes them.
-- Leave template placeholders, example usernames, fake links, TODO badges, or sample API keys in a final README.
-- Use screenshots or diagrams as the only source of critical instructions.
+- add a manual TOC when the generated outline is sufficient;
+- add decorative badge walls;
+- duplicate complete architecture/governance/reference documents;
+- copy full license or changelog text into the README;
+- add generic acknowledgments/contact/roadmap sections merely because a template includes them;
+- leave template placeholders, fake links, TODO badges, example usernames, or sample secrets in a final README;
+- use screenshots/diagrams as the only source of critical instructions.
 
 ## Badge policy
 
-A badge must communicate useful project state and must be supported by a real source.
+A badge must communicate useful verified state from a real source. Common legitimate cases include CI status, published release/package version, license, and supported runtime/framework version when actually evidenced.
 
-Common valid uses:
-
-- CI/build status from an existing workflow.
-- Published release/package version.
-- License.
-- Supported runtime/framework version.
-
-Resources such as [Badges4-README.md-Profile](https://github.com/alexandresanlim/Badges4-README.md-Profile), [Shields.io](https://shields.io/), and [Simple Icons](https://simpleicons.org/) may be used to identify syntax or presentation options. Their catalogs do not establish that a technology, status, affiliation, or capability applies to the project.
-
-Do not add badges for technologies merely to create a visual technology stack unless that presentation materially helps the target reader.
-
-Broken, placeholder, speculative, or stale badges are documentation defects.
-
-## Manual table-of-contents policy
-
-GitHub already creates a heading-based outline for Markdown files.
-
-Use a manual TOC only when the README is long/complex enough that an in-document TOC materially improves navigation.
-
-If used, validate every anchor after heading changes.
+Badge catalogs/generators are presentation resources, not evidence that a badge applies.
 
 ## README change protocol
 
-1. Resolve audience and README profile.
-2. Inspect authoritative repository evidence.
+1. Resolve audience and profile.
+2. Inspect authoritative evidence.
 3. Identify inaccurate, stale, missing, duplicated, or overly detailed content.
-4. Preserve authoritative terminology, project identity, and applicable practitioner positions.
-5. Draft the smallest coherent README structure.
+4. Preserve canonical terminology and applicable practitioner positions.
+5. Build the smallest coherent README structure.
 6. Verify every command, path, version, badge, and material capability claim.
-7. Verify repository-relative links.
-8. Check that deeper material is routed to canonical documentation instead of duplicated.
-9. Check that release/change history is linked to the changelog rather than copied into the README when applicable.
-10. Check that no implementation or governance contract was silently changed to make the prose simpler.
-11. Report unverifiable or unresolved claims separately.
+7. Verify relative links.
+8. Route deeper material to canonical docs/artifacts rather than duplicate it.
+9. Keep current-state documentation separate from changelog history.
+10. Do not mutate implementation/governance merely to make README prose simpler.
+11. Report unverifiable claims separately.
 
 ## Regression protection
 
-README maintenance is subject to the same anti-regression rules as implementation work.
-
 Agents MUST NOT:
 
-- Remove documented capabilities without verifying whether the capability was actually removed.
-- Rename established terminology for stylistic preference.
-- Change installation or usage commands because another workflow seems cleaner.
-- Rewrite status/maturity to sound more favorable than evidence supports.
-- Replace precise limitations with marketing language.
-- Change implementation, package, architecture, or governance solely to match a preferred README structure without passing the repository mutation gate.
+- remove documented capabilities without verifying whether they were actually removed;
+- rename established terminology for style preference;
+- change install/usage commands because another workflow seems cleaner;
+- rewrite maturity/status to sound more favorable than evidence supports;
+- replace precise limitations with marketing language;
+- change implementation/architecture/governance solely to match a preferred README structure without passing change control.
 
-If documentation and implementation disagree, identify which source is authoritative before changing either side.
+If documentation and implementation disagree, resolve which source is authoritative before changing either.
+
+## Artifact boundary
+
+- `docs/` contains READMEbasic knowledge.
+- `templates/` contains reusable starting artifacts.
+- `examples/` contains illustrative/comparative artifacts.
+
+Templates/examples remain subordinate to contracts and project evidence.
 
 ## Definition of done
 
-A README task is complete only when, as applicable:
-
-- The intended audience can identify the project and purpose quickly.
-- The current status is represented accurately.
-- Getting-started commands are verified against repository sources.
-- Usage examples reflect real behavior.
-- Local links resolve to existing paths.
-- Badges are real and high-signal.
-- Placeholder/template debris is removed.
-- Deep material is linked rather than unnecessarily duplicated.
-- Changelog/change-history routing is accurate when relevant.
-- Material limitations are not hidden.
-- No unapproved implementation or governance mutation was introduced.
+A README task is complete only when applicable facts are verified, local links resolve, unsupported claims are absent, template debris is removed, deep material is routed correctly, and no unapproved implementation/governance mutation was introduced.
 
 ## Governing maxim
 
