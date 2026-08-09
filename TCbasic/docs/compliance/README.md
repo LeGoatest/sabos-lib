@@ -1,36 +1,35 @@
-# TCBasic Validation and Compliance
+# TCBasic Validation and Evidence
 
-TCBasic compliance means the package satisfies its declared architecture, build, source-detection, browser, documentation, and release contracts. It is not a claim that every consuming application is accessible, secure, or standards-conformant.
+TCBasic validation separates **internal framework consistency** from **adopter implementation evidence**. SABOS Lib does not compile, package, browser-test, or release TCBasic as a product.
 
 ## Documents
 
-- [`browser-and-build-matrix.md`](browser-and-build-matrix.md) — browser baseline, adapters, commands, and evidence fields.
-- [`migration-checklist.md`](migration-checklist.md) — controlled v3-to-v4 and utility-to-semantic migration.
-- [`release-checklist.md`](release-checklist.md) — required release evidence.
+- [`browser-and-reference-matrix.md`](browser-and-reference-matrix.md) — upstream browser baseline, reference-feature assumptions, and adopter evidence fields.
+- [`migration-checklist.md`](migration-checklist.md) — controlled Tailwind v3-to-v4 and utility-to-semantic migration guidance for adopting projects.
 
-## Conformance levels
+## Evidence layers
 
-### Source-conformant
+### Documentation-consistent
 
-The canonical source follows TCBasic architecture, naming, token, and component rules.
+The relevant TCBasic documents agree on terminology, authority, architecture, and responsibility boundaries.
 
-### Build-conformant
+### Reference-consistent
 
-Tests and documented build commands pass, exports resolve, and distributions are generated from the same source revision.
+The canonical CSS under [`../../src/`](../../src/) demonstrates the documented architecture without contradicting binding contracts.
 
-### Package-conformant
+### Example-consistent
 
-The packed artifact includes documented exports, license, source, distributions, and public documentation.
+An example under [`../../examples/`](../../examples/) demonstrates current TCBasic concepts and correctly distinguishes host-environment behavior from TCBasic responsibilities.
 
 ### Integration-validated
 
-A named consumer integration has passed its adapter, source-detection, browser, and application-level tests.
+A named consumer implementation has passed its own build, source-detection, browser, accessibility, visual, or application-level checks.
 
-Integration validation is scoped to that consumer and does not extend automatically to other frameworks or browsers.
+Integration validation is scoped to that consumer. It does not become a repository-wide claim.
 
-## Unresolved outcomes
+## Explicit outcomes
 
-Use explicit status values:
+Use honest status values such as:
 
 ```text
 passed
@@ -43,13 +42,15 @@ not_tested
 
 Do not convert blocked, manual, or untested work into a pass.
 
-## Minimum evidence
+## Minimum evidence context
 
-- Commit or tag.
-- Tailwind and Node versions.
-- Commands executed.
-- Test results.
-- Generated distribution review.
-- Export and package-content review.
-- Browser baseline review.
-- Known exceptions.
+When reporting material validation, preserve enough context to interpret it:
+
+- TCBasic commit/tag or document revision;
+- adopting project/environment when applicable;
+- Tailwind/tool versions when relevant;
+- commands or review procedures actually performed;
+- browser/framework scope;
+- known exceptions and limitations.
+
+An upstream support statement is not proof of adopter validation. A TCBasic reference file is not proof that a consumer build works.
