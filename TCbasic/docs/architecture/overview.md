@@ -1,9 +1,9 @@
 # Architecture Overview
 
-> **Detailed rules:** [`architecture_rules.md`](architecture_rules.md)  
-> **Standards registry:** [`STANDARDS.md`](STANDARDS.md)
+> **Detailed rules:** [`rules.md`](rules.md)  
+> **Standards registry:** [`../standards.md`](../standards.md)
 
-Tailwind CSS Semantic Layer treats Tailwind as the implementation language and semantic CSS classes as the template-facing API.
+TCBasic treats Tailwind CSS as the implementation vocabulary and semantic CSS classes as the template-facing API.
 
 Templates express intent:
 
@@ -11,7 +11,7 @@ Templates express intent:
 <button class="button button-primary">Save changes</button>
 ```
 
-The CSS layer owns utility composition:
+Reference CSS owns reusable utility composition:
 
 ```css
 @layer components {
@@ -29,27 +29,27 @@ The CSS layer owns utility composition:
 4. **Components** — independent interface objects such as buttons, cards, forms, alerts, and badges.
 5. **Patterns** — larger compositions built from layout primitives and components.
 6. **States** — cross-component behavioral and validation states.
-7. **Utilities** — a deliberately small set of project-wide exceptions.
+7. **Utilities** — a deliberately small set of project-wide escape hatches.
 
 A lower layer must not depend on a higher layer.
 
 ## Token flow
 
 ```text
-Raw semantic variables
+raw semantic variables
         ↓
 @theme inline mappings
         ↓
 Tailwind utilities
         ↓
-Semantic component classes
+semantic component classes
         ↓
 HTML templates
 ```
 
 Raw values use the `--semantic-*` namespace. Tailwind-facing mappings use official namespaces including `--color-*`, `--font-*`, `--radius-*`, `--shadow-*`, `--breakpoint-*`, and `--container-*`.
 
-See [`tokens/README.md`](tokens/README.md).
+See [`../tokens/README.md`](../tokens/README.md).
 
 ## Component composition
 
@@ -59,32 +59,30 @@ Use a base class plus explicit modifiers in markup:
 <a class="button button-primary button-large">Continue</a>
 ```
 
-Do not rely on applying one custom component class inside another. Each modifier contains only its own additional behavior so the public class contract remains visible.
+Do not rely on applying one custom component class inside another as hidden inheritance. Each modifier should add only its documented responsibility.
 
-See [`components/component-contracts.md`](components/component-contracts.md).
+See [`../components/component-contracts.md`](../components/component-contracts.md).
 
 ## Source detection
 
-Class candidates must appear as complete static strings. Dynamic class fragments are prohibited. Declare nonstandard templates and fragments with `@source` when automatic detection is insufficient.
+Tailwind candidates in examples and adopter implementations should appear as complete static strings. Dynamic fragments are prohibited by the TCBasic architecture.
 
-See [`build/source-detection.md`](build/source-detection.md).
+See [`source-detection.md`](source-detection.md).
 
-## Build policy
+## Tooling boundary
 
-CLI and PostCSS are core supported build paths. Vite is an optional consumer adapter and is not a TCBasic dependency.
+CLI, PostCSS, Vite, and similar tooling are adopter choices. SABOS Lib does not build TCBasic.
 
-See [`build/tooling.md`](build/tooling.md).
+See [`tooling.md`](tooling.md).
 
-## Framework policy
+## Framework boundary
 
-The core package contains plain CSS and HTML. Framework-specific adapters and examples do not become dependencies of the core package.
+The reference architecture is framework-independent. Framework-specific examples and integrations may adapt TCBasic without becoming dependencies of SABOS Lib or redefining the core contracts.
 
-Primary content must remain server-renderable where the host architecture requires it. JavaScript may enhance local interactions but must not become styling ownership or the sole authority for primary content.
+See [`../integrations/README.md`](../integrations/README.md).
 
-See [`integrations/README.md`](integrations/README.md).
+## Validation boundary
 
-## Validation policy
+TCBasic documentation and reference CSS must remain internally consistent. Actual build, browser, framework, and application validation belongs to the adopting project and must be reported with its real scope.
 
-Architecture is verified through structural tests, package export checks, generated CSS inspection, documentation link checks, and release evidence.
-
-See [`compliance/README.md`](compliance/README.md).
+See [`../compliance/README.md`](../compliance/README.md).
