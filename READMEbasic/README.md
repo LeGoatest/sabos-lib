@@ -48,6 +48,9 @@ READMEbasic/
 │   ├── README.md
 │   ├── AGENTS.md
 │   └── readme-integrity.md
+├── positions/
+│   ├── README.md
+│   └── AGENTS.md
 ├── profiles/
 │   ├── README.md
 │   └── AGENTS.md
@@ -73,6 +76,7 @@ READMEbasic/
 
 - [`AGENTS.md`](AGENTS.md) — binding instructions for agents creating or updating README files.
 - [`contracts/`](contracts/README.md) — stable README obligations derived from adopted knowledge and evidence.
+- [`positions/`](positions/README.md) — deliberate READMEbasic preferences/bias, rationale, tradeoffs, and divergence from common template conventions.
 - [`profiles/`](profiles/README.md) — audience/repository-class specializations such as applications, packages, monorepos, governance repositories, and subsystems.
 - [`research/`](research/README.md) — empirical and scholarly evidence about README/documentation quality and maintenance.
 - [`standards/`](standards/README.md) — formal specifications and platform-owned documentation behavior.
@@ -99,6 +103,7 @@ A template, article, badge catalog, GitHub example, or research paper does not b
 READMEbasic keeps source types separate because they answer different questions:
 
 - **Practitioner experience / best practices** — what has repeatedly worked or failed in real README work.
+- **Positions** — what READMEbasic deliberately prefers, including acknowledged bias and divergence from common template convention.
 - **Profiles** — how audience and repository class change structure priorities.
 - **Research** — what empirical/scholarly evidence supports or challenges a position.
 - **Standards/platform guidance** — what GitHub, GFM, or another controlling platform/specification actually defines.
@@ -281,7 +286,7 @@ If the README exposes an inconsistency in the implementation or documentation, r
 
 ## Ongoing development
 
-READMEbasic is intended to accumulate real-world README lessons, external guidance, research, standards, examples, contracts, profiles, tooling resources, and anti-patterns over time.
+READMEbasic is intended to accumulate real-world README lessons, explicit positions, external guidance, research, standards, examples, contracts, profiles, tooling resources, and anti-patterns over time.
 
 The goal is not to force every project into one ideal template. The goal is to preserve what actually produces clear, reliable project entrypoints and make the reasoning reusable.
 
