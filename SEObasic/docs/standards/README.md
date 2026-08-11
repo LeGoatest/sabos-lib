@@ -4,6 +4,10 @@
 
 This domain records authoritative external requirements without pretending all sources have the same status.
 
+## Current platform-guidance records
+
+- [`google-eeat-and-helpful-content.md`](google-eeat-and-helpful-content.md) — current Google Search Central guidance on E-E-A-T, people-first content, Search Quality Raters, and the **Who / How / Why** self-assessment model. It explicitly preserves Google's boundary that E-E-A-T itself is not a specific ranking factor.
+
 ## Source classes
 
 - **Formal specification/standard** — e.g. web/markup/schema standards within their defined scope.
