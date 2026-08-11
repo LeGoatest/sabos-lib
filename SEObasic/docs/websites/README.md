@@ -16,6 +16,16 @@ This domain is intentionally broader than technical SEO. It can preserve knowled
 - first-party canonical content versus distributed channel versions;
 - practitioner lessons about what website structures work or fail in real projects.
 
+## Current canonical material
+
+- [`keyword-use.md`](keyword-use.md) — current on-page keyword/topic-language guidance covering descriptive URLs, titles, headings, body copy, link text, image alt text, search intent, natural language, and keyword-stuffing boundaries.
+
+## Keyword versus meta-keyword boundary
+
+SEObasic distinguishes **keywords used naturally in visible/descriptive website content** from the legacy `<meta name="keywords">` field.
+
+Current keyword/topic language belongs in semantically appropriate page content. Legacy metadata status belongs in [`../technical/metadata.md`](../technical/metadata.md).
+
 ## Boundaries
 
 Technical crawling/indexing/metadata rules belong in [`../technical/`](../technical/README.md).
