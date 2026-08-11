@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Added
 
+- `docs/content/customer-pain-and-solution-framing.md` documenting customer pain points and PAS-style Problem → Agitate/Stakes → Solution framing, extended with proof and an appropriate next action while preserving truth and avoiding manipulative exaggeration or repetitive paraphrasing.
+- `docs/standards/google-eeat-and-helpful-content.md` recording current Google Search Central E-E-A-T and people-first content guidance, including Experience, Expertise, Authoritativeness, Trustworthiness, Who/How/Why, Search Quality Rater boundaries, and Google's explicit statement that E-E-A-T itself is not a specific ranking factor.
 - `docs/` as the canonical home for SEObasic contracts, positions, content, website, technical, entity, local-search, social-media, paid-media, YouTube, measurement, research, standards, reference, and glossary knowledge.
 - `docs/README.md` and `docs/AGENTS.md` as the SEObasic knowledge index and documentation authority router.
 - Canonical T.E.S.T.I.N.G. philosophy using the original content/community definitions.
