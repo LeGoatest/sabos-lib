@@ -24,14 +24,26 @@ This domain is expected to grow around topics such as:
 
 ## Current canonical material
 
+- [`metadata.md`](metadata.md) — search presentation metadata, indexing/serving controls, canonical links, browser/document metadata, social-sharing metadata, and explicit legacy/unused status such as `meta keywords` being unused by Google Search.
 - [`structured-data.md`](structured-data.md) — structured-data models, truthful schema selection, serialization, and validation.
+
+## Legacy-status rule
+
+SEObasic does not silently drop obsolete metadata from documentation. When a historically familiar tag or directive is no longer used by a named consumer, document:
+
+1. what it historically did;
+2. which consumer no longer uses it;
+3. what effect it no longer has;
+4. whether another consumer may still require it.
+
+Use precise statements such as **“unused by Google Search”** rather than claiming universal obsolescence without evidence.
 
 ## Cross-domain relationships
 
 - Website content/architecture: [`../websites/`](../websites/README.md)
 - Entity/internal-link relationships: [`../entities/`](../entities/README.md)
 - Local search: [`../local-search/`](../local-search/README.md)
-- WDBASIC implementation architecture: [`../../Wdbasic/`](../../Wdbasic/README.md)
+- WDBASIC implementation architecture: [`../../../Wdbasic/`](../../../Wdbasic/README.md)
 
 Technical signals support discoverability but do not substitute for useful content, real business relevance, or truthful claims.
 
