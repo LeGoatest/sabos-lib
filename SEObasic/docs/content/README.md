@@ -15,6 +15,10 @@ Content knowledge in SEObasic can include:
 - content reuse across owned, organic, paid, local, and video channels;
 - content collection as part of normal operations rather than an afterthought.
 
+## Current content guidance
+
+- [`customer-pain-and-solution-framing.md`](customer-pain-and-solution-framing.md) — customer pain points and PAS-style **Problem → Agitate/Stakes → Solution** framing, extended with proof and an appropriate next action while preserving truth and avoiding manipulative exaggeration or repetitive paraphrasing.
+
 ## Canonical T.E.S.T.I.N.G. documents
 
 - [`testing-philosophy.md`](testing-philosophy.md) — authoritative wording of the T.E.S.T.I.N.G. philosophy.
