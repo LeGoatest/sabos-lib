@@ -17,13 +17,25 @@ Read applicable:
 
 ## Preserve
 
+Agents MUST:
+
+- preserve useful, natural topic/search language in visible page content when it accurately describes the page;
+- distinguish current on-page keyword use from the legacy `<meta name="keywords">` field;
+- keep URLs, titles, headings, body content, link text, and alt text aligned with their real semantic/user purpose rather than treating them as keyword containers;
+- evaluate search intent and content usefulness rather than targeting an arbitrary keyword-density percentage.
+
 Agents MUST NOT:
 
 - turn every website page into an SEO landing page;
 - generate mass location/service pages without meaningful differentiation;
 - change established positioning, service taxonomy, site architecture, or conversion paths merely to fit a generic SEO template;
 - duplicate complete channel content when a canonical first-party source and channel-specific adaptation would be clearer;
-- imply services, locations, credentials, proof, or customer outcomes the business cannot substantiate.
+- imply services, locations, credentials, proof, or customer outcomes the business cannot substantiate;
+- remove legitimate topic terms merely because `meta keywords` is obsolete;
+- add hidden keyword fields or unnatural repetition under the assumption that more occurrences automatically improve ranking;
+- create headings, alt text, anchor text, city lists, or body paragraphs primarily to stuff keyword variants.
+
+See [`keyword-use.md`](keyword-use.md) for current on-page guidance and [`../technical/metadata.md`](../technical/metadata.md) for metadata/legacy status.
 
 ## Contracts
 
