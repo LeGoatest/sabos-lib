@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Canonical T.E.S.T.I.N.G. philosophy using the original content/community definitions.
 - T.E.S.T.I.N.G. application guidance that preserves the canonical acronym and holistic method.
 - Structured-data guidance and a Go JSON-LD reference implementation.
+- `docs/technical/metadata.md` documenting search-presentation metadata, indexing/serving controls, canonical links, browser/document metadata, social-sharing metadata, and an explicit legacy/unused status model.
+- Explicit legacy documentation for `meta keywords` as unused by Google Search, plus other historical Google Search metadata/directives such as `rel="next"`/`rel="prev"`, `nositelinkssearchbox`, `noarchive`, and `nocache` where current platform documentation identifies them as unused.
+- `docs/websites/keyword-use.md` separating current, natural on-page keyword/topic-language use from the obsolete `meta keywords` field and documenting URLs, titles, headings, body copy, link text, alt text, search intent, natural language, and keyword-stuffing boundaries.
 - Entity-graph guidance for internal linking, backlinks, tags, sitemaps, feeds, and related-content relationships.
 - `AGENTS.md` for SEObasic-wide authority, knowledge-source classification, channel boundaries, contract use, and preservation rules.
 - `contracts/` with a reusable contract model, contract-specific agent instructions, a Truth and Evidence Contract, and a Channel Boundaries Contract.
@@ -51,4 +54,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Clarified the separation between canonical philosophy, practitioner positions, contracts, industry practice, platform guidance, formal standards, research evidence, historical references, examples, and metric definitions.
 - Added explicit protection against erasing or normalizing documented practitioner positions merely because a more common industry/vendor convention exists.
 - Added binding routing so metrics such as rank, visibility, traffic, conversion, authority, and geo-grid rank cannot be used interchangeably without explicit definitions.
+- Added explicit agent protection against confusing the obsolete `meta keywords` field with legitimate visible keyword/topic language used naturally in website content.
 - Removed the earlier engineering reinterpretation of T.E.S.T.I.N.G. from canonical SEObasic guidance.
