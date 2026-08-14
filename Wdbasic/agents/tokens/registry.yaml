@@ -1,17 +1,28 @@
 spec_version: "0.1.0"
 kind: design_token_registry
 id: wdbasic.tokens
-status: registry_ready
-canonical_source: ../../docs/core-invariants/README.md
+status: mapped
+canonical_source: ../../docs/core-invariants/semantics/tokens/
 authority:
   mode: projection
-entries: []
-registration:
+token_contracts:
+  - id: wdbasic.tokens.semantic-colors
+    token_type: semantic_color_contract
+    canonical_source: ../../docs/core-invariants/semantics/tokens/semantic-colors.md
+  - id: wdbasic.tokens.spacing
+    token_type: spacing_contract
+    canonical_source: ../../docs/core-invariants/semantics/tokens/spacing.md
+  - id: wdbasic.tokens.typography
+    token_type: typography_contract
+    canonical_source: ../../docs/core-invariants/semantics/tokens/typography.md
+  - id: wdbasic.tokens.accessibility
+    token_type: accessibility_contract
+    canonical_source: ../../docs/core-invariants/semantics/tokens/accessibility.md
+constraints:
   invent_unadopted_universal_values: false
-  value_format: canonical_source_defined
-  required_fields:
-    - id
-    - canonical_source
-    - token_type
-    - value_or_reference
-  note: WDBASIC does not gain universal token values merely because this registry exists.
+  raw_value_is_not_authority_without_source: true
+  semantic_role_over_raw_palette_when_contract_requires: true
+  external_interchange_format_adoption: unspecified
+registration:
+  source_mapping_required: true
+  note: This registry maps existing WDBASIC token contract families; it does not fabricate token values or adopt an external serialization format by implication.

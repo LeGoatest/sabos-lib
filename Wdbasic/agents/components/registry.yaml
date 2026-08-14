@@ -1,18 +1,71 @@
 spec_version: "0.1.0"
 kind: component_contract_registry
 id: wdbasic.components
-status: registry_ready
-canonical_source: ../../docs/core-invariants/README.md
+status: mapped
+canonical_source: ../../docs/core-invariants/semantics/components/component-contracts.md
 authority:
   mode: projection
-entries: []
+contracts:
+  - id: wdbasic.component.contract
+    canonical_source: ../../docs/core-invariants/semantics/components/component-contracts.md
+    governs:
+      - reusable_server_rendered_components
+      - form_controls
+      - actions
+      - custom_elements
+      - composite_widgets
+      - htmx_fragments
+    required_record_fields:
+      - name
+      - purpose
+      - owner
+      - input_contract
+      - required_and_optional_fields
+      - output_and_event_behavior
+      - semantic_root_element
+      - child_and_slot_structure
+      - token_dependencies
+      - state_variants
+      - rendering_mode
+      - focus_behavior
+      - accessibility_contract
+      - fallback_behavior
+      - validation_and_security_dependencies_when_applicable
+      - version_or_deprecation_status_when_shared
+    state_vocabulary:
+      - default
+      - hover
+      - focus-visible
+      - active
+      - selected
+      - expanded
+      - collapsed
+      - disabled
+      - loading
+      - empty
+      - error
+      - success
+      - read-only
+      - unavailable
+      - pending
+      - validating
+      - invalid
+      - conflict
+      - rate-limited
+      - expired
+      - offline
+      - uploading
+      - processing
+    invariants:
+      clear_responsibility: true
+      explicit_inputs: true
+      semantic_markup: true
+      hidden_global_dependency: false
+      stable_accessibility_contract: true
+      enhanced_component_requires_fallback: true
+      server_can_reconstruct_fragment_state: true
+      client_may_not_invent_authoritative_state: true
+      primary_content_depends_on_client_template: false
 registration:
-  invent_unadopted_universal_components: false
-  required_fields:
-    - id
-    - canonical_source
-    - semantics
-    - states
-    - accessibility
-    - fallback_behavior
-  note: Register a component only when a canonical WDBASIC component contract is deliberately mapped into this machine interface.
+  example_is_universal_component: false
+  source_mapping_required: true

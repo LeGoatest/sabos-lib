@@ -1,0 +1,21 @@
+spec_version: "0.1.0"
+kind: profile_registry
+id: wdbasic.profiles.experience
+canonical_source: ../../docs/experience-evaluation/profiles/
+authority:
+  mode: projection
+  profiles_are_core_invariants: false
+profiles:
+  - id: wdbasic.profile.field-service
+    canonical_source: ../../docs/experience-evaluation/profiles/field-service.md
+    role: experience_evaluation_profile
+  - id: wdbasic.profile.professional-services
+    canonical_source: ../../docs/experience-evaluation/profiles/professional-services.md
+    role: experience_evaluation_profile
+  - id: wdbasic.profile.custom-brand
+    canonical_source: ../../docs/experience-evaluation/profiles/custom-brand.md
+    role: experience_evaluation_profile
+constraints:
+  profile_may_override_core_invariant: false
+  profile_selection_must_match_product_context: true
+  unlisted_profile_must_not_be_invented_as_wdbasic_authority: true

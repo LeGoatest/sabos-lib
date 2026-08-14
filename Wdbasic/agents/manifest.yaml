@@ -18,13 +18,16 @@ load_order:
   - standard.yaml
   - rules/core-invariants.yaml
   - profiles/technology-profiles.yaml
+  - profiles/experience-profiles.yaml
   - strategies/content-strategies.yaml
   - components/registry.yaml
   - tokens/registry.yaml
   - validation/conformance.yaml
 collections:
   rules: rules/core-invariants.yaml
-  profiles: profiles/technology-profiles.yaml
+  profiles:
+    technology: profiles/technology-profiles.yaml
+    experience: profiles/experience-profiles.yaml
   strategies: strategies/content-strategies.yaml
   components: components/registry.yaml
   tokens: tokens/registry.yaml
