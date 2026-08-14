@@ -1,8 +1,8 @@
 # WDBASIC Architecture Rules
 
-> **Authority:** Binding WDBASIC technical contract beneath [`core-invariants.md`](core-invariants.md)  
-> **Core entry point:** [`README.md`](README.md)  
-> **Standards registry:** [`STANDARDS.md`](STANDARDS.md)
+> **Authority:** Binding WDBASIC technical contract beneath [`../README.md`](../README.md)  
+> **Core entry point:** [`../README.md`](../README.md)  
+> **Standards registry:** [`../measurable-evidence/standards.md`](../measurable-evidence/standards.md)
 
 This document governs state authority, request/response behavior, routing, security boundaries, progressive enhancement, resilience, and technology-profile selection.
 
@@ -27,15 +27,7 @@ Rendering may be server-side, static/pre-rendered, client-rendered, hypermedia/H
 
 Prefer meaningful HTML, native links/controls, direct URLs, and ordinary form behavior when they fit the product.
 
-Enhancement may improve speed, continuity, local interaction, or offline behavior while preserving applicable:
-
-- authorization;
-- validation;
-- semantics and labels;
-- error/recovery behavior;
-- security/privacy controls;
-- direct-load behavior;
-- user agency.
+Enhancement may improve speed, continuity, local interaction, or offline behavior while preserving applicable authorization, validation, semantics/labels, error/recovery behavior, security/privacy controls, direct-load behavior, and user agency.
 
 A product may intentionally depend on JavaScript or a richer client runtime when that architecture better fits the task. Such a decision must document accessibility, resilience, search/discoverability for public content, recovery, direct-load, cache/state, and performance behavior.
 
@@ -43,7 +35,7 @@ Progressive enhancement is a strong WDBASIC preference, not a false claim that e
 
 ## 3. Technology profiles
 
-Every implementation selects applicable profiles from [`technology-profiles/`](technology-profiles/README.md), including as relevant:
+Every implementation selects applicable profiles from [`../../technology-profiles/`](../../technology-profiles/README.md), including as relevant:
 
 - HTMX / hypermedia;
 - SSR;
@@ -52,7 +44,7 @@ Every implementation selects applicable profiles from [`technology-profiles/`](t
 - Tailwind / TCbasic;
 - hybrid/native.
 
-Profiles specialize implementation behavior but cannot weaken [`core-invariants.md`](core-invariants.md).
+Profiles specialize implementation behavior but cannot weaken [`../README.md`](../README.md).
 
 HTMX is preferred when server-owned hypermedia naturally fits the interaction. It is not a universal WDBASIC requirement.
 
@@ -60,14 +52,7 @@ HTMX is preferred when server-owned hypermedia naturally fits the interaction. I
 
 JavaScript may own client-local behavior and presentation state such as disclosure, focus management, media controls, clipboard/device APIs, rich visualization, optimistic state, offline queues, or application-shell behavior when the selected profile permits it.
 
-JavaScript must not be treated as sufficient authority for:
-
-- authentication or authorization;
-- privileged business rules;
-- server/service-side validation required for integrity;
-- tenant/ownership decisions;
-- trusted pricing, permission, or workflow state;
-- persistence guarantees.
+JavaScript must not be treated as sufficient authority for authentication/authorization, privileged business rules, integrity-critical validation, tenant/ownership decisions, trusted pricing/permissions/workflow state, or persistence guarantees.
 
 Client-side validation improves feedback; it does not replace authoritative validation.
 
@@ -114,7 +99,7 @@ Do not return a successful homepage for an unknown route or disguise validation/
 
 ## 8. Forms and consequential actions
 
-Forms follow the contracts under [`forms/`](forms/README.md).
+Forms follow [`../semantics/forms/`](../semantics/forms/README.md).
 
 Before a material effect occurs, an appropriate trusted boundary verifies as applicable:
 
@@ -143,7 +128,7 @@ Recoverable errors preserve non-sensitive user work where safe.
 
 ## 10. Security/privacy boundaries
 
-Follow [`security-and-privacy.md`](security-and-privacy.md) and form security contracts.
+Follow [`../security-privacy/security-and-privacy.md`](../security-privacy/security-and-privacy.md) and [`../semantics/forms/security.md`](../semantics/forms/security.md).
 
 At minimum:
 
@@ -162,15 +147,7 @@ At minimum:
 
 Caching must not cross identity, authorization, tenant, locale, consent, CSRF, or personalization boundaries.
 
-Document:
-
-- cached representation/object;
-- cache-key inputs;
-- variation headers/keys;
-- invalidation;
-- acceptable staleness;
-- sensitive/user-specific content;
-- browser-local caches or offline stores where applicable.
+Document the cached representation/object, cache-key inputs, variation headers/keys, invalidation, acceptable staleness, sensitive/user-specific content, and browser-local/offline stores where applicable.
 
 When a URL can produce materially different full-page, fragment, personalized, locale, or device representations, the variation strategy must be cache-safe.
 
@@ -178,13 +155,13 @@ HTMX-specific rules are binding when the HTMX profile is active, including `HX-R
 
 ## 12. Authoring and generated output
 
-Authoring/generation follows [`authoring/`](authoring/) contracts.
+Authoring/generation follows [`../semantics/authoring/`](../semantics/authoring/) contracts.
 
 Generated output is part of the product's evidence scope. Generated forms must preserve the same allowlist, validation, authorization, privacy, retention, and security constraints as hand-authored forms.
 
 ## 13. Internationalization and media
 
-Localized output follows [`internationalization.md`](internationalization.md). Media follows [`media-accessibility.md`](media-accessibility.md).
+Localized output follows [`../semantics/internationalization.md`](../semantics/internationalization.md). Media follows [`../accessibility/media-accessibility.md`](../accessibility/media-accessibility.md).
 
 Language, direction, locale values, captions, transcripts, alternatives, and accessibility relationships must survive navigation, fragment replacement, hydration, export, and other active profile behavior.
 
@@ -192,15 +169,7 @@ Language, direction, locale values, captions, transcripts, alternatives, and acc
 
 Add dependencies when they provide justified value and fit the product's security, accessibility, privacy, performance, resilience, and maintenance requirements.
 
-Review:
-
-- maintenance/security;
-- runtime/transfer cost;
-- accessibility;
-- privacy/data flow;
-- CSP and origin impact;
-- rendering/fallback behavior;
-- removal path.
+Review maintenance/security, runtime/transfer cost, accessibility, privacy/data flow, CSP/origin impact, rendering/fallback behavior, and removal path.
 
 A provider response never automatically becomes authorization/business truth.
 
@@ -225,15 +194,7 @@ Do not claim a rendering strategy is automatically faster without evidence.
 
 ## 16. Search/discoverability architecture
 
-Public pages must intentionally document:
-
-- indexability/crawlability for target search engines;
-- crawlable navigation where search discovery requires it;
-- canonical behavior and metadata;
-- meaningful headings and useful content;
-- rendering behavior and known crawler limitations;
-- correct status handling;
-- avoidance of thin doorway/location duplication.
+Public pages must intentionally document indexability/crawlability for target search engines, crawlable navigation where required, canonical behavior/metadata, meaningful headings/useful content, rendering behavior/known crawler limitations, correct status handling, and avoidance of thin doorway/location duplication.
 
 WDBASIC prefers robust public rendering strategies, often server or pre-rendered, but does **not** claim that Google universally requires JavaScript-free primary content.
 
@@ -245,29 +206,10 @@ Use structured events, correlation identifiers, safe error categorization, retry
 
 ## 18. Deployment/support baseline
 
-Document:
-
-- runtime/browser/platform baseline;
-- assistive-technology matrix where applicable;
-- selected technology profiles;
-- build/runtime dependencies;
-- environment configuration;
-- migrations/rollback;
-- cache/queue/offline requirements;
-- validation/security/accessibility/performance test commands;
-- known limitations.
+Document runtime/browser/platform baseline, assistive-technology matrix where applicable, selected technology profiles, build/runtime dependencies, environment configuration, migrations/rollback, cache/queue/offline requirements, validation/security/accessibility/performance test commands, and known limitations.
 
 ## 19. Exceptions
 
-An exception records:
-
-- stable identifier;
-- rule bypassed;
-- reason/scope;
-- accessibility/security/privacy/search/performance impact;
-- fallback;
-- owner;
-- expiration/review condition;
-- remediation plan.
+An exception records a stable identifier, rule bypassed, reason/scope, accessibility/security/privacy/search/performance impact, fallback, owner, expiration/review condition, and remediation plan.
 
 An exception cannot create a false external-standard claim, convert missing evidence into a pass, or turn untrusted client state into a trusted security boundary.
