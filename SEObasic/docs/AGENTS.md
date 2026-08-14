@@ -3,9 +3,19 @@
 > **Status:** Binding for automated work under `SEObasic/docs/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)  
 > **Knowledge index:** [`README.md`](README.md)  
-> **Evidence contract:** [`contracts/evidence-classification.md`](contracts/evidence-classification.md)
+> **Evidence contract:** [`invariants/evidence-classification.md`](invariants/evidence-classification.md)
 
-SEObasic documentation preserves multiple knowledge types with different authority: contracts, practitioner positions, platform guidance, formal standards, peer-reviewed research, preprints, benchmarks/datasets, practitioner observations, historical references, glossaries, and channel/domain knowledge.
+SEObasic documentation is organized by the role knowledge plays:
+
+```text
+invariants/   → what must remain true
+evaluation/   → what is being assessed
+strategies/   → what we deliberately do
+surfaces/     → where behavior varies
+evidence/     → why we believe something
+measurement/  → how outcomes are defined
+terminology/  → what words mean
+```
 
 ## Required routing
 
@@ -13,97 +23,104 @@ Before changing a subject:
 
 1. Read [`../AGENTS.md`](../AGENTS.md).
 2. Read [`README.md`](README.md).
-3. Read [`contracts/evidence-classification.md`](contracts/evidence-classification.md) whenever work makes or changes material factual, causal, platform-behavior, research, optimization, measurement, or historical claims.
-4. Read the nearest nested `AGENTS.md`.
-5. Read the subject README and binding contracts.
-6. Consult positions, standards, research, references, and glossaries as relevant.
-7. Treat [`../examples/`](../examples/) as illustrative evidence, not authority.
+3. Read [`invariants/evidence-classification.md`](invariants/evidence-classification.md) whenever work makes or changes material factual, causal, platform-behavior, research, optimization, measurement, or historical claims.
+4. Identify the role of the change: invariant, evaluation, strategy, surface, evidence, measurement, or terminology.
+5. Read the nearest nested `AGENTS.md` and subject README.
+6. Consult other roles only when the change crosses those boundaries.
+7. Treat [`../examples/`](../examples/) as illustrative, not normative.
 
-## Preserve knowledge type
+## Role boundaries
 
-Do not silently convert:
+Agents MUST NOT silently convert:
 
-- research into a contract;
-- platform guidance into universal law;
-- a practitioner position into an external standard;
-- a practitioner observation into a causal mechanism;
-- a controlled benchmark/RAG result into a production-platform ranking factor;
-- an example into a requirement;
-- a historical reference into current canonical guidance;
-- glossary shorthand into a metric definition that violates the measurement contract.
+- evidence into an invariant;
+- evaluation criteria into a mandatory tactic;
+- a strategy into a platform guarantee;
+- a surface-specific behavior into universal law;
+- a measurement label into a causal explanation;
+- terminology into a requirement;
+- an example into authority.
 
-## Claim-level provenance
+A subject can span several roles. Preserve those roles instead of forcing the subject into one silo.
 
-Material claims MUST preserve the evidence status needed to interpret them correctly.
+## Invariants
 
-As applicable this includes:
+[`invariants/`](invariants/README.md) contains binding cross-domain obligations. Material changes to an invariant require explicit reasoning, evidence scope, affected behavior, and changelog coverage.
 
-- evidence class;
-- platform/consumer;
-- product surface;
-- purpose;
-- primary source;
-- review date/freshness context;
-- publication status;
-- venue/DOI;
-- method/sample/domain limitations;
-- whether the statement is an observation, inference, or binding adopted rule.
+Current cross-domain invariants include truth/evidence, channel boundaries, and evidence classification. Measurement-specific binding semantics remain under [`measurement/contracts/`](measurement/contracts/README.md).
 
-Unqualified words such as `legacy`, `obsolete`, `unsupported`, `ranking factor`, `AI visibility`, and `authority` MUST NOT be used where the actual evidence is consumer-specific, provider-specific, experimental, or otherwise narrower.
+## Evaluation
 
-## Platform claims
+[`evaluation/`](evaluation/README.md) describes what SEObasic can assess across strategies and surfaces: discoverability, eligibility, visibility, intent alignment, presentation, citation/attribution, trust, local relevance, engagement, conversion, and technical performance.
 
-For changing platform behavior, prefer current first-party documentation for that platform's own behavior and preserve its actual scope.
+Evaluation criteria do not become optimization tactics automatically.
 
-Do not infer:
+## Strategies
 
-```text
-unused by one consumer
-    = unused everywhere
+[`strategies/`](strategies/README.md) owns deliberate methods and content/discovery approaches.
 
-crawler blocked
-    = URL necessarily unknown
+Canonical T.E.S.T.I.N.G. wording now lives under [`strategies/content/testing-philosophy.md`](strategies/content/testing-philosophy.md). Preserve it exactly where its canonical identity matters.
 
-crawler allowed
-    = indexing/citation/ranking guaranteed
-```
+AEO/GEO strategy lives under [`strategies/answer-discovery/`](strategies/answer-discovery/README.md). Entity-relationship strategy and on-page keyword/topic-language guidance also live under `strategies/`.
 
-Platform documentation governs only the platform/product surface it actually owns.
+## Surfaces
 
-## Research
+[`surfaces/`](surfaces/README.md) owns channel/platform-specific mechanics and implementation context.
 
-When a research record is labeled `preprint`, check for a later peer-reviewed publication before advancing its review date.
+Do not generalize behavior among owned web, generative search, local/maps, organic social, paid media, and YouTube without evidence.
 
-Research discovery services such as Google Scholar, Semantic Scholar, DBLP, Crossref, OpenAlex, Scopus, and Web of Science are discovery/bibliographic aids; they are not substitutes for the primary research record or paper.
+Crawler/access behavior for answer/generative systems lives at [`surfaces/generative-search/ai-discovery-controls.md`](surfaces/generative-search/ai-discovery-controls.md).
 
-Preserve contrary, null, and mixed evidence. Separate direct search/platform audits from adjacent RAG, citation-attribution, and scientific-writing methodology.
+## Evidence
 
-## Canonical definitions
+[`evidence/`](evidence/README.md) owns research, platform guidance, practitioner positions, and historical/source references.
 
-Preserve user-authored canonical definitions and philosophies exactly when their identity matters, including the canonical T.E.S.T.I.N.G. wording under `content/`.
+Material claims MUST preserve evidence class, scope, primary source, publication status where applicable, limitations, and freshness context.
 
-Evidence can challenge claims made *about* a canonical philosophy without silently rewriting the philosophy itself.
+Research discovery services such as Google Scholar, Semantic Scholar, DBLP, Crossref, OpenAlex, Scopus, and Web of Science are discovery/bibliographic aids, not substitutes for primary research records.
 
 ## Measurement
 
-Measurement work MUST preserve the metric-semantics contract and must not collapse rank, visibility, traffic, conversion, authority, geographic observations, answer presence, citations, referrals, or business outcomes into interchangeable terms.
+Measurement work MUST preserve the binding [`Metric Semantics Contract`](measurement/contracts/metric-semantics.md).
 
-For AEO/GEO measurements, preserve the binding layer separation in [`measurement/contracts/metric-semantics.md`](measurement/contracts/metric-semantics.md).
+For answer/generative measurement use [`measurement/generative-search/ai-discovery.md`](measurement/generative-search/ai-discovery.md).
+
+Do not collapse rank, visibility, retrieval, citation, answer presence, referral, conversion, authority, or revenue into interchangeable terms.
+
+## Terminology
+
+[`terminology/`](terminology/README.md) owns glossary language and disambiguation. Glossary shorthand cannot override platform-owned definitions or binding metric semantics.
+
+## Claim-level provenance
+
+Material claims should preserve, as applicable:
+
+- evidence class;
+- platform/consumer;
+- surface;
+- purpose;
+- primary source;
+- review/freshness context;
+- publication status and venue/DOI;
+- method/sample/domain limitations;
+- whether the statement is an observation, inference, position, or binding rule.
+
+Unqualified words such as `legacy`, `obsolete`, `unsupported`, `ranking factor`, `AI visibility`, and `authority` MUST NOT be used when the evidence is narrower.
 
 ## Correction discipline
 
-SEObasic documentation is expected to change when stronger evidence falsifies or narrows an existing claim.
+SEObasic is expected to change when stronger evidence falsifies or narrows a current claim.
 
 When correcting an error:
 
 1. preserve the stronger evidence and its scope;
 2. correct the canonical current claim;
 3. keep historical source excerpts unchanged when they are historical records;
-4. update affected cross-links/contracts;
+4. update affected cross-role routing;
 5. record the material correction in the subsystem changelog.
 
-Do not defend stale wording merely because SEObasic previously documented it.
+## Structural rule
 
-## Structural changes
+Taxonomy describes responsibility, not prestige. Moving a file between roles does not automatically strengthen or weaken its authority.
 
-Moving knowledge under `docs/` does not weaken or strengthen a contract by itself. Update root routing, local authority paths, cross-links, and changelogs when canonical paths move.
+Do not create directories merely for visual symmetry. Create a role/subdomain only when actual knowledge justifies it.
