@@ -2,7 +2,7 @@
 
 > **Status:** Technology-specific adoption layer  
 > **Reviewed:** 2026-08-14  
-> **Core dependency:** [`../core-invariants.md`](../core-invariants.md)
+> **Core dependency:** [`../core-invariants/README.md`](../core-invariants/README.md)
 
 WDBASIC core is technology-neutral. Technology profiles define how a particular rendering, interaction, styling, or delivery architecture satisfies WDBASIC invariants.
 
