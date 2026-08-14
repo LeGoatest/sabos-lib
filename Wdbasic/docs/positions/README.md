@@ -14,5 +14,7 @@ A position does not weaken an existing binding WDBASIC contract. If a position b
 ## Positions
 
 - [`pas-content-architecture.md`](pas-content-architecture.md) — WDBASIC's Problem–Agitate–Solution content-architecture position, including semantic progression, anti-repetition rules, direct PAS scoring structure, evidence boundaries, and the 2026 research/source record.
+- [`wdbasic-evaluation-model.md`](wdbasic-evaluation-model.md) — broader WDBASIC 100-point evaluation model, domain criteria, experimental `P(7) + A(5) + S(8)` subscore, seven proposed laws, page-deficit analysis, and evidence taxonomy.
+- [`research-findings-2026-08-14.md`](research-findings-2026-08-14.md) — historical snapshot preserving the complete research trajectory, corrected WDBASIC framing, PAS findings, broader audit findings, source interpretation, and the unresolved original PAS coefficients.
 
 Use [`AGENTS.md`](AGENTS.md) for automated maintenance.
