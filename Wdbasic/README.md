@@ -1,9 +1,9 @@
-# WDBASIC v2
+# WDBASIC v2.1
 
 > **Status:** Binding framework  
 > **Canonical entry point:** `Wdbasic/README.md`  
 > **Full framework contract:** [`docs/framework-contract.md`](docs/framework-contract.md)  
-> **Framework version:** WDBASIC v2
+> **Framework version:** WDBASIC v2.1
 
 WDBASIC is SABOS Lib's framework-independent web architecture, experience, content-strategy, and implementation-contract knowledge system.
 
@@ -107,7 +107,7 @@ A lower-level document may specialize but may not silently weaken core invariant
 | Experience evaluation | [`docs/experience-evaluation.md`](docs/experience-evaluation.md) |
 | Content strategies | [`docs/content-strategies/README.md`](docs/content-strategies/README.md) |
 | Technology profiles | [`docs/technology-profiles/README.md`](docs/technology-profiles/README.md) |
-| Full WDBASIC v2 contract | [`docs/framework-contract.md`](docs/framework-contract.md) |
+| Full WDBASIC v2.1 contract | [`docs/framework-contract.md`](docs/framework-contract.md) |
 | Architecture | [`docs/architecture_rules.md`](docs/architecture_rules.md) |
 | Standards | [`docs/STANDARDS.md`](docs/STANDARDS.md) |
 | Engineering validation | [`docs/engineering-validation.md`](docs/engineering-validation.md) |
