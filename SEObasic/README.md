@@ -19,14 +19,30 @@ SEObasic/
 │   ├── manifest.yaml
 │   ├── standard.yaml
 │   ├── rules/
+│   │   ├── crawl/
+│   │   ├── indexing/
+│   │   ├── metadata/
+│   │   ├── content/
+│   │   ├── links/
+│   │   ├── entities/
+│   │   ├── structured-data/
+│   │   ├── local/
+│   │   ├── eeat/
+│   │   ├── aeo/
+│   │   ├── geo/
+│   │   └── performance/
+│   ├── profiles/
+│   ├── page-types/
+│   ├── patterns/
+│   ├── vocabulary/
+│   ├── evidence/
+│   ├── schemas/
+│   ├── validation/
 │   ├── evaluation/
 │   ├── strategies/
 │   ├── surfaces/
-│   ├── evidence/
 │   ├── measurement/
-│   ├── terminology/
-│   ├── schemas/
-│   └── validation/
+│   └── terminology/
 │
 ├── docs/
 │   ├── README.md
@@ -58,7 +74,11 @@ This is not a hierarchy of prestige. Moving a document does not automatically ch
 
 ## Machine-readable interface
 
-[`agents/manifest.yaml`](agents/manifest.yaml) is SEObasic's deterministic machine-readable entry point. It projects the current role taxonomy, binding invariants, evaluation dimensions, selected strategies, surfaces, evidence classes, measurement semantics, terminology distinctions, schemas, and conformance checks.
+[`agents/manifest.yaml`](agents/manifest.yaml) is SEObasic's deterministic machine-readable entry point. Version `0.2.0` uses progressive disclosure and exposes granular rule domains for crawl, indexing, metadata, content, links, entities, structured data, local search, E-E-A-T, AEO, GEO, and performance; derived profiles and page-type contracts; governed content/discovery patterns; vocabulary; evidence provenance; type-specific schemas; and conformance checks.
+
+The existing evaluation, strategy, surface, measurement, and terminology registries remain as compatibility/context indexes. The more granular files do not erase SEObasic's role-based knowledge model.
+
+Machine rules carry stable IDs, effect/strength, scope/applicability, validation mode, and failure semantics. Platform-specific claims preserve consumer scope; research remains classified as research; derived profiles/page types/patterns cannot turn themselves into ranking factors or platform policy merely by existing as YAML.
 
 `agents/` does **not** replace `docs/` or promote structured data into authority. Each machine record points to a canonical source. If a machine-readable record conflicts with its canonical source, the canonical source wins and the projection must be corrected.
 
