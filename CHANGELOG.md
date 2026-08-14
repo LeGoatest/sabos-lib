@@ -36,6 +36,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Changed
 
+- Audited WDBASIC after its v2.1 four-domain migration and aligned the root `README.md` and `AGENTS.md` with the current WDBASIC version and canonical authority paths; repaired the relocated binding implementation-agent contract without changing WDBASIC semantics.
 - Renamed the repository from `tailwindcss-semantic-layer` to `sabos-lib` to reflect its role as the umbrella library for multiple governed knowledge systems rather than a Tailwind-only repository.
 - Reframed the root `README.md` around SABOS Lib as the repository identity, with WDBASIC, TCBasic, SEObasic, READMEbasic, and governance presented as peer systems with distinct authority domains.
 - Reframed SABOS Lib as a knowledge/reference repository rather than a package/build repository.
