@@ -1,7 +1,7 @@
 # On-Page Keyword Use
 
 > **Status:** Current website/search guidance  
-> **Scope:** How search terms and topic language are used in visible, meaningful website content without confusing keyword use with the legacy `meta keywords` tag  
+> **Scope:** How search terms and topic language are used in visible, meaningful website content without confusing keyword use with the `meta keywords` metadata field  
 > **Primary platform basis:** Google Search Central
 
 Keywords remain useful as **language that describes what a page is actually about and matches how people search for that subject**.
@@ -11,14 +11,15 @@ They are not a hidden metadata field, a density target, or a license to repeat p
 ## Core distinction
 
 ```text
-meta keywords
-    = legacy/unused by Google Search
+<meta name="keywords">
+    = standards-defined HTML metadata name
+    = unused by Google Search for web ranking
 
 keywords in meaningful page content
     = current descriptive language used to communicate topic and intent
 ```
 
-See [`../technical/metadata.md`](../technical/metadata.md) for the explicit legacy status of `<meta name="keywords">`.
+See [`../technical/metadata.md`](../technical/metadata.md) for the consumer-specific status of `<meta name="keywords">`.
 
 Google Search Essentials recommends using words people would use to look for content and placing those words in prominent, descriptive locations such as the title, main heading, alt text, and link text.
 
@@ -26,7 +27,7 @@ Google Search Essentials recommends using words people would use to look for con
 
 ### URL structure
 
-Use descriptive URLs that help people understand the page subject.
+Use descriptive URLs that help people understand the page subject and preserve a durable information architecture.
 
 ```text
 Good:
@@ -36,7 +37,9 @@ Poor:
 /page?id=84722
 ```
 
-A URL should primarily communicate durable information architecture. Do not repeatedly rename established URLs merely to chase keyword variations.
+A descriptive URL is a useful user-facing/crawlable path and information-architecture surface. SEObasic does **not** treat the mere presence of a keyword in a URL as a standalone ranking-factor claim unless current evidence supports that narrower claim.
+
+Do not repeatedly rename established URLs merely to chase keyword variations.
 
 ### Document title
 
@@ -166,7 +169,7 @@ Also reject:
 
 ## Visible-content rule
 
-When a keyword matters because it describes the page, prefer to express it in **real user-facing content** rather than hidden or obsolete metadata.
+When a keyword matters because it describes the page, prefer to express it in **real user-facing content** rather than hidden or obsolete-for-that-consumer metadata.
 
 This does not mean every important phrase must appear in every possible element. Placement follows the element's real semantic purpose.
 
@@ -188,8 +191,8 @@ Keyword use and metadata are related but distinct:
 | --- | --- |
 | `<title>` | Describes the document and may influence search title-link generation. |
 | Meta description | May provide snippet text; not a keyword-ranking field. |
-| Meta keywords | Legacy/unused by Google Search. |
-| URL | Durable descriptive location/structure signal and user-facing path. |
+| Meta keywords | Standards-defined HTML metadata name; unused by Google Search for web ranking. |
+| URL | Durable descriptive path and information-architecture surface; do not treat keyword presence alone as a proven standalone ranking factor. |
 | `<h1>` / headings | Visible document structure and topic communication. |
 | Body copy | Primary visible content and context. |
 | Link text | Describes linked destinations/relationships. |
@@ -201,11 +204,14 @@ Do not recreate the old meta-keywords concept by treating every visible field as
 
 Current Google-facing claims in this document should be checked against official Google Search Central documentation when platform behavior changes.
 
+Claims about whether a particular placement is a ranking factor, signal, eligibility requirement, or merely useful descriptive practice must preserve their actual evidence class under the binding [`Evidence Classification Contract`](../contracts/evidence-classification.md).
+
 Primary references:
 
 - Google Search Essentials: https://developers.google.com/search/docs/essentials
 - Google SEO Starter Guide: https://developers.google.com/search/docs/fundamentals/seo-starter-guide
 - Google Search spam policies: https://developers.google.com/search/docs/essentials/spam-policies
 - Google meta-keywords history/current support statement: https://developers.google.com/search/blog/2009/09/google-does-not-use-keywords-meta-tag
+- WHATWG HTML metadata semantics: https://html.spec.whatwg.org/multipage/semantics.html
 
 Industry articles, SEO tools, agency guidance, and practitioner studies may add useful evidence, examples, or hypotheses, but they do not override current official platform behavior or SEObasic contracts automatically.
