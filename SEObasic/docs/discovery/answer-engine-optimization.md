@@ -12,6 +12,8 @@ AEO may include traditional search answer surfaces, AI-assisted search, conversa
 
 AEO is **not a formal web standard** and does not imply a universal ranking algorithm shared by every answer engine.
 
+Material claims in this document are governed by the binding [`Evidence Classification Contract`](../contracts/evidence-classification.md).
+
 ## Relationship to SEO
 
 AEO overlaps heavily with established SEO:
@@ -32,9 +34,11 @@ For Google Search, Google's current official position is explicit: AEO and GEO a
 
 Source: https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
 
+That statement is **Google-specific**. It does not establish that every answer engine uses Google's ranking, crawling, source-selection, or measurement model.
+
 ## What AEO should optimize
 
-SEObasic treats the following as durable answer-oriented practices when they also serve the user and are supported by the relevant platform:
+SEObasic treats the following as durable answer-oriented practices when they also serve the user and are supported by the relevant platform or evidence class.
 
 ### 1. Clear information need
 
@@ -92,6 +96,8 @@ Google currently states there is no requirement to “chunk” content into tiny
 
 Source: https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
 
+A different platform may document different extraction or presentation behavior. Treat those statements as platform-specific rather than universal AEO rules.
+
 ### 5. Entity and relationship clarity
 
 Answer systems benefit from sources that accurately identify the subjects and relationships being discussed.
@@ -107,18 +113,18 @@ Structured data can help supported search features and machine interpretation, b
 
 ### 6. Crawlability, indexing and platform access
 
-An answer system cannot reliably retrieve a source it cannot access.
+An answer system cannot reliably retrieve page content it cannot access through its applicable retrieval/crawl path, but **URL discovery and content access are not the same state**.
 
 Crawler and control behavior is platform-specific. See [`../technical/ai-discovery-controls.md`](../technical/ai-discovery-controls.md).
 
 For example:
 
-- Google generative Search features use Google Search's crawl/index systems and require Search eligibility.
-- OpenAI documents `OAI-SearchBot` for discoverability/summaries/snippets in ChatGPT search.
-- Perplexity documents `PerplexityBot` for surfacing and linking websites in Perplexity search results.
+- Google generative Search features use Google Search's crawl/index systems. Current Google guidance requires normal Search/index/snippet eligibility and also refers to the site's inclusion in Search generative AI features in Search Console under the current rollout model.
+- OpenAI documents `OAI-SearchBot` for ChatGPT-search content discoverability/summaries/snippets, while current documentation also makes clear that knowing a URL exists is not identical to having direct SearchBot content access.
+- Perplexity documents `PerplexityBot` for surfacing and linking websites in Perplexity search results, while its documented crawler purposes remain distinct.
 - Bing/Microsoft AI experiences build on Bing's search/indexing ecosystem and expose AI citation reporting in Bing Webmaster Tools.
 
-Do not assume allowing one crawler allows another.
+Eligibility/access does not guarantee retrieval, citation, ranking, or answer display. Do not assume allowing one crawler allows another.
 
 ### 7. Freshness where the subject requires it
 
@@ -152,7 +158,7 @@ AEO does not make keywords obsolete.
 
 Use the language people use to describe the subject naturally in titles, headings, body content, link text, image context and URLs when semantically appropriate.
 
-Do not use keyword density targets or the legacy `<meta name="keywords">` field as AEO mechanisms.
+Do not use keyword density targets or `<meta name="keywords">` as AEO mechanisms. The `keywords` metadata name remains defined by HTML, but Google Search does not use it for web ranking.
 
 See [`../websites/keyword-use.md`](../websites/keyword-use.md) and [`../technical/metadata.md`](../technical/metadata.md).
 
@@ -189,22 +195,32 @@ AEO outcomes may include:
 
 These are different measurements. Do not label all of them “AEO rank.”
 
-See [`../measurement/ai-discovery.md`](../measurement/ai-discovery.md).
+The binding semantic separation lives in [`../measurement/contracts/metric-semantics.md`](../measurement/contracts/metric-semantics.md), with detailed guidance in [`../measurement/ai-discovery.md`](../measurement/ai-discovery.md).
 
 ## Evidence boundary
 
-AEO recommendations should be classified as one of:
+AEO claims MUST preserve their actual evidence class and scope. Applicable classes include:
 
-1. **Platform guidance** — current behavior documented by the platform.
-2. **Research evidence** — empirical findings with method and limitations.
-3. **Practitioner position** — a deliberate SEObasic preference based on experience.
-4. **Experiment/hypothesis** — an idea requiring validation rather than a stable rule.
+- formal standard/specification;
+- platform policy;
+- platform guidance;
+- peer-reviewed research;
+- preprint research;
+- benchmark/dataset;
+- practitioner position;
+- practitioner observation;
+- inference/hypothesis;
+- historical reference;
+- unknown/insufficient evidence.
+
+A controlled RAG experiment does not become a production answer-engine ranking factor. A Google statement does not automatically describe Bing, ChatGPT, Perplexity, or another answer surface.
 
 See:
 
+- [`../contracts/evidence-classification.md`](../contracts/evidence-classification.md)
 - [`../standards/ai-search-platform-guidance.md`](../standards/ai-search-platform-guidance.md)
 - [`../research/answer-generative-discovery.md`](../research/answer-generative-discovery.md)
 
 ## Governing rule
 
-> **Make the source easy to discover, understand, verify and use. Do not sacrifice human usefulness or factual integrity for an assumed answer-engine extraction trick.**
+> **Make the source easy to discover, understand, verify and use. Preserve evidence scope, and do not sacrifice human usefulness or factual integrity for an assumed answer-engine extraction trick.**
