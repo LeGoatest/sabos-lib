@@ -1,11 +1,11 @@
-# SEObasic Entities Agent Instructions
+# SEObasic Entity Relationship Agent Instructions
 
-> **Scope:** `SEObasic/docs/entities/`  
+> **Scope:** `SEObasic/docs/strategies/entity-relationships/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Preserve meaning before graph density
 
-Agents MUST preserve human meaning and useful navigation ahead of link-count, entity-count, or keyword metrics.
+Agents MUST preserve human meaning, truthful entity identity, and useful navigation ahead of link-count, entity-count, or keyword metrics.
 
 Agents MUST NOT:
 
@@ -21,12 +21,18 @@ Agents MUST NOT:
 
 Automatic extraction or link generation SHOULD retain enough evidence to explain why an entity or relationship was proposed.
 
-Material changes to entity extraction, canonical entity mapping, or broad internal-link rules are behavioral changes and require validation against affected pages and graph outputs.
+Material changes to entity extraction, canonical entity mapping, or broad internal-link rules are behavioral strategy changes and require validation against affected pages and graph outputs.
 
-## Contracts
+Platform-specific claims about entity interpretation belong under [`../../evidence/`](../../evidence/README.md) and [`../../surfaces/`](../../surfaces/README.md), not in this strategy merely because the strategy uses entities.
 
-Stable relationship rules SHOULD be formalized under this domain's future `contracts/` directory when they become reusable implementation obligations.
+## Invariant boundary
+
+Truthful entity identity is a cross-domain concern, but the current entity-relationship documents are strategy guidance. Do not silently promote the entire domain into an invariant. Formalize reusable binding identity/relationship obligations under the appropriate invariant or local contract only when substantive requirements justify it.
+
+## Measurement
+
+Link counts, referring domains, graph density, proprietary authority scores, visibility, and ranking are distinct measurements. Use [`../../measurement/`](../../measurement/README.md) rather than redefining them here.
 
 ## Changelog
 
-Material changes require an entry in [`../../CHANGELOG.md`](../../CHANGELOG.md).
+Material changes require an entry in [`../../../CHANGELOG.md`](../../../CHANGELOG.md).
