@@ -1,0 +1,39 @@
+spec_version: "0.1.0"
+kind: sabos.machine-interface
+id: wdbasic.agents
+system:
+  id: wdbasic
+  version: "2.1"
+authority:
+  mode: projection
+  canonical_entrypoint: ../README.md
+  canonical_knowledge_index: ../docs/README.md
+  conflict_resolution: canonical_sources_win
+  binding_by_presence: false
+projection:
+  maintained: manual
+  last_reviewed: 2026-08-14
+  sync_required_when_sources_change: true
+load_order:
+  - standard.yaml
+  - rules/core-invariants.yaml
+  - profiles/technology-profiles.yaml
+  - strategies/content-strategies.yaml
+  - components/registry.yaml
+  - tokens/registry.yaml
+  - validation/conformance.yaml
+collections:
+  rules: rules/core-invariants.yaml
+  profiles: profiles/technology-profiles.yaml
+  strategies: strategies/content-strategies.yaml
+  components: components/registry.yaml
+  tokens: tokens/registry.yaml
+schemas:
+  manifest: schemas/manifest.schema.json
+  record: schemas/record.schema.json
+validation:
+  conformance: validation/conformance.yaml
+human_sources:
+  root: ../README.md
+  docs: ../docs/
+  agent_instructions: ../AGENTS.md

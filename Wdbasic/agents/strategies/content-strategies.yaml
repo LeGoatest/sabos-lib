@@ -1,0 +1,23 @@
+spec_version: "0.1.0"
+kind: strategy_registry
+id: wdbasic.strategies.content
+canonical_source: ../../docs/content-strategies/README.md
+authority:
+  mode: projection
+selection:
+  basis: user_intent_and_decision_stage
+strategies:
+  - id: wdbasic.strategy.pas
+    canonical_source: ../../docs/content-strategies/pas.md
+    universal: false
+  - id: wdbasic.strategy.comparison
+    canonical_source: ../../docs/content-strategies/comparison.md
+  - id: wdbasic.strategy.informational
+    canonical_source: ../../docs/content-strategies/informational.md
+  - id: wdbasic.strategy.transactional
+    canonical_source: ../../docs/content-strategies/transactional.md
+  - id: wdbasic.strategy.other-intent-models
+    canonical_source: ../../docs/content-strategies/other-intent-models.md
+constraints:
+  problem_first_ordering_universal: false
+  strategy_may_override_core_invariant: false

@@ -1,0 +1,43 @@
+spec_version: "0.1.0"
+kind: standard_projection
+id: seobasic
+status: evolving_knowledge_framework_projection
+canonical_source: ../README.md
+roles:
+  - id: seobasic.role.invariants
+    question: what_must_remain_true
+    canonical_source: ../docs/invariants/README.md
+  - id: seobasic.role.evaluation
+    question: what_is_evaluated
+    canonical_source: ../docs/evaluation/README.md
+  - id: seobasic.role.strategies
+    question: what_we_deliberately_do
+    canonical_source: ../docs/strategies/README.md
+  - id: seobasic.role.surfaces
+    question: where_behavior_varies
+    canonical_source: ../docs/surfaces/README.md
+  - id: seobasic.role.evidence
+    question: why_we_believe_something
+    canonical_source: ../docs/evidence/README.md
+  - id: seobasic.role.measurement
+    question: how_outcomes_are_defined
+    canonical_source: ../docs/measurement/README.md
+  - id: seobasic.role.terminology
+    question: what_words_mean
+    canonical_source: ../docs/terminology/README.md
+knowledge_flow:
+  - invariants
+  - evaluation
+  - strategy
+  - surface_application
+  - measurement
+  - evidence_and_outcomes
+  - retain_revise_or_falsify
+boundaries:
+  evidence_is_invariant: false
+  evaluation_is_tactic: false
+  strategy_is_platform_guarantee: false
+  surface_rule_is_universal_rule: false
+  metric_is_causal_mechanism: false
+  terminology_is_requirement: false
+  example_is_authority: false

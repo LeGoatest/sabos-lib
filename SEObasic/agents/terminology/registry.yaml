@@ -1,0 +1,21 @@
+spec_version: "0.1.0"
+kind: terminology_registry
+id: seobasic.terminology
+canonical_source: ../../docs/terminology/README.md
+protected_distinctions:
+  - id: seobasic.term.rank
+    canonical_source: ../../docs/terminology/measurement-and-analytics.md
+  - id: seobasic.term.visibility
+    canonical_source: ../../docs/terminology/measurement-and-analytics.md
+  - id: seobasic.term.traffic
+    canonical_source: ../../docs/terminology/measurement-and-analytics.md
+  - id: seobasic.term.conversion
+    canonical_source: ../../docs/terminology/measurement-and-analytics.md
+  - id: seobasic.term.aeo
+    canonical_source: ../../README.md
+  - id: seobasic.term.geo
+    canonical_source: ../../README.md
+  - id: seobasic.term.generative-citation
+    canonical_source: ../../docs/terminology/README.md
+constraint:
+  terminology_is_requirement: false

@@ -15,6 +15,18 @@ SEObasic/
 ├── README.md
 ├── AGENTS.md
 ├── CHANGELOG.md
+├── agents/
+│   ├── manifest.yaml
+│   ├── standard.yaml
+│   ├── rules/
+│   ├── evaluation/
+│   ├── strategies/
+│   ├── surfaces/
+│   ├── evidence/
+│   ├── measurement/
+│   ├── terminology/
+│   ├── schemas/
+│   └── validation/
 │
 ├── docs/
 │   ├── README.md
@@ -44,6 +56,12 @@ what words mean             → docs/terminology/
 
 This is not a hierarchy of prestige. Moving a document does not automatically change its authority.
 
+## Machine-readable interface
+
+[`agents/manifest.yaml`](agents/manifest.yaml) is SEObasic's deterministic machine-readable entry point. It projects the current role taxonomy, binding invariants, evaluation dimensions, selected strategies, surfaces, evidence classes, measurement semantics, terminology distinctions, schemas, and conformance checks.
+
+`agents/` does **not** replace `docs/` or promote structured data into authority. Each machine record points to a canonical source. If a machine-readable record conflicts with its canonical source, the canonical source wins and the projection must be corrected.
+
 ## Start here
 
 | Role | Start here |
@@ -55,6 +73,7 @@ This is not a hierarchy of prestige. Moving a document does not automatically ch
 | Research/platform/practitioner/historical evidence | [`docs/evidence/README.md`](docs/evidence/README.md) |
 | Measurement/analytics semantics | [`docs/measurement/README.md`](docs/measurement/README.md) |
 | Terminology/disambiguation | [`docs/terminology/README.md`](docs/terminology/README.md) |
+| Machine-readable projection | [`agents/manifest.yaml`](agents/manifest.yaml) |
 | Illustrative examples | [`examples/README.md`](examples/README.md) |
 
 ## Knowledge flow

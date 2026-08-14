@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sabos:seobasic:agents:record:0.1.0",
+  "title": "SEObasic Machine Record",
+  "type": "object",
+  "required": ["id", "canonical_source"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^seobasic\\."},
+    "canonical_source": {"type": "string", "minLength": 1},
+    "effect": {"enum": ["require", "forbid", "allow", "inform"]},
+    "validation_mode": {"type": "string"},
+    "status": {"type": "string"}
+  },
+  "additionalProperties": true
+}

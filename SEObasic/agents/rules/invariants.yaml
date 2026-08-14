@@ -1,0 +1,31 @@
+spec_version: "0.1.0"
+kind: rule_registry
+id: seobasic.rules.invariants
+canonical_source: ../../docs/invariants/README.md
+authority:
+  mode: projection
+rules:
+  - id: seobasic.invariant.truth-and-evidence
+    effect: require
+    canonical_source: ../../docs/invariants/truth-and-evidence.md
+    validation_mode: semantic_and_evidence
+  - id: seobasic.invariant.channel-boundaries
+    effect: require
+    canonical_source: ../../docs/invariants/channel-boundaries.md
+    validation_mode: semantic
+  - id: seobasic.invariant.evidence-classification
+    effect: require
+    canonical_source: ../../docs/invariants/evidence-classification.md
+    validation_mode: evidence_and_review
+  - id: seobasic.invariant.metric-semantics
+    effect: require
+    canonical_source: ../../docs/measurement/contracts/metric-semantics.md
+    validation_mode: structural_and_semantic
+  - id: seobasic.invariant.no-fabrication
+    effect: forbid
+    canonical_source: ../../README.md
+    validation_mode: evidence_and_review
+  - id: seobasic.invariant.role-preservation
+    effect: require
+    canonical_source: ../../AGENTS.md
+    validation_mode: semantic

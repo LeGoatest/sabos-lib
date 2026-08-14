@@ -1,0 +1,17 @@
+spec_version: "0.1.0"
+kind: design_token_registry
+id: wdbasic.tokens
+status: registry_ready
+canonical_source: ../../docs/core-invariants/README.md
+authority:
+  mode: projection
+entries: []
+registration:
+  invent_unadopted_universal_values: false
+  value_format: canonical_source_defined
+  required_fields:
+    - id
+    - canonical_source
+    - token_type
+    - value_or_reference
+  note: WDBASIC does not gain universal token values merely because this registry exists.

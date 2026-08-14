@@ -1,0 +1,19 @@
+spec_version: "0.1.0"
+kind: surface_registry
+id: seobasic.surfaces
+canonical_source: ../../docs/surfaces/README.md
+surfaces:
+  - id: seobasic.surface.owned-web
+    canonical_source: ../../docs/surfaces/README.md
+  - id: seobasic.surface.generative-search
+    canonical_source: ../../docs/surfaces/generative-search/README.md
+  - id: seobasic.surface.local-maps
+    canonical_source: ../../docs/surfaces/README.md
+  - id: seobasic.surface.organic-social
+    canonical_source: ../../docs/surfaces/README.md
+  - id: seobasic.surface.paid-media
+    canonical_source: ../../docs/surfaces/README.md
+  - id: seobasic.surface.youtube
+    canonical_source: ../../docs/surfaces/README.md
+constraint:
+  mechanics_travel_automatically_across_surfaces: false

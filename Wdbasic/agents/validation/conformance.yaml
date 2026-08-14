@@ -1,0 +1,31 @@
+spec_version: "0.1.0"
+kind: conformance_definition
+id: wdbasic.conformance.machine-interface
+canonical_source: ../../README.md
+outcomes:
+  - pass
+  - fail
+  - requires_review
+  - not_applicable
+checks:
+  - id: wdbasic.check.manifest-schema
+    mode: deterministic
+    requirement: manifest.yaml validates against schemas/manifest.schema.json
+  - id: wdbasic.check.unique-ids
+    mode: deterministic
+    requirement: machine record identifiers are unique within WDBASIC agents
+  - id: wdbasic.check.source-present
+    mode: deterministic
+    requirement: every normative-looking machine record references a canonical source
+  - id: wdbasic.check.authority-projection
+    mode: semantic
+    requirement: a machine record must not claim greater authority than its canonical source
+  - id: wdbasic.check.no-invented-contracts
+    mode: semantic
+    requirement: empty component or token registries must not be populated without an adopted canonical contract
+  - id: wdbasic.check.source-sync
+    mode: review
+    requirement: source changes that affect a mapped record require corresponding machine-interface review
+execution:
+  repository_build_required: false
+  adopting_project_mechanical_checks: preferred_when_practical

@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Added
 
+- `agents/` as SEObasic's machine-readable projection namespace, with a deterministic manifest, role/standard projection, invariant registry, evaluation/strategy/surface/evidence/measurement/terminology registries, JSON Schemas, and conformance definitions.
+- Machine-interface provenance safeguards that preserve canonical source, knowledge role, platform/consumer scope, evidence class, and metric semantics instead of allowing structured records to silently become universal rules.
 - `docs/contracts/evidence-classification.md` as a binding claim-level provenance contract covering formal standards, platform policy/guidance, peer-reviewed research, preprints, benchmarks/datasets, practitioner positions/observations, inference/hypothesis, historical references, consumer/platform scope, review dates, publication status, and generalization limits.
 - `docs/discovery/` as the governed Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), answer-oriented, and generative-discovery knowledge domain with local `AGENTS.md` evidence/anti-speculation rules.
 - `docs/discovery/answer-engine-optimization.md` defining AEO as scoped answer-oriented discoverability/representation rather than a universal replacement for SEO, with practical boundaries around answer structure, evidence, entity clarity, crawlability, freshness, multimodal content, FAQs, keywords, unsupported hacks, and measurement.

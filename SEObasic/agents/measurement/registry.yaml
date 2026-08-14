@@ -1,0 +1,30 @@
+spec_version: "0.1.0"
+kind: measurement_registry
+id: seobasic.measurement
+canonical_source: ../../docs/measurement/contracts/metric-semantics.md
+core_rule: define_measurement_before_interpreting_result
+concepts:
+  - rank
+  - visibility
+  - traffic
+  - conversion
+  - local_interaction
+  - authority_link_metrics
+  - geographic_observation
+  - geo_grid_rank
+  - answer_presence
+  - citation_presence
+  - generative_visibility
+  - ai_referral
+  - revenue
+interchangeability:
+  materially_different_metrics: forbidden_without_explicit_mapping
+generative_stage_model:
+  - access_or_eligibility
+  - retrieval_or_source_selection
+  - visible_citation_or_reference
+  - answer_contribution_or_influence
+  - referral_opportunity
+  - referral_session
+  - conversion
+  - business_outcome_or_revenue

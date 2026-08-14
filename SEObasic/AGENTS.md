@@ -17,12 +17,19 @@ SEObasic is a living knowledge system. Its documentation is organized by the rol
 Before changing a SEObasic subject:
 
 1. Read [`README.md`](README.md).
-2. Read [`docs/README.md`](docs/README.md) and [`docs/AGENTS.md`](docs/AGENTS.md).
-3. Read [`docs/invariants/evidence-classification.md`](docs/invariants/evidence-classification.md) for material factual, causal, platform-behavior, research, measurement, optimization, or historical claims.
-4. Identify the owning role: invariant, evaluation, strategy, surface, evidence, measurement, or terminology.
-5. Read the nearest applicable nested `AGENTS.md` and subject README.
-6. Consult cross-role knowledge only where needed.
-7. Treat [`examples/`](examples/README.md) as illustrative rather than normative.
+2. Load [`agents/manifest.yaml`](agents/manifest.yaml) when consuming the machine-readable interface; treat it as a projection, not independent authority.
+3. Read [`docs/README.md`](docs/README.md) and [`docs/AGENTS.md`](docs/AGENTS.md).
+4. Read [`docs/invariants/evidence-classification.md`](docs/invariants/evidence-classification.md) for material factual, causal, platform-behavior, research, measurement, optimization, or historical claims.
+5. Identify the owning role: invariant, evaluation, strategy, surface, evidence, measurement, or terminology.
+6. Read the nearest applicable nested `AGENTS.md` and subject README.
+7. Consult cross-role knowledge only where needed.
+8. Treat [`examples/`](examples/README.md) as illustrative rather than normative.
+
+## Machine-readable interface rule
+
+`agents/` is a machine-readable projection of established SEObasic authority. It MUST preserve source class, role, scope, metric semantics, and canonical paths. A structured record does not become an invariant, platform guarantee, or universal law merely because it exists in YAML or JSON.
+
+If a machine-readable record conflicts with its canonical source, correct the projection rather than silently reinterpreting the source.
 
 ## Role taxonomy
 
@@ -154,6 +161,8 @@ SEObasic is allowed to be wrong.
 ## Structural rule
 
 The SEObasic root is navigational. Long-form governed knowledge belongs under `docs/`. Examples remain outside `docs/` because they are artifacts.
+
+`SEObasic/agents/` is a separate machine-interface namespace and does not become a new knowledge-role domain.
 
 A future `playbooks/` root may be added only when real reusable operational playbooks exist. Do not build empty taxonomic symmetry.
 

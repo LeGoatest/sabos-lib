@@ -1,0 +1,22 @@
+spec_version: "0.1.0"
+kind: profile_registry
+id: wdbasic.profiles.technology
+canonical_source: ../../docs/technology-profiles/README.md
+authority:
+  mode: projection
+  profiles_are_core_invariants: false
+selection:
+  basis: actual_implementation
+profiles:
+  - id: wdbasic.profile.htmx-hypermedia
+    canonical_source: ../../docs/technology-profiles/htmx-hypermedia.md
+  - id: wdbasic.profile.ssr
+    canonical_source: ../../docs/technology-profiles/ssr.md
+  - id: wdbasic.profile.static
+    canonical_source: ../../docs/technology-profiles/static.md
+  - id: wdbasic.profile.js-application
+    canonical_source: ../../docs/technology-profiles/js-application.md
+  - id: wdbasic.profile.tailwind-tcbasic
+    canonical_source: ../../docs/technology-profiles/tailwind-tcbasic.md
+  - id: wdbasic.profile.hybrid-native
+    canonical_source: ../../docs/technology-profiles/hybrid-native.md

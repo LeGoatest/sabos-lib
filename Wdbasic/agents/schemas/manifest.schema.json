@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sabos:wdbasic:agents:manifest:0.1.0",
+  "title": "WDBASIC Machine Interface Manifest",
+  "type": "object",
+  "required": ["spec_version", "kind", "id", "system", "authority", "load_order", "collections", "schemas", "validation"],
+  "properties": {
+    "spec_version": {"type": "string"},
+    "kind": {"const": "sabos.machine-interface"},
+    "id": {"const": "wdbasic.agents"},
+    "system": {
+      "type": "object",
+      "required": ["id", "version"],
+      "properties": {
+        "id": {"const": "wdbasic"},
+        "version": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "authority": {
+      "type": "object",
+      "required": ["mode", "canonical_entrypoint", "conflict_resolution"],
+      "properties": {
+        "mode": {"const": "projection"},
+        "canonical_entrypoint": {"type": "string"},
+        "conflict_resolution": {"const": "canonical_sources_win"}
+      },
+      "additionalProperties": true
+    },
+    "load_order": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "collections": {"type": "object"},
+    "schemas": {"type": "object"},
+    "validation": {"type": "object"}
+  },
+  "additionalProperties": true
+}

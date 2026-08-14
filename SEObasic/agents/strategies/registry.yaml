@@ -1,0 +1,14 @@
+spec_version: "0.1.0"
+kind: strategy_registry
+id: seobasic.strategies
+canonical_source: ../../docs/strategies/README.md
+strategies:
+  - id: seobasic.strategy.testing-content
+    canonical_source: ../../docs/strategies/content/testing-philosophy.md
+    protection: canonical_wording
+  - id: seobasic.strategy.answer-discovery
+    canonical_source: ../../docs/strategies/answer-discovery/README.md
+    scope: answer_and_generative_discovery
+constraints:
+  strategy_is_platform_guarantee: false
+  platform_specific_example_redefines_strategy: false

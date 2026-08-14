@@ -1,0 +1,27 @@
+spec_version: "0.1.0"
+kind: evaluation_registry
+id: seobasic.evaluation
+canonical_source: ../../docs/evaluation/README.md
+dimensions:
+  - id: seobasic.evaluation.discoverability
+    canonical_source: ../../docs/evaluation/README.md
+  - id: seobasic.evaluation.eligibility
+    canonical_source: ../../docs/evaluation/README.md
+  - id: seobasic.evaluation.visibility
+    canonical_source: ../../docs/evaluation/README.md
+  - id: seobasic.evaluation.intent-alignment
+    canonical_source: ../../docs/evaluation/README.md
+  - id: seobasic.evaluation.citation-attribution
+    canonical_source: ../../docs/evaluation/README.md
+  - id: seobasic.evaluation.trust
+    canonical_source: ../../docs/evaluation/README.md
+  - id: seobasic.evaluation.local-relevance
+    canonical_source: ../../docs/evaluation/README.md
+  - id: seobasic.evaluation.engagement
+    canonical_source: ../../docs/evaluation/README.md
+  - id: seobasic.evaluation.conversion
+    canonical_source: ../../docs/evaluation/README.md
+  - id: seobasic.evaluation.technical-performance
+    canonical_source: ../../docs/evaluation/README.md
+constraint:
+  evaluation_is_tactic: false

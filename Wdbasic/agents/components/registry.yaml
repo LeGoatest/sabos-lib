@@ -1,0 +1,18 @@
+spec_version: "0.1.0"
+kind: component_contract_registry
+id: wdbasic.components
+status: registry_ready
+canonical_source: ../../docs/core-invariants/README.md
+authority:
+  mode: projection
+entries: []
+registration:
+  invent_unadopted_universal_components: false
+  required_fields:
+    - id
+    - canonical_source
+    - semantics
+    - states
+    - accessibility
+    - fallback_behavior
+  note: Register a component only when a canonical WDBASIC component contract is deliberately mapped into this machine interface.

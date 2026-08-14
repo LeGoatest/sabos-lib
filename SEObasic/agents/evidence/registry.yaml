@@ -1,0 +1,23 @@
+spec_version: "0.1.0"
+kind: evidence_class_registry
+id: seobasic.evidence
+canonical_source: ../../docs/invariants/evidence-classification.md
+knowledge_source_classes:
+  - formal_standard_specification
+  - platform_vendor_guidance
+  - peer_reviewed_research
+  - preprint_research
+  - benchmark_dataset_evidence
+  - practitioner_position
+  - practitioner_observation
+  - inference_hypothesis
+  - historical_reference
+  - example
+  - measurement_definition
+requirements:
+  preserve_source_class: true
+  preserve_consumer_or_platform_scope_when_material: true
+  preserve_review_or_freshness_context_when_material: true
+  research_auto_promotes_to_invariant: false
+  platform_guidance_auto_generalizes: false
+  example_is_contract: false

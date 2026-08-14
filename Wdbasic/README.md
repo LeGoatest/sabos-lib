@@ -5,13 +5,23 @@
 
 WDBASIC is SABOS Lib's framework-independent web architecture, experience, content-strategy, and implementation-contract knowledge system.
 
-Its physical documentation hierarchy mirrors its conceptual model:
+Its physical documentation hierarchy mirrors its conceptual model, while `agents/` provides a machine-readable projection for automated consumers:
 
 ```text
 Wdbasic/
 ├── README.md
 ├── AGENTS.md
 ├── CHANGELOG.md
+├── agents/
+│   ├── manifest.yaml
+│   ├── standard.yaml
+│   ├── rules/
+│   ├── profiles/
+│   ├── strategies/
+│   ├── components/
+│   ├── tokens/
+│   ├── schemas/
+│   └── validation/
 └── docs/
     ├── README.md
     ├── AGENTS.md
@@ -75,6 +85,12 @@ Core invariants are **non-compensatory**. Strong SEO, visual quality, performanc
 
 External standards retain their own scopes and conformance language. WDBASIC does not relabel guidance, practitioner positions, or heuristic scores as external requirements.
 
+## Machine-readable interface
+
+[`agents/manifest.yaml`](agents/manifest.yaml) is the deterministic entry point for WDBASIC's machine-readable projection. It indexes the current standard model, mapped rules, technology profiles, content strategies, component/token registries, schemas, and conformance checks.
+
+`agents/` does **not** become an independent source of truth merely because its files are structured. Each record must point back to its canonical WDBASIC source. If a machine-readable record conflicts with its canonical Markdown contract, the canonical source wins and the machine projection must be corrected.
+
 ## Important boundaries
 
 - PAS is an intent-dependent content strategy, not a universal page formula.
@@ -84,4 +100,4 @@ External standards retain their own scopes and conformance language. WDBASIC doe
 - Security/privacy and truthful-content failures are gates, not point deductions.
 - Heuristic calculations remain explicitly labeled as WDBASIC heuristics.
 
-See [`docs/README.md`](docs/README.md) for the documentation map and [`AGENTS.md`](AGENTS.md) for automated-work governance.
+See [`docs/README.md`](docs/README.md) for the documentation map, [`agents/manifest.yaml`](agents/manifest.yaml) for the machine-readable interface, and [`AGENTS.md`](AGENTS.md) for automated-work governance.

@@ -1,0 +1,37 @@
+spec_version: "0.1.0"
+kind: standard_projection
+id: wdbasic
+version: "2.1"
+canonical_source: ../README.md
+status: binding_framework_projection
+domains:
+  - id: wdbasic.core-invariants
+    role: invariant
+    canonical_source: ../docs/core-invariants/README.md
+    non_compensatory: true
+  - id: wdbasic.experience-evaluation
+    role: evaluation
+    canonical_source: ../docs/experience-evaluation/README.md
+  - id: wdbasic.content-strategies
+    role: strategy
+    canonical_source: ../docs/content-strategies/README.md
+    selection: intent_dependent
+  - id: wdbasic.technology-profiles
+    role: implementation_profile
+    canonical_source: ../docs/technology-profiles/README.md
+    core_invariant: false
+authority_order:
+  - ../docs/core-invariants/README.md
+  - applicable_invariant_subdomain_contracts
+  - ../docs/core-invariants/measurable-evidence/README.md
+  - ../docs/experience-evaluation/README.md
+  - ../docs/content-strategies/README.md
+  - ../docs/technology-profiles/README.md
+  - product_specific_requirements_and_explicit_exceptions
+boundaries:
+  core_invariants_non_compensatory: true
+  pas_universal: false
+  problem_first_ordering_universal: false
+  technology_choice_is_core_invariant: false
+  javascript_free_content_is_google_universal_requirement: false
+  heuristic_scores_are_external_requirements: false

@@ -1,0 +1,41 @@
+spec_version: "0.1.0"
+kind: rule_registry
+id: wdbasic.rules.core-invariants
+canonical_source: ../../docs/core-invariants/README.md
+authority:
+  mode: projection
+  conflict_resolution: canonical_source_wins
+rules:
+  - id: wdbasic.invariant.semantics
+    effect: require
+    canonical_source: ../../docs/core-invariants/semantics/README.md
+    validation_mode: structural_and_semantic
+  - id: wdbasic.invariant.accessibility
+    effect: require
+    canonical_source: ../../docs/core-invariants/accessibility/README.md
+    validation_mode: structural_semantic_and_external
+  - id: wdbasic.invariant.security-privacy
+    effect: require
+    canonical_source: ../../docs/core-invariants/security-privacy/README.md
+    validation_mode: structural_semantic_and_external
+  - id: wdbasic.invariant.truthful-content
+    effect: require
+    canonical_source: ../../docs/core-invariants/truthful-content/README.md
+    validation_mode: semantic_and_evidence
+  - id: wdbasic.invariant.http-url-integrity
+    effect: require
+    canonical_source: ../../docs/core-invariants/http-url-integrity/README.md
+    validation_mode: structural_and_runtime
+  - id: wdbasic.invariant.resilience
+    effect: require
+    canonical_source: ../../docs/core-invariants/resilience/README.md
+    validation_mode: structural_runtime_and_review
+  - id: wdbasic.invariant.measurable-evidence
+    effect: require
+    canonical_source: ../../docs/core-invariants/measurable-evidence/README.md
+    validation_mode: evidence_and_review
+meta_rules:
+  - id: wdbasic.invariant.non-compensatory
+    effect: forbid_compensation
+    statement: A failure of a core invariant cannot be cancelled by strength in another evaluation dimension.
+    canonical_source: ../../README.md

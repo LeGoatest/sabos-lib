@@ -1,0 +1,34 @@
+spec_version: "0.1.0"
+kind: conformance_definition
+id: seobasic.conformance.machine-interface
+canonical_source: ../../README.md
+outcomes:
+  - pass
+  - fail
+  - requires_review
+  - not_applicable
+checks:
+  - id: seobasic.check.manifest-schema
+    mode: deterministic
+    requirement: manifest.yaml validates against schemas/manifest.schema.json
+  - id: seobasic.check.unique-ids
+    mode: deterministic
+    requirement: machine record identifiers are unique within SEObasic agents
+  - id: seobasic.check.source-present
+    mode: deterministic
+    requirement: every normative-looking machine record references a canonical source
+  - id: seobasic.check.role-preservation
+    mode: semantic
+    requirement: evidence, evaluation, strategy, surface, measurement, terminology, and examples must not be silently converted into another role
+  - id: seobasic.check.evidence-scope
+    mode: evidence_and_review
+    requirement: platform, consumer, publication, and generalization scope are preserved when material
+  - id: seobasic.check.metric-semantics
+    mode: semantic
+    requirement: materially different metrics are not used interchangeably without an explicit mapping
+  - id: seobasic.check.source-sync
+    mode: review
+    requirement: source changes that affect a mapped record require corresponding machine-interface review
+execution:
+  repository_build_required: false
+  adopting_project_mechanical_checks: preferred_when_practical
