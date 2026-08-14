@@ -25,4 +25,4 @@ The wording above defines T.E.S.T.I.N.G. Do not replace its seven meanings with 
 
 Industry-, project-, campaign-, or platform-specific examples may specialize how the philosophy is applied, but they must not redefine the philosophy itself.
 
-See [`testing-method.md`](testing-method.md) for application guidance and [`../references/testing-history.md`](../references/testing-history.md) for recovered historical uses.
+See [`testing-method.md`](testing-method.md) for application guidance and [`../../evidence/historical-references/testing-history.md`](../../evidence/historical-references/testing-history.md) for recovered historical uses.
