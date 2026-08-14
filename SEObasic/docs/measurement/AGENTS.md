@@ -1,7 +1,8 @@
 # SEObasic Measurement Agent Instructions
 
 > **Scope:** `SEObasic/docs/measurement/`  
-> **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
+> **Parent authority:** [`../AGENTS.md`](../AGENTS.md)  
+> **Domain entrypoint:** [`README.md`](README.md)
 
 ## Mission
 
@@ -11,23 +12,20 @@
 
 Agents MUST identify, when material:
 
-- metric name;
-- metric family;
+- metric name and family;
 - data source/provider;
 - exact definition or formula;
 - numerator and denominator;
 - time window;
-- geographic scope;
-- query/keyword scope;
-- device/surface scope;
+- geographic, query, device, and surface scope;
 - attribution model;
 - sampling/scanning method;
 - known limitations;
-- whether the value is first-party, platform-reported, inferred, or third-party.
+- whether the value is first-party, platform-reported, inferred, experimental, or third-party.
 
 ## Semantic integrity
 
-Agents MUST NOT use these terms interchangeably without an explicit defined mapping:
+Agents MUST NOT use materially different concepts interchangeably without an explicit defined mapping, including:
 
 - rank / position;
 - visibility;
@@ -41,20 +39,21 @@ Agents MUST NOT use these terms interchangeably without an explicit defined mapp
 - geo-grid rank;
 - coverage;
 - indexability;
-- crawlability.
+- crawlability;
+- retrieval;
+- visible citation/reference;
+- answer presence;
+- source influence;
+- referral;
+- revenue.
 
 If a tool uses a proprietary definition, retain the provider name and definition rather than silently normalizing it to a generic SEObasic term.
 
-## Third-party metrics
+## Third-party and experimental metrics
 
-Metrics such as Domain Authority, Domain Rating, visibility scores, difficulty scores, or proprietary local-rank scores are provider-specific models.
+Provider-specific metrics such as Domain Authority, Domain Rating, visibility scores, difficulty scores, proprietary local-rank scores, or composite AI/generative visibility scores MUST retain provider/formula context.
 
-Agents MUST NOT present them as:
-
-- Google metrics;
-- universal authority scores;
-- direct ranking factors without evidence;
-- interchangeable values across providers.
+Research constructs such as citation absorption/source influence MUST retain the exact methodology and MUST NOT be presented as standardized first-party platform metrics.
 
 ## Geographic measurement
 
@@ -66,9 +65,21 @@ Do not collapse a grid into one “rank” without defining the aggregation meth
 
 Read [`contracts/metric-semantics.md`](contracts/metric-semantics.md) for binding measurement rules.
 
-## Glossary
+For answer/generative discovery measurement, also read [`generative-search/ai-discovery.md`](generative-search/ai-discovery.md).
 
-Use [`../glossaries/measurement-and-analytics.md`](../glossaries/measurement-and-analytics.md) for subject terminology. Glossary definitions explain terms; the contract defines normative behavior.
+## Terminology
+
+Use [`../terminology/measurement-and-analytics.md`](../terminology/measurement-and-analytics.md) for subject terminology. Terminology explains language; the metric contract defines normative measurement behavior.
+
+## Cross-role routing
+
+- evaluation context → [`../evaluation/`](../evaluation/README.md)
+- strategy → [`../strategies/`](../strategies/README.md)
+- platform/channel mechanics → [`../surfaces/`](../surfaces/README.md)
+- supporting evidence → [`../evidence/`](../evidence/README.md)
+- cross-domain binding obligations → [`../invariants/`](../invariants/README.md)
+
+A metric value does not establish its cause. Preserve observation versus mechanism under [`../invariants/evidence-classification.md`](../invariants/evidence-classification.md).
 
 ## Changelog
 
