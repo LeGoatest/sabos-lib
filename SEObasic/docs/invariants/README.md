@@ -1,108 +1,64 @@
-# SEObasic Contracts
+# SEObasic Invariants
 
-> **Status:** Binding contract registry for SEObasic  
-> **Purpose:** Convert adopted SEObasic knowledge and positions into explicit implementation obligations without confusing the underlying evidence with the rule itself.
+> **Status:** Binding cross-domain obligations  
+> **Role:** What must remain true  
+> **Parent:** [`../README.md`](../README.md)  
+> **Agent instructions:** [`AGENTS.md`](AGENTS.md)
 
-A **contract** states what a conforming implementation, workflow, or agent MUST preserve, provide, avoid, or validate.
+An **invariant** is a requirement SEObasic has deliberately adopted as something strategies, surfaces, evaluations, and implementations must not silently violate.
 
-Research, standards, practitioner experience, historical lessons, and platform guidance may justify a contract, but they are not interchangeable with the contract.
+Research, platform guidance, practitioner experience, historical lessons, and standards may justify an invariant, but they are not interchangeable with the invariant itself.
 
-## Current cross-domain contracts
+## Current cross-domain invariants
 
-- [`truth-and-evidence.md`](truth-and-evidence.md) — material claims and signals must remain truthful and supported.
-- [`channel-boundaries.md`](channel-boundaries.md) — source material may be reused across channels without pretending their mechanics, policies, conversion roles, or metrics are interchangeable.
-- [`evidence-classification.md`](evidence-classification.md) — material claims must preserve evidence class, consumer/platform scope, publication status, review date, and generalization limits where applicable.
+- [`truth-and-evidence.md`](truth-and-evidence.md) — material claims and signals must remain truthful and supportable.
+- [`channel-boundaries.md`](channel-boundaries.md) — content may be reused across channels/surfaces without pretending their mechanics, policies, conversion roles, or metrics are interchangeable.
+- [`evidence-classification.md`](evidence-classification.md) — material claims must preserve evidence class, platform/consumer scope, publication status, freshness context, and generalization limits where applicable.
 
-Measurement-specific binding semantics live under [`../measurement/contracts/`](../measurement/contracts/README.md).
+Measurement-specific binding semantics remain under [`../measurement/contracts/`](../measurement/contracts/README.md).
 
-## Knowledge-to-contract model
-
-```text
-practitioner knowledge + project lessons
-            +
-industry practice + platform guidance
-            +
-standards + research evidence
-            ↓
-      documented position
-            ↓
-      explicit contract
-            ↓
- implementation / workflow
-            ↓
-       validation evidence
-```
-
-The [`Evidence Classification Contract`](evidence-classification.md) governs the provenance and scope of the material claims feeding this model. A platform statement, research paper, practitioner observation, or historical reference does not become a contract merely by being documented.
-
-## Contract qualities
-
-A useful contract SHOULD identify:
-
-- **Scope** — what surface, channel, workflow, or implementation it governs.
-- **Requirement** — the behavior that MUST, SHOULD, or MUST NOT occur.
-- **Rationale** — why the requirement was adopted.
-- **Evidence basis** — practitioner experience, research, standard, vendor guidance, historical lesson, or combination.
-- **Validation** — how conformance can be checked when practical.
-- **Exceptions** — any deliberate circumstances where the rule may be bypassed and who can authorize that.
-- **Related contracts** — dependencies or cross-channel relationships.
-
-## Contract template
-
-```markdown
-# <Contract name>
-
-> **Status:** Binding
-> **Scope:** <governed surface>
-> **Owner:** <SEObasic domain>
-
-## Requirement
-
-<Normative MUST / SHOULD / MUST NOT rules.>
-
-## Rationale
-
-<Why SEObasic adopts this position.>
-
-## Evidence basis
-
-- Practitioner position: <reference or summary>
-- Industry/platform guidance: <reference if applicable>
-- Standard/specification: <reference if applicable>
-- Research evidence: <reference if applicable>
-- Historical lesson: <reference if applicable>
-
-## Validation
-
-<Observable or mechanical evidence when available.>
-
-## Exceptions
-
-<Authorized exception path or "none defined".>
-
-## Related contracts
-
-- <links>
-```
-
-The template is a guide, not a requirement to create empty headings. Contracts should contain only the sections needed to make authority and validation clear.
-
-## Contract boundaries
-
-Contracts SHOULD live near the domain they govern when domain-specific, for example:
+## Evidence-to-invariant model
 
 ```text
-technical/contracts/
-local-search/contracts/
-social-media/contracts/
-paid-media/contracts/
-youtube/contracts/
+evidence + practitioner experience
+             ↓
+documented understanding / position
+             ↓
+deliberate invariant decision
+             ↓
+strategy / surface / workflow
+             ↓
+validation + outcomes
+             ↓
+retain / revise / falsify
 ```
 
-This top-level directory owns cross-domain contract conventions and contracts that genuinely span multiple SEObasic domains.
+Evidence does not become an invariant merely because it is documented. A platform statement, research paper, practitioner observation, benchmark, or historical reference keeps its own evidence class until SEObasic deliberately adopts a binding rule.
+
+## Invariant qualities
+
+A useful invariant SHOULD make clear, as applicable:
+
+- scope;
+- required or prohibited behavior;
+- rationale;
+- evidence basis;
+- validation;
+- deliberate exceptions;
+- related invariants or measurement contracts.
+
+## Promotion boundary
+
+Do not promote a concept into this directory merely because it sounds foundational.
+
+Possible future invariants such as entity-identity integrity, URL/HTTP integrity, user-value/trust obligations, or other cross-domain truths should become explicit here only when substantive binding requirements exist.
+
+## Local contracts
+
+Domain-specific implementation contracts may still live near the role/surface they govern when that is the clearest authority boundary. This directory owns **cross-domain invariants**, not every normative statement in SEObasic.
 
 ## Change control
 
-A binding contract is not ordinary explanatory documentation. Materially changing a contract changes expected behavior and therefore requires deliberate review under repository [`governance/change-control.md`](../../../governance/change-control.md) when the change crosses an established invariant or authority boundary.
+Changing a binding invariant changes expected behavior. Material invariant mutations require deliberate review under repository [`governance/change-control.md`](../../../governance/change-control.md) when they cross established authority or behavior boundaries.
 
-See [`AGENTS.md`](AGENTS.md) for automated contract work.
+> **Evidence may challenge an invariant; it does not silently replace it.**
