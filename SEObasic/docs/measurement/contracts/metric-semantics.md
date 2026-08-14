@@ -2,7 +2,7 @@
 
 > **Status:** Binding  
 > **Scope:** All SEObasic measurement, reporting, dashboards, audits, comparisons, experiments, and analytics integrations  
-> **Owner:** `SEObasic/measurement/`
+> **Owner:** `SEObasic/docs/measurement/`
 
 ## Requirement
 
