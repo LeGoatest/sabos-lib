@@ -1,8 +1,9 @@
-# WDBASIC Agent Instructions
+# WDBASIC Implementation Agent Contract
 
-> **Canonical entry point:** [`README.md`](README.md)  
-> **Standards registry:** [`STANDARDS.md`](STANDARDS.md)  
-> **Form contract:** [`forms/README.md`](forms/README.md)
+> **Status:** Binding for implementation/review work  
+> **Canonical entry point:** [`../README.md`](../README.md)  
+> **Core invariants:** [`core-invariants.md`](core-invariants.md)  
+> **Architecture contract:** [`architecture_rules.md`](architecture_rules.md)
 
 These instructions apply to automated agents, coding assistants, reviewers, and contributors editing governed files or implementations.
 
@@ -10,208 +11,192 @@ These instructions apply to automated agents, coding assistants, reviewers, and 
 
 Before changing architecture, markup, styling, components, accessibility, authoring, media, internationalization, security, privacy, conversion, forms, native shells, generated output, or documentation, read:
 
-1. [`architecture_rules.md`](architecture_rules.md)
-2. [`README.md`](README.md)
-3. [`STANDARDS.md`](STANDARDS.md)
-4. Applicable cross-cutting contracts
-5. [`forms/README.md`](forms/README.md), [`forms/validation.md`](forms/validation.md), and [`forms/security.md`](forms/security.md) when input, submission, validation, upload, authentication, or state change is involved
-6. [`../docs/TAILWIND_PATTERN.md`](../docs/TAILWIND_PATTERN.md)
-7. Relevant files under [`tokens/`](tokens/)
-8. [`components/component-contracts.md`](components/component-contracts.md)
-9. The active profile
+1. [`core-invariants.md`](core-invariants.md)
+2. [`architecture_rules.md`](architecture_rules.md)
+3. [`framework-contract.md`](framework-contract.md)
+4. [`STANDARDS.md`](STANDARDS.md)
+5. Applicable cross-cutting contracts
+6. [`forms/README.md`](forms/README.md), [`forms/validation.md`](forms/validation.md), and [`forms/security.md`](forms/security.md) when input, submission, validation, upload, authentication, or state change is involved
+7. Applicable [`content-strategies/`](content-strategies/README.md)
+8. Applicable [`technology-profiles/`](technology-profiles/README.md)
+9. Relevant token/component contracts and active design profile
 10. Product documentation, evidence, claim records, and exceptions
-
-The former `Wdbasic/wdbasic_v2.md` path is obsolete.
 
 ## 2. Scope resolution
 
 Before editing, identify:
 
-- Affected routes, components, fragments, forms, fields, templates, stylesheets, custom elements, and generated output.
-- Governing WDBASIC documents.
-- Active profile.
-- WCAG criteria affected.
-- Reusable ACT rules or manual procedures affected.
-- Whether ATAG applies.
-- Whether form validation and form security apply.
-- Whether cognitive-accessibility requirements apply.
-- Whether native, hybrid, custom-viewer, or non-web document requirements apply.
-- Security, privacy, internationalization, media, search, conversion, retention, and audit impact.
-- Existing evidence, claim language, and exceptions.
+- affected routes, components, fragments, forms, fields, templates, stylesheets, custom elements, generated output, and platform boundaries;
+- governing core invariants and contracts;
+- applicable content strategy;
+- applicable technology profile(s);
+- active design/profile rules;
+- accessibility criteria/evidence affected;
+- security/privacy/form requirements;
+- search/discoverability impact for public content;
+- performance/resilience impact;
+- existing evidence, claim language, and exceptions.
 
-For a form-related change, also identify:
+For forms/state change, also identify field allowlists, submitted shapes, validation layers, authentication/authorization, CSRF/request-integrity, replay/concurrency/idempotency, rate/upload limits, sensitive data, retention, logging, and failure paths.
 
-- Form purpose and owner.
-- Route and methods.
-- Field allowlist and submitted shapes.
-- Syntactic, semantic, cross-field, state, and persistence rules.
-- Authentication, authorization, ownership, tenant, and CSRF requirements.
-- Request, upload, rate-limit, replay, concurrency, and idempotency controls.
-- Sensitive-data, retention, output-encoding, logging, and audit rules.
-- Full-page, HTMX, custom-element, and generated-form paths.
-
-Do not infer profile, conformance, permission, business state, field authority, platform support, or standards status from appearance, hidden controls, disabled controls, filenames, or client state.
+Do not infer conformance, permission, business state, field authority, platform support, standards status, or technology applicability from appearance or client state.
 
 ## 3. Required behavior
 
 Agents must:
 
-- Preserve server-rendered primary content.
-- Prefer valid native HTML.
-- Use HTMX for server-owned interaction.
-- Keep JavaScript local and non-authoritative.
-- Keep the server authoritative for form validation, authorization, business rules, and persistence.
-- Use explicit field allowlists and mapping.
-- Use semantic tokens and component classes.
-- Preserve names, roles, states, values, relationships, keyboard operation, focus, and announcements.
-- Verify accessibility-tree behavior for custom elements, shadow DOM, canvas, or native/web-view boundaries.
-- Implement complete states and failure paths.
-- Preserve language, direction, captions, transcripts, alternative text, form values where safe, and author-provided accessibility metadata.
-- Preserve accessible structure through imports, sanitization, exports, and format conversion.
-- Use parameterized queries, safe APIs, context-sensitive output encoding, and reviewed rich-content sanitization where applicable.
-- Verify CSRF, authentication, object-level authorization, request limits, upload controls, replay behavior, and idempotency for state-changing forms.
-- Keep claims and proof factual.
-- Maintain baseline operation without enhancement scripts where required.
-- Keep native-shell, web-content, form-processing, and document-format evaluations separately scoped when required.
-- Update documentation, schemas, matrices, ACT rules, examples, claim templates, and evidence when contracts change.
+- preserve non-compensatory core invariants;
+- prefer native semantics before unnecessary ARIA;
+- keep privileged trust decisions in an appropriate trusted boundary;
+- use explicit field allowlists and safe structured APIs;
+- preserve accessibility names, roles, states, values, relationships, keyboard operation, focus, and announcements;
+- implement complete loading, empty, validation, conflict, rate-limit, error, recovery, and success behavior where applicable;
+- preserve language, direction, captions, transcripts, alternative text, and accessibility metadata;
+- use context-sensitive output encoding and reviewed sanitization where applicable;
+- verify authentication, authorization, CSRF/request integrity, limits, uploads, replay/concurrency/idempotency for state changes;
+- keep claims/proof factual;
+- preserve direct-load and recovery behavior required by the active technology profile;
+- update documentation, evidence, schemas, matrices, examples, and claims when contracts change.
 
-## 4. Prohibited behavior
+## 4. Technology neutrality
+
+Agents must not treat HTMX, Tailwind, SSR, static generation, a JavaScript framework, or a hybrid/native shell as a universal WDBASIC core requirement.
+
+Instead:
+
+- select the technology profile that fits the product;
+- document why it fits;
+- verify its cache/history/state/security/accessibility/performance behavior;
+- preserve core invariants regardless of implementation technology.
+
+HTMX-specific rules live in [`technology-profiles/htmx-hypermedia.md`](technology-profiles/htmx-hypermedia.md).
+
+Tailwind-specific rules live in [`technology-profiles/tailwind-tcbasic.md`](technology-profiles/tailwind-tcbasic.md) and TCbasic/project contracts.
+
+## 5. Content-strategy neutrality
+
+Agents must not force PAS or any single persuasion sequence onto every page.
+
+Select strategy from user intent, awareness, task, decision stage, risk, evidence, and page objective.
+
+The hardened law is:
+
+> **Relevance precedes or accompanies persuasion.**
+
+PAS is used only when problem/consequence framing genuinely helps the intended user.
+
+Do not use the historical `P(7)+A(5)+S(8)` rubric or any `Efficacy - Threat` equation as a canonical current WDBASIC score.
+
+## 6. Evaluation rules
+
+Current WDBASIC evaluation is gate-first.
+
+Core failures in accessibility, security, privacy, truthfulness, HTTP/URL integrity, semantics, or required evidence cannot be offset by higher discoverability, conversion, trust, or performance results.
+
+The superseded additive 100-point model must not be reported as current WDBASIC evaluation.
+
+Use [`experience-evaluation.md`](experience-evaluation.md) for current diagnostics.
+
+## 7. Prohibited behavior
 
 Agents must not:
 
-- Create client-only primary public content.
-- Treat browser or JavaScript validation as a security boundary.
-- Use client state, hidden fields, disabled controls, signed values, or submitted IDs as authorization evidence.
-- Bind arbitrary request fields directly to domain models.
-- Accept client-supplied role, tenant, owner, price, discount, status, path, or privileged workflow fields.
-- Concatenate submitted input into SQL, shell commands, templates, headers, paths, or other interpreters.
-- Return unencoded submitted values to HTML, JavaScript, CSS, URLs, JSON, email, logs, exports, or administrative viewers.
-- Replace native semantics with unnecessary ARIA.
-- Ship partial ARIA widget patterns.
-- Assume custom elements or shadow DOM are accessible because their light-DOM markup appears correct.
-- Block password managers or paste without a documented security requirement.
-- Require drag, hover, motion, pointer precision, one orientation, or one sensory channel without an equivalent or essential rationale.
-- Use CAPTCHA, puzzle solving, or human-verification methods without an accessible alternative and recovery path.
-- Fabricate alternative text, captions, credentials, reviews, statistics, conformance results, or test evidence.
-- Treat automated accessibility output as proof of conformance.
-- Convert `cantTell`, `untested`, blocked, manual-pending, or failed results into passes.
-- Call an ordinarily defective first-party implementation “partially conformant.”
-- Claim WCAG conformance for a native application or exported document without a valid claim model and applicable baseline.
-- Present WCAG2ICT, UAAG 2.0, cognitive guidance, or draft specifications as W3C Recommendations when they are not.
-- Add third-party scripts, validation providers, telemetry, permissions, or data collection without purpose and review.
-- Log passwords, tokens, payment data, full sensitive values, or unnecessary submitted content.
-- Scatter repeated Tailwind utility piles through templates.
-- Put styling logic in JavaScript.
-- Weaken contrast, focus, labels, errors, form recovery, keyboard access, cognitive clarity, or user agency.
+- treat browser/client validation as a security boundary;
+- use client state, hidden fields, disabled controls, submitted IDs, signed values, caches, or local storage as sufficient authorization evidence;
+- bind arbitrary request fields directly to protected domain models;
+- accept client-supplied privileged role/tenant/owner/price/discount/status/path/workflow values as truth;
+- concatenate submitted input into SQL, shell commands, templates, headers, paths, or other interpreters;
+- return unencoded submitted values into output contexts;
+- replace native semantics with unnecessary ARIA or ship partial ARIA patterns;
+- fabricate alternative text, captions, credentials, reviews, statistics, citations, conformance results, or test evidence;
+- treat automated accessibility output as proof of conformance;
+- convert `cantTell`, `untested`, blocked, manual-pending, failed, or unknown results into passes;
+- add third-party scripts, telemetry, permissions, or data collection without purpose and review;
+- log passwords, tokens, payment data, full sensitive values, or unnecessary submitted content;
+- present WDBASIC preferences as Google, W3C, OWASP, Semrush, Tailwind, HTMX, or academic requirements without source support;
+- claim a rendering technology is automatically faster, more accessible, or better for SEO without evidence.
 
-## 5. Form review protocol
+## 8. Form review protocol
 
 For every new or changed form:
 
-1. Confirm the form purpose and minimum necessary fields.
-2. Define the explicit field schema and unexpected-field policy.
-3. Define field-specific normalization without mutating passwords or meaningful user data.
-4. Define syntactic, semantic, cross-field, state, and persistence validation.
-5. Define accessible instructions, inline errors, error summary, focus, announcements, preservation, and success behavior.
-6. Verify route, method, content type, request size, field count, nesting, and upload limits.
-7. Verify authentication, CSRF, action authorization, object ownership, and tenant isolation.
-8. Verify mass-assignment protection, parameterized queries, safe APIs, output encoding, and sanitization.
-9. Verify duplicate-submission, replay, concurrency, transaction, and idempotency behavior.
-10. Verify rate limits, bot defense, challenge fallback, file processing, and third-party failure behavior.
-11. Verify sensitive-data collection, autocomplete, retention, redisplay, analytics, logging, and audit behavior.
-12. Test full-page, no-JavaScript, HTMX, custom-element, generated, expired-session, and failure paths.
+1. confirm purpose and minimum necessary fields;
+2. define explicit schema/allowlist and unexpected-field policy;
+3. define normalization and syntactic/semantic/cross-field/state validation;
+4. define accessible labels, instructions, inline errors, summary, focus, announcements, preservation, pending, and success behavior;
+5. verify route, method, content type, size, field/file count, and nesting limits;
+6. verify authentication, CSRF/request integrity, action authorization, object ownership, and tenant isolation;
+7. verify mass-assignment protection, safe queries/APIs, output encoding, and sanitization;
+8. verify duplicate/replay/concurrency/transaction/idempotency behavior;
+9. verify rate limits, bot defense, challenge fallback, file processing, and third-party failure;
+10. verify sensitive-data collection, autocomplete, retention, redisplay, analytics, logging, and audit;
+11. test applicable technology-profile paths, including direct load, expired session, failure, and recovery.
 
-Do not describe a form as complete merely because its ideal submission succeeds.
+Do not call a form complete merely because its ideal submission succeeds.
 
-## 6. Standards and claim review
+## 9. Standards and claim review
 
 When a change affects a standards claim:
 
-1. Verify the exact external standard, version, publication status, and applicability.
-2. Confirm that the claim scope includes full pages, responsive variations, forms, and complete processes where WCAG applies.
-3. Confirm relied-upon technologies and accessibility-supported environments.
-4. Resolve all failed, `cantTell`, `untested`, blocked, and manual-pending results.
-5. Verify required conformance-claim fields.
-6. Use `evaluated-nonconformant` for ordinary known failures.
-7. Use a WCAG Statement of Partial Conformance only for the narrowly defined third-party-content or language-support conditions.
-8. Keep WDBASIC conformance separate from WCAG, native-platform, document-format, security, privacy, and sustainability claims.
+1. verify exact standard, version, publication status, applicability, and scope;
+2. verify relied-upon technologies and accessibility-supported environments where relevant;
+3. resolve failed, `cantTell`, untested, blocked, and manual-pending results;
+4. verify required claim fields;
+5. keep WDBASIC, WCAG, native-platform, document-format, security, privacy, sustainability, and maturity claims separate;
+6. never improve claim wording beyond the evidence.
 
-Never improve claim wording to sound more favorable than the underlying evidence.
+## 10. Change protocol
 
-## 7. ACT rule governance
+1. resolve authority and scope;
+2. inspect implementation and evidence;
+3. identify affected core invariants, contracts, standards, strategies, profiles, forms, and reusable tests;
+4. change the smallest coherent set of files;
+5. update linked contracts, indexes, schemas, evidence, examples, and claims in the same change set;
+6. run applicable build, syntax, accessibility, validation, security, link, output, platform, performance, and profile-specific checks;
+7. inspect generated or dynamic output when relevant;
+8. record unresolved failures honestly.
 
-A reusable automated or manual accessibility procedure must follow [`compliance/act-rule-template.md`](compliance/act-rule-template.md).
-
-Agents must record:
-
-- Rule identifier and version.
-- ACT Rules Format version.
-- Test implementation and version.
-- Applicability and expectations.
-- Test subject and state.
-- Environment.
-- Outcome.
-- Evidence.
-
-A rule update that changes interpretation requires versioning and review of dependent evidence and composite rules.
-
-Form validation and security tests that are reused across products must likewise have stable identifiers, versions, fixtures, expected outcomes, and evidence locations.
-
-## 8. Change protocol
-
-1. Resolve authority and scope.
-2. Inspect implementation and evidence.
-3. Identify affected standards criteria, WDBASIC contracts, form rules, and ACT rules.
-4. Change the smallest coherent set of files.
-5. Update linked contracts, schemas, matrices, rules, examples, outputs, and claims in the same change set.
-6. Run applicable build, syntax, accessibility, validation, security, link, output, platform, and test checks.
-7. Inspect generated output when an authoring or export path changes.
-8. Inspect full-page and HTMX responses when a form or fragment changes.
-9. Record unresolved failures honestly.
-10. Report changed files, tests, evidence, claim impact, and exceptions.
-
-## 9. Stop conditions
+## 11. Stop conditions
 
 Do not claim completion when:
 
-- Required source content is unavailable.
-- A write did not reach the intended branch.
-- A referenced path is broken.
-- A form lacks an explicit field allowlist, server validation, authorization, or CSRF decision.
-- A state-changing request can be triggered through `GET` or another safe method.
-- Client input can mass-assign protected properties.
-- A query, command, template, header, or path is built through unsafe concatenation.
-- An upload lacks content, size, storage, processing, access, retention, or cleanup controls.
-- Applicable manual testing remains undone but conformance is claimed.
-- A reusable rule lacks a version, subject, or evidence record.
-- A security or privacy requirement is guessed.
-- Generated output was not inspected after an authoring change.
-- Native and web responsibilities cannot be separated.
-- A format-specific document baseline is required but unresolved.
-- A standards conflict or publication-status uncertainty remains unresolved.
+- a required source or controlling contract is unavailable;
+- a write did not reach the intended branch/path;
+- a referenced path is broken;
+- an applicable core invariant remains materially failed or unknown while a positive WDBASIC claim is made;
+- a form lacks explicit field authority, validation, authorization, or request-integrity decisions;
+- a state change is exposed through a safe method;
+- unsafe interpreter concatenation or unrestricted mass assignment exists;
+- an upload lacks content/size/storage/processing/access/retention/cleanup controls;
+- applicable manual testing remains undone but conformance is claimed;
+- a security/privacy requirement is guessed;
+- technology-profile cache/history/direct-load/failure behavior is unresolved where material;
+- a standards conflict or publication-status uncertainty remains unresolved.
 
-Partial implementation may be delivered, but its status and remaining gaps must be explicit.
+Partial work may be delivered, but remaining gaps must be explicit.
 
-## 10. Completion report
+## 12. Completion report
 
 Report:
 
 ```text
 scope
 changed files
+core invariants affected
 controlling contracts
-forms and fields affected
-validation rules affected
-security controls affected
-standards and criteria affected
-ACT rules affected
-claim status impact
+content strategy selected
+technology profiles selected
+forms/fields affected
+security/privacy controls affected
+standards/criteria affected
 validation performed
+accessibility testing performed
 security testing performed
+performance evidence reviewed
 manual testing still required
-generated or non-web output reviewed
+generated/non-web output reviewed
 evidence updated
-exceptions or blockers
+exceptions/blockers
 commit or pull request
 ```
 
