@@ -32,6 +32,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Subject glossaries for SEObasic and READMEbasic, complementing the existing TCBasic and WDBASIC glossary structures.
 - Top-level subsystem changelogs for WDBASIC, SEObasic, READMEbasic, and repository governance. TCBasic retains its existing changelog.
 - Repository changelog-traceability governance requiring notable subsystem changes to update their own changelog and repository-wide/cross-subsystem changes to update this root changelog.
+- Root `MACHINE-READABLE-AGENT-SPECS-RESEARCH.md` evidence review evaluating machine-readable WDBASIC/SEObasic specifications, agent-context research, schemas, design tokens, provenance, deterministic validation, and the risks of context bloat and dual sources of truth.
 
 ### Changed
 
