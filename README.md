@@ -12,7 +12,7 @@ The repository currently contains four complementary `*basic` systems plus repos
 
 | Area | Purpose | Status | Start here |
 | --- | --- | --- | --- |
-| **WDBASIC** | Framework-independent web architecture, accessibility, security, forms, validation, semantics, progressive enhancement, evidence, profiles, tokens, and component contracts. | WDBASIC v2 — binding | [`Wdbasic/README.md`](Wdbasic/README.md) |
+| **WDBASIC** | Framework-independent web architecture, accessibility, security, forms, validation, semantics, progressive enhancement, evidence, profiles, tokens, and component contracts. | WDBASIC v2.1 — binding | [`Wdbasic/README.md`](Wdbasic/README.md) |
 | **TCBasic** | Tailwind CSS v4 semantic architecture, contracts, practitioner positions, canonical reference CSS, and adoption examples. | Evolving knowledge framework | [`TCbasic/README.md`](TCbasic/README.md) |
 | **SEObasic** | Websites, technical SEO, content, entities/internal linking, local search/GBP/Maps, social, paid media/PPC, YouTube, measurement/analytics, research, standards, contracts, references, and examples. | Evolving knowledge framework | [`SEObasic/README.md`](SEObasic/README.md) |
 | **READMEbasic** | Evidence-backed README/documentation knowledge, integrity contracts, profiles, templates, research, standards, references, resources, and examples. | Evolving knowledge framework | [`READMEbasic/README.md`](READMEbasic/README.md) |
@@ -133,10 +133,10 @@ Important distinctions are intentional:
 | Repository change history | [`CHANGELOG.md`](CHANGELOG.md) |
 | Repository agent entrypoint | [`AGENTS.md`](AGENTS.md) |
 | Knowledge-system structural model | [`governance/knowledge-system-model.md`](governance/knowledge-system-model.md) |
-| WDBASIC full framework contract | [`Wdbasic/docs/framework-contract.md`](Wdbasic/docs/framework-contract.md) |
-| WDBASIC architecture rules | [`Wdbasic/docs/architecture_rules.md`](Wdbasic/docs/architecture_rules.md) |
-| WDBASIC standards | [`Wdbasic/docs/STANDARDS.md`](Wdbasic/docs/STANDARDS.md) |
-| WDBASIC engineering validation | [`Wdbasic/docs/engineering-validation.md`](Wdbasic/docs/engineering-validation.md) |
+| WDBASIC framework/core contract | [`Wdbasic/docs/core-invariants/contract.md`](Wdbasic/docs/core-invariants/contract.md) |
+| WDBASIC architecture rules | [`Wdbasic/docs/core-invariants/http-url-integrity/architecture-rules.md`](Wdbasic/docs/core-invariants/http-url-integrity/architecture-rules.md) |
+| WDBASIC standards | [`Wdbasic/docs/core-invariants/measurable-evidence/standards.md`](Wdbasic/docs/core-invariants/measurable-evidence/standards.md) |
+| WDBASIC engineering validation | [`Wdbasic/docs/core-invariants/measurable-evidence/engineering-validation.md`](Wdbasic/docs/core-invariants/measurable-evidence/engineering-validation.md) |
 | TCBasic knowledge index | [`TCbasic/docs/README.md`](TCbasic/docs/README.md) |
 | TCBasic architecture rules | [`TCbasic/docs/architecture/rules.md`](TCbasic/docs/architecture/rules.md) |
 | TCBasic reference CSS | [`TCbasic/src/`](TCbasic/src/) |
