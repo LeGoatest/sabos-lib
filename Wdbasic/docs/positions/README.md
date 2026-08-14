@@ -1,20 +1,26 @@
 # WDBASIC Practitioner Positions
 
-> **Status:** Evolving position domain  
-> **Parent authority:** [`../README.md`](../README.md)
+> **Status:** Evolving position and research-history domain  
+> **Parent authority:** [`../core-invariants.md`](../core-invariants.md)
 
-This directory records deliberate WDBASIC preferences and acknowledged practitioner bias separately from formal standards and binding contracts.
+This directory records deliberate WDBASIC preferences, historical heuristics, research findings, adversarial audits, tradeoffs, and acknowledged practitioner bias separately from formal standards and binding contracts.
 
-A position explains **what WDBASIC prefers and why**. It may be informed by repeated project experience, accessibility/security outcomes, research, standards, maintainability, or implementation tradeoffs.
+A position explains **what WDBASIC prefers and why**. A historical record may preserve an idea that was later superseded so future agents can distinguish evolution from regression.
 
-A position may deliberately diverge from common industry/framework practice. Record that divergence rather than allowing future agents to normalize it away.
+A position does not silently override core invariants, binding contracts, or external standards.
 
-A position does not weaken an existing binding WDBASIC contract. If a position becomes a normative obligation, adopt/update the controlling contract deliberately.
+## Positions and research records
 
-## Positions
+- [`pas-content-architecture.md`](pas-content-architecture.md) — hardened PAS position. PAS is conditional, agitation is factual/proportional, the historical weighted formulas are non-canonical, and `Efficacy - Threat` is rejected as a deterministic marketing threshold.
+- [`wdbasic-evaluation-model.md`](wdbasic-evaluation-model.md) — historical additive evaluation model and its supersession by the current gate-plus-diagnostic-profile approach.
+- [`research-findings-2026-08-14.md`](research-findings-2026-08-14.md) — historical snapshot preserving the full initial research trajectory, corrected WDBASIC framing, PAS findings, evaluation findings, and unresolved original PAS coefficients.
+- [`adversarial-audit-2026-08-14.md`](adversarial-audit-2026-08-14.md) — adversarial comparison against Google, W3C/WAI, OWASP, HTMX, performance guidance, Semrush, and peer-reviewed research that drove WDBASIC v2.1 hardening.
 
-- [`pas-content-architecture.md`](pas-content-architecture.md) — WDBASIC's Problem–Agitate–Solution content-architecture position, including semantic progression, anti-repetition rules, direct PAS scoring structure, evidence boundaries, and the 2026 research/source record.
-- [`wdbasic-evaluation-model.md`](wdbasic-evaluation-model.md) — broader WDBASIC 100-point evaluation model, domain criteria, experimental `P(7) + A(5) + S(8)` subscore, seven proposed laws, page-deficit analysis, and evidence taxonomy.
-- [`research-findings-2026-08-14.md`](research-findings-2026-08-14.md) — historical snapshot preserving the complete research trajectory, corrected WDBASIC framing, PAS findings, broader audit findings, source interpretation, and the unresolved original PAS coefficients.
+## Current authoritative successors
+
+- [`../core-invariants.md`](../core-invariants.md)
+- [`../experience-evaluation.md`](../experience-evaluation.md)
+- [`../content-strategies/README.md`](../content-strategies/README.md)
+- [`../technology-profiles/README.md`](../technology-profiles/README.md)
 
 Use [`AGENTS.md`](AGENTS.md) for automated maintenance.
