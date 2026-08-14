@@ -1,11 +1,11 @@
-# SEObasic Technical Agent Instructions
+# SEObasic Owned-Web Technical Agent Instructions
 
-> **Scope:** `SEObasic/docs/technical/`  
+> **Scope:** `SEObasic/docs/surfaces/owned-web/technical/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Mission
 
-Preserve technical discoverability and interpretation without manufacturing search claims or treating search-engine behavior as guaranteed.
+Preserve technical discoverability and interpretation on the owned-web surface without manufacturing search claims or treating search-engine behavior as guaranteed.
 
 ## Required discipline
 
@@ -13,7 +13,7 @@ Agents MUST:
 
 - distinguish platform documentation from observed behavior and third-party interpretation;
 - verify current search-engine/vendor behavior when a rule depends on a changing platform;
-- preserve canonical URL, indexing, redirect, metadata, sitemap, feed, and structured-data contracts during implementation changes;
+- preserve canonical URL, indexing, redirect, metadata, sitemap, feed, and structured-data behavior during implementation changes;
 - keep structured data consistent with visible content;
 - treat technical regressions as observable behavior changes, not documentation-only defects;
 - define mechanical validation where practical;
@@ -29,7 +29,7 @@ Agents MUST NOT:
 - change canonicalization or URL behavior incidentally during unrelated work;
 - claim a tag is universally obsolete merely because one search engine ignores it;
 - reintroduce legacy metadata as a current SEO requirement without evidence of a current consumer;
-- conflate the legacy `<meta name="keywords">` field with legitimate keyword/topic language in visible page content.
+- conflate the Google-unused `<meta name="keywords">` field with legitimate keyword/topic language in visible page content.
 
 ## Legacy metadata rule
 
@@ -45,16 +45,20 @@ Prefer **“unused by Google Search”** over an unsupported universal statement
 
 See [`metadata.md`](metadata.md) for the current metadata-status model and legacy examples.
 
-## Contracts
+## Cross-role routing
 
-Stable technical rules SHOULD be formalized under `contracts/` within this domain when repeated implementations need the same behavior.
+- claim provenance / consumer scoping → [`../../../invariants/evidence-classification.md`](../../../invariants/evidence-classification.md)
+- current platform/protocol guidance → [`../../../evidence/platform-guidance/`](../../../evidence/platform-guidance/README.md)
+- generative/answer crawler-access controls → [`../../generative-search/ai-discovery-controls.md`](../../generative-search/ai-discovery-controls.md)
+- on-page keyword/topic-language strategy → [`../../../strategies/on-page/keyword-use.md`](../../../strategies/on-page/keyword-use.md)
+- entity relationships → [`../../../strategies/entity-relationships/`](../../../strategies/entity-relationships/README.md)
+- measurement semantics → [`../../../measurement/`](../../../measurement/README.md)
+- implementation architecture/accessibility/security → [`../../../../../Wdbasic/AGENTS.md`](../../../../../Wdbasic/AGENTS.md)
 
-## Cross-domain routing
+## Local contracts
 
-Read website, entity, local-search, and WDBASIC contracts whenever a technical change alters those surfaces.
-
-For current keyword/topic-language use in visible website content, read [`../websites/keyword-use.md`](../websites/keyword-use.md). Do not infer that keywords themselves are obsolete because the `meta keywords` tag is legacy.
+Stable owned-web technical rules MAY be formalized near this surface when repeated implementations need the same behavior. Do not promote a platform-specific rule into a cross-domain invariant merely because it is technical.
 
 ## Changelog
 
-Material technical-framework changes require an entry in [`../../CHANGELOG.md`](../../CHANGELOG.md).
+Material technical-framework changes require an entry in [`../../../../CHANGELOG.md`](../../../../CHANGELOG.md).
