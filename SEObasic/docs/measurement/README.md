@@ -1,6 +1,6 @@
 # SEObasic Measurement and Analytics
 
-> **Scope:** Search, ranking, visibility, traffic, conversion, local-search, authority, technical, geographic, campaign, and cross-channel measurement.
+> **Scope:** Search, ranking, visibility, traffic, conversion, local-search, authority, technical, geographic, answer/generative discovery, campaign, and cross-channel measurement.
 
 Measurement in SEObasic exists to make outcomes interpretable rather than merely collectible.
 
@@ -46,6 +46,26 @@ SEObasic measurement covers several distinct metric families.
 - Bookings
 - Conversion rate
 - Assisted conversions
+
+### Answer/generative discovery metrics
+
+- Answer presence
+- Citation presence
+- Citation count/rate
+- Unique cited pages
+- Platform-defined cited-page metrics
+- Grounding-query observations
+- Citation position/order when explicitly defined
+- Source selection/retrieval presence when observable
+- Citation absorption/source influence when a methodology defines it
+- Generative visibility scores with provider/formula preserved
+- AI/search impressions when supplied by the platform
+- AI referral traffic
+- AI-assisted/direct conversions
+- Brand/entity representation quality
+- Citation correctness/source support
+
+See [`ai-discovery.md`](ai-discovery.md).
 
 ### Local-search metrics
 
@@ -93,6 +113,11 @@ Examples:
 - A third-party domain metric is not Google authority.
 - Geo-grid rank is not a single location-wide rank.
 - Platform-reported conversions are not automatically verified business outcomes.
+- AI citation is not classic organic rank.
+- Answer presence is not citation presence.
+- Citation count is not authority.
+- Retrieval is not necessarily visible attribution.
+- AI visibility is not referral traffic.
 
 ## Contracts
 
@@ -102,6 +127,10 @@ Current contract:
 
 - [`contracts/metric-semantics.md`](contracts/metric-semantics.md) — defines how SEObasic measurements must be named, scoped, sourced, and interpreted.
 
+AI/answer/generative measurement guidance:
+
+- [`ai-discovery.md`](ai-discovery.md) — provider-neutral and platform-specific definitions for AEO/GEO observations, citations, answer presence, retrieval/source selection, generative visibility, referrals and conversions.
+
 ## Glossary
 
 Detailed metric terminology lives in [`../glossaries/measurement-and-analytics.md`](../glossaries/measurement-and-analytics.md).
@@ -110,6 +139,7 @@ Detailed metric terminology lives in [`../glossaries/measurement-and-analytics.m
 
 Measurement supports every SEObasic channel but does not replace channel-specific interpretation:
 
+- Answer/generative discovery → [`../discovery/`](../discovery/README.md)
 - Technical SEO → [`../technical/`](../technical/README.md)
 - Websites → [`../websites/`](../websites/README.md)
 - Local search / GBP / maps → [`../local-search/`](../local-search/README.md)
