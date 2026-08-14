@@ -3,7 +3,8 @@
 > **Status:** Binding for automated work under `SEObasic/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md) and [`../governance/`](../governance/README.md)  
 > **Canonical entry point:** [`README.md`](README.md)  
-> **Knowledge index:** [`docs/README.md`](docs/README.md)
+> **Knowledge index:** [`docs/README.md`](docs/README.md)  
+> **Evidence contract:** [`docs/contracts/evidence-classification.md`](docs/contracts/evidence-classification.md)
 
 SEObasic is a living knowledge system. It preserves practitioner knowledge, positions, contracts, platform/vendor guidance, standards, research, historical references, metric semantics, and examples without pretending those sources have equal authority.
 
@@ -17,10 +18,11 @@ Before changing a SEObasic subject:
 
 1. Read [`README.md`](README.md).
 2. Read [`docs/AGENTS.md`](docs/AGENTS.md).
-3. Read the nearest applicable nested `AGENTS.md`.
-4. Read the subject README and binding contracts.
-5. Read applicable practitioner positions and glossary definitions.
-6. Consult standards, research, references, or examples only when relevant to the claim/change.
+3. Read [`docs/contracts/evidence-classification.md`](docs/contracts/evidence-classification.md) when work makes or changes material factual, causal, platform-behavior, research, measurement, optimization, or historical claims.
+4. Read the nearest applicable nested `AGENTS.md`.
+5. Read the subject README and binding contracts.
+6. Read applicable practitioner positions and glossary definitions.
+7. Consult standards, research, references, or examples only when relevant to the claim/change.
 
 ## Knowledge-source discipline
 
@@ -32,12 +34,37 @@ Agents MUST distinguish:
 - industry practice;
 - platform/vendor guidance;
 - formal standard/specification;
-- research evidence;
+- peer-reviewed research;
+- preprint research;
+- benchmark/dataset evidence;
+- practitioner observation;
+- inference/hypothesis;
 - historical reference;
 - example;
 - measurement definition.
 
 Do not flatten these into one category called “best practices.”
+
+Material claims MUST preserve their actual evidence class and scope under the [`Evidence Classification Contract`](docs/contracts/evidence-classification.md).
+
+## Platform/consumer scope
+
+Agents MUST preserve the consumer, product surface, purpose, and review date when platform behavior is material.
+
+Do not silently generalize:
+
+```text
+unused by Google Search
+    → unused everywhere
+
+Google guidance
+    → universal AI/search behavior
+
+controlled RAG finding
+    → production ranking factor
+```
+
+A standards-layer status and a platform-consumption status may differ and must be recorded separately when material.
 
 ## Domain routing
 
@@ -68,7 +95,7 @@ Research, standards, platform guidance, experience, references, positions, and m
 
 Agents MUST NOT weaken contracts to match a regression or silently create a new binding rule from one external source.
 
-Current cross-domain contracts begin under [`docs/contracts/`](docs/contracts/README.md). Measurement semantics are separately governed under [`docs/measurement/contracts/`](docs/measurement/contracts/README.md).
+Current cross-domain contracts begin under [`docs/contracts/`](docs/contracts/README.md), including the binding [`Evidence Classification Contract`](docs/contracts/evidence-classification.md). Measurement semantics are separately governed under [`docs/measurement/contracts/`](docs/measurement/contracts/README.md).
 
 ## Practitioner positions
 
@@ -87,14 +114,23 @@ For AEO, GEO, AI-search visibility, generative citations, answer-engine claims, 
 
 1. [`docs/discovery/AGENTS.md`](docs/discovery/AGENTS.md)
 2. [`docs/discovery/README.md`](docs/discovery/README.md)
-3. [`docs/standards/ai-search-platform-guidance.md`](docs/standards/ai-search-platform-guidance.md)
-4. [`docs/research/answer-generative-discovery.md`](docs/research/answer-generative-discovery.md) when a claim relies on research
-5. [`docs/technical/ai-discovery-controls.md`](docs/technical/ai-discovery-controls.md) for crawler/index/access behavior
-6. [`docs/measurement/ai-discovery.md`](docs/measurement/ai-discovery.md) for citations, answer presence, referrals or visibility metrics.
+3. [`docs/contracts/evidence-classification.md`](docs/contracts/evidence-classification.md)
+4. [`docs/standards/ai-search-platform-guidance.md`](docs/standards/ai-search-platform-guidance.md)
+5. [`docs/research/answer-generative-discovery.md`](docs/research/answer-generative-discovery.md) when a claim relies on research
+6. [`docs/technical/ai-discovery-controls.md`](docs/technical/ai-discovery-controls.md) for crawler/index/access behavior
+7. [`docs/measurement/ai-discovery.md`](docs/measurement/ai-discovery.md) for citations, answer presence, referrals or visibility metrics.
 
-Agents MUST NOT turn one GEO benchmark, one crawler rule, one platform's documentation, one third-party tool, or one observed citation pattern into a universal “AI ranking factor.”
+Agents MUST NOT turn one GEO benchmark, one crawler rule, one platform's documentation, one third-party tool, one controlled RAG experiment, or one observed citation pattern into a universal “AI ranking factor.”
 
 For Google Search specifically, preserve Google's current platform position that AEO/GEO terminology does not create a separate optimization system for its generative Search features; foundational SEO remains controlling. Do not generalize that Google-specific statement to every other platform.
+
+## Research publication status
+
+When a material research record is labeled `preprint`, agents MUST check whether a later peer-reviewed publication exists before advancing its review/verification date.
+
+Research indexes such as Google Scholar, Semantic Scholar, DBLP, Crossref, OpenAlex, Scopus, and Web of Science are discovery/bibliographic aids. They do not replace reading the primary paper or authoritative proceedings/publisher record.
+
+Direct production-platform research and adjacent RAG/citation-attribution methodology MUST remain distinguishable.
 
 ## Measurement semantics
 
@@ -132,12 +168,13 @@ Do not copy advice or metric assumptions from one channel/surface into another w
 When evidence conflicts with an established SEObasic position or contract:
 
 1. identify the existing position/contract;
-2. identify the conflicting evidence and source type;
+2. identify the conflicting evidence and source/evidence class;
 3. explain the scope of conflict;
-4. preserve both until an intentional framework decision is made;
-5. use repository change control for material binding mutations.
+4. preserve contrary/null evidence rather than suppressing it;
+5. preserve both until an intentional framework decision is made;
+6. use repository change control for material binding mutations.
 
-Research indexes such as Google Scholar are discovery aids. They do not replace reading and citing the primary paper, proceedings record, DOI source, dataset, or authoritative platform documentation.
+SEObasic is allowed to be wrong. When stronger evidence falsifies or materially narrows an existing claim, correct it deliberately and record the material correction rather than defending the previous wording.
 
 ## Structural rule
 
@@ -153,4 +190,4 @@ Notable SEObasic changes update [`CHANGELOG.md`](CHANGELOG.md). Repository-wide 
 
 ## Governing maxim
 
-> **Preserve what was learned. Identify where it came from. Change it deliberately, not silently.**
+> **Preserve what was learned. Identify where it came from. Change it deliberately when stronger evidence proves it wrong.**
