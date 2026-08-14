@@ -8,6 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Added
 
+- `docs/discovery/` as the governed Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), answer-oriented, and generative-discovery knowledge domain with local `AGENTS.md` evidence/anti-speculation rules.
+- `docs/discovery/answer-engine-optimization.md` defining AEO as scoped answer-oriented discoverability/representation rather than a universal replacement for SEO, with practical boundaries around answer structure, evidence, entity clarity, crawlability, freshness, multimodal content, FAQs, keywords, unsupported hacks, and measurement.
+- `docs/discovery/generative-engine-optimization.md` defining GEO around generative retrieval/source selection, citation, source influence/absorption, representation, referrals and conversion while preserving the foundational KDD 2024 GEO research and its benchmark/domain limitations.
+- `docs/technical/ai-discovery-controls.md` separating crawl permission, indexing, retrieval, citation, placement and model-training controls and recording current Googlebot, Bingbot, OAI-SearchBot, PerplexityBot, robots, sitemap and IndexNow behavior by platform.
+- `docs/measurement/ai-discovery.md` defining answer presence, citation presence/count/rate, unique cited pages, Bing AI Performance fields, grounding queries, citation position, source selection, citation absorption/influence, generative visibility scores, AI referral traffic, AI-assisted conversions and representation-quality measurement without collapsing them into “AI rank.”
+- `docs/standards/ai-search-platform-guidance.md` as the current platform-owned AEO/GEO/AI-search guidance registry for Google Search, Microsoft Bing/Copilot, OpenAI/ChatGPT search, Perplexity, RFC 9309 robots.txt, Sitemaps, Schema.org and IndexNow.
+- `docs/research/answer-generative-discovery.md` as the AEO/GEO academic evidence registry covering KDD/ACM, ACL Anthology, arXiv/preprints, citation/attribution research, GEO/AEO benchmarks and optimization-risk studies, plus research-discovery resources including Google Scholar, Semantic Scholar, arXiv, ACL Anthology, ACM/KDD, DBLP, Crossref, OpenAlex, ORCID, PubPeer, Scopus and Web of Science.
+- Google Scholar search routes for GEO, AEO, generative-search citations, source attribution, RAG citations, AI-search referrals and answer-engine research, with an explicit rule that research indexes aid discovery but do not replace primary papers/proceedings/DOIs.
 - `docs/content/customer-pain-and-solution-framing.md` documenting customer pain points and PAS-style Problem → Agitate/Stakes → Solution framing, extended with proof and an appropriate next action while preserving truth and avoiding manipulative exaggeration or repetitive paraphrasing.
 - `docs/standards/google-eeat-and-helpful-content.md` recording current Google Search Central E-E-A-T and people-first content guidance, including Experience, Expertise, Authoritativeness, Trustworthiness, Who/How/Why, Search Quality Rater boundaries, and Google's explicit statement that E-E-A-T itself is not a specific ranking factor.
 - `docs/` as the canonical home for SEObasic contracts, positions, content, website, technical, entity, local-search, social-media, paid-media, YouTube, measurement, research, standards, reference, and glossary knowledge.
@@ -42,6 +50,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Changed
 
+- Expanded SEObasic's root and documentation routing to make AEO/GEO a first-class `discovery/` domain connected to technical controls, measurement, platform guidance, research, website/content/entity knowledge and local-search context.
+- Expanded SEObasic agent rules to prohibit turning a GEO benchmark, crawler rule, platform statement, third-party tool, or observed citation pattern into a universal “AI ranking factor.”
+- Expanded the SEO/marketing glossary with AEO, GEO, answer engine, generative engine, generative search, RAG, grounding, grounding query, and an explicit separation between local-search citations, generative-answer citations, and scholarly citations.
+- Expanded technical and measurement indexes to route AI crawler/access controls and answer/generative citation/referral metrics through their own canonical documents.
+- Expanded standards and research indexes so current platform behavior remains separate from academic/experimental evidence.
 - Moved all long-form SEObasic knowledge domains under `docs/` while keeping `examples/` as a root illustrative artifact.
 - Reworked root `README.md` and `AGENTS.md` into concise entrypoint/authority routers for the new `docs/` hierarchy.
 - Preserved canonical T.E.S.T.I.N.G. philosophy, source excerpt, measurement semantics, and other domain content byte-for-byte during the structural move before updating routing paths.
