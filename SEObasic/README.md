@@ -4,7 +4,7 @@
 > **Canonical entry point:** `SEObasic/README.md`  
 > **Knowledge index:** [`docs/README.md`](docs/README.md)
 
-SEObasic is SABOS Lib's governed body of practitioner knowledge for search, discovery, content, local visibility, digital channels, measurement, and related marketing evidence. It is not a generic SEO checklist.
+SEObasic is SABOS Lib's governed body of practitioner knowledge for search, discovery, Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), content, local visibility, digital channels, measurement, and related marketing evidence. It is not a generic SEO checklist.
 
 SEObasic preserves practitioner experience, explicit positions, contracts, industry practice, platform/vendor guidance, formal standards, research evidence, historical references, examples, terminology, and metric semantics **without pretending those sources have equal authority**.
 
@@ -23,6 +23,7 @@ SEObasic/
 │   ├── positions/
 │   ├── content/
 │   ├── websites/
+│   ├── discovery/
 │   ├── technical/
 │   ├── entities/
 │   ├── local-search/
@@ -74,6 +75,7 @@ A common industry practice does not automatically override an explicit practitio
 | Practitioner positions | [`docs/positions/README.md`](docs/positions/README.md) |
 | Content / T.E.S.T.I.N.G. | [`docs/content/README.md`](docs/content/README.md) |
 | Websites | [`docs/websites/README.md`](docs/websites/README.md) |
+| AEO / GEO / generative discovery | [`docs/discovery/README.md`](docs/discovery/README.md) |
 | Technical SEO | [`docs/technical/README.md`](docs/technical/README.md) |
 | Entities/internal linking | [`docs/entities/README.md`](docs/entities/README.md) |
 | Local search / GBP / Maps | [`docs/local-search/README.md`](docs/local-search/README.md) |
@@ -86,6 +88,19 @@ A common industry practice does not automatically override an explicit practitio
 | Historical/source references | [`docs/references/README.md`](docs/references/README.md) |
 | Terminology | [`docs/glossaries/README.md`](docs/glossaries/README.md) |
 | Illustrative examples | [`examples/README.md`](examples/README.md) |
+
+## AEO and GEO
+
+SEObasic treats **AEO** and **GEO** as useful scoped terms, not replacements for SEO and not universal ranking systems.
+
+- [`docs/discovery/answer-engine-optimization.md`](docs/discovery/answer-engine-optimization.md) defines AEO around answer-oriented discoverability and representation.
+- [`docs/discovery/generative-engine-optimization.md`](docs/discovery/generative-engine-optimization.md) defines GEO around generative source selection, citation, representation and source influence.
+- [`docs/technical/ai-discovery-controls.md`](docs/technical/ai-discovery-controls.md) owns crawler/access controls.
+- [`docs/measurement/ai-discovery.md`](docs/measurement/ai-discovery.md) owns answer/citation/referral measurement semantics.
+- [`docs/standards/ai-search-platform-guidance.md`](docs/standards/ai-search-platform-guidance.md) preserves current Google, Bing/Microsoft, OpenAI, Perplexity and protocol guidance.
+- [`docs/research/answer-generative-discovery.md`](docs/research/answer-generative-discovery.md) preserves academic evidence, benchmarks and research-discovery indexes including Google Scholar.
+
+Current Google Search guidance explicitly acknowledges AEO/GEO terminology but states that optimizing for Google's generative Search features remains SEO. SEObasic preserves that platform-specific position without generalizing it to every answer/generative platform.
 
 ## Binding cross-domain contracts
 
@@ -128,17 +143,19 @@ The binding [`Metric Semantics Contract`](docs/measurement/contracts/metric-sema
 - technical metrics;
 - geographic/geo-grid measurement.
 
+[`docs/measurement/ai-discovery.md`](docs/measurement/ai-discovery.md) extends that discipline to answer/generative observations such as answer presence, citation presence/rate/count, cited pages, grounding-query fields, source selection, citation absorption/influence, AI referral traffic and AI-assisted conversions.
+
 Core rule:
 
 > **Define the measurement before interpreting the result.**
 
-Rank, visibility, traffic, conversion, authority, and geo-grid observations must not be treated as interchangeable. Provider-specific metrics must retain their provider definitions and methodology context.
+Rank, visibility, traffic, conversion, authority, geo-grid observations, citations and answer presence must not be treated as interchangeable. Provider-specific metrics must retain their provider definitions and methodology context.
 
 See [`docs/glossaries/measurement-and-analytics.md`](docs/glossaries/measurement-and-analytics.md).
 
 ## Channel boundary
 
-Websites, local search/GBP/Maps, organic social, paid media, and YouTube may support one strategy while retaining different platform mechanics, audiences, evidence, conversion roles, attribution, and metric semantics.
+Websites, answer/generative discovery, local search/GBP/Maps, organic social, paid media, and YouTube may support one strategy while retaining different platform mechanics, audiences, evidence, conversion roles, attribution, and metric semantics.
 
 Reuse of source material does not erase those differences.
 
@@ -152,12 +169,13 @@ WDBASIC governs framework-independent web architecture, accessibility, security,
 
 SEObasic work must not:
 
-- fabricate reviews, locations, customers, credentials, performance, rankings, partnerships, awards, or campaign evidence;
+- fabricate reviews, locations, customers, credentials, performance, rankings, citations, partnerships, awards, or campaign evidence;
 - rewrite canonical practitioner philosophy to fit a platform;
 - erase an explicit practitioner position merely because a common industry/vendor convention differs;
 - silently change metric definitions, denominators, attribution, sampling, geographic scope, or provider methodology;
 - present correlation or platform folklore as guaranteed causation;
-- turn one vendor's recommendation or proprietary score into universal law;
+- turn one vendor's recommendation, one GEO benchmark, or proprietary score into universal law;
+- present AEO/GEO as proof of special AI ranking factors without evidence;
 - use an example as a hidden normative contract.
 
 Software regression testing remains an engineering concern; it is not a second meaning of the T.E.S.T.I.N.G. acronym.
@@ -172,6 +190,7 @@ seobasic:
   source_ref: <commit-or-tag>
   domains:
     - websites
+    - discovery
     - technical
     - local-search
     - measurement
