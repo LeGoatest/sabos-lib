@@ -1,15 +1,27 @@
 # WDBASIC v2.1
 
 > **Status:** Binding framework  
-> **Canonical entry point:** `Wdbasic/README.md`  
-> **Full framework contract:** [`docs/framework-contract.md`](docs/framework-contract.md)  
-> **Framework version:** WDBASIC v2.1
+> **Canonical entry point:** `Wdbasic/README.md`
 
 WDBASIC is SABOS Lib's framework-independent web architecture, experience, content-strategy, and implementation-contract knowledge system.
 
-The hardened WDBASIC model separates **non-compensatory core invariants**, **diagnostic experience evaluation**, **intent-dependent content strategies**, and **technology-specific profiles**.
+Its physical documentation hierarchy mirrors its conceptual model:
 
-## Hardened structure
+```text
+Wdbasic/
+├── README.md
+├── AGENTS.md
+├── CHANGELOG.md
+└── docs/
+    ├── README.md
+    ├── AGENTS.md
+    ├── core-invariants/
+    ├── experience-evaluation/
+    ├── content-strategies/
+    └── technology-profiles/
+```
+
+## Four-domain model
 
 ```text
 WDBASIC
@@ -47,88 +59,29 @@ WDBASIC
     └── hybrid/native
 ```
 
-## Repository structure
+## Authority
 
-```text
-Wdbasic/
-├── README.md
-├── AGENTS.md
-├── CHANGELOG.md
-└── docs/
-    ├── README.md
-    ├── AGENTS.md
-    ├── core-invariants.md
-    ├── experience-evaluation.md
-    ├── framework-contract.md
-    ├── architecture_rules.md
-    ├── STANDARDS.md
-    ├── engineering-validation.md
-    ├── cognitive-accessibility.md
-    ├── internationalization.md
-    ├── media-accessibility.md
-    ├── non-web-accessibility.md
-    ├── security-and-privacy.md
-    ├── sustainability.md
-    ├── content-strategies/
-    ├── technology-profiles/
-    ├── forms/
-    ├── compliance/
-    ├── authoring/
-    ├── profiles/
-    ├── tokens/
-    ├── components/
-    ├── positions/
-    └── glossaries/
-```
+Apply WDBASIC in this order:
 
-## Authority and reading order
+1. [`docs/core-invariants/README.md`](docs/core-invariants/README.md)
+2. Applicable invariant subdomain contracts
+3. Standards and evidence records under [`docs/core-invariants/measurable-evidence/`](docs/core-invariants/measurable-evidence/README.md)
+4. [`docs/experience-evaluation/`](docs/experience-evaluation/README.md) for diagnostics
+5. Applicable [`docs/content-strategies/`](docs/content-strategies/README.md)
+6. Applicable [`docs/technology-profiles/`](docs/technology-profiles/README.md)
+7. Product-specific requirements and explicit exceptions
 
-For governed implementation/review work, apply:
+Core invariants are **non-compensatory**. Strong SEO, visual quality, performance, or conversion cannot cancel a known accessibility, security/privacy, truthfulness, HTTP-integrity, semantic, resilience, or evidence failure.
 
-1. [`docs/core-invariants.md`](docs/core-invariants.md)
-2. [`docs/architecture_rules.md`](docs/architecture_rules.md)
-3. [`docs/framework-contract.md`](docs/framework-contract.md)
-4. [`docs/STANDARDS.md`](docs/STANDARDS.md)
-5. Applicable cross-cutting and subject contracts
-6. Applicable content strategy and technology profile
-7. Token/component contracts and active design profile
-8. Product-specific requirements and evidence
-9. Explicit, owned, time-bounded exceptions
-
-Automated work also follows [`AGENTS.md`](AGENTS.md), [`docs/AGENTS.md`](docs/AGENTS.md), and the nearest local `AGENTS.md`.
-
-A lower-level document may specialize but may not silently weaken core invariants, external standards, security/privacy, truthful-content, accessibility, HTTP integrity, or evidence requirements.
-
-## Core domains
-
-| Domain | Start here |
-| --- | --- |
-| Core invariants | [`docs/core-invariants.md`](docs/core-invariants.md) |
-| Experience evaluation | [`docs/experience-evaluation.md`](docs/experience-evaluation.md) |
-| Content strategies | [`docs/content-strategies/README.md`](docs/content-strategies/README.md) |
-| Technology profiles | [`docs/technology-profiles/README.md`](docs/technology-profiles/README.md) |
-| Full WDBASIC v2.1 contract | [`docs/framework-contract.md`](docs/framework-contract.md) |
-| Architecture | [`docs/architecture_rules.md`](docs/architecture_rules.md) |
-| Standards | [`docs/STANDARDS.md`](docs/STANDARDS.md) |
-| Engineering validation | [`docs/engineering-validation.md`](docs/engineering-validation.md) |
-| Forms | [`docs/forms/README.md`](docs/forms/README.md) |
-| Security/privacy | [`docs/security-and-privacy.md`](docs/security-and-privacy.md) |
-| Accessibility evidence/compliance | [`docs/compliance/`](docs/compliance/) |
-| Practitioner positions | [`docs/positions/README.md`](docs/positions/README.md) |
+External standards retain their own scopes and conformance language. WDBASIC does not relabel guidance, practitioner positions, or heuristic scores as external requirements.
 
 ## Important boundaries
 
-- **Core invariants are non-compensatory.** Accessibility, security, privacy, truthfulness, HTTP integrity, and required evidence cannot be offset by a high experience score.
-- **WDBASIC conformance is not WCAG conformance.** External standards retain their own scopes and claim rules.
-- **WDBASIC core is technology-neutral.** HTMX, SSR, static generation, JavaScript applications, Tailwind/TCbasic, and hybrid/native behavior are governed by profiles.
-- **PAS is conditional.** It is one content strategy, not a mandatory page architecture.
-- **Relevance precedes or accompanies persuasion.** Valid pages may begin with a problem, solution, answer, offer, or comparison criteria depending on user intent.
-- Client-side validation improves usability but is not a security boundary.
-- Native semantics are preferred over unnecessary ARIA.
-- Practitioner positions and heuristics are distinct from external standards and binding contracts.
+- PAS is an intent-dependent content strategy, not a universal page formula.
+- HTMX, Tailwind, SSR, static generation, JavaScript applications, and hybrid/native shells are technology profiles, not core invariants.
+- JavaScript-free public content may be selected for resilience/interoperability reasons, but WDBASIC does not represent it as a universal Google Search requirement.
+- Accessibility conformance is not an additive quality score.
+- Security/privacy and truthful-content failures are gates, not point deductions.
+- Heuristic calculations remain explicitly labeled as WDBASIC heuristics.
 
-## Hardening history
-
-The 2026-08-14 adversarial audit corrected earlier over-prescription around HTMX, no-JavaScript SEO claims, universal PAS ordering, additive quality scoring, accessibility weighting, and threat/efficacy formulas.
-
-See [`docs/positions/adversarial-audit-2026-08-14.md`](docs/positions/adversarial-audit-2026-08-14.md).
+See [`docs/README.md`](docs/README.md) for the documentation map and [`AGENTS.md`](AGENTS.md) for automated-work governance.
