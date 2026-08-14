@@ -94,7 +94,7 @@ A common industry practice does not automatically override an explicit practitio
 SEObasic treats **AEO** and **GEO** as useful scoped terms, not replacements for SEO and not universal ranking systems.
 
 - [`docs/discovery/answer-engine-optimization.md`](docs/discovery/answer-engine-optimization.md) defines AEO around answer-oriented discoverability and representation.
-- [`docs/discovery/generative-engine-optimization.md`](docs/discovery/generative-engine-optimization.md) defines GEO around generative source selection, citation, representation and source influence.
+- [`docs/discovery/generative-engine-optimization.md`](docs/discovery/generative-engine-optimization.md) defines GEO around generative source selection, citation, representation and experimentally measurable source influence.
 - [`docs/technical/ai-discovery-controls.md`](docs/technical/ai-discovery-controls.md) owns crawler/access controls.
 - [`docs/measurement/ai-discovery.md`](docs/measurement/ai-discovery.md) owns answer/citation/referral measurement semantics.
 - [`docs/standards/ai-search-platform-guidance.md`](docs/standards/ai-search-platform-guidance.md) preserves current Google, Bing/Microsoft, OpenAI, Perplexity and protocol guidance.
@@ -108,8 +108,30 @@ Current cross-domain contracts include:
 
 - [`Truth and Evidence Contract`](docs/contracts/truth-and-evidence.md) — material claims and signals must remain truthful and supported.
 - [`Channel Boundaries Contract`](docs/contracts/channel-boundaries.md) — source material may be reused across channels without pretending their mechanics, policies, conversion roles, or metrics are interchangeable.
+- [`Evidence Classification Contract`](docs/contracts/evidence-classification.md) — material claims must preserve their evidence class, consumer/platform scope, publication status, freshness context, and limits on generalization where applicable.
 
 Measurement-specific binding semantics live under [`docs/measurement/contracts/`](docs/measurement/contracts/README.md).
+
+## Evidence classification
+
+SEObasic is designed to be corrected when stronger evidence shows that a current claim is wrong, overbroad, outdated, or less mature than previously documented.
+
+The binding [`Evidence Classification Contract`](docs/contracts/evidence-classification.md) distinguishes claims such as:
+
+- formal standards;
+- platform policy/guidance;
+- peer-reviewed research;
+- preprints;
+- benchmarks/datasets;
+- practitioner positions and observations;
+- inference/hypothesis;
+- historical references.
+
+Platform behavior must retain the consumer, surface, purpose, source, and review context when material. Research records must retain publication status and limitations. A preprint must be checked for a later peer-reviewed publication before its verification date is advanced.
+
+Core rule:
+
+> **A claim may be useful without being universal, and SEObasic must narrow or correct it when stronger evidence warrants.**
 
 ## Canonical T.E.S.T.I.N.G. philosophy
 
@@ -141,15 +163,16 @@ The binding [`Metric Semantics Contract`](docs/measurement/contracts/metric-sema
 - local-search interaction;
 - authority/link metrics;
 - technical metrics;
-- geographic/geo-grid measurement.
+- geographic/geo-grid measurement;
+- answer/generative discovery stages and outcomes.
 
-[`docs/measurement/ai-discovery.md`](docs/measurement/ai-discovery.md) extends that discipline to answer/generative observations such as answer presence, citation presence/rate/count, cited pages, grounding-query fields, source selection, citation absorption/influence, AI referral traffic and AI-assisted conversions.
+[`docs/measurement/ai-discovery.md`](docs/measurement/ai-discovery.md) extends that discipline to answer/generative observations such as answer presence, citation presence/rate/count, cited pages, grounding-query fields, source selection, **experimental source-influence/citation-absorption constructs**, AI referral traffic and AI-assisted conversions.
 
 Core rule:
 
 > **Define the measurement before interpreting the result.**
 
-Rank, visibility, traffic, conversion, authority, geo-grid observations, citations and answer presence must not be treated as interchangeable. Provider-specific metrics must retain their provider definitions and methodology context.
+Rank, visibility, traffic, conversion, authority, geo-grid observations, citations and answer presence must not be treated as interchangeable. Provider-specific metrics and experimental research constructs must retain their provider/methodology definitions and context.
 
 See [`docs/glossaries/measurement-and-analytics.md`](docs/glossaries/measurement-and-analytics.md).
 
@@ -174,7 +197,7 @@ SEObasic work must not:
 - erase an explicit practitioner position merely because a common industry/vendor convention differs;
 - silently change metric definitions, denominators, attribution, sampling, geographic scope, or provider methodology;
 - present correlation or platform folklore as guaranteed causation;
-- turn one vendor's recommendation, one GEO benchmark, or proprietary score into universal law;
+- turn one vendor's recommendation, one GEO benchmark, controlled RAG experiment, or proprietary score into universal law;
 - present AEO/GEO as proof of special AI ranking factors without evidence;
 - use an example as a hidden normative contract.
 
@@ -197,6 +220,7 @@ seobasic:
   contracts:
     - truth-and-evidence
     - channel-boundaries
+    - evidence-classification
     - measurement/metric-semantics
 ```
 
