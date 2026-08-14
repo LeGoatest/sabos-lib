@@ -8,6 +8,8 @@ This document records **platform-owned guidance** separately from SEObasic pract
 
 Platform behavior changes quickly. Re-check the official source before treating any crawler, reporting field, indexing requirement or optimization recommendation as current.
 
+Claims in this registry are governed by the binding [`Evidence Classification Contract`](../contracts/evidence-classification.md): consumer, surface, purpose, source, and review date matter.
+
 ## Google Search
 
 ### Current position on AEO/GEO
@@ -21,12 +23,20 @@ Primary source:
 
 ### AI Overviews and AI Mode eligibility
 
-Google states that foundational SEO best practices continue to apply. To be eligible as a supporting link in AI Overviews or AI Mode, a page must be indexed and eligible to be shown in Google Search with a snippet. Google states there are no additional technical requirements specifically for these AI features.
+Google states that foundational SEO best practices continue to apply. Current guidance describes at least two relevant eligibility layers:
+
+1. a page must satisfy normal Google Search technical/indexing requirements and be indexed/eligible to be shown in Search with a snippet for supporting-link eligibility;
+2. Google's current rollout/guidance also refers to the site being included in Search generative AI features in Search Console.
+
+These conditions are **eligibility conditions, not guarantees of retrieval, citation, linking, ranking, or display**. Google states there is no separately documented AI-only technical optimization stack for these features.
 
 Sources:
 
 - https://developers.google.com/search/docs/appearance/ai-features
 - https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
+- https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports
+
+Because Search Console generative reporting/eligibility is evolving, verify the current rollout and property status before making implementation claims.
 
 ### Google myth-busting / unsupported special requirements
 
@@ -141,11 +151,20 @@ Primary protocol sources:
 
 Bing documents robots meta/X-Robots-Tag controls and introduced `data-nosnippet` support for excluding marked content from Bing snippets and AI-generated previews while retaining discoverability under the documented conditions.
 
+Importantly, **Google's current status for `noarchive` or `nocache` must not be copied into Bing**. Microsoft documents current Bing/Copilot-related semantics for these directives, including restrictions on generative presentation/content use under the documented conditions.
+
 Sources:
 
 - Bing robots meta support: https://www.bing.com/webmasters/help/robots-meta-tags-and-attributes-that-bing-supports-5198d240
 - `data-nosnippet`: https://blogs.bing.com/webmaster/October-2025/Bing-Introduces-Support-for-the-data-nosnippet-HTML-Attribute
-- historical Bing AI-content controls: https://blogs.bing.com/webmaster/september-2023/Announcing-new-options-for-webmasters-to-control-usage-of-their-content-in-Bing-Chat
+- Bing AI-content controls: https://blogs.bing.com/webmaster/september-2023/Announcing-new-options-for-webmasters-to-control-usage-of-their-content-in-Bing-Chat
+
+Consumer-scoped rule:
+
+```text
+unused by Google Search
+    ≠ unused by Bing/Copilot
+```
 
 ### General Bing Webmaster Tools
 
@@ -163,6 +182,24 @@ OpenAI also states that allowing OAI-SearchBot does not guarantee top placement.
 Primary source:
 
 - OpenAI Publishers and Developers FAQ: https://help.openai.com/en/articles/12627856-publishers-and-developers-faq
+
+### URL discovery is not identical to SearchBot content access
+
+Do not interpret a block on `OAI-SearchBot` as proof that OpenAI cannot learn that a URL exists.
+
+OpenAI's publisher documentation describes cases where a URL may be learned through another path and a link/title may still be surfaced even when normal page-content inclusion/summarization is restricted.
+
+Preserve these states separately:
+
+```text
+URL discovery
+    ≠ OAI-SearchBot page-content access
+    ≠ summary/snippet inclusion
+    ≠ visible citation/link presentation
+    ≠ training permission
+```
+
+This distinction is surface-specific and must not be generalized beyond current OpenAI documentation.
 
 ### Referral tracking
 
@@ -199,6 +236,8 @@ Primary source:
 
 Perplexity recommends allowing `PerplexityBot` in robots.txt when a publisher wants a site to appear in its search results, subject to the platform's current documentation and technical access controls.
 
+Do not use `PerplexityBot` as shorthand for every Perplexity crawler/fetch path; preserve the purpose of each documented agent separately.
+
 ## Shared web/protocol standards
 
 ### Robots Exclusion Protocol
@@ -221,7 +260,7 @@ Schema.org vocabulary availability is not evidence that a specific search/AI pla
 
 ## Source-authority rule
 
-When sources conflict, use this order for current platform behavior:
+When sources conflict about **current platform behavior**, prefer:
 
 1. current official platform documentation/policy;
 2. current official webmaster/search product announcements;
@@ -229,6 +268,8 @@ When sources conflict, use this order for current platform behavior:
 4. primary research as evidence about observed/experimental behavior;
 5. practitioner observation;
 6. third-party SEO/AEO/GEO claims.
+
+This ordering is contextual, not a license to let a platform redefine a formal standard outside the platform's scope.
 
 A platform's statement about its own system does not automatically describe another platform.
 
@@ -240,6 +281,7 @@ Re-review this registry when any of the following changes:
 - AI Search/Copilot/ChatGPT/Perplexity inclusion controls;
 - Google AI Overview/AI Mode requirements;
 - Search Console or Bing Webmaster Tools generative reporting;
+- Bing robots-meta/Copilot content-use semantics;
 - structured-data requirements;
 - `llms.txt` or another proposed machine-readable convention gains documented platform adoption;
 - robots/snippet controls change;
