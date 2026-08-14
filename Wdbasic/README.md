@@ -16,10 +16,20 @@ Wdbasic/
 │   ├── manifest.yaml
 │   ├── standard.yaml
 │   ├── rules/
+│   │   ├── accessibility/
+│   │   ├── architecture/
+│   │   ├── conversion/
+│   │   ├── interaction/
+│   │   ├── performance/
+│   │   ├── responsive/
+│   │   └── semantics/
 │   ├── profiles/
-│   ├── strategies/
+│   ├── page-types/
+│   ├── patterns/
 │   ├── components/
 │   ├── tokens/
+│   ├── vocabulary/
+│   ├── evidence/
 │   ├── schemas/
 │   └── validation/
 └── docs/
@@ -87,7 +97,9 @@ External standards retain their own scopes and conformance language. WDBASIC doe
 
 ## Machine-readable interface
 
-[`agents/manifest.yaml`](agents/manifest.yaml) is the deterministic entry point for WDBASIC's machine-readable projection. It indexes the current standard model, mapped rules, technology profiles, content strategies, component/token registries, schemas, and conformance checks.
+[`agents/manifest.yaml`](agents/manifest.yaml) is the deterministic entry point for WDBASIC's machine-readable projection. Version `0.2.0` uses progressive disclosure and indexes granular rule domains, experience and technology profiles, page-type contracts, reusable patterns, component specializations, semantic token catalogs, vocabulary, evidence mappings, type-specific JSON Schemas, and conformance checks.
+
+The machine layer is intentionally more structured than the human documentation: rules carry stable IDs, effect/strength, applicability, validation mode, and failure semantics; derived page types and patterns are explicitly classified so their presence cannot silently promote them into core invariants.
 
 `agents/` does **not** become an independent source of truth merely because its files are structured. Each record must point back to its canonical WDBASIC source. If a machine-readable record conflicts with its canonical Markdown contract, the canonical source wins and the machine projection must be corrected.
 
