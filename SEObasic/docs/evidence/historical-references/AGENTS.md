@@ -1,6 +1,6 @@
-# SEObasic References Agent Instructions
+# SEObasic Historical Reference Agent Instructions
 
-> **Scope:** `SEObasic/docs/references/`  
+> **Scope:** `SEObasic/docs/evidence/historical-references/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Preserve historical truth
@@ -28,6 +28,8 @@ When a complete historical source is unavailable:
 
 ## Current authority
 
-Historical examples may inform current contracts and practitioner positions, but a historical record becomes binding only through an explicit current adoption/canonicalization decision.
+Historical examples may inform current invariants, strategies, or practitioner positions, but a historical record becomes binding only through an explicit current adoption/canonicalization decision in the owning role.
 
-Material reference restructuring must preserve links/provenance and update [`../../CHANGELOG.md`](../../CHANGELOG.md).
+Historical material is evidence of what was documented or believed at a point in time; it is not automatically evidence of current platform behavior.
+
+Material reference restructuring must preserve links/provenance and update [`../../../CHANGELOG.md`](../../../CHANGELOG.md).
