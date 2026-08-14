@@ -1,31 +1,32 @@
 # Metadata and Head Elements
 
 > **Status:** Technical SEO guidance  
-> **Scope:** Search presentation metadata, indexing/serving controls, canonical URL signals, document/browser metadata, social-sharing metadata, and legacy/unused metadata  
+> **Scope:** Search presentation metadata, indexing/serving controls, canonical URL signals, document/browser metadata, social-sharing metadata, and consumer-specific legacy/unused behavior  
 > **Primary platform basis:** Google Search documentation unless another consumer is named explicitly
 
-Metadata must be classified by the system that consumes it. Not every element in `<head>` is an SEO ranking signal, and a historically familiar tag must not be treated as current merely because browsers still accept the markup.
+Metadata must be classified by the system that defines or consumes it. Not every element in `<head>` is an SEO ranking signal, and a historically familiar tag must not be treated as current for a particular search purpose merely because the underlying HTML syntax remains valid.
+
+Read the binding [`Evidence Classification Contract`](../contracts/evidence-classification.md) before assigning `legacy`, `unused`, `obsolete`, or other broad support labels.
 
 ## Status model
 
-SEObasic uses these labels when documenting metadata:
+SEObasic separates **standards-layer status** from **consumer-layer status**.
 
 | Status | Meaning |
 | --- | --- |
-| **Current** | The named consumer currently documents or uses the element/directive for the stated purpose. |
-| **Platform-specific** | Used by a named platform/protocol; it is not automatically a search-ranking signal. |
+| **Standards-defined** | The element/name/directive remains defined by the applicable formal/living standard or specification. |
+| **Current — `<consumer>/<purpose>`** | The named consumer currently documents or uses the element/directive for the stated purpose. |
+| **Platform-specific** | Used by a named platform/protocol; it is not automatically a search-ranking signal or universal behavior. |
 | **Document/browser** | Important to HTML/browser behavior, but not itself a search-ranking directive. |
-| **Legacy / unused by `<consumer>`** | Historically used, commonly encountered, or previously supported, but the named consumer explicitly does not use it for the stated purpose. |
+| **Unused / historical — `<consumer>/<purpose>`** | The named consumer explicitly does not use it for that stated purpose, or the prior purpose no longer exists. |
 
-A legacy/unused item SHOULD remain documented so maintainers know that its absence is intentional rather than an oversight.
-
-Do not claim that a tag is universally unused unless the evidence actually covers every relevant consumer. Prefer precise statements such as **“not used by Google Search”**.
+Do not collapse these into one global status. A metadata name can remain standards-defined while a particular search engine ignores it for ranking. A directive unused by one search engine can still have current semantics for another.
 
 ## Search presentation metadata
 
 ### `<title>`
 
-**Status:** Current — Google Search presentation signal and document title.
+**Status:** Current — Google Search presentation source and document title.
 
 ```html
 <title>Example service in Clearwater | Example Company</title>
@@ -49,13 +50,13 @@ The description is a snippet candidate, not a guaranteed search-result descripti
 
 ### `<meta name="robots">`
 
-**Status:** Current.
+**Status:** Current, with directive semantics depending on the consumer.
 
 ```html
 <meta name="robots" content="index,follow">
 ```
 
-Robots metadata can control page-level indexing and serving behavior. Examples of supported directives depend on the search engine. For Google Search, current directives include controls such as `noindex`, `nofollow`, `nosnippet`, `max-snippet`, `max-image-preview`, and related serving rules.
+Robots metadata can control page-level indexing and serving behavior. Supported directives and their semantics differ by search engine. For Google Search, current directives include controls such as `noindex`, `nofollow`, `nosnippet`, `max-snippet`, `max-image-preview`, and related serving rules.
 
 Do not add `index,follow` merely for decoration when it only expresses the default behavior.
 
@@ -71,7 +72,7 @@ Use a crawler-specific directive only when behavior intentionally differs from t
 
 ### `X-Robots-Tag`
 
-**Status:** Current — HTTP response control.
+**Status:** Current — HTTP response control with consumer-specific directive support.
 
 `X-Robots-Tag` is not an HTML meta element, but belongs in the same indexing-control model. It is especially useful for non-HTML resources such as PDFs, images, or other files where an HTML `<meta>` element cannot be used.
 
@@ -79,7 +80,7 @@ Use a crawler-specific directive only when behavior intentionally differs from t
 
 ### `<link rel="canonical">`
 
-**Status:** Current canonicalization signal.
+**Status:** Current canonicalization signal for supporting search engines.
 
 ```html
 <link rel="canonical" href="https://example.com/preferred-url">
@@ -153,32 +154,35 @@ A card declaration commonly begins with:
 
 Platform-specific title, description, image, and related fields should be documented against the current platform implementation when used. Do not assume that social-card metadata affects organic search ranking.
 
-## Legacy and unused search metadata
+## Consumer-specific historical and unused search metadata
 
-Legacy entries are retained deliberately. Their documentation tells implementers **not to reintroduce them as modern SEO requirements**.
+Entries remain documented deliberately so maintainers can see **which consumer stopped using what, for which purpose**, rather than treating absence as an oversight.
 
 ### `<meta name="keywords">`
 
-**Status:** **Legacy / unused by Google Search.**
+**HTML status:** **Standards-defined** — `keywords` remains a metadata name in the WHATWG HTML Living Standard.  
+**Google Search status:** **Unused for Google web-search ranking.**  
+**SEObasic Google-SEO status:** **Do not implement or populate it as a Google SEO optimization field.**
 
 ```html
 <meta name="keywords" content="keyword one, keyword two, keyword three">
 ```
 
-Historically, the keywords meta tag was used to declare page keywords to search systems.
+Historically, the keywords meta tag was used to declare page keywords to search systems. Its continued definition by HTML does **not** imply that Google Search uses it as a ranking signal.
 
-**Current Google Search behavior:** Google Search does not use the meta-keywords tag. Google states that it has **no effect on indexing or ranking**.
+Google Search explicitly states that it disregards the meta-keywords tag for web-search ranking.
 
 SEObasic rule:
 
-- Do **not** add `meta keywords` for Google SEO.
-- Do **not** treat its presence as evidence of keyword optimization.
-- Do **not** spend audit/remediation effort populating it for Google Search.
-- If a separate legacy CMS, internal search product, or other named consumer requires it, document that consumer and purpose explicitly.
+- Do **not** add or populate `meta keywords` for Google SEO.
+- Do **not** treat its presence as evidence of modern keyword optimization.
+- Do **not** spend Google-SEO audit/remediation effort populating it.
+- Do **not** describe the HTML metadata name itself as removed or invalid merely because Google ignores it.
+- If a CMS, internal search product, or another named consumer requires it, document that consumer and purpose explicitly.
 
 ### `<link rel="next">` / `<link rel="prev">`
 
-**Status:** **Legacy / unused by Google Search for indexing.**
+**Google Search status:** **Unused by Google Search for indexing.**
 
 ```html
 <link rel="next" href="https://example.com/page/2">
@@ -191,7 +195,7 @@ They may still have meaning in other standards, software, accessibility, navigat
 
 ### `nositelinkssearchbox`
 
-**Status:** **Legacy / unused by Google Search.**
+**Google Search status:** **Historical / unused by Google Search.**
 
 ```html
 <meta name="google" content="nositelinkssearchbox">
@@ -203,54 +207,72 @@ Do not retain or add this tag as a current Google Search requirement.
 
 ### Robots rule `noarchive`
 
-**Status:** **Historical / unused by Google Search.**
+**Google Search status:** **Historical / unused for Google's former cached-result-link purpose.**  
+**Bing/Copilot status:** **Current consumer-specific semantics are documented by Microsoft.**
 
-Google Search no longer uses `noarchive` to control cached-result links because the cached-link feature no longer exists.
+Google no longer uses `noarchive` to control cached-result links because that cached-link feature no longer exists.
+
+Microsoft/Bing documentation gives `noarchive` current Bing/Copilot-related semantics, including restrictions on how content may be used or linked in its generative experiences and documented model-training controls. Therefore `noarchive` MUST NOT be globally classified as a dead directive merely because Google no longer uses it.
+
+Current Bing behavior must be checked against Microsoft's official robots-meta documentation before production changes.
 
 ### Robots rule `nocache`
 
-**Status:** **Unused by Google Search.**
+**Google Search status:** **Ignored by Google Search.**  
+**Bing/Copilot status:** **Current consumer-specific semantics are documented by Microsoft.**
 
 Google Search documents `nocache` as ignored.
 
-## Legacy-removal rule
+Microsoft/Bing documentation assigns current Bing/Copilot behavior to `nocache`, including more limited generative presentation under the documented conditions. Therefore `nocache` MUST NOT be globally classified as unused without naming the consumer and purpose.
 
-“Unused by Google Search” does not automatically mean “delete immediately.” Before removing an existing legacy tag from a production system:
+## Consumer-specific removal rule
 
-1. Identify whether another crawler, internal search system, CMS integration, social platform, browser feature, analytics system, or downstream consumer reads it.
-2. Confirm whether removal changes any non-search behavior.
-3. Remove it when no required consumer remains, or retain it with a documented non-Google purpose.
+“Unused by Google Search” does not mean “unused everywhere” or “delete immediately.” Before removing an existing metadata element or directive from a production system:
+
+1. Identify its standards/specification status where relevant.
+2. Identify each material consumer, surface, and purpose.
+3. Confirm current support from primary platform documentation.
+4. Confirm whether removal changes any non-Google, browser, CMS, internal-search, AI/search, or downstream behavior.
+5. Remove it only when no required consumer remains, or retain it with a documented current purpose.
 
 This prevents two opposite errors:
 
-- preserving dead metadata because it looks like SEO; and
-- deleting metadata merely because Google Search does not use it when another real consumer still does.
+- preserving dead behavior because it looks like SEO; and
+- deleting behavior merely because one search engine no longer consumes it.
 
 ## Implementation classification
 
-When auditing `<head>` metadata, record at least:
+When auditing `<head>` metadata or related directives, record at least:
 
 ```yaml
 metadata:
   element: <tag-or-directive>
-  status: current | platform-specific | document-browser | legacy-unused
-  consumer: <google-search|open-graph|x|browser|other>
-  purpose: <what-it-controls>
+  standards_status: <defined|not-applicable|unknown>
+  consumer: <google-search|bing|open-graph|x|browser|other>
+  surface: <search|copilot|social|browser|other>
+  purpose: <rank|snippet|index|canonicalization|training|presentation|other>
+  support_status: <current|unused|historical|unknown>
   present: true | false
   required: true | false
-  evidence: <platform-doc-or-contract>
+  evidence: <primary-platform-doc-standard-or-contract>
+  reviewed_at: <ISO-date>
   notes: <limitations-or-consumer-specific-context>
 ```
 
+One element may require multiple consumer records when its semantics differ across platforms.
+
 ## Source basis
 
-Current Google Search behavior should be checked against official Google Search Central documentation because supported and historical directives can change.
+Consumer behavior should be checked against current official platform documentation because supported and historical directives can change.
 
 Primary references used for this document:
 
+- WHATWG HTML Living Standard — metadata names/semantics: https://html.spec.whatwg.org/multipage/semantics.html
 - Google Search Central — Meta tags and attributes that Google supports: https://developers.google.com/search/docs/crawling-indexing/special-tags
 - Google Search Central — Robots meta tag and X-Robots-Tag specifications: https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag
 - Google Search Central — Google does not use the keywords meta tag in web ranking: https://developers.google.com/search/blog/2009/09/google-does-not-use-keywords-meta-tag
+- Bing Webmaster Tools — Robots meta tags and attributes Bing supports: https://www.bing.com/webmasters/help/robots-meta-tags-and-attributes-that-bing-supports-5198d240
+- Bing Webmaster Blog — Bing Chat content-use controls: https://blogs.bing.com/webmaster/september-2023/Announcing-new-options-for-webmasters-to-control-usage-of-their-content-in-Bing-Chat
 - Open Graph protocol: https://ogp.me/
 
 See [`AGENTS.md`](AGENTS.md) before changing consumer-specific support claims.
