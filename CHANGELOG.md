@@ -34,6 +34,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Repository changelog-traceability governance requiring notable subsystem changes to update their own changelog and repository-wide/cross-subsystem changes to update this root changelog.
 - Root `MACHINE-READABLE-AGENT-SPECS-RESEARCH.md` evidence review evaluating machine-readable WDBASIC/SEObasic specifications, agent-context research, schemas, design tokens, provenance, deterministic validation, and the risks of context bloat and dual sources of truth.
 - `Wdbasic/agents/` and `SEObasic/agents/` machine-readable projection layers with deterministic manifests, source-linked registries, schemas, and conformance definitions while retaining the existing Markdown authority model.
+- Expanded WDBASIC and SEObasic machine interfaces to specification version `0.2.0` with granular rule domains, profiles, page-type contracts, patterns, vocabulary, evidence mappings, type-specific schemas, progressive-disclosure context policies, and explicit conformance/failure semantics; WDBASIC additionally exposes component specializations and JSON semantic-token catalogs.
 
 ### Changed
 
