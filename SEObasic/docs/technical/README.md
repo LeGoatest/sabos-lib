@@ -1,8 +1,8 @@
 # SEObasic Technical
 
-> **Scope:** Crawlability, indexability, canonicalization, metadata, structured data, sitemaps, feeds, HTTP/search behavior, technical diagnostics, and regression protection.
+> **Scope:** Crawlability, indexability, canonicalization, metadata, structured data, sitemaps, feeds, HTTP/search behavior, AI/search crawler controls, technical diagnostics, and regression protection.
 
-Technical SEO in SEObasic is the implementation-facing layer that helps search systems discover, retrieve, interpret, and consistently identify first-party content.
+Technical SEO in SEObasic is the implementation-facing layer that helps search and discovery systems discover, retrieve, interpret, and consistently identify first-party content.
 
 ## Subject map
 
@@ -13,7 +13,9 @@ This domain is expected to grow around topics such as:
 - canonical URLs;
 - titles, descriptions, headings, and page metadata;
 - structured data and JSON-LD;
+- AI/search crawler access and exclusion controls;
 - XML sitemaps;
+- IndexNow and other documented discovery-notification protocols;
 - RSS/Atom and discovery feeds;
 - redirects and URL migrations;
 - pagination and collection behavior;
@@ -26,6 +28,7 @@ This domain is expected to grow around topics such as:
 
 - [`metadata.md`](metadata.md) — search presentation metadata, indexing/serving controls, canonical links, browser/document metadata, social-sharing metadata, and explicit legacy/unused status such as `meta keywords` being unused by Google Search.
 - [`structured-data.md`](structured-data.md) — structured-data models, truthful schema selection, serialization, and validation.
+- [`ai-discovery-controls.md`](ai-discovery-controls.md) — Google/Bing/OpenAI/Perplexity crawler and access controls, robots/indexing distinctions, sitemaps, IndexNow, and the separation between crawling, indexing, retrieval, citation and model-training permissions.
 
 ## Legacy-status rule
 
@@ -40,11 +43,14 @@ Use precise statements such as **“unused by Google Search”** rather than cla
 
 ## Cross-domain relationships
 
+- Answer/generative discovery (AEO/GEO): [`../discovery/`](../discovery/README.md)
 - Website content/architecture: [`../websites/`](../websites/README.md)
 - Entity/internal-link relationships: [`../entities/`](../entities/README.md)
 - Local search: [`../local-search/`](../local-search/README.md)
+- AI discovery measurement: [`../measurement/ai-discovery.md`](../measurement/ai-discovery.md)
+- Platform guidance: [`../standards/ai-search-platform-guidance.md`](../standards/ai-search-platform-guidance.md)
 - WDBASIC implementation architecture: [`../../../Wdbasic/`](../../../Wdbasic/README.md)
 
-Technical signals support discoverability but do not substitute for useful content, real business relevance, or truthful claims.
+Technical signals support discoverability but do not substitute for useful content, real business relevance, truthful claims, or platform-specific eligibility.
 
 See [`AGENTS.md`](AGENTS.md) before automated changes.
