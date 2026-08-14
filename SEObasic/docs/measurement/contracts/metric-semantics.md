@@ -25,6 +25,7 @@ SEObasic distinguishes these metric families:
 - **Authority/link** — backlinks/referring domains/link-derived or third-party modeled authority signals.
 - **Technical** — crawling, indexing, canonicalization, page-experience, and related implementation-state measurements.
 - **Geographic** — spatially sampled rank/visibility/distribution measurements.
+- **Answer/generative discovery** — access/eligibility, retrieval/source selection, answer presence, visible citation/reference, source influence experiments, AI/search referrals, and downstream outcomes.
 
 A metric from one family MUST NOT be described as another family without an explicit transformation and documented rationale.
 
@@ -35,7 +36,7 @@ When a metric is stored, compared, reported, or used for decisions, its record S
 ```yaml
 metric:
   name: <canonical-name>
-  family: <ranking|visibility|traffic|conversion|local|authority|technical|geographic|other>
+  family: <ranking|visibility|traffic|conversion|local|authority|technical|geographic|ai-discovery|other>
   source: <provider-or-system>
   definition: <formula-or-provider-definition>
   numerator: <value-or-null>
@@ -44,7 +45,7 @@ metric:
   query_scope: <query-or-query-set-or-null>
   geography: <location/grid/market-or-null>
   device: <device-or-null>
-  surface: <organic|local-pack|maps|youtube|paid|social|other>
+  surface: <organic|local-pack|maps|youtube|paid|social|ai-answer|other>
   attribution: <model-or-null>
   sampling: <method-or-null>
   limitations: <notes-or-null>
@@ -125,6 +126,99 @@ Canonicalization reporting SHOULD distinguish declared canonical, observed/resol
 
 Core Web Vitals MUST preserve metric names, thresholds/version context, source (field/lab), and aggregation scope when reported materially.
 
+## Answer and generative discovery rules
+
+Answer/generative discovery MUST preserve distinct stages rather than collapsing them into one “AI rank” or “GEO visibility” number.
+
+The binding layer model is:
+
+```text
+access / eligibility
+        ↓
+retrieval / source selection
+        ↓
+visible citation / reference
+        ↓
+answer contribution / influence
+        ↓
+referral opportunity
+        ↓
+referral session
+        ↓
+conversion
+        ↓
+business outcome / revenue
+```
+
+These stages are **not guaranteed to occur sequentially** and some may be unobservable. Their purpose is semantic separation, not a promise of platform architecture.
+
+The following MUST NOT be treated as synonyms:
+
+```text
+citation ≠ rank
+answer presence ≠ citation
+retrieval ≠ visible citation
+citation count ≠ authority
+citation ≠ factual support
+answer/source influence ≠ visible citation
+AI visibility ≠ referral traffic
+referral traffic ≠ conversion
+conversion ≠ revenue unless explicitly defined
+```
+
+### Access and eligibility
+
+Crawler permission, indexing eligibility, platform inclusion, and technical access MUST retain the platform/surface definition. Access does not guarantee retrieval, citation, ranking, or display.
+
+### Retrieval/source selection
+
+If retrieval/source-selection state is not directly observable, record it as `unknown` rather than inferring it from answer similarity or citation presence unless a methodology explicitly defines and qualifies that inference.
+
+### Answer presence
+
+Answer presence MUST identify the monitored entity/fact/brand/source and the query/prompt/surface context. It does not establish which source produced the answer content.
+
+### Citation/reference presence
+
+A visible citation/reference MUST be measured as a presentation/source-attribution event under the platform's actual UI/definition. It does not, by itself, establish rank, authority, retrieval order, factual correctness, or stable reproduction.
+
+### Citation count/rate
+
+Citation counts and rates MUST define:
+
+- unit (marker, URL, page, domain, or other);
+- duplicate handling;
+- query/prompt population;
+- denominator;
+- platform/surface;
+- observation period;
+- repeated-run/sampling method when applicable.
+
+### Experimental source influence
+
+Research constructs such as **citation absorption**, source influence, or content influence MUST retain the exact paper/tool methodology and MUST NOT be presented as standardized provider-neutral platform metrics.
+
+### Composite AI/generative visibility scores
+
+Any composite AI/generative visibility score MUST retain:
+
+- provider/tool;
+- formula and weights;
+- query/prompt set;
+- observation frequency;
+- platform/surface;
+- geography/language/device when material;
+- answer/citation inclusion rules;
+- missing/failed-run treatment.
+
+Scores from different vendors MUST NOT be compared as equivalent unless their definitions are materially compatible.
+
+### Referral and business outcomes
+
+AI/search referrals, sessions, leads, conversions, assisted conversions, revenue, and other business outcomes MUST remain distinct measurements with explicit attribution rules.
+
+A citation with no click is not a referral. A referral with no conversion is not a conversion. A conversion is not revenue unless the business definition says so.
+
 ## Geographic measurement rules
 
 Geographic measurements MUST preserve enough scan geometry to interpret the result.
@@ -152,7 +246,7 @@ If provider, formula, query set, geography, device, attribution, denominator, or
 
 ## Rationale
 
-SEO and marketing tools frequently reuse words such as *rank*, *visibility*, *authority*, *traffic*, and *conversion* while calculating materially different things. Without semantic contracts, dashboards and agent-generated reports can create false comparisons or incorrect conclusions while appearing numerically precise.
+SEO and marketing tools frequently reuse words such as *rank*, *visibility*, *authority*, *traffic*, *conversion*, and increasingly *AI visibility* or *citation* while calculating materially different things. Without semantic contracts, dashboards and agent-generated reports can create false comparisons or incorrect conclusions while appearing numerically precise.
 
 SEObasic therefore treats measurement definitions as part of the data contract.
 
@@ -168,6 +262,7 @@ A measurement implementation or report SHOULD be reviewable for:
 - comparable methodology across periods;
 - proprietary metric labeling;
 - geographic scan context;
+- answer/generative discovery layer when applicable;
 - attribution limitations;
 - missing/unknown values rather than fabricated estimates.
 
