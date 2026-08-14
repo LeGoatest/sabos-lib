@@ -7,6 +7,7 @@ This domain records authoritative external requirements without pretending all s
 ## Current platform-guidance records
 
 - [`google-eeat-and-helpful-content.md`](google-eeat-and-helpful-content.md) — current Google Search Central guidance on E-E-A-T, people-first content, Search Quality Raters, and the **Who / How / Why** self-assessment model. It explicitly preserves Google's boundary that E-E-A-T itself is not a specific ranking factor.
+- [`ai-search-platform-guidance.md`](ai-search-platform-guidance.md) — current AEO/GEO/AI-search publisher guidance and controls from Google Search, Microsoft Bing/Copilot, OpenAI/ChatGPT search, Perplexity, IndexNow, robots/sitemap standards and related platform-owned sources.
 
 ## Source classes
 
@@ -29,6 +30,8 @@ A standards record SHOULD state:
 
 ## Rule
 
-A Google, Meta, Microsoft, YouTube, Schema.org, W3C, or other source governs only the scope it actually owns. Do not present platform guidance as a universal standard or an industry convention as platform policy.
+A Google, Meta, Microsoft, OpenAI, Perplexity, YouTube, Schema.org, W3C/IETF, or other source governs only the scope it actually owns. Do not present platform guidance as a universal standard or an industry convention as platform policy.
+
+For fast-moving answer/generative search behavior, re-check the platform record before asserting crawler names, inclusion requirements, reporting fields, supported directives, or optimization requirements.
 
 See [`AGENTS.md`](AGENTS.md).
