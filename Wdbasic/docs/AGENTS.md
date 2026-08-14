@@ -1,40 +1,31 @@
 # WDBASIC Documentation Agent Instructions
 
 > **Status:** Binding for automated work under `Wdbasic/docs/`  
-> **Parent authority:** [`../AGENTS.md`](../AGENTS.md)  
-> **Knowledge index:** [`README.md`](README.md)
-
-WDBASIC documentation contains binding invariants/contracts, standards records, practitioner positions, content strategies, technology profiles, design profiles, evidence templates, glossaries, and cross-cutting implementation knowledge.
+> **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
 ## Routing
 
-Before changing a subject:
+Before changing documentation:
 
 1. Read [`../AGENTS.md`](../AGENTS.md).
-2. Read [`core-invariants.md`](core-invariants.md).
-3. Read [`README.md`](README.md).
-4. Read [`architecture_rules.md`](architecture_rules.md) when implementation/state/request behavior is affected.
-5. Read the nearest local `AGENTS.md`.
-6. Read the controlling contract/standard/content strategy/technology profile for the subject.
-7. Preserve the distinction between binding WDBASIC requirements, external standards, practitioner positions, heuristics, and informative guidance.
+2. Read [`README.md`](README.md).
+3. Select the owning domain: core invariant, experience evaluation, content strategy, or technology profile.
+4. Read that domain's `README.md` and nearest local `AGENTS.md`.
+5. Preserve the distinction between binding contracts, external standards, guidance/research, practitioner positions, heuristics, and historical records.
 
-## Hardened taxonomy
+## Structural invariant
 
-Route changes into the correct layer:
+`docs/` contains only:
 
-- **Core invariants** — semantics, accessibility, security/privacy, truthful content, HTTP/URL integrity, resilience, measurable evidence.
-- **Experience evaluation** — discoverability, intent alignment, usability, trust, conversion, performance.
-- **Content strategies** — PAS when applicable, comparison, informational, transactional, and other intent models.
-- **Technology profiles** — HTMX/hypermedia, SSR, static, JS application, Tailwind/TCbasic, hybrid/native.
+- `README.md`
+- `AGENTS.md`
+- `core-invariants/`
+- `experience-evaluation/`
+- `content-strategies/`
+- `technology-profiles/`
 
-Do not move technology-specific or persuasion-specific preferences into core invariants unless deliberate evidence-backed change control establishes that they are truly universal WDBASIC requirements.
+Do not add a fifth peer knowledge domain without deliberate WDBASIC governance change.
 
-## Structural rule
+## Migration rule
 
-Moving WDBASIC knowledge under `docs/` does not weaken its authority. Local `AGENTS.md` files continue to specialize the parent instructions.
-
-When canonical paths move, update root routing, cross-links, and changelogs. Do not rewrite substantive requirements merely to make path cleanup easier.
-
-## Governing maxim
-
-> **Keep core invariants universal, keep diagnostics non-compensatory, keep content strategy intent-dependent, and keep technology rules inside technology profiles.**
+When relocating material, substantive requirements do not weaken merely because paths change. Repair parent authority and cross-links in the same change set. Do not keep duplicate authoritative copies solely to preserve an old path.
