@@ -14,6 +14,8 @@
 
 SEObasic uses GEO as a scoped term for **generative discovery and representation**, not as a claim that all generative systems share one optimization formula.
 
+Material platform/research claims in this document are governed by the binding [`Evidence Classification Contract`](../contracts/evidence-classification.md).
+
 ## Relationship to SEO
 
 GEO does not erase traditional search foundations.
@@ -36,17 +38,17 @@ For Google Search specifically, Google currently states that AEO/GEO work aimed 
 
 Source: https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
 
-Other platforms expose different controls and measurements. GEO therefore requires **platform-specific evidence**.
+That statement is Google-specific. Other platforms expose different crawler controls, retrieval paths, citations and measurements. GEO therefore requires **platform-specific evidence**.
 
 ## Core GEO outcomes
 
-GEO can concern several distinct outcomes:
+GEO can concern several distinct outcomes. These outcomes MUST NOT be collapsed into one “GEO rank.”
 
-### Retrieval eligibility
+### Access / eligibility
 
-Can the platform discover/access the source at all?
+Can the platform technically access or consider the source under its documented rules?
 
-This depends on the platform's crawler/index/retrieval path and control mechanisms.
+URL discovery, crawler/content access, indexing eligibility and retrieval eligibility are related but distinct states. See [`../technical/ai-discovery-controls.md`](../technical/ai-discovery-controls.md).
 
 ### Source selection
 
@@ -58,13 +60,19 @@ Selection is not the same as a classic SERP rank and may be hidden from publishe
 
 Is the source visibly cited or linked in the generated answer?
 
-Citation count, citation order and citation presence are different metrics.
+Citation count, citation order and citation presence are different metrics. A citation does not by itself establish authority, ranking, factual support or retrieval order.
 
-### Citation absorption / answer influence
+### Citation absorption / source influence — experimental research construct
 
-Does information from the source materially contribute facts, wording, evidence, definitions, comparisons or procedures to the answer?
+Some emerging research proposes measuring whether information from a source materially contributes facts, wording, evidence, definitions, comparisons or procedures to an answer beyond merely receiving a visible citation.
 
-A source can be retrieved without being cited, cited without being influential, or influential in ways that are difficult to observe externally.
+**Evidence status:** emerging research construct; **not a standardized first-party platform metric and not a universal provider-neutral GEO measurement**.
+
+A source can be retrieved without being cited, cited without materially supporting an associated claim, or influence an answer in ways that are difficult to observe externally.
+
+SEObasic MAY use source-influence/citation-absorption concepts in experiments only when the exact paper/tool methodology is preserved. Do not create a generic “citation absorption percentage.”
+
+See [`../measurement/ai-discovery.md`](../measurement/ai-discovery.md).
 
 ### Representation quality
 
@@ -74,7 +82,7 @@ When the system discusses an entity, service, product, place or organization, is
 
 Does generative discovery lead to useful visits, leads, sales, calls, bookings, subscriptions or other defined outcomes?
 
-These measurements must not be collapsed into one “GEO rank.” See [`../measurement/ai-discovery.md`](../measurement/ai-discovery.md).
+These measurements are semantically separated by the binding [`Metric Semantics Contract`](../measurement/contracts/metric-semantics.md).
 
 ## Research evidence
 
@@ -87,7 +95,7 @@ That finding is **not a promise of a 40% improvement on Google, ChatGPT, Copilot
 Subsequent research has examined:
 
 - source/citation selection;
-- content influence beyond visible citation;
+- experimental content/source influence beyond visible citation;
 - e-commerce GEO;
 - query-intent-aware optimization;
 - citation bias and source prominence;
@@ -96,17 +104,19 @@ Subsequent research has examined:
 - authority-aware generative retrieval;
 - optimization incentives that can degrade content quality.
 
+Controlled RAG/benchmark results MUST NOT be converted into production-platform ranking factors without production evidence supporting that generalization.
+
 The canonical research registry is [`../research/answer-generative-discovery.md`](../research/answer-generative-discovery.md).
 
 ## Durable GEO practices
 
 SEObasic treats these as defensible practices when they are useful to people and supported by the applicable platform/research context.
 
-### 1. Maintain a crawlable, indexable, retrievable source
+### 1. Maintain an accessible, accurately indexed/retrievable source where applicable
 
-A source that cannot be accessed cannot reliably participate in retrieval-grounded generative systems.
+A source whose content cannot be accessed through a platform's applicable crawl/retrieval path cannot reliably contribute that content to retrieval-grounded responses.
 
-Different platforms use different bots and controls. See [`../technical/ai-discovery-controls.md`](../technical/ai-discovery-controls.md).
+But URL discovery is not identical to page-content access. Different platforms use different crawlers and controls. See [`../technical/ai-discovery-controls.md`](../technical/ai-discovery-controls.md).
 
 ### 2. Publish non-commodity first-party value
 
@@ -124,9 +134,9 @@ Prefer content containing information that is difficult to reproduce generically
 
 Google's current generative Search guidance explicitly emphasizes unique, valuable, non-commodity and people-first content rather than AI-specific formatting tricks.
 
-### 3. Make factual claims extractable without making prose artificial
+### 3. Make factual claims clear without making prose artificial
 
-Useful structure can make facts easier for both readers and retrieval systems to locate:
+Useful structure can make facts easier for readers and retrieval systems to locate:
 
 - accurate headings;
 - explicit definitions;
@@ -137,13 +147,15 @@ Useful structure can make facts easier for both readers and retrieval systems to
 - citations to primary/authoritative sources;
 - direct statements followed by explanation/qualification.
 
-Do not convert every page into tiny chunks, repeated Q&A fragments or formulaic “AI-ready” prose.
+Do not convert every page into tiny chunks, repeated Q&A fragments or formulaic “AI-ready” prose. Google specifically says such AI-only chunking is not required for its generative Search features; another platform's documented behavior should remain scoped to that platform.
 
 ### 4. Support claims with evidence
 
-Research on generative retrieval/citation repeatedly centers on evidence, attribution and source trustworthiness. For SEObasic, that means making important claims defensible rather than adding citations cosmetically.
+Research on generative retrieval/citation repeatedly centers on evidence and attribution quality. For SEObasic, that means making important claims defensible rather than adding citations cosmetically.
 
-Prefer primary sources when the claim depends on a standard, law, platform policy, dataset, study, specification or first-party fact.
+Prefer primary sources when a claim depends on a standard, law, platform policy, dataset, study, specification or first-party fact.
+
+A visible citation is not proof that the cited source supports every associated claim. Direct generative-search research has documented citation-verifiability failures, which is one reason SEObasic separates citation presence from factual support.
 
 ### 5. Preserve entity identity and relationships
 
@@ -167,7 +179,7 @@ Do not fake freshness by mechanically changing dates.
 
 Google, Bing/Copilot, ChatGPT and Perplexity expose different visibility/citation/referral controls and reporting.
 
-A GEO experiment must record at least:
+A GEO experiment should record at least:
 
 ```yaml
 geo_observation:
@@ -194,7 +206,9 @@ geo_observation:
 Current Google guidance says:
 
 - existing SEO fundamentals remain relevant;
-- AI Overviews/AI Mode require Search indexing/snippet eligibility rather than special AI markup;
+- normal Search technical/indexing and snippet eligibility are required for supporting-link eligibility;
+- current rollout/guidance also refers to site inclusion in Search generative AI features in Search Console;
+- these conditions do not guarantee retrieval, citation, ranking or display;
 - no special schema is required;
 - Google Search does not use `llms.txt` for these features;
 - content does not need special “chunking” for generative AI;
@@ -206,15 +220,19 @@ Canonical platform record: [`../standards/ai-search-platform-guidance.md`](../st
 
 ### Microsoft Bing / Copilot
 
-Bing Webmaster Tools now exposes AI Performance reporting in public preview, including citation counts, cited pages and grounding-query information across supported Microsoft AI experiences. Bing also continues to document sitemaps, IndexNow and snippet controls as relevant to its search/AI ecosystem.
+Bing Webmaster Tools exposes AI Performance reporting, including citation counts, cited pages and grounding-query information across supported Microsoft AI experiences. Microsoft explicitly distinguishes citation activity from ranking/authority. Bing also documents sitemaps, IndexNow and consumer-specific robots/snippet controls as relevant to its search/AI ecosystem.
+
+Do not import Google's support status for directives such as `noarchive` or `nocache` into Bing; Microsoft documents current Bing/Copilot semantics for them.
 
 ### ChatGPT search
 
-OpenAI documents `OAI-SearchBot` as the crawler to allow when publishers want public content discoverable, surfaced, cited and linked in ChatGPT search summaries/snippets. OpenAI does not guarantee top placement.
+OpenAI documents `OAI-SearchBot` as the crawler to allow when publishers want page content discoverable/surfaced in ChatGPT search summaries/snippets and does not guarantee top placement.
+
+Blocking that crawler is not proof that OpenAI cannot learn that a URL exists through another documented discovery route. Preserve URL discovery, direct crawler content access, summary/snippet inclusion, citation/link presentation and training permission as separate states.
 
 ### Perplexity
 
-Perplexity documents `PerplexityBot` as the crawler designed to surface and link websites in Perplexity search results, distinct from foundation-model crawling.
+Perplexity documents `PerplexityBot` as a crawler designed to surface and link websites in Perplexity search results, distinct from foundation-model crawling. Do not use one Perplexity user agent as shorthand for every documented fetch/crawler purpose.
 
 ## What GEO does not justify
 
@@ -228,6 +246,8 @@ SEObasic rejects universal claims such as:
 - “AI engines always prefer listicles/tables/FAQs”;
 - “citation frequency equals authority”;
 - “a citation proves the model trusted every claim on the page”;
+- “citation absorption is a standardized cross-platform metric”;
+- “a controlled RAG result exposes a production ranking factor”;
 - “traditional SEO no longer matters”;
 - “GEO visibility is equivalent across Google, ChatGPT, Copilot and Perplexity.”
 
@@ -239,7 +259,24 @@ SEObasic adopts this guardrail:
 
 > **A GEO change is invalid if its primary effect is to make content more citation-seeking while making the underlying information less accurate, less useful, less attributable or more misleading.**
 
-Recent research explicitly studies the risk of “citation wars” and citation-seeking rewrites that degrade document quality. This is evidence that GEO requires quality safeguards, not permission to optimize every measurable surface aggressively.
+Recent research studies citation-seeking optimization risks. Such findings are evidence for maintaining quality safeguards, not permission to treat every experimental optimization as a production-platform tactic.
+
+## Evidence classification
+
+Every material GEO claim should preserve its real evidence status, including whether it is:
+
+- formal standard/specification;
+- platform policy/guidance;
+- peer-reviewed research;
+- preprint;
+- benchmark/dataset;
+- practitioner observation/position;
+- inference/hypothesis;
+- historical reference.
+
+A paper's publication status, method scope and limitations must remain visible. If a preprint is subsequently peer-reviewed, update the publication classification rather than continuing to cite it as merely a preprint.
+
+See [`../contracts/evidence-classification.md`](../contracts/evidence-classification.md).
 
 ## Research and source registry
 
@@ -256,4 +293,4 @@ Use [`../research/answer-generative-discovery.md`](../research/answer-generative
 
 ## Governing rule
 
-> **Improve real source quality and retrievability first; treat citation and generative visibility as platform-specific measurable outcomes, not as permission to manufacture signals.**
+> **Improve real source quality and retrievability first; preserve evidence scope; treat citation and generative visibility as platform-specific measurable outcomes, not as permission to manufacture signals.**
