@@ -1,9 +1,9 @@
 # WDBASIC Implementation Agent Contract
 
 > **Status:** Binding for implementation/review work  
-> **Canonical entry point:** [`../README.md`](../README.md)  
-> **Core invariants:** [`core-invariants.md`](core-invariants.md)  
-> **Architecture contract:** [`architecture_rules.md`](architecture_rules.md)
+> **Canonical entry point:** [`../../../README.md`](../../../README.md)  
+> **Core invariants:** [`../README.md`](../README.md)  
+> **Architecture contract:** [`../http-url-integrity/architecture-rules.md`](../http-url-integrity/architecture-rules.md)
 
 These instructions apply to automated agents, coding assistants, reviewers, and contributors editing governed files or implementations.
 
@@ -11,14 +11,14 @@ These instructions apply to automated agents, coding assistants, reviewers, and 
 
 Before changing architecture, markup, styling, components, accessibility, authoring, media, internationalization, security, privacy, conversion, forms, native shells, generated output, or documentation, read:
 
-1. [`core-invariants.md`](core-invariants.md)
-2. [`architecture_rules.md`](architecture_rules.md)
-3. [`framework-contract.md`](framework-contract.md)
-4. [`STANDARDS.md`](STANDARDS.md)
+1. [`../README.md`](../README.md)
+2. [`../http-url-integrity/architecture-rules.md`](../http-url-integrity/architecture-rules.md)
+3. [`../contract.md`](../contract.md)
+4. [`standards.md`](standards.md)
 5. Applicable cross-cutting contracts
-6. [`forms/README.md`](forms/README.md), [`forms/validation.md`](forms/validation.md), and [`forms/security.md`](forms/security.md) when input, submission, validation, upload, authentication, or state change is involved
-7. Applicable [`content-strategies/`](content-strategies/README.md)
-8. Applicable [`technology-profiles/`](technology-profiles/README.md)
+6. [`../semantics/forms/README.md`](../semantics/forms/README.md), [`../semantics/forms/validation.md`](../semantics/forms/validation.md), and [`../semantics/forms/security.md`](../semantics/forms/security.md) when input, submission, validation, upload, authentication, or state change is involved
+7. Applicable [`../../content-strategies/`](../../content-strategies/README.md)
+8. Applicable [`../../technology-profiles/`](../../technology-profiles/README.md)
 9. Relevant token/component contracts and active design profile
 10. Product documentation, evidence, claim records, and exceptions
 
@@ -69,9 +69,9 @@ Instead:
 - verify its cache/history/state/security/accessibility/performance behavior;
 - preserve core invariants regardless of implementation technology.
 
-HTMX-specific rules live in [`technology-profiles/htmx-hypermedia.md`](technology-profiles/htmx-hypermedia.md).
+HTMX-specific rules live in [`../../technology-profiles/htmx-hypermedia.md`](../../technology-profiles/htmx-hypermedia.md).
 
-Tailwind-specific rules live in [`technology-profiles/tailwind-tcbasic.md`](technology-profiles/tailwind-tcbasic.md) and TCbasic/project contracts.
+Tailwind-specific rules live in [`../../technology-profiles/tailwind-tcbasic.md`](../../technology-profiles/tailwind-tcbasic.md) and TCbasic/project contracts.
 
 ## 5. Content-strategy neutrality
 
@@ -95,7 +95,7 @@ Core failures in accessibility, security, privacy, truthfulness, HTTP/URL integr
 
 The superseded additive 100-point model must not be reported as current WDBASIC evaluation.
 
-Use [`experience-evaluation.md`](experience-evaluation.md) for current diagnostics.
+Use [`../../experience-evaluation/README.md`](../../experience-evaluation/README.md) for current diagnostics.
 
 ## 7. Prohibited behavior
 
