@@ -1,293 +1,273 @@
 # WDBASIC Architecture Rules
 
-> **Authority:** Highest-authority WDBASIC technical contract  
+> **Authority:** Binding WDBASIC technical contract beneath [`core-invariants.md`](core-invariants.md)  
 > **Core entry point:** [`README.md`](README.md)  
-> **Standards registry:** [`STANDARDS.md`](STANDARDS.md)  
-> **Form contract:** [`forms/README.md`](forms/README.md)
+> **Standards registry:** [`STANDARDS.md`](STANDARDS.md)
 
-This document governs rendering, state ownership, request and response behavior, routing, security boundaries, progressive enhancement, resilience, and technical exceptions.
+This document governs state authority, request/response behavior, routing, security boundaries, progressive enhancement, resilience, and technology-profile selection.
 
-## 1. Server ownership
+## 1. Authority and state ownership
 
-The server owns:
+WDBASIC distinguishes **authoritative state** from a mandatory rendering technology.
 
-- Primary page and fragment content.
-- Routing outcomes.
-- Authentication and authorization.
-- Business rules and validation.
-- Persistent state.
-- Canonical component state.
-- Search-indexable content.
-- Final success, empty, conflict, validation, and error outcomes.
+An appropriate trusted boundary owns:
 
-Client state may mirror server state for continuity but is never authorization evidence or the sole recoverable source of material business state.
+- authentication and authorization;
+- privileged business rules and validation;
+- persistent business state;
+- tenant/ownership decisions;
+- pricing, permission, workflow, and consequential state;
+- final persistence and conflict outcomes.
 
-## 2. Progressive enhancement
+Client state may improve continuity, responsiveness, optimistic presentation, or offline behavior, but it is never sufficient authorization evidence and must not become the sole unrecoverable source of material business state.
 
-The baseline uses:
+Rendering may be server-side, static/pre-rendered, client-rendered, hypermedia/HTMX, hybrid, or mixed according to the selected technology profile.
 
-- Meaningful HTML.
-- Native links and controls.
-- Normal form submission.
-- Server validation.
-- Direct URLs and server responses.
+## 2. Progressive enhancement and baseline behavior
 
-Enhancement may improve speed or continuity but must preserve equivalent authorization, validation, names, labels, errors, URLs, outcomes, and security behavior.
+Prefer meaningful HTML, native links/controls, direct URLs, and ordinary form behavior when they fit the product.
 
-A product constraint that removes the baseline path must be explicit, narrow, and evaluated for accessibility, resilience, security, and search impact.
+Enhancement may improve speed, continuity, local interaction, or offline behavior while preserving applicable:
 
-## 3. HTMX-first interaction
+- authorization;
+- validation;
+- semantics and labels;
+- error/recovery behavior;
+- security/privacy controls;
+- direct-load behavior;
+- user agency.
 
-Use HTMX when the server can own the interaction, including forms, validation, filtering, sorting, pagination, search, inline editing, modal content, and status changes.
+A product may intentionally depend on JavaScript or a richer client runtime when that architecture better fits the task. Such a decision must document accessibility, resilience, search/discoverability for public content, recovery, direct-load, cache/state, and performance behavior.
 
-Every fragment defines:
+Progressive enhancement is a strong WDBASIC preference, not a false claim that every valid web application must operate identically without JavaScript.
 
-- Request method and inputs.
-- Request-admission requirements, including accepted content type and size limits where applicable.
-- Authorization and CSRF requirements.
-- Target and swap strategy.
-- Loading, busy, empty, validation, conflict, rate-limit, error, and success states.
-- Focus and announcement behavior.
-- History and direct-load behavior.
-- Cache policy.
-- Correct language, direction, and accessibility relationships.
+## 3. Technology profiles
 
-Fragments must not depend on hidden client-only state the server cannot reconstruct.
+Every implementation selects applicable profiles from [`technology-profiles/`](technology-profiles/README.md), including as relevant:
 
-An HTMX form submission follows the same validation, authorization, anti-abuse, idempotency, logging, and persistence rules as a normal form submission.
+- HTMX / hypermedia;
+- SSR;
+- static/pre-rendered;
+- JavaScript application;
+- Tailwind / TCbasic;
+- hybrid/native.
+
+Profiles specialize implementation behavior but cannot weaken [`core-invariants.md`](core-invariants.md).
+
+HTMX is preferred when server-owned hypermedia naturally fits the interaction. It is not a universal WDBASIC requirement.
 
 ## 4. JavaScript boundary
 
-JavaScript may own local ephemeral behavior such as menu disclosure, focus management, media controls, clipboard interaction, or device APIs requiring browser execution.
+JavaScript may own client-local behavior and presentation state such as disclosure, focus management, media controls, clipboard/device APIs, rich visualization, optimistic state, offline queues, or application-shell behavior when the selected profile permits it.
 
-JavaScript must not own:
+JavaScript must not be treated as sufficient authority for:
 
-- Canonical routing.
-- Authentication or authorization.
-- Persistent business state.
-- Server validation.
-- Primary public content.
-- Search-indexable content.
-- Responsive appearance through generated utility strings.
+- authentication or authorization;
+- privileged business rules;
+- server/service-side validation required for integrity;
+- tenant/ownership decisions;
+- trusted pricing, permission, or workflow state;
+- persistence guarantees.
 
-Client-side validation improves feedback only. It is not a security mechanism and may not be the only implementation of a rule.
+Client-side validation improves feedback; it does not replace authoritative validation.
 
 ## 5. Semantic HTML
 
-Use native elements for their defined behavior. Do not create generic clickable containers, custom form controls, or ARIA substitutes where valid native HTML provides the required semantics and interaction.
+Use native elements for their defined behavior where they meet the need. Do not create generic clickable containers, partial custom controls, or unnecessary ARIA substitutes when valid native HTML provides the required semantics and interaction.
 
-See [`tokens/accessibility.md`](tokens/accessibility.md) and [`forms/README.md`](forms/README.md).
+Custom widgets must implement their complete keyboard, focus, state, name/role/value, announcement, and accessibility behavior.
 
 ## 6. Routing and URL contract
 
-- Primary navigation uses crawlable anchors.
-- Direct requests and refreshes work.
-- Unknown routes return real `404` responses.
-- Unauthorized and forbidden states are distinct.
-- Redirect status codes match intent.
-- Canonical, locale, case, query, and trailing-slash behavior is documented.
-- HTMX history creates valid reconstructable URLs.
-- Internal endpoints are not presented as canonical public routes.
-- State-changing actions are not exposed through `GET` or another safe HTTP method.
-- Redirect or callback destinations derived from input use a server-controlled allowlist.
+For URL-addressable web states:
+
+- direct requests and refreshes must produce intentional results;
+- unknown routes return real `404` responses;
+- unauthorized and forbidden states remain distinct;
+- redirect status codes match intent;
+- canonical, locale, case, query, and trailing-slash behavior is documented;
+- history entries created by client or hypermedia navigation must be reconstructable by direct load;
+- internal endpoints are not presented as canonical public routes;
+- state-changing actions are not exposed through `GET` or another safe method;
+- redirect/callback destinations derived from input use controlled validation/allowlisting.
 
 ## 7. HTTP response contract
 
-Status codes represent actual outcomes.
+Status codes represent actual outcomes. Typical use includes:
 
-Typical use:
-
-- `200` successful page or fragment.
-- `201` resource created when material.
-- `204` intentionally empty successful response.
-- `303` redirect after successful non-idempotent form submission.
-- `400` malformed request.
-- `401` authentication required.
-- `403` authenticated but forbidden.
-- `404` resource not found.
-- `409` state conflict.
-- `413` request body or upload too large.
-- `415` unsupported media or content type.
-- `422` recoverable semantic validation failure when that convention is used.
-- `429` rate limited.
+- `200` successful representation;
+- `201` resource created when material;
+- `204` intentionally empty successful response;
+- `303` redirect after successful non-idempotent form submission where appropriate;
+- `400` malformed request;
+- `401` authentication required;
+- `403` forbidden;
+- `404` not found;
+- `409` state conflict;
+- `413` request/upload too large;
+- `415` unsupported media/content type;
+- `422` recoverable semantic validation failure when that convention is used;
+- `429` rate limited;
 - `500` unexpected server failure.
 
-Do not return a homepage with `200` for an unknown route or disguise validation, authorization, conflict, or security failure as success for client convenience.
+Do not return a successful homepage for an unknown route or disguise validation/authorization/conflict failure as success for client convenience.
 
-## 8. Forms, validation, and consequential actions
+## 8. Forms and consequential actions
 
-Forms follow:
+Forms follow the contracts under [`forms/`](forms/README.md).
 
-- [`forms/README.md`](forms/README.md)
-- [`forms/validation.md`](forms/validation.md)
-- [`forms/security.md`](forms/security.md)
+Before a material effect occurs, an appropriate trusted boundary verifies as applicable:
 
-The server is authoritative for validation, authorization, business rules, and persistence.
+- route/method and accepted content type;
+- request size, field count/nesting, and file limits;
+- authentication/session state;
+- CSRF/origin policy;
+- explicit field allowlist and shape;
+- syntactic, semantic, cross-field, and business validation;
+- object-level authorization/ownership/tenant boundaries;
+- duplicate/replay/concurrency/idempotency behavior;
+- abuse/rate/upload controls;
+- audit/notification requirements.
 
-Before a form effect occurs, the server verifies:
-
-- Route and HTTP method.
-- Accepted content type, encoding, request size, field count, nesting, and file count.
-- Authentication and session state.
-- CSRF and request-origin policy when applicable.
-- Explicit field allowlist and submitted shape.
-- Syntactic and semantic validation.
-- Object-level authorization, ownership, and tenant boundaries.
-- Duplicate-submission, replay, concurrency, and idempotency behavior.
-- Rate limits, upload controls, and proportionate abuse defenses.
-- Audit and notification requirements.
-
-Recoverable errors preserve non-sensitive user input and return accessible field and summary errors.
-
-Legal, financial, destructive, identity, permission, publication, and other consequential actions provide review, correction, reversibility, or confirmation proportionate to impact.
+Recoverable errors preserve non-sensitive user work where safe.
 
 ## 9. State, concurrency, and idempotency
 
-- Duplicate requests must not silently duplicate business effects.
-- Financial, destructive, invitation, upload, notification, and other material actions define retry behavior.
+- Duplicate requests must not silently duplicate material effects.
+- Material actions define retry behavior.
 - Concurrent edits use a documented conflict strategy.
-- Optimistic UI reconciles with the server.
+- Optimistic UI reconciles against authoritative state.
 - Idempotency keys or equivalent controls are used where repetition could create material harm.
-- Validation or availability checks that can become stale are repeated or enforced atomically at persistence time.
-- A valid signed or hidden value does not replace current authorization or business-rule evaluation.
+- Stale validation/availability is rechecked or enforced atomically when necessary.
+- Signed, hidden, cached, or client-stored values do not replace current authorization or business-rule evaluation.
 
-## 10. Security boundaries
+## 10. Security/privacy boundaries
 
-- Never trust client-supplied role, ownership, price, permission, status, tenant, path, or workflow data.
-- Use explicit form field allowlists and mapping; unrestricted mass assignment is prohibited.
-- Escape untrusted output for its rendering context.
-- Use parameterized queries and safe structured APIs rather than concatenating input into interpreters.
-- Validate uploads by authorization, actual content, size, destination, processing state, and later access.
-- Keep secrets and internal paths out of client-visible output.
-- Apply least privilege.
-- Rate-limit and protect abuse-sensitive endpoints.
-- Keep security decisions server-side.
-- Do not place sensitive form data or security tokens in URLs.
-- Do not log secrets or unnecessary submitted content.
+Follow [`security-and-privacy.md`](security-and-privacy.md) and form security contracts.
 
-The detailed form threat contract is [`forms/security.md`](forms/security.md). Cross-cutting browser, third-party, privacy, consent, telemetry, authentication, and device rules are in [`security-and-privacy.md`](security-and-privacy.md).
+At minimum:
 
-## 11. Authoring boundaries
+- never trust client-supplied role, ownership, price, permission, status, tenant, path, or privileged workflow state;
+- use explicit field allowlists;
+- use safe structured queries/APIs;
+- encode untrusted output for its context;
+- validate uploads and later access;
+- keep secrets out of public output;
+- apply least privilege;
+- protect abuse-sensitive endpoints;
+- keep privileged trust decisions in a trusted boundary;
+- do not put sensitive form/security data in URLs or ordinary logs.
 
-A product that creates or edits content must follow:
-
-- [`authoring/atag-2.0.md`](authoring/atag-2.0.md)
-- [`authoring/accessible-output.md`](authoring/accessible-output.md)
-
-Generated output is part of the product’s conformance scope.
-
-A generated form must use the same field allowlist, validation, authorization, CSRF, privacy, retention, and error contracts as a hand-authored form. An authoring interface may not grant content authors control over privileged processing routes, model properties, storage paths, recipients, or permission fields without explicit authorization.
-
-## 12. Internationalization and media
-
-Localized output follows [`internationalization.md`](internationalization.md).
-
-Audio, video, animation, carousels, and comparison media follow [`media-accessibility.md`](media-accessibility.md).
-
-These requirements apply to server output and HTMX fragments.
-
-Form parsing and validation must distinguish canonical machine values from locale-aware display and input assistance. Language-specific presentation must not weaken server-side validation or security.
-
-## 13. Cache boundaries
+## 11. Cache and representation boundaries
 
 Caching must not cross identity, authorization, tenant, locale, consent, CSRF, or personalization boundaries.
 
 Document:
 
-- Cached object.
-- Cache key inputs.
-- Invalidation.
-- Maximum acceptable staleness.
-- Sensitive or user-specific content.
+- cached representation/object;
+- cache-key inputs;
+- variation headers/keys;
+- invalidation;
+- acceptable staleness;
+- sensitive/user-specific content;
+- browser-local caches or offline stores where applicable.
 
-Do not cache pages or fragments containing reusable security tokens, sensitive submitted values, or another user’s validation state.
+When a URL can produce materially different full-page, fragment, personalized, locale, or device representations, the variation strategy must be cache-safe.
 
-Do not serve stale prices, credentials, availability, status, or consent choices beyond an accepted business window.
+HTMX-specific rules are binding when the HTMX profile is active, including `HX-Request` variation and history-cache review.
+
+## 12. Authoring and generated output
+
+Authoring/generation follows [`authoring/`](authoring/) contracts.
+
+Generated output is part of the product's evidence scope. Generated forms must preserve the same allowlist, validation, authorization, privacy, retention, and security constraints as hand-authored forms.
+
+## 13. Internationalization and media
+
+Localized output follows [`internationalization.md`](internationalization.md). Media follows [`media-accessibility.md`](media-accessibility.md).
+
+Language, direction, locale values, captions, transcripts, alternatives, and accessibility relationships must survive navigation, fragment replacement, hydration, export, and other active profile behavior.
 
 ## 14. Dependency and third-party policy
 
-Add a dependency only when it provides measurable value that cannot be maintained more safely with existing capabilities.
+Add dependencies when they provide justified value and fit the product's security, accessibility, privacy, performance, resilience, and maintenance requirements.
 
 Review:
 
-- Maintenance and security.
-- Runtime and transfer cost.
-- Accessibility.
-- Privacy and data flow.
-- Server-rendering and fallback behavior.
-- Content Security Policy impact.
-- Removal path.
+- maintenance/security;
+- runtime/transfer cost;
+- accessibility;
+- privacy/data flow;
+- CSP and origin impact;
+- rendering/fallback behavior;
+- removal path.
 
-A validation, CAPTCHA, identity, payment, address, upload, or anti-abuse provider does not become authoritative for authorization or business state merely because it is external.
-
-A third-party failure must not remove primary public content when a practical fallback exists.
+A provider response never automatically becomes authorization/business truth.
 
 ## 15. Performance and resilience
 
-- Minimize render-blocking assets.
-- Use explicit media dimensions.
-- Avoid layout shift.
-- Lazy-load appropriate below-fold media.
-- Avoid client hydration for meaningful public content.
-- Define page- and workflow-specific budgets.
-- Preserve user-safe retry and recovery under partial failure.
-- Treat external scripts as optional failure domains.
-- Apply request-size, processing-time, queue, and upload limits before resource exhaustion occurs.
+Each product/profile defines measurable performance and failure behavior.
 
-## 16. Search architecture
+Review as applicable:
 
-Public pages provide semantic HTML, crawlable links, canonical behavior, metadata, meaningful headings, structured-data locations, and unique useful content.
+- field Core Web Vitals with source, period, and percentile;
+- lab measurements with tool/version/environment;
+- HTML/CSS/JS/image/third-party budgets;
+- render-blocking assets;
+- layout stability and media dimensions;
+- interaction latency;
+- hydration/client execution cost;
+- external dependency failure;
+- retry/recovery;
+- request/upload/queue limits.
 
-Thin doorway pages, duplicate location pages, JavaScript-only primary content, and false `200` error pages are non-conformant.
+Do not claim a rendering strategy is automatically faster without evidence.
 
-Search and filter forms use crawlable canonical destinations where appropriate and do not expose sensitive submitted values in URLs.
+## 16. Search/discoverability architecture
+
+Public pages must intentionally document:
+
+- indexability/crawlability for target search engines;
+- crawlable navigation where search discovery requires it;
+- canonical behavior and metadata;
+- meaningful headings and useful content;
+- rendering behavior and known crawler limitations;
+- correct status handling;
+- avoidance of thin doorway/location duplication.
+
+WDBASIC prefers robust public rendering strategies, often server or pre-rendered, but does **not** claim that Google universally requires JavaScript-free primary content.
 
 ## 17. Observability and audit
 
-Unexpected failures are observable without exposing sensitive details.
+Unexpected failures and sensitive state changes must be observable without exposing secrets or unnecessary personal content.
 
-Document or implement:
+Use structured events, correlation identifiers, safe error categorization, retry records, and audit evidence appropriate to the product.
 
-- Structured logs.
-- Correlation identifiers.
-- Error categorization.
-- Integration and queue failure records.
-- User-safe errors.
-- Retry paths.
-- Audit records for sensitive state changes.
-- Security-relevant form events such as CSRF failure, authorization denial, protected-field submission, upload rejection, replay, and rate limiting.
-
-Do not log secrets, passwords, tokens, full payment data, or unnecessary personal form content. Sanitize submitted values before they enter logs or administrative viewers.
-
-## 18. Deployment and support baseline
+## 18. Deployment/support baseline
 
 Document:
 
-- Runtime and browser baseline.
-- Assistive-technology support matrix.
-- Build-time and runtime dependencies.
-- Writable storage.
-- Environment configuration.
-- Migrations and rollback.
-- Cache and queue requirements.
-- Request, upload, and processing limits.
-- Validation commands.
-- Form validation and security test commands.
-
-Production must not depend on an undocumented development server.
+- runtime/browser/platform baseline;
+- assistive-technology matrix where applicable;
+- selected technology profiles;
+- build/runtime dependencies;
+- environment configuration;
+- migrations/rollback;
+- cache/queue/offline requirements;
+- validation/security/accessibility/performance test commands;
+- known limitations.
 
 ## 19. Exceptions
 
 An exception records:
 
-- Stable identifier.
-- Rule bypassed.
-- Reason.
-- Scope.
-- Accessibility, security, privacy, search, internationalization, and performance impact.
-- Fallback.
-- Owner.
-- Expiration or review condition.
-- Remediation plan.
+- stable identifier;
+- rule bypassed;
+- reason/scope;
+- accessibility/security/privacy/search/performance impact;
+- fallback;
+- owner;
+- expiration/review condition;
+- remediation plan.
 
-An exception cannot be used to make a false external standards claim or to treat client validation as a security boundary.
+An exception cannot create a false external-standard claim, convert missing evidence into a pass, or turn untrusted client state into a trusted security boundary.
