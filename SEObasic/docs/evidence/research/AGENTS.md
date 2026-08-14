@@ -1,15 +1,15 @@
 # SEObasic Research Agent Instructions
 
-> **Scope:** `SEObasic/docs/research/`  
+> **Scope:** `SEObasic/docs/evidence/research/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)  
-> **Binding evidence contract:** [`../contracts/evidence-classification.md`](../contracts/evidence-classification.md)
+> **Binding evidence contract:** [`../../invariants/evidence-classification.md`](../../invariants/evidence-classification.md)
 
 Agents handling research MUST preserve evidence quality, publication status, scope, and uncertainty.
 
 ## Required
 
 - Prefer primary research, proceedings/publisher records, authoritative datasets, and DOI records when available.
-- Apply the binding [`Evidence Classification Contract`](../contracts/evidence-classification.md) to material claims.
+- Apply the binding [`Evidence Classification Contract`](../../invariants/evidence-classification.md) to material claims.
 - Record publication date and platform/time context when behavior can change.
 - Distinguish peer-reviewed publications from preprints, benchmarks/datasets, surveys, practitioner observations, and platform claims.
 - Before advancing a record's review/verification date, check whether a work still labeled `preprint` has since received a peer-reviewed publication.
@@ -19,7 +19,7 @@ Agents handling research MUST preserve evidence quality, publication status, sco
 - Distinguish correlation, causal evidence, controlled experiment, observational evidence, practitioner case evidence, and platform claims.
 - Distinguish direct production-platform/search evidence from adjacent RAG, LLM-attribution, citation-methodology, or scientific-writing research.
 - Preserve negative, null, mixed, and contrary findings rather than selecting only evidence that supports an existing position.
-- Link research to contracts only when the relationship is real and documented.
+- Link research to invariants or local contracts only when the relationship is real and documented.
 
 ## Research discovery indexes
 
@@ -64,6 +64,6 @@ Agents MUST NOT:
 - alter canonical practitioner material to agree with research automatically;
 - fabricate citations, venues, DOI values, sample sizes, findings, or statistical significance.
 
-When research materially challenges a binding contract, report the conflict and use deliberate contract/change-control review rather than silently changing the rule.
+When research materially challenges a binding invariant, report the conflict and use deliberate invariant/change-control review rather than silently changing the rule.
 
-Material research changes that alter framework interpretation should update [`../../CHANGELOG.md`](../../CHANGELOG.md).
+Material research changes that alter framework interpretation should update [`../../../CHANGELOG.md`](../../../CHANGELOG.md).
