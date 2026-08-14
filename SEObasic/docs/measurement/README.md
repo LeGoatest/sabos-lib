@@ -1,153 +1,130 @@
 # SEObasic Measurement and Analytics
 
-> **Scope:** Search, ranking, visibility, traffic, conversion, local-search, authority, technical, geographic, answer/generative discovery, campaign, and cross-channel measurement.
+> **Role:** How outcomes are defined  
+> **Scope:** Search, ranking, visibility, traffic, conversion, local, authority/link, technical, geographic, answer/generative, campaign, and cross-surface measurement.  
+> **Parent:** [`../README.md`](../README.md)  
+> **Agent instructions:** [`AGENTS.md`](AGENTS.md)
 
 Measurement in SEObasic exists to make outcomes interpretable rather than merely collectible.
 
-A metric is useful only when its definition, source, scope, denominator, time window, attribution model, and limitations are clear enough that another person or implementation can reproduce or correctly interpret it.
+A metric is useful only when its definition, source, scope, denominator, time window, attribution model, sampling method, and limitations are clear enough that another person or implementation can reproduce or correctly interpret it.
 
-## Subject map
+## Binding semantics
 
-SEObasic measurement covers several distinct metric families.
-
-### Search-result terminology
-
-- Search engine results page (SERP)
-- Organic result
-- Local Pack / Map Pack
-- Rich result
-- Featured snippet
-
-### Ranking metrics
-
-- Keyword position
-- Average position
-- Ranking distribution
-- Geo-grid rank
-
-### Visibility metrics
-
-- Search visibility
-- Local visibility
-- Share of Voice
-- Competitor visibility
-
-### Traffic metrics
-
-- Impressions
-- Clicks
-- Click-through rate (CTR)
-- Organic traffic
-
-### Conversion metrics
-
-- Calls
-- Forms
-- Bookings
-- Conversion rate
-- Assisted conversions
-
-### Answer/generative discovery metrics
-
-- Answer presence
-- Citation presence
-- Citation count/rate
-- Unique cited pages
-- Platform-defined cited-page metrics
-- Grounding-query observations
-- Citation position/order when explicitly defined
-- Source selection/retrieval presence when observable
-- Citation absorption/source influence when a methodology defines it
-- Generative visibility scores with provider/formula preserved
-- AI/search impressions when supplied by the platform
-- AI referral traffic
-- AI-assisted/direct conversions
-- Brand/entity representation quality
-- Citation correctness/source support
-
-See [`ai-discovery.md`](ai-discovery.md).
-
-### Local-search metrics
-
-- Google Business Profile interactions
-- Direction requests
-- Calls
-- Reviews
-- Review velocity
-- Citation consistency
-
-### Authority/link metrics
-
-- Backlinks
-- Referring domains
-- Link equity
-- Third-party authority metrics such as DA/DR-style scores
-
-### Technical metrics
-
-- Indexing/indexability state
-- Crawlability
-- Core Web Vitals
-- Coverage/indexing diagnostics
-- Canonicalization consistency
-
-### Geographic measurement
-
-- Grid point
-- Scan radius
-- Centroid
-- Proximity
-- Geographic rank distribution
-- Coverage area
-
-## Measurement principle
-
-> **Do not use different metric names as if they describe the same thing. Define the measurement before interpreting the result.**
-
-Examples:
-
-- Ranking position is not search visibility.
-- Search visibility is not traffic.
-- Traffic is not conversion.
-- Conversion count is not conversion quality.
-- A third-party domain metric is not Google authority.
-- Geo-grid rank is not a single location-wide rank.
-- Platform-reported conversions are not automatically verified business outcomes.
-- AI citation is not classic organic rank.
-- Answer presence is not citation presence.
-- Citation count is not authority.
-- Retrieval is not necessarily visible attribution.
-- AI visibility is not referral traffic.
-
-## Contracts
-
-Binding measurement semantics are defined under [`contracts/`](contracts/README.md).
+Binding measurement semantics live under [`contracts/`](contracts/README.md).
 
 Current contract:
 
-- [`contracts/metric-semantics.md`](contracts/metric-semantics.md) — defines how SEObasic measurements must be named, scoped, sourced, and interpreted.
+- [`contracts/metric-semantics.md`](contracts/metric-semantics.md) — defines how SEObasic measurements must be named, scoped, sourced, compared, and interpreted.
 
-AI/answer/generative measurement guidance:
+## Core measurement families
 
-- [`ai-discovery.md`](ai-discovery.md) — provider-neutral and platform-specific definitions for AEO/GEO observations, citations, answer presence, retrieval/source selection, generative visibility, referrals and conversions.
+### Search-result and ranking
 
-## Glossary
+- SERP/result type
+- keyword/result position
+- average position
+- ranking distribution
+- geo-grid rank
 
-Detailed metric terminology lives in [`../glossaries/measurement-and-analytics.md`](../glossaries/measurement-and-analytics.md).
+### Visibility
 
-## Cross-domain relationships
+- search visibility
+- local visibility
+- share of voice
+- competitor visibility
 
-Measurement supports every SEObasic channel but does not replace channel-specific interpretation:
+### Traffic
 
-- Answer/generative discovery → [`../discovery/`](../discovery/README.md)
-- Technical SEO → [`../technical/`](../technical/README.md)
-- Websites → [`../websites/`](../websites/README.md)
-- Local search / GBP / maps → [`../local-search/`](../local-search/README.md)
-- Organic social → [`../social-media/`](../social-media/README.md)
-- Paid media / PPC → [`../paid-media/`](../paid-media/README.md)
-- YouTube → [`../youtube/`](../youtube/README.md)
-- Entity/link analysis → [`../entities/`](../entities/README.md)
+- impressions
+- clicks
+- CTR
+- sessions/users/pageviews where applicable
 
-A metric name may appear in more than one channel while requiring a different source, denominator, attribution model, or interpretation.
+### Conversion/business outcomes
+
+- calls
+- forms
+- bookings
+- purchases
+- conversion rate with explicit numerator/denominator
+- assisted conversions with attribution definition
+- revenue/business outcome where explicitly measured
+
+### Local
+
+- Google Business Profile interactions
+- direction requests
+- calls
+- reviews/review velocity
+- citation consistency
+- geo-grid/geographic observations
+
+### Authority/link
+
+- backlinks
+- referring domains
+- link equity under a named definition/model
+- third-party provider metrics such as DA/DR-style scores with provider identity preserved
+
+### Technical
+
+- indexability/indexing state
+- crawlability
+- Core Web Vitals
+- coverage/indexing diagnostics
+- canonicalization observations
+
+### Answer/generative discovery
+
+- answer presence
+- visible citation/reference presence
+- citation count/rate with explicit unit and denominator
+- unique cited pages/domains
+- platform-defined cited-page or grounding-query fields
+- citation position/order when explicitly defined
+- retrieval/source selection when directly observable or methodologically qualified
+- **experimental** citation-absorption/source-influence constructs with exact methodology retained
+- composite generative/AI visibility scores with provider/formula preserved
+- AI/search impressions when supplied by a platform
+- AI referral sessions
+- AI-assisted/direct conversions
+- representation quality
+- citation correctness/source support
+
+See [`generative-search/ai-discovery.md`](generative-search/ai-discovery.md).
+
+## Measurement principle
+
+> **Define the measurement before interpreting the result.**
+
+Examples:
+
+```text
+ranking position ≠ search visibility
+search visibility ≠ traffic
+traffic ≠ conversion
+conversion ≠ revenue unless defined that way
+third-party authority score ≠ Google authority
+geo-grid rank ≠ one location-wide rank
+AI citation ≠ classic organic rank
+answer presence ≠ citation presence
+retrieval ≠ visible citation
+citation count ≠ authority
+AI visibility ≠ referral traffic
+```
+
+## Cross-role routing
+
+Measurement is cross-surface. Route interpretation through the actual role involved:
+
+- evaluation context → [`../evaluation/`](../evaluation/README.md)
+- strategies → [`../strategies/`](../strategies/README.md)
+- owned-web/local/social/paid/YouTube/generative mechanics → [`../surfaces/`](../surfaces/README.md)
+- research/platform evidence → [`../evidence/`](../evidence/README.md)
+- binding cross-domain obligations → [`../invariants/`](../invariants/README.md)
+- metric terminology → [`../terminology/measurement-and-analytics.md`](../terminology/measurement-and-analytics.md)
+
+A metric name may appear on more than one surface while requiring a different provider, denominator, attribution model, sampling method, or interpretation.
 
 See [`AGENTS.md`](AGENTS.md) before automated measurement changes.
