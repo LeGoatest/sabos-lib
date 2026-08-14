@@ -1,458 +1,302 @@
-# WDBASIC v2 Governance, Design, and Framework Contract
+# WDBASIC v2.1 Governance, Design, and Framework Contract
 
 > **Status:** Binding  
 > **Canonical entry point:** `Wdbasic/README.md`  
-> **Framework version:** WDBASIC v2  
-> **Applies to:** public websites, landing pages, service and location pages, portals, dashboards, administrative interfaces, forms, authoring tools, hybrid and native shells, generated documents, and reusable server-rendered UI components.
+> **Framework version:** WDBASIC v2.1  
+> **Highest authority:** [`core-invariants.md`](core-invariants.md)
 
-WDBASIC v2 governs architecture, presentation, semantic tokens, accessibility, authoring, component behavior, cognitive clarity, forms, validation, security, conversion structure, content integrity, internationalization, media, privacy, responsive behavior, performance, search visibility, native and non-web output, organizational maturity, and standards evidence.
+WDBASIC v2.1 hardens the framework by separating universal invariants from diagnostic evaluation, content strategy, and implementation technology.
 
-## 1. Document map
+## 1. Framework model
 
 ```text
-Wdbasic/
-├── README.md
-├── AGENTS.md
-├── CHANGELOG.md
-├── STANDARDS.md
-├── architecture_rules.md
-├── engineering-validation.md
-├── cognitive-accessibility.md
-├── internationalization.md
-├── media-accessibility.md
-├── non-web-accessibility.md
-├── security-and-privacy.md
-├── sustainability.md
-├── positions/
-│   ├── README.md
-│   └── AGENTS.md
-├── forms/
-│   ├── README.md
-│   ├── AGENTS.md
-│   ├── validation.md
-│   └── security.md
-├── glossaries/
-│   ├── README.md
-│   ├── AGENTS.md
-│   └── security.md
-├── compliance/
-│   ├── AGENTS.md
-│   ├── accessibility-maturity.md
-│   ├── accessibility-statement-template.md
-│   ├── act-rule-template.md
-│   ├── browser-at-matrix.md
-│   ├── testing-methodology.md
-│   └── wcag-2.2-aa-matrix.md
-├── authoring/
-│   ├── AGENTS.md
-│   ├── atag-2.0.md
-│   └── accessible-output.md
-├── profiles/
-│   ├── AGENTS.md
-│   ├── field-service.md
-│   ├── professional-services.md
-│   └── custom-brand.md
-├── tokens/
-│   ├── AGENTS.md
-│   ├── semantic-colors.md
-│   ├── typography.md
-│   ├── spacing.md
-│   └── accessibility.md
-└── components/
-    ├── AGENTS.md
-    └── component-contracts.md
+WDBASIC
+│
+├── Core invariants
+│   ├── semantics
+│   ├── accessibility
+│   ├── security/privacy
+│   ├── truthful content
+│   ├── HTTP/URL integrity
+│   ├── resilience
+│   └── measurable evidence
+│
+├── Experience evaluation
+│   ├── discoverability
+│   ├── intent alignment
+│   ├── usability
+│   ├── trust
+│   ├── conversion
+│   └── performance
+│
+├── Content strategies
+│   ├── PAS when applicable
+│   ├── comparison
+│   ├── informational
+│   ├── transactional
+│   └── other intent models
+│
+└── Technology profiles
+    ├── HTMX / hypermedia
+    ├── SSR
+    ├── static
+    ├── JS application
+    ├── Tailwind / TCbasic
+    └── hybrid/native
 ```
 
-Local `AGENTS.md` files mark meaningful authority, contract, terminology, evidence, or implementation boundaries. They specialize the root WDBASIC instructions without weakening repository or WDBASIC invariants.
+## 2. Authority order
 
-## 2. Authority and conflict order
+Apply WDBASIC in this order:
 
-Apply the document set in this order:
+1. [`core-invariants.md`](core-invariants.md)
+2. [`architecture_rules.md`](architecture_rules.md)
+3. This framework contract
+4. [`STANDARDS.md`](STANDARDS.md)
+5. Applicable cross-cutting contracts
+6. Applicable content strategy
+7. Applicable technology profile
+8. Token/component contracts and active design profile
+9. Product-specific requirements/evidence
+10. Explicit owned exceptions
 
-1. [`architecture_rules.md`](architecture_rules.md)
-2. This README
-3. [`STANDARDS.md`](STANDARDS.md)
-4. Binding engineering-validation and cross-cutting contracts: [`engineering-validation.md`](engineering-validation.md), accessibility, cognitive accessibility, forms, validation, security, privacy, internationalization, media, non-web accessibility, and authoring
-5. Token contracts
-6. Component contracts
-7. Active design profile
-8. Product-specific requirements
-9. Explicit, owned, time-bounded exceptions
+External standards retain their own conformance language. A WDBASIC exception or preference cannot turn an external failure into a pass.
 
-A lower-level document may specialize but may not weaken architecture, accessibility, form security, validation integrity, security, privacy, truthful-content, semantic, progressive-enhancement, or evidence requirements.
+## 3. Core invariants are non-compensatory
 
-When requirements appear inconsistent, preserve the stricter requirement until the governing documents are corrected.
+WDBASIC does not average critical failures into an overall quality percentage.
 
-External standards retain their own conformance language. A WDBASIC exception cannot turn a failed external requirement into a pass.
+At minimum, resolve:
 
-The files under [`glossaries/`](glossaries/) are non-normative terminology references. They explain recurring terms but do not override or replace binding contracts.
+```text
+Semantics / critical interaction integrity   PASS | FAIL | UNKNOWN
+Accessibility                              PASS | FAIL | UNKNOWN
+Security                                   PASS | FAIL | UNKNOWN
+Privacy                                    PASS | FAIL | UNKNOWN
+Truthfulness                               PASS | FAIL | UNKNOWN
+HTTP/URL integrity (when applicable)       PASS | FAIL | UNKNOWN
+Required evidence                          PASS | FAIL | UNKNOWN
+```
 
-The files under [`positions/`](positions/README.md) preserve explicit practitioner preferences, rationale, tradeoffs, and intentional divergence from common practice. A practitioner position does not silently override a binding WDBASIC contract or external standard.
+A material failure or unresolved unknown cannot be cancelled by SEO, conversion, visual quality, trust, or performance elsewhere.
 
-## 3. Required reading order
+The former additive `D + P + X + T + A + C = 100` model is superseded for current WDBASIC evaluation.
 
-Before implementing or reviewing a governed surface:
+## 4. Architecture and state authority
 
-1. Read [`architecture_rules.md`](architecture_rules.md).
-2. Read this README.
-3. Read [`STANDARDS.md`](STANDARDS.md).
-4. Read [`engineering-validation.md`](engineering-validation.md) for implementation/change validation.
-5. Read [`AGENTS.md`](AGENTS.md) when automated tooling is involved.
-6. Read the nearest applicable local `AGENTS.md`.
-7. Read applicable cross-cutting contracts.
-8. Read [`forms/README.md`](forms/README.md), [`forms/validation.md`](forms/validation.md), and [`forms/security.md`](forms/security.md) when any input or state-changing action is involved.
-9. Read relevant token contracts.
-10. Read [`components/component-contracts.md`](components/component-contracts.md).
-11. Read one active design profile.
-12. Read applicable explicit practitioner positions under [`positions/`](positions/README.md) when they materially affect the implementation choice.
-13. Read [`../docs/TAILWIND_PATTERN.md`](../docs/TAILWIND_PATTERN.md).
-14. Consult [`glossaries/README.md`](glossaries/README.md) when terminology is unfamiliar or ambiguous.
-15. Read product-specific requirements, evidence, and exceptions.
+WDBASIC is strict about trusted state boundaries but neutral about rendering technology.
 
-Normative documents still expand acronyms on first use. A reader must not be required to open a glossary to understand a binding requirement.
+Authentication, authorization, privileged business rules, validation integrity, tenant/ownership decisions, trusted workflow state, and persistence execute in an appropriate trusted boundary.
 
-Applicability must be resolved explicitly. Do not omit form, cognitive, non-web, authoring, media, internationalization, security, privacy, or organizational-maturity review merely because the initial implementation is visually simple.
+Rendering/interaction may use:
 
-## 4. Framework priorities
+- HTMX/hypermedia;
+- server-side rendering;
+- static/pre-rendered output;
+- a JavaScript application;
+- hybrid/native shells;
+- mixed architectures.
 
-WDBASIC prioritizes:
+The chosen technology must satisfy [`core-invariants.md`](core-invariants.md) and its applicable profile.
 
-1. Semantic native HTML.
-2. Server-rendered content and reconstructable server state.
-3. Progressive enhancement.
-4. Accessible and secure form processing.
-5. Accessibility and user agency.
-6. Cognitive clarity and predictable workflows.
-7. Security and privacy.
-8. Search visibility.
-9. Performance and resilience.
-10. Conversion clarity.
-11. Reusable components.
-12. Truthful content and proof.
-13. Internationalization.
-14. Maintainable semantic styling.
-15. Accessible generated and non-web output.
-16. Auditable, versioned standards evidence.
-17. Repeatable organizational capability.
+## 5. Progressive enhancement
 
-## 5. Core architecture
+WDBASIC strongly prefers meaningful HTML, native controls, direct URLs, and recoverable baseline behavior where practical.
 
-Every public page must:
+However, v2.1 does not claim that every valid application must operate identically without JavaScript. A deliberate JavaScript-dependent experience is allowed when the selected profile documents accessibility, resilience, state authority, direct-load behavior, search/discoverability for public content, cache/offline behavior, and performance.
 
-- Render primary content as meaningful server-generated HTML.
-- Remain readable, navigable, and indexable without JavaScript.
-- Use crawlable links for primary navigation.
-- Use native controls and normal form submission as the baseline.
-- Return correct HTTP status codes.
-- Use direct-loadable URLs.
-- Preserve equivalent authorization, validation, labels, errors, security controls, and outcomes in enhanced and baseline paths.
+## 6. HTMX boundary
 
-HTMX is preferred for interaction the server can own. JavaScript is limited to local, ephemeral behavior and must not become the authority for routing, authentication, authorization, business state, validation, or primary public content.
+HTMX remains a preferred WDBASIC profile when server-owned hypermedia naturally fits the product. It is not a universal core requirement.
 
-See [`architecture_rules.md`](architecture_rules.md).
+When HTMX is active, follow [`technology-profiles/htmx-hypermedia.md`](technology-profiles/htmx-hypermedia.md), including:
 
-## 6. Accessibility target and WCAG claim status
+- cache-safe full-page/fragment variation;
+- `Vary: HX-Request` where appropriate;
+- direct-loadable history URLs;
+- history restore behavior;
+- `hx-history="false"` review for sensitive DOM;
+- CSP/script policy;
+- focus, announcement, and fragment-state behavior.
 
-WDBASIC is designed to support WCAG 2.2 Level AA.
+## 7. Styling boundary
 
-Use precise status language:
+WDBASIC core requires coherent, accessible, maintainable presentation semantics and state behavior; it does not require Tailwind CSS.
 
-- **Target:** The implementation is designed toward WCAG 2.2 Level AA but has not completed a formal evaluation.
-- **Evaluated conformant:** The declared web scope has passed every applicable Level A and AA success criterion and every WCAG conformance requirement.
-- **Evaluated non-conformant:** The declared scope has been evaluated but one or more applicable criteria, complete processes, claim requirements, or accessibility-supported technology conditions fail or remain unresolved.
-- **Statement of partial conformance — third-party content:** Used only under the defined uncontrolled-content conditions and explicitly states that the page does not conform.
-- **Statement of partial conformance — language support:** Used only under the defined lack-of-accessibility-support-for-language condition and explicitly states that the page does not conform.
+When Tailwind is adopted, use [`technology-profiles/tailwind-tcbasic.md`](technology-profiles/tailwind-tcbasic.md) and TCbasic/project-specific styling contracts.
 
-“Where practical,” “mostly accessible,” and a generic “partially conformant” status are not valid WCAG conformance qualifications.
+A WDBASIC/TCbasic preference must not be presented as Tailwind's universal authoring recommendation.
 
-Required evidence includes:
+## 8. Accessibility
 
-- [`compliance/wcag-2.2-aa-matrix.md`](compliance/wcag-2.2-aa-matrix.md)
-- [`compliance/testing-methodology.md`](compliance/testing-methodology.md)
-- [`compliance/browser-at-matrix.md`](compliance/browser-at-matrix.md)
-- Versioned ACT-compatible rules or equivalent documented manual procedures where reusable rules are claimed
-- A claim or statement following [`compliance/accessibility-statement-template.md`](compliance/accessibility-statement-template.md)
+WDBASIC targets WCAG 2.2 Level AA for applicable web scope and preserves WCAG's formal conformance model.
 
-## 7. Reproducible accessibility testing
+Use precise claim status from the compliance contracts. Do not represent automated tool output or a percentage score as proof of WCAG conformance.
 
-Reusable automated and manual rules follow [`compliance/act-rule-template.md`](compliance/act-rule-template.md).
+Cognitive accessibility, authoring tools, media, native/hybrid surfaces, and non-web output retain their own applicability and evidence requirements.
 
-Each durable result identifies:
+## 9. Security and privacy
 
-- Rule identifier and version.
-- Rule implementation and version.
-- Test subject and state.
-- Environment.
-- Outcome.
-- Evidence.
+Products follow [`security-and-privacy.md`](security-and-privacy.md), architecture security boundaries, and form-security contracts.
 
-`cantTell`, `untested`, manual-pending, blocked, and failed outcomes are unresolved and cannot be converted into passes for claim convenience.
+Security/privacy are gates rather than points.
 
-A passing rule does not prove a complete WCAG success criterion unless the rule explicitly covers every required condition.
+At minimum preserve:
 
-## 8. Semantic design system
-
-Implementations use semantic roles rather than scattered visual values.
-
-Required groups include:
-
-- Color, surface, and state.
-- Typography and measure.
-- Spacing and content width.
-- Control sizing.
-- Radius, border, elevation, and layers.
-- Focus and accessibility.
-- Form field, validation, pending, error, warning, and success states.
-- Motion where used.
-
-Components consume roles such as `action-primary`, `surface-muted`, `field-error`, and `text-secondary`, not page-, campaign-, trade-, or literal-color names.
-
-Binding token contracts are under [`tokens/`](tokens/).
-
-## 9. Tailwind CSS standards
-
-Tailwind CSS v4 is the primary styling mechanism for this repository.
-
-- Repeated utility combinations become semantic utilities or component classes.
-- Markup describes intent and structure.
-- The stylesheet owns reusable appearance and responsive behavior.
-- Repeated values become tokens or approved abstractions.
-- JavaScript must not assemble long Tailwind strings or own responsive styling.
-- Validation state classes must match native, ARIA, and server state.
-- Custom CSS is reserved for tokens, pseudo-elements, browser behavior, third-party integration, and documented exceptions.
-
-The repository pattern is defined in [`../docs/TAILWIND_PATTERN.md`](../docs/TAILWIND_PATTERN.md).
-
-## 10. Authoring tools and generated output
-
-A CMS, editor, builder, template system, importer, generator, or AI authoring feature must comply with:
-
-- [`authoring/atag-2.0.md`](authoring/atag-2.0.md)
-- [`authoring/accessible-output.md`](authoring/accessible-output.md)
-
-The authoring interface must be accessible, and the tool must support accessible output by default. Accessible editing alone is insufficient when generated pages or documents are inaccessible.
-
-Generated output must preserve semantics, accessibility metadata, language, direction, media equivalents, security policy, and format-specific accessibility requirements.
-
-Generated forms must also comply with the binding contracts under [`forms/`](forms/). Content authors may not define privileged processing routes, model properties, ownership fields, recipients, storage paths, or authorization decisions without explicit permission and a governed processing contract.
-
-## 11. Cognitive accessibility
-
-All products follow [`cognitive-accessibility.md`](cognitive-accessibility.md) where its requirements are applicable.
-
-Critical workflows must minimize unnecessary memory, attention, interpretation, and recovery burden. They use clear purpose, predictable behavior, consistent help, preserved context, plain instructions, understandable errors, and proportionate confirmation.
-
-These are binding WDBASIC requirements but are not represented as additional WCAG success criteria.
-
-## 12. Internationalization
-
-Products claiming localization support follow [`internationalization.md`](internationalization.md).
-
-They must preserve language, direction, locale formatting, Unicode input, translation expansion, logical layout, and bidirectional isolation across server rendering and fragment replacement.
-
-Validation separates canonical machine values from locale-aware display and input assistance. Internationalization must not become an excuse for accepting ambiguous or insecure server-side values.
-
-## 13. Media
-
-Audio, video, animation, carousels, and before-and-after content follow [`media-accessibility.md`](media-accessibility.md).
-
-Applicable captions, transcripts, audio description, controls, pause behavior, motion alternatives, and quality review are required.
-
-## 14. Forms, validation, and form security
-
-Every form workflow follows:
-
-- [`forms/README.md`](forms/README.md)
-- [`forms/validation.md`](forms/validation.md)
-- [`forms/security.md`](forms/security.md)
-
-The binding form model requires:
-
-- Native controls and normal server submission as the baseline.
-- Explicit form and field contracts.
-- Server-authoritative syntactic, semantic, cross-field, state, and business validation.
-- Accessible instructions, labels, errors, summaries, pending states, success, and recovery.
-- Explicit field allowlists and mapping; unrestricted mass assignment is prohibited.
-- Authentication and object-level authorization at submission time.
-- CSRF protection for cookie-authenticated state changes.
-- Parameterized queries, safe APIs, output encoding, and rich-content sanitization where applicable.
-- Request, field, file, nesting, and processing limits.
-- Duplicate-submission, replay, concurrency, and idempotency controls.
-- Rate limiting and accessible anti-abuse escalation.
-- Secure upload quarantine, validation, storage, serving, processing, retention, and cleanup.
-- Sensitive-data minimization, redaction, retention, and logging controls.
-- Full-page and HTMX security and validation equivalence.
-
-Client validation improves usability but is never a security boundary.
-
-## 15. Security and privacy
-
-Products follow both [`architecture_rules.md`](architecture_rules.md) and [`security-and-privacy.md`](security-and-privacy.md).
-
-Security requires a testable verification baseline, server-side authorization, controlled browser policy, safe third-party integration, secure form processing, and user-safe failure behavior.
-
-Privacy requires purpose limitation, data minimization, retention rules, user agency, third-party inventory, and prohibition of deceptive consent patterns.
-
-The categorized [`glossaries/security.md`](glossaries/security.md) reference distinguishes weaknesses, attacks, impacts, controls, testing methods, operational capabilities, and vulnerability identifiers. It is explanatory and does not replace the security contracts.
-
-## 16. Native, hybrid, and non-web output
-
-Native applications, Wails or other web-view shells, custom viewers, PDFs, EPUBs, office documents, and other exported formats follow [`non-web-accessibility.md`](non-web-accessibility.md).
-
-Web WCAG results, native-shell accessibility, and document-format accessibility must be scoped and reported separately.
-
-WCAG2ICT and UAAG may inform implementation, but their publication status and non-conformance role must be represented accurately. WCAG2Mobile may inform mobile evaluation only as draft guidance. A project must identify the actual platform, format, procurement, legal, or contractual baseline used for a non-web claim.
-
-Native and hybrid forms remain subject to equivalent request validation, authorization, CSRF or platform request-integrity controls, replay protection, secure storage, and error recovery.
-
-## 17. Components
-
-Major interface elements are reusable server-side components or fragments with:
-
-- Explicit inputs.
-- Semantic output.
-- Complete state variants.
-- Stable accessibility behavior.
-- Correct server and HTTP outcomes.
-- Defined HTMX swap, focus, history, announcement, validation, and fallback behavior.
-- Token-driven styling.
-- Versioning and deprecation rules when shared.
-- Accessibility-tree and platform exposure when native behavior, custom elements, or shadow DOM are involved.
-
-Form components additionally implement the field, error, security, custom-element, and testing requirements under [`forms/`](forms/).
-
-See [`components/component-contracts.md`](components/component-contracts.md).
-
-## 18. Conversion, trust, and content integrity
-
-Where conversion is a page objective, use an outcome-focused sequence with verified trust, clear services, evidence, process, eligibility, objection handling, and a final action.
+- trusted-boundary authorization/business validation;
+- explicit field allowlists;
+- safe structured queries/APIs;
+- contextual output encoding/sanitization;
+- CSRF/request-integrity controls where applicable;
+- upload validation and controlled serving;
+- least privilege;
+- secrets hygiene;
+- purpose limitation and data minimization;
+- third-party inventory and failure behavior;
+- accessible authentication/recovery;
+- explicit retention and logging rules.
+
+## 10. Forms
+
+All input, upload, authentication, or state-changing workflows follow [`forms/`](forms/README.md).
+
+Client validation improves usability but is not a security boundary. Normal and enhanced submission paths must preserve equivalent authorization, business validation, privacy, and persistence integrity.
+
+## 11. Truthful content and evidence
 
 Do not fabricate or imply unverified:
 
-- Reviews, ratings, awards, or certifications.
-- Licenses, insurance, guarantees, or warranties.
-- Customer logos.
-- Project counts, response times, success rates, or statistics.
-- Availability, pricing, urgency, accessibility, security, privacy, sustainability, or maturity claims.
+- reviews/ratings;
+- awards/certifications/licenses;
+- guarantees/warranties;
+- project counts/statistics;
+- pricing/availability;
+- response times;
+- service areas;
+- urgency/scarcity;
+- accessibility/security/privacy/sustainability/maturity claims.
 
-Templates hide unsupported proof or use explicit editable placeholders.
+Generated or AI-assisted content follows the same evidence rules.
 
-Forms must not use fake urgency, misleading defaults, hidden optional consent, deceptive error wording, or unnecessary fields to manipulate conversion.
+## 12. Experience evaluation
 
-## 19. Responsive and input resilience
+Current diagnostic evaluation lives in [`experience-evaluation.md`](experience-evaluation.md).
 
-Layouts preserve semantic source order and remain usable under:
+Evaluate independently:
 
-- Narrow width near `320px`.
-- Browser zoom and text resizing.
-- Increased text spacing.
-- Portrait and landscape orientation.
-- Keyboard, touch, coarse pointer, speech input, and platform controls where applicable.
-- Reduced motion and forced colors.
+- discoverability;
+- intent alignment;
+- usability;
+- trust;
+- conversion;
+- performance.
 
-Sticky content must not obscure focus, validation errors, instructions, or essential content.
+Report these as a profile/vector where possible rather than collapsing them into one compensatory score.
 
-## 20. Performance, search, and sustainability
+## 13. Content strategies
 
-Public pages provide semantic HTML, crawlable links, canonical URL behavior, metadata, structured-data locations, responsive media, explicit dimensions, minimal layout shift, and no essential text confined to images.
+Content strategy is intent-dependent and lives under [`content-strategies/`](content-strategies/README.md).
 
-Each project defines performance budgets. Form workflows additionally define request, upload, processing, queue, and third-party budgets sufficient to prevent resource exhaustion and unusable pending states.
+The hardened rule is:
 
-[`sustainability.md`](sustainability.md) is informative unless an adopting project makes named budgets binding.
+> **Relevance precedes or accompanies persuasion.**
 
-## 21. Accessibility maturity
+Valid pages may begin with:
 
-[`compliance/accessibility-maturity.md`](compliance/accessibility-maturity.md) governs organizational capability and continuous improvement.
+- a problem;
+- a solution/benefit;
+- a direct answer;
+- an offer/CTA;
+- comparison criteria;
+- another task-specific orientation.
 
-It evaluates communications, ICT development lifecycle, knowledge and skills, oversight and culture, personnel, procurement, and support using evidence-backed maturity levels.
+PAS is used only when problem/consequence framing genuinely helps the intended user.
 
-Maturity assessment is not product conformance. A mature organization may ship a non-conformant product, and one conformant release does not prove sustainable organizational capability.
+## 14. PAS boundary
 
-## 22. Design profiles
+The historical direct PAS equation, later `P(7)+A(5)+S(8)` rubric, and threat/efficacy exploration are preserved as research history, not current canonical metrics.
 
-Select one active profile:
+WDBASIC rejects a deterministic `Efficacy - Threat >= 0` marketing threshold.
 
-- [`profiles/field-service.md`](profiles/field-service.md)
-- [`profiles/professional-services.md`](profiles/professional-services.md)
-- [`profiles/custom-brand.md`](profiles/custom-brand.md)
+When PAS applies, agitation must remain factual, proportional, supportable, and subordinate to user agency.
 
-A profile may customize visual character but may not weaken core contracts, form validation, or form security.
+## 15. Semantic progression
 
-## 23. Required adoption record
+Regardless of content strategy, later sections should add new:
 
-```yaml
-wdbasic:
-  version: 2
-  source: LeGoatest/tailwindcss-semantic-layer
-  source_ref: <tag-or-commit>
-  active_profile: field-service | professional-services | custom-brand
-  standards_record: <path>
-  glossary_index: Wdbasic/glossaries/README.md
-  token_source: <path>
-  component_inventory: <path>
-  tailwind_entrypoint: <path>
-  form_inventory: <path>
-  form_schema_source: <path>
-  form_validation_policy: Wdbasic/forms/validation.md
-  form_security_policy: Wdbasic/forms/security.md
-  csrf_policy: <path>
-  request_limits: <path>
-  upload_policy: <path-or-none>
-  rate_limit_policy: <path>
-  idempotency_policy: <path>
-  wcag_target: "2.2 AA"
-  wcag_claim_status: target | evaluated-conformant | evaluated-nonconformant | partial-statement-third-party | partial-statement-language
-  wcag_claim: <path-or-none>
-  act_rules_format: "1.1"
-  act_ruleset: <path-or-none>
-  atag_applicable: true | false
-  cognitive_accessibility: applicable | limited | not-applicable-with-rationale
-  non_web_applicable: true | false
-  non_web_baselines: []
-  accessibility_maturity: <path-or-none>
-  security_baseline: <standard-version-and-level>
-  browser_at_matrix: <path>
-  validation_commands: []
-  security_test_commands: []
-  approved_exceptions: []
-```
+- evidence;
+- specificity;
+- context;
+- decision criteria;
+- user questions/answers;
+- examples;
+- task-stage value.
 
-Unpinned references such as “latest” are insufficient for reproducible governance.
+Repetition is not depth.
 
-## 24. WDBASIC conformance outcomes
+## 16. Performance
 
-Use:
+Performance is a measurable experience domain.
 
-- **WDBASIC conformant:** Applicable WDBASIC contracts pass.
-- **WDBASIC conformant with documented exception:** A narrow WDBASIC exception exists and does not misrepresent an external standard or claim.
-- **WDBASIC non-conformant:** Binding requirements fail or are bypassed without an approved exception.
+Where applicable, record:
 
-WDBASIC conformance and WCAG conformance are separate determinations. Accessibility maturity is also separate from both. A WDBASIC exception may coexist with WDBASIC conformance when governed, but it cannot preserve a WCAG claim if an applicable WCAG requirement fails.
+- field Core Web Vitals with source, period, and percentile;
+- lab tool/version/environment;
+- HTML/CSS/JS/image/third-party budgets;
+- layout stability;
+- interaction latency;
+- client/hydration cost;
+- external dependency failure/recovery.
 
-A project is not WDBASIC-conformant merely because it uses Tailwind, HTMX, semantic classes, browser validation, a security acronym, or a profile palette.
+Do not present good Core Web Vitals as a ranking guarantee or assume a rendering strategy is automatically faster without evidence.
 
-## 25. Core review checklist
+## 17. Search/discoverability
 
-- Is primary public content server-rendered and usable without JavaScript?
-- Are URLs, status codes, authorization, validation, and fallback behavior correct?
-- Does every form have an inventory entry, purpose, field allowlist, validation contract, security contract, and evidence owner?
-- Are client and server validation aligned while the server remains authoritative?
-- Are malformed requests, validation errors, conflicts, authorization failures, CSRF failures, rate limits, and unexpected errors distinguished correctly?
-- Are object ownership, tenant boundaries, protected fields, mass assignment, injection, output encoding, and redirects secured?
-- Are uploads constrained, verified, quarantined, stored, served, processed, and cleaned up securely?
-- Are duplicate submission, replay, idempotency, concurrency, and stale forms handled?
-- Are sensitive form values excluded from URLs, analytics, logs, source maps, and unsafe redisplay?
-- Are semantic tokens and shared components used consistently?
-- Are all applicable WCAG A and AA criteria mapped, tested, and evidenced?
-- Are full pages, responsive variations, forms, and complete processes tested?
-- Are ACT rules or equivalent manual procedures identified and versioned?
-- Is the declared browser and assistive-technology support recorded?
-- Are authoring interfaces and generated output covered when applicable?
-- Are cognitive clarity, language, direction, media equivalents, security, privacy, and third-party behavior documented?
-- Are native shells and non-web formats evaluated under separate applicable baselines?
-- Is any maturity claim scoped, dimension-specific, evidence-backed, and distinct from product conformance?
-- Are acronyms expanded on first use, ambiguous terms qualified, and deprecated terminology marked?
-- Is proof factual?
-- Is the active profile and WDBASIC revision pinned?
-- Are exceptions explicit, owned, narrow, and reviewable?
-- Is any WCAG claim complete, accurately scoped, and free of unresolved failures?
+Public content must intentionally document crawlability/indexability for target search engines, canonical behavior, status codes, direct-load behavior, useful content, and rendering limitations.
+
+WDBASIC may prefer server or pre-rendered public content for resilience, performance, crawler interoperability, and predictable failure behavior. v2.1 does **not** claim that Google universally requires JavaScript-free content.
+
+## 18. Authoring, media, internationalization, native/non-web
+
+Use the existing subject contracts for:
+
+- authoring tools and accessible output;
+- media accessibility;
+- cognitive accessibility;
+- internationalization;
+- hybrid/native accessibility;
+- generated/non-web documents.
+
+Do not collapse web, native, and document-format conformance scopes.
+
+## 19. Profiles and exceptions
+
+Technology/design profiles may specialize implementation choices but may not weaken core invariants or external standards.
+
+Exceptions require:
+
+- stable ID;
+- rule bypassed;
+- reason/scope;
+- impact;
+- fallback;
+- owner;
+- review/expiration condition;
+- remediation path.
+
+An exception cannot create false evidence or turn untrusted client state into a trusted security boundary.
+
+## 20. Research and correction history
+
+WDBASIC intentionally preserves findings that were later rejected or refined so future agents can distinguish evolution from regression.
+
+See:
+
+- [`positions/research-findings-2026-08-14.md`](positions/research-findings-2026-08-14.md)
+- [`positions/adversarial-audit-2026-08-14.md`](positions/adversarial-audit-2026-08-14.md)
+- [`positions/wdbasic-evaluation-model.md`](positions/wdbasic-evaluation-model.md)
+- [`positions/pas-content-architecture.md`](positions/pas-content-architecture.md)
+
+## 21. Governing doctrine
+
+> **Be strict about outcomes, evidence, truth, access, integrity, and recovery; be flexible about implementation technology and persuasion sequence when multiple valid approaches satisfy the invariants.**
