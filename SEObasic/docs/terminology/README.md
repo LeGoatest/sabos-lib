@@ -1,25 +1,33 @@
-# SEObasic Glossaries
+# SEObasic Terminology
 
 > **Status:** Informative terminology registry  
-> **Purpose:** Define recurring SEO, marketing, measurement, local-search, paid-media, social-media, website, entity, and YouTube terms without forcing every binding document to re-explain established vocabulary.
+> **Role:** What words mean  
+> **Parent:** [`../README.md`](../README.md)  
+> **Agent instructions:** [`AGENTS.md`](AGENTS.md)
 
-Glossaries clarify terminology. They do not override contracts, canonical philosophies, standards, or platform definitions.
+Terminology clarifies recurring SEO, marketing, measurement, local, paid, social, website, entity, AEO/GEO, and YouTube language without forcing every document to redefine established vocabulary.
 
-## Current glossaries
+Terminology does **not** create evidence or requirements by itself. It cannot override invariants, canonical practitioner philosophies, platform-owned definitions, formal specifications, or measurement contracts.
+
+## Current terminology files
 
 - [`seo-and-marketing.md`](seo-and-marketing.md) — cross-domain SEO/marketing terminology and disambiguation.
-- [`measurement-and-analytics.md`](measurement-and-analytics.md) — search-result, ranking, visibility, traffic, conversion, local-search, authority/link, technical, and geographic measurement vocabulary.
+- [`measurement-and-analytics.md`](measurement-and-analytics.md) — search-result, ranking, visibility, traffic, conversion, local, authority/link, technical, geographic, and answer/generative measurement vocabulary.
 
 ## Measurement relationship
 
-The measurement glossary explains recurring terms. Binding semantic requirements for stored/reported metrics live in [`../measurement/contracts/metric-semantics.md`](../measurement/contracts/metric-semantics.md).
+Terminology explains recurring language. Binding semantic requirements for stored/reported metrics live in [`../measurement/contracts/metric-semantics.md`](../measurement/contracts/metric-semantics.md).
 
-This distinction prevents glossary shorthand from weakening the measurement contract.
+This distinction prevents shorthand from weakening the measurement contract.
 
-Future subject-specific glossaries may be split out as the framework grows, for example local search, paid media, structured data, social media, and YouTube.
+## Evidence relationship
+
+A definition can identify that a term is platform-specific, overloaded, historical, informal, or provider-defined, but the evidence supporting behavioral claims belongs under [`../evidence/`](../evidence/README.md) and is governed by [`../invariants/evidence-classification.md`](../invariants/evidence-classification.md).
 
 ## Usage rule
 
-Binding documents should still expand ambiguous acronyms on first use when practical. A reader should not have to open a glossary to understand a critical requirement.
+Binding documents should still expand ambiguous acronyms on first use when practical. A reader should not have to open terminology documentation to understand a critical requirement.
 
-See [`AGENTS.md`](AGENTS.md).
+Future subject-specific terminology files may be split out when the knowledge volume justifies it. Do not create them merely for structural symmetry.
+
+> **Define language precisely; do not manufacture authority from a definition.**
