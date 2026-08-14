@@ -4,7 +4,7 @@
 > **Scope:** AEO/GEO visibility, citations, answer presence, source selection, referrals and conversions across answer/generative search systems  
 > **Last reviewed:** 2026-08-14
 
-Read [`contracts/metric-semantics.md`](contracts/metric-semantics.md) before using these measurements in a report, tool or optimization claim.
+Read [`contracts/metric-semantics.md`](contracts/metric-semantics.md) before using these measurements in a report, tool or optimization claim. Research/platform claims are also governed by [`../contracts/evidence-classification.md`](../contracts/evidence-classification.md).
 
 ## Core rule
 
@@ -13,6 +13,8 @@ Read [`contracts/metric-semantics.md`](contracts/metric-semantics.md) before usi
 Generative systems may retrieve several sources, cite only some of them, synthesize information without exposing full retrieval state, reorder sources, vary responses between runs, and produce conversational follow-ups. Measurement therefore requires explicit definitions.
 
 ## Measurement layers
+
+The binding semantic separation is defined in the Metric Semantics Contract:
 
 ```text
 eligibility/access
@@ -23,12 +25,16 @@ visible citation/reference
       ↓
 answer contribution / influence
       ↓
+referral opportunity
+      ↓
 referral traffic
       ↓
-conversion / business outcome
+conversion
+      ↓
+business outcome / revenue
 ```
 
-Each layer is distinct.
+These are semantic layers, not a claim that every platform implements a literal linear pipeline or exposes each stage.
 
 ## Answer presence
 
@@ -60,6 +66,7 @@ Citation presence does not prove:
 - that every answer claim came from the cited source;
 - that the source was the highest-ranked retrieval result;
 - that the platform considers the source universally authoritative;
+- that the citation is factually correct or supports every associated claim;
 - that the citation will reproduce on another run.
 
 ## Citation count
@@ -141,18 +148,23 @@ true | false | unknown
 
 Do not infer retrieval solely from answer similarity unless the methodology explicitly defines that inference and its limitations.
 
-## Citation absorption / source influence
+## Citation absorption / source influence — experimental research construct
 
-**Definition:** Research-oriented concept describing how much a selected/cited source materially contributes facts, language, evidence, definitions, comparisons or procedural content to the generated answer.
+**Evidence status:** **Emerging research construct; not a standardized platform metric and not a universal provider-neutral measurement.**
 
-This is not currently a universal platform metric.
+Some research proposes separating visible citation selection from the degree to which a selected/cited source materially contributes facts, language, evidence, definitions, comparisons or procedural content to a generated answer.
 
 Research example:
 
 - Zhang, He, Yao (2026), *From Citation Selection to Citation Absorption: A Measurement Framework for Generative Engine Optimization Across AI Search Platforms*  
   https://arxiv.org/abs/2604.25707
 
-When using an influence/absorption score, preserve the paper/tool's exact methodology rather than turning it into a generic percentage.
+SEObasic rule:
+
+- use `citation absorption`, `source influence`, or a similar construct only when the exact research/tool methodology is preserved;
+- do not create a generic provider-neutral “citation absorption percentage”;
+- do not imply that Google, Bing, ChatGPT, Perplexity, or another commercial system exposes this as a first-party metric unless that platform actually documents one;
+- classify conclusions from such work as research evidence, not direct production-platform ranking evidence.
 
 ## Generative visibility score
 
@@ -272,12 +284,25 @@ If converted into a score, document the rubric. Do not call it “rank.”
 
 Research on generative search distinguishes whether a citation exists from whether it actually supports the associated claim.
 
-Relevant primary research:
+### Direct generative-search evidence
 
-- Liu, Zhang, Liang (2023), *Evaluating Verifiability in Generative Search Engines*  
-  https://arxiv.org/abs/2304.09848
+- Liu, Zhang, Liang (2023), *Evaluating Verifiability in Generative Search Engines* — **peer-reviewed, Findings of EMNLP 2023**, DOI `10.18653/v1/2023.findings-emnlp.467`  
+  https://aclanthology.org/2023.findings-emnlp.467/
+
+This paper directly audits generative-search systems with inline citations and supports the SEObasic distinction:
+
+```text
+visible citation ≠ factual support
+```
+
+Its measured citation-support rates are historical experimental findings from the tested systems, not current universal platform quality rates.
+
+### Adjacent citation-attribution methodology
+
 - Choi et al. (ACL 2026), *CiteGuard: Faithful Citation Attribution for LLMs via Retrieval-Augmented Validation*  
   https://aclanthology.org/2026.acl-long.282/
+
+CiteGuard is useful evidence that citation-attribution quality is measurable, but it is **adjacent methodology rather than direct evidence about publisher inclusion/ranking in Google, ChatGPT Search, Bing/Copilot, or Perplexity**.
 
 A publisher visibility report should not assume that a visible citation is semantically correct without evaluation.
 
@@ -318,6 +343,7 @@ answer presence ≠ citation
 citation count ≠ authority
 retrieval ≠ visible citation
 citation ≠ factual support
+experimental source influence ≠ standardized platform metric
 AI visibility ≠ referral traffic
 referral traffic ≠ conversion
 conversion ≠ revenue unless defined
@@ -325,4 +351,4 @@ conversion ≠ revenue unless defined
 
 ## Governing rule
 
-> **Define the AI-discovery observation first, preserve the platform and denominator, then interpret the result.**
+> **Define the AI-discovery observation first, preserve the platform, evidence class, denominator and methodology, then interpret the result.**
