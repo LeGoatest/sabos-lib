@@ -6,7 +6,7 @@
 
 SEObasic is SABOS Lib's governed body of practitioner knowledge for search, discovery, Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), content, local visibility, digital channels, measurement, and related marketing evidence. It is not a generic SEO checklist.
 
-SEObasic preserves practitioner experience, explicit positions, contracts, industry practice, platform/vendor guidance, formal standards, research evidence, historical references, examples, terminology, and metric semantics **without pretending those sources have equal authority**.
+SEObasic now organizes long-form knowledge primarily by **the role that knowledge plays**, rather than by whichever SEO/marketing channel happened to produce it.
 
 ## Structure
 
@@ -19,174 +19,120 @@ SEObasic/
 ├── docs/
 │   ├── README.md
 │   ├── AGENTS.md
-│   ├── contracts/
-│   ├── positions/
-│   ├── content/
-│   ├── websites/
-│   ├── discovery/
-│   ├── technical/
-│   ├── entities/
-│   ├── local-search/
-│   ├── social-media/
-│   ├── paid-media/
-│   ├── youtube/
+│   ├── invariants/
+│   ├── evaluation/
+│   ├── strategies/
+│   ├── surfaces/
+│   ├── evidence/
 │   ├── measurement/
-│   ├── research/
-│   ├── standards/
-│   ├── references/
-│   └── glossaries/
+│   └── terminology/
 │
 └── examples/
 ```
 
-`examples/` remains outside `docs/` because examples are illustrative artifacts rather than knowledge authority by existence alone.
-
-A future `playbooks/` artifact root may be added when SEObasic has real reusable operational playbooks. Do not create empty playbook structure merely for symmetry.
-
-## Knowledge model
+The governing taxonomy is:
 
 ```text
-practitioner experience + historical lessons
-                +
-industry practice + platform/vendor guidance
-                +
-formal standards + research evidence
-                ↓
-       documented understanding
-                ↓
-     explicit practitioner positions
-                ↓
-          binding contracts
-                ↓
- channel / implementation / campaign practice
-                ↓
- measurement + validation + outcomes
-                ↓
-         additional knowledge
+what must remain true       → docs/invariants/
+what we evaluate            → docs/evaluation/
+what we deliberately do     → docs/strategies/
+where behavior varies       → docs/surfaces/
+why we believe something    → docs/evidence/
+how outcomes are defined    → docs/measurement/
+what words mean             → docs/terminology/
 ```
 
-A common industry practice does not automatically override an explicit practitioner position. A platform recommendation is authoritative only within its actual scope. Research does not automatically become a contract. Examples do not become requirements merely because they exist.
+This is not a hierarchy of prestige. Moving a document does not automatically change its authority.
 
-## Domain map
+## Start here
 
-| Domain | Start here |
+| Role | Start here |
 | --- | --- |
-| Cross-domain contracts | [`docs/contracts/README.md`](docs/contracts/README.md) |
-| Practitioner positions | [`docs/positions/README.md`](docs/positions/README.md) |
-| Content / T.E.S.T.I.N.G. | [`docs/content/README.md`](docs/content/README.md) |
-| Websites | [`docs/websites/README.md`](docs/websites/README.md) |
-| AEO / GEO / generative discovery | [`docs/discovery/README.md`](docs/discovery/README.md) |
-| Technical SEO | [`docs/technical/README.md`](docs/technical/README.md) |
-| Entities/internal linking | [`docs/entities/README.md`](docs/entities/README.md) |
-| Local search / GBP / Maps | [`docs/local-search/README.md`](docs/local-search/README.md) |
-| Organic social media | [`docs/social-media/README.md`](docs/social-media/README.md) |
-| Paid media / PPC | [`docs/paid-media/README.md`](docs/paid-media/README.md) |
-| YouTube | [`docs/youtube/README.md`](docs/youtube/README.md) |
-| Measurement/analytics | [`docs/measurement/README.md`](docs/measurement/README.md) |
-| Research | [`docs/research/README.md`](docs/research/README.md) |
-| Standards/platform guidance | [`docs/standards/README.md`](docs/standards/README.md) |
-| Historical/source references | [`docs/references/README.md`](docs/references/README.md) |
-| Terminology | [`docs/glossaries/README.md`](docs/glossaries/README.md) |
+| Binding cross-domain invariants | [`docs/invariants/README.md`](docs/invariants/README.md) |
+| Evaluation dimensions | [`docs/evaluation/README.md`](docs/evaluation/README.md) |
+| Content/discovery strategies | [`docs/strategies/README.md`](docs/strategies/README.md) |
+| Platform/channel surfaces | [`docs/surfaces/README.md`](docs/surfaces/README.md) |
+| Research/platform/practitioner/historical evidence | [`docs/evidence/README.md`](docs/evidence/README.md) |
+| Measurement/analytics semantics | [`docs/measurement/README.md`](docs/measurement/README.md) |
+| Terminology/disambiguation | [`docs/terminology/README.md`](docs/terminology/README.md) |
 | Illustrative examples | [`examples/README.md`](examples/README.md) |
+
+## Knowledge flow
+
+```text
+invariants
+    ↓
+evaluation
+    ↓
+strategy
+    ↓
+surface application
+    ↓
+measurement
+    ↓
+evidence + outcomes
+    ↓
+retain / revise / falsify
+```
+
+Evidence surrounds the whole cycle. A platform recommendation is authoritative only within its actual scope. Research does not automatically become an invariant. A practitioner position does not become a platform guarantee. An example does not become a contract merely because it exists.
 
 ## AEO and GEO
 
-SEObasic treats **AEO** and **GEO** as useful scoped terms, not replacements for SEO and not universal ranking systems.
+SEObasic treats AEO and GEO as useful scoped terms, not replacements for SEO and not universal ranking systems.
 
-- [`docs/discovery/answer-engine-optimization.md`](docs/discovery/answer-engine-optimization.md) defines AEO around answer-oriented discoverability and representation.
-- [`docs/discovery/generative-engine-optimization.md`](docs/discovery/generative-engine-optimization.md) defines GEO around generative source selection, citation, representation and **experimental source-influence research constructs**.
-- [`docs/technical/ai-discovery-controls.md`](docs/technical/ai-discovery-controls.md) owns crawler/access controls.
-- [`docs/measurement/ai-discovery.md`](docs/measurement/ai-discovery.md) owns answer/citation/referral measurement semantics.
-- [`docs/standards/ai-search-platform-guidance.md`](docs/standards/ai-search-platform-guidance.md) preserves current Google, Bing/Microsoft, OpenAI, Perplexity and protocol guidance.
-- [`docs/research/answer-generative-discovery.md`](docs/research/answer-generative-discovery.md) preserves academic evidence, benchmarks and research-discovery indexes including Google Scholar.
+They intentionally span several roles:
 
-Current Google Search guidance explicitly acknowledges AEO/GEO terminology but states that optimizing for Google's generative Search features remains SEO. SEObasic preserves that platform-specific position without generalizing it to every answer/generative platform.
+- strategy → [`docs/strategies/answer-discovery/`](docs/strategies/answer-discovery/README.md)
+- generative/search crawler and access mechanics → [`docs/surfaces/generative-search/`](docs/surfaces/generative-search/README.md)
+- current platform-owner guidance → [`docs/evidence/platform-guidance/ai-search-platform-guidance.md`](docs/evidence/platform-guidance/ai-search-platform-guidance.md)
+- academic/experimental evidence → [`docs/evidence/research/answer-generative-discovery.md`](docs/evidence/research/answer-generative-discovery.md)
+- answer/citation/referral measurement → [`docs/measurement/generative-search/ai-discovery.md`](docs/measurement/generative-search/ai-discovery.md)
+- claim provenance and generalization limits → [`docs/invariants/evidence-classification.md`](docs/invariants/evidence-classification.md)
 
-## Binding cross-domain contracts
+This preserves the distinctions established by the adversarial evidence audit: access, retrieval, citation, answer influence, referral, conversion, and business outcomes are not interchangeable.
 
-Current cross-domain contracts include:
+## Binding invariants
 
-- [`Truth and Evidence Contract`](docs/contracts/truth-and-evidence.md) — material claims and signals must remain truthful and supported.
-- [`Channel Boundaries Contract`](docs/contracts/channel-boundaries.md) — source material may be reused across channels without pretending their mechanics, policies, conversion roles, or metrics are interchangeable.
-- [`Evidence Classification Contract`](docs/contracts/evidence-classification.md) — material claims must preserve their evidence class, consumer/platform scope, publication status, freshness context, and limits on generalization where applicable.
+Current cross-domain invariants include:
 
-Measurement-specific binding semantics live under [`docs/measurement/contracts/`](docs/measurement/contracts/README.md).
+- [`Truth and Evidence`](docs/invariants/truth-and-evidence.md)
+- [`Channel Boundaries`](docs/invariants/channel-boundaries.md)
+- [`Evidence Classification`](docs/invariants/evidence-classification.md)
 
-## Evidence classification
+Measurement-specific binding semantics remain under [`docs/measurement/contracts/`](docs/measurement/contracts/README.md).
 
-SEObasic is designed to be corrected when stronger evidence shows that a current claim is wrong, overbroad, outdated, or less mature than previously documented.
-
-The binding [`Evidence Classification Contract`](docs/contracts/evidence-classification.md) distinguishes claims such as:
-
-- formal standards;
-- platform policy/guidance;
-- peer-reviewed research;
-- preprints;
-- benchmarks/datasets;
-- practitioner positions and observations;
-- inference/hypothesis;
-- historical references.
-
-Platform behavior must retain the consumer, surface, purpose, source, and review context when material. Research records must retain publication status and limitations. A preprint must be checked for a later peer-reviewed publication before its verification date is advanced.
-
-Core rule:
-
-> **A claim may be useful without being universal, and SEObasic must narrow or correct it when stronger evidence warrants.**
+SEObasic is deliberately designed to be corrected when stronger evidence shows that a current claim is wrong, overbroad, outdated, or less mature than previously documented.
 
 ## Canonical T.E.S.T.I.N.G. philosophy
 
-The authoritative T.E.S.T.I.N.G. philosophy remains under [`docs/content/testing-philosophy.md`](docs/content/testing-philosophy.md):
+The authoritative T.E.S.T.I.N.G. philosophy now lives at [`docs/strategies/content/testing-philosophy.md`](docs/strategies/content/testing-philosophy.md). Its canonical wording remains unchanged.
 
-- **T — Talk about the drive behind the passion**
-- **E — Engage the audience**
-- **S — Share updates of success and failures**
-- **T — Take time out to talk about others**
-- **I — Investigate new ideas publicly**
-- **N — Network responsibly**
-- **G — Gather content regularly**
-
-Its exact canonical wording is preserved in the philosophy document and the verbatim source excerpt under [`docs/references/source-excerpts/2026-08-09-testing-method.md`](docs/references/source-excerpts/2026-08-09-testing-method.md).
-
-[`docs/content/testing-method.md`](docs/content/testing-method.md) provides application guidance without redefining the philosophy. The method is holistic and must not be reduced to a mandatory one-letter-per-post rotation.
+Application guidance lives at [`docs/strategies/content/testing-method.md`](docs/strategies/content/testing-method.md), while the preserved historical source excerpt lives under [`docs/evidence/historical-references/source-excerpts/2026-08-09-testing-method.md`](docs/evidence/historical-references/source-excerpts/2026-08-09-testing-method.md).
 
 ## Measurement semantics
 
-Measurement is a first-class SEObasic domain rather than loose SEO jargon.
+The binding [`Metric Semantics Contract`](docs/measurement/contracts/metric-semantics.md) separates concepts including rank, visibility, traffic, conversion, local interaction, authority/link metrics, geographic observations, and answer/generative discovery stages.
 
-The binding [`Metric Semantics Contract`](docs/measurement/contracts/metric-semantics.md) separates and governs concepts including:
-
-- search-result state;
-- ranking;
-- visibility;
-- traffic;
-- conversion;
-- local-search interaction;
-- authority/link metrics;
-- technical metrics;
-- geographic/geo-grid measurement;
-- answer/generative discovery stages and outcomes.
-
-[`docs/measurement/ai-discovery.md`](docs/measurement/ai-discovery.md) extends that discipline to answer/generative observations such as answer presence, citation presence/rate/count, cited pages, grounding-query fields, source selection, **experimental source-influence/citation-absorption constructs**, AI referral traffic and AI-assisted conversions.
+Generative measurement lives at [`docs/measurement/generative-search/ai-discovery.md`](docs/measurement/generative-search/ai-discovery.md).
 
 Core rule:
 
 > **Define the measurement before interpreting the result.**
 
-Rank, visibility, traffic, conversion, authority, geo-grid observations, citations and answer presence must not be treated as interchangeable. Provider-specific metrics and experimental research constructs must retain their provider/methodology definitions and context.
+See [`docs/terminology/measurement-and-analytics.md`](docs/terminology/measurement-and-analytics.md).
 
-See [`docs/glossaries/measurement-and-analytics.md`](docs/glossaries/measurement-and-analytics.md).
+## Surface boundary
 
-## Channel boundary
+Owned web, generative/answer search, local/maps, organic social, paid media, and YouTube may share a strategy while retaining different mechanics, policies, audiences, attribution, and measurement definitions.
 
-Websites, answer/generative discovery, local search/GBP/Maps, organic social, paid media, and YouTube may support one strategy while retaining different platform mechanics, audiences, evidence, conversion roles, attribution, and metric semantics.
-
-Reuse of source material does not erase those differences.
+> **Strategies may travel across surfaces; mechanics do not travel automatically.**
 
 ## Relationship to WDBASIC
 
 SEObasic complements [`../Wdbasic/`](../Wdbasic/) rather than replacing it.
 
-WDBASIC governs framework-independent web architecture, accessibility, security, semantics, progressive enhancement, forms, and implementation behavior. SEObasic governs discovery/content/channel/measurement knowledge and related evidence/contracts.
+WDBASIC governs framework-independent web architecture, accessibility, security, semantics, progressive enhancement, forms, and implementation behavior. SEObasic governs search/discovery strategy, channel/surface behavior, evidence, and measurement semantics.
 
 ## Integrity and regression protection
 
@@ -194,40 +140,20 @@ SEObasic work must not:
 
 - fabricate reviews, locations, customers, credentials, performance, rankings, citations, partnerships, awards, or campaign evidence;
 - rewrite canonical practitioner philosophy to fit a platform;
-- erase an explicit practitioner position merely because a common industry/vendor convention differs;
-- silently change metric definitions, denominators, attribution, sampling, geographic scope, or provider methodology;
-- present correlation or platform folklore as guaranteed causation;
-- turn one vendor's recommendation, one GEO benchmark, controlled RAG experiment, or proprietary score into universal law;
-- present AEO/GEO as proof of special AI ranking factors without evidence;
+- erase an explicit practitioner position merely because common practice differs;
+- silently change metric definitions, denominators, attribution, sampling, geography, or provider methodology;
+- present correlation or folklore as guaranteed causation;
+- turn one vendor recommendation, GEO benchmark, controlled RAG experiment, crawler rule, or proprietary score into universal law;
 - use an example as a hidden normative contract.
 
-Software regression testing remains an engineering concern; it is not a second meaning of the T.E.S.T.I.N.G. acronym.
+## Artifact boundary
 
-## Adoption record
+`examples/` remains outside `docs/` because examples are illustrative artifacts rather than authority by existence alone.
 
-Where reproducibility matters, an adopting project may record:
-
-```yaml
-seobasic:
-  source: LeGoatest/sabos-lib
-  source_ref: <commit-or-tag>
-  domains:
-    - websites
-    - discovery
-    - technical
-    - local-search
-    - measurement
-  contracts:
-    - truth-and-evidence
-    - channel-boundaries
-    - evidence-classification
-    - measurement/metric-semantics
-```
-
-An adopter does not need to use every SEObasic domain.
+A future `playbooks/` root may be added when real reusable operational playbooks exist. Do not create empty structure merely for symmetry.
 
 ## Ongoing development
 
-SEObasic is intentionally incomplete. Add knowledge when there is a real lesson, evidence source, standard, practitioner position, contract, metric definition, example, or meaningful subject boundary to preserve.
+SEObasic is intentionally incomplete. Add knowledge when there is a real lesson, evidence source, standard, practitioner position, invariant, metric definition, example, or meaningful subject boundary to preserve.
 
-The objective is durable professional knowledge, not quickly filling every possible directory.
+> **Preserve invariants, evaluate explicitly, choose a strategy, apply it to a named surface, measure with defined semantics, and let evidence revise the system.**
