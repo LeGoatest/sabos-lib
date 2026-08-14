@@ -1,10 +1,10 @@
 # WDBASIC Security and Privacy Contract
 
 > **Authority:** Binding interface security and privacy contract  
-> **Core entry point:** [`README.md`](README.md)  
-> **Architecture dependency:** [`architecture_rules.md`](architecture_rules.md)  
-> **Accessibility dependency:** [`tokens/accessibility.md`](tokens/accessibility.md)  
-> **Form security dependency:** [`forms/security.md`](forms/security.md)
+> **Core domain:** [`../README.md`](../README.md)  
+> **Architecture dependency:** [`../http-url-integrity/architecture-rules.md`](../http-url-integrity/architecture-rules.md)  
+> **Accessibility dependency:** [`../semantics/tokens/accessibility.md`](../semantics/tokens/accessibility.md)  
+> **Form security dependency:** [`../semantics/forms/security.md`](../semantics/forms/security.md)
 
 This contract supplements server-side application security with browser policy, privacy, consent, telemetry, third-party, device, anti-abuse, form, and user-agency requirements.
 
@@ -16,7 +16,7 @@ The OWASP Top 10 may inform risk awareness but does not replace verification req
 
 Security controls remain within accessibility and cognitive-accessibility scope. A control that prevents legitimate disabled users from authenticating, recovering, or submitting is not acceptable merely because it reduces abuse.
 
-Form-specific security requirements are binding through [`forms/security.md`](forms/security.md).
+Form-specific security requirements are binding through [`../semantics/forms/security.md`](../semantics/forms/security.md).
 
 ## 2. Browser security policy
 
@@ -139,15 +139,15 @@ Before requesting permission:
 
 Permission denial must not leave the user in an empty, unlabeled, or unrecoverable state.
 
-Native and hybrid permission flows also follow [`non-web-accessibility.md`](non-web-accessibility.md).
+Native and hybrid permission flows also follow [`../accessibility/non-web-accessibility.md`](../accessibility/non-web-accessibility.md).
 
 ## 9. Forms and sensitive data
 
 All form workflows follow:
 
-- [`forms/README.md`](forms/README.md)
-- [`forms/validation.md`](forms/validation.md)
-- [`forms/security.md`](forms/security.md)
+- [`../semantics/forms/README.md`](../semantics/forms/README.md)
+- [`../semantics/forms/validation.md`](../semantics/forms/validation.md)
+- [`../semantics/forms/security.md`](../semantics/forms/security.md)
 
 At minimum:
 
@@ -187,8 +187,8 @@ Prefer layered server-side defenses such as rate limiting, honeypots, timing ana
 
 When a challenge is used:
 
-- Follow the CAPTCHA and human-verification requirements in [`tokens/accessibility.md`](tokens/accessibility.md).
-- Follow the rate-limit and abuse requirements in [`forms/security.md`](forms/security.md).
+- Follow the CAPTCHA and human-verification requirements in [`../semantics/tokens/accessibility.md`](../semantics/tokens/accessibility.md).
+- Follow the rate-limit and abuse requirements in [`../semantics/forms/security.md`](../semantics/forms/security.md).
 - Provide an accessible alternative and recovery path.
 - Preserve entered data after failure or timeout.
 - Provide fallback when the provider is unavailable or blocked.
@@ -201,7 +201,7 @@ An inaccessible challenge must not be the only path to a primary form, account, 
 
 ## 12. Uploads and media
 
-Uploads follow the complete file controls in [`forms/security.md`](forms/security.md).
+Uploads follow the complete file controls in [`../semantics/forms/security.md`](../semantics/forms/security.md).
 
 Uploads require validation of authorization, count, size, extension, detected type, actual content, filename, storage destination, processing state, and later access.
 
@@ -215,38 +215,17 @@ Uploaded files remain untrusted after extension, MIME, antivirus, or image check
 
 A failed optional integration must not prevent access to primary content.
 
-Document fallback for:
-
-- Maps.
-- Video.
-- CAPTCHA or bot defense.
-- Scheduling.
-- Chat.
-- Payments.
-- Identity verification.
-- Address or email verification.
-- Upload scanning and transformation.
-- Analytics.
-- External fonts and icons.
+Document fallback for maps, video, CAPTCHA/bot defense, scheduling, chat, payments, identity verification, address/email verification, upload scanning/transformation, analytics, and external fonts/icons.
 
 A privacy-preserving and accessible alternative should be available when practical.
 
-A third-party limitation may prevent an external conformance claim even when a workaround exists; claim handling follows [`STANDARDS.md`](STANDARDS.md).
+A third-party limitation may prevent an external conformance claim even when a workaround exists; claim handling follows [`../measurable-evidence/standards.md`](../measurable-evidence/standards.md).
 
 ## 14. Incident and audit behavior
 
 Security- or privacy-sensitive actions should produce records sufficient for investigation without logging secrets or unnecessary personal content.
 
-Document:
-
-- Event type.
-- Actor or system identity.
-- Time.
-- Object affected.
-- Outcome.
-- Correlation identifier.
-- Retention.
-- Access controls.
+Document event type, actor/system identity, time, object affected, outcome, correlation identifier, retention, and access controls.
 
 Security-relevant form events include CSRF failure, authorization denial, protected-field submission, account enumeration attempts, repeated replay, rate limiting, upload quarantine, and consequential state change.
 
@@ -264,7 +243,7 @@ security_privacy:
   csp_policy: <path-or-header-test>
   retention_policy: <path>
   consent_required: true | false
-  form_security_policy: Wdbasic/forms/security.md
+  form_security_policy: Wdbasic/docs/core-invariants/semantics/forms/security.md
   csrf_policy: <path>
   request_limits: <path>
   output_encoding_policy: <path>
