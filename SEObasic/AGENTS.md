@@ -47,6 +47,7 @@ All governed knowledge domains now live under [`docs/`](docs/README.md):
 - [`docs/positions/`](docs/positions/README.md)
 - [`docs/content/`](docs/content/README.md)
 - [`docs/websites/`](docs/websites/README.md)
+- [`docs/discovery/`](docs/discovery/README.md) — AEO, GEO and answer/generative discovery.
 - [`docs/technical/`](docs/technical/README.md)
 - [`docs/entities/`](docs/entities/README.md)
 - [`docs/local-search/`](docs/local-search/README.md)
@@ -80,13 +81,29 @@ Agents MUST NOT:
 
 If evidence materially challenges a documented position, preserve the conflict until the position is deliberately reviewed.
 
+## Answer/generative discovery
+
+For AEO, GEO, AI-search visibility, generative citations, answer-engine claims, crawler controls, or AI-discovery measurement, read:
+
+1. [`docs/discovery/AGENTS.md`](docs/discovery/AGENTS.md)
+2. [`docs/discovery/README.md`](docs/discovery/README.md)
+3. [`docs/standards/ai-search-platform-guidance.md`](docs/standards/ai-search-platform-guidance.md)
+4. [`docs/research/answer-generative-discovery.md`](docs/research/answer-generative-discovery.md) when a claim relies on research
+5. [`docs/technical/ai-discovery-controls.md`](docs/technical/ai-discovery-controls.md) for crawler/index/access behavior
+6. [`docs/measurement/ai-discovery.md`](docs/measurement/ai-discovery.md) for citations, answer presence, referrals or visibility metrics.
+
+Agents MUST NOT turn one GEO benchmark, one crawler rule, one platform's documentation, one third-party tool, or one observed citation pattern into a universal “AI ranking factor.”
+
+For Google Search specifically, preserve Google's current platform position that AEO/GEO terminology does not create a separate optimization system for its generative Search features; foundational SEO remains controlling. Do not generalize that Google-specific statement to every other platform.
+
 ## Measurement semantics
 
-When work uses rank, position, visibility, traffic, conversion, authority, local visibility, or geo-grid concepts, read:
+When work uses rank, position, visibility, traffic, conversion, authority, local visibility, geo-grid concepts, AI citations, answer presence, generative visibility or AI referral traffic, read:
 
 1. [`docs/measurement/AGENTS.md`](docs/measurement/AGENTS.md)
 2. [`docs/measurement/contracts/metric-semantics.md`](docs/measurement/contracts/metric-semantics.md)
-3. [`docs/glossaries/measurement-and-analytics.md`](docs/glossaries/measurement-and-analytics.md)
+3. [`docs/measurement/ai-discovery.md`](docs/measurement/ai-discovery.md) when AEO/GEO is involved
+4. [`docs/glossaries/measurement-and-analytics.md`](docs/glossaries/measurement-and-analytics.md)
 
 Do not use materially different metrics interchangeably merely because tools use similar labels.
 
@@ -106,9 +123,9 @@ Application guidance belongs in [`docs/content/testing-method.md`](docs/content/
 
 ## Cross-channel rule
 
-Websites, Google Business Profile/Maps/local search, organic social, paid media, and YouTube may support one strategy while retaining different mechanics, policies, audiences, conversion roles, attribution, and measurement definitions.
+Websites, answer/generative discovery, Google Business Profile/Maps/local search, organic social, paid media, and YouTube may support one strategy while retaining different mechanics, policies, audiences, conversion roles, attribution, and measurement definitions.
 
-Do not copy advice or metric assumptions from one channel into another without checking whether the behavior actually transfers.
+Do not copy advice or metric assumptions from one channel/surface into another without checking whether the behavior actually transfers.
 
 ## Research and standards rule
 
@@ -119,6 +136,8 @@ When evidence conflicts with an established SEObasic position or contract:
 3. explain the scope of conflict;
 4. preserve both until an intentional framework decision is made;
 5. use repository change control for material binding mutations.
+
+Research indexes such as Google Scholar are discovery aids. They do not replace reading and citing the primary paper, proceedings record, DOI source, dataset, or authoritative platform documentation.
 
 ## Structural rule
 
