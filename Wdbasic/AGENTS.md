@@ -5,35 +5,45 @@
 > **Knowledge index:** [`docs/README.md`](docs/README.md)  
 > **Detailed implementation agent contract:** [`docs/implementation-agent-contract.md`](docs/implementation-agent-contract.md)
 
-WDBASIC is a binding framework-independent web architecture and implementation-contract knowledge system.
+WDBASIC is a binding framework-independent web architecture, experience, content-strategy, and implementation-contract knowledge system.
 
 ## Required reading order
 
 Before changing WDBASIC-governed material or implementing against WDBASIC:
 
 1. Read [`README.md`](README.md).
-2. Read [`docs/architecture_rules.md`](docs/architecture_rules.md).
-3. Read [`docs/framework-contract.md`](docs/framework-contract.md).
-4. Read [`docs/STANDARDS.md`](docs/STANDARDS.md).
-5. Read [`docs/implementation-agent-contract.md`](docs/implementation-agent-contract.md) for implementation/review work.
-6. Read [`docs/AGENTS.md`](docs/AGENTS.md).
-7. Read the nearest local `AGENTS.md` and applicable subject contracts.
-8. Read the active profile, evidence, and product-specific requirements.
+2. Read [`docs/core-invariants.md`](docs/core-invariants.md).
+3. Read [`docs/architecture_rules.md`](docs/architecture_rules.md).
+4. Read [`docs/framework-contract.md`](docs/framework-contract.md).
+5. Read [`docs/STANDARDS.md`](docs/STANDARDS.md).
+6. Read [`docs/implementation-agent-contract.md`](docs/implementation-agent-contract.md) for implementation/review work.
+7. Read [`docs/AGENTS.md`](docs/AGENTS.md).
+8. Read the nearest local `AGENTS.md` and applicable subject contracts.
+9. Resolve the applicable [`docs/content-strategies/`](docs/content-strategies/README.md) and [`docs/technology-profiles/`](docs/technology-profiles/README.md).
+10. Read the active design/profile evidence and product-specific requirements.
 
 ## Non-negotiables
 
 Agents MUST preserve:
 
-- server authority for validation, authorization, business rules, and persistence where applicable;
+- non-compensatory core invariants;
+- trusted-boundary authority for authentication, authorization, privileged business rules, validation integrity, and persistence where applicable;
 - valid/native semantics before unnecessary ARIA;
 - accessibility names, roles, states, values, relationships, keyboard operation, focus, and announcements;
 - security/privacy boundaries, explicit field allowlists, safe APIs, output encoding, and request integrity;
-- progressive enhancement and baseline operation where required;
 - truthful claims and evidence;
-- separation between WDBASIC conformance, external standards conformance, maturity, security, privacy, sustainability, and product-specific claims;
+- HTTP/URL integrity where applicable;
+- resilience and recoverability appropriate to the active technology profile;
+- separation between WDBASIC conformance, external standards conformance, heuristics, maturity, security, privacy, sustainability, and product-specific claims;
 - local contract/profile authority and explicit exceptions.
 
-Agents MUST NOT weaken a contract merely because an implementation or example currently fails it.
+Agents MUST NOT:
+
+- treat HTMX, Tailwind, SSR, static generation, or a JavaScript framework as a universal WDBASIC core requirement;
+- force PAS onto pages where user intent calls for another strategy;
+- use the superseded additive 100-point model as current WDBASIC evaluation;
+- convert accessibility, security, privacy, truthfulness, or HTTP failures into compensatory score deductions;
+- present WDBASIC preferences as Google, W3C, OWASP, Semrush, or academic requirements without source support.
 
 ## Forms
 
@@ -58,8 +68,8 @@ When moving material:
 
 ## Mutation gate
 
-Unrequested architecture, contract, conformance, security, accessibility, or authority changes follow repository change control. Do not silently redefine established WDBASIC behavior.
+Unrequested architecture, contract, conformance, security, accessibility, authority, content-strategy, or technology-profile changes follow repository change control. Do not silently redefine established WDBASIC behavior.
 
 ## Governing doctrine
 
-> **Preserve the contracts. Preserve the evidence. Keep implementation convenience subordinate to governed behavior.**
+> **Be strict about outcomes, evidence, truth, access, integrity, and recovery; be flexible about technology and persuasion patterns when multiple valid approaches satisfy the invariants.**
