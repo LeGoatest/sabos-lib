@@ -108,11 +108,11 @@ Read:
 1. [`Wdbasic/README.md`](Wdbasic/README.md)
 2. [`Wdbasic/AGENTS.md`](Wdbasic/AGENTS.md)
 3. [`Wdbasic/docs/README.md`](Wdbasic/docs/README.md)
-4. [`Wdbasic/docs/architecture_rules.md`](Wdbasic/docs/architecture_rules.md)
-5. [`Wdbasic/docs/framework-contract.md`](Wdbasic/docs/framework-contract.md)
+4. [`Wdbasic/docs/core-invariants/README.md`](Wdbasic/docs/core-invariants/README.md)
+5. [`Wdbasic/docs/core-invariants/contract.md`](Wdbasic/docs/core-invariants/contract.md)
 6. nearest local `AGENTS.md` and applicable contracts
 
-Implementation/review validation guidance: [`Wdbasic/docs/engineering-validation.md`](Wdbasic/docs/engineering-validation.md).
+Implementation/review validation guidance: [`Wdbasic/docs/core-invariants/measurable-evidence/engineering-validation.md`](Wdbasic/docs/core-invariants/measurable-evidence/engineering-validation.md).
 
 ### TCBasic
 
