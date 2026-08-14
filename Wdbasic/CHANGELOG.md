@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 - `agents/` as WDBASIC's machine-readable projection namespace, with a deterministic `manifest.yaml` entry point, standard/domain projection, core-invariant registry, technology-profile registry, content-strategy registry, component/token registries, JSON Schemas, and conformance definitions.
 - Machine-interface provenance rules requiring mapped records to reference canonical WDBASIC sources and preventing structured files from silently becoming independent authority.
+- Expanded the machine interface to specification version `0.2.0` with granular accessibility, architecture, conversion, interaction, performance, responsive, and semantics rule domains; individual experience profiles; page-type contracts; reusable patterns; component specializations; JSON semantic-token catalogs; vocabulary; evidence mappings; type-specific schemas; progressive-disclosure context loading; and explicit validation/failure semantics.
 - `docs/` as the canonical home for WDBASIC's substantive governed knowledge.
 - A physical four-domain documentation hierarchy matching WDBASIC v2.1: `core-invariants/`, `experience-evaluation/`, `content-strategies/`, and `technology-profiles/`.
 - `docs/core-invariants/` with explicit subdomains for semantics, accessibility, security/privacy, truthful content, HTTP/URL integrity, resilience, and measurable evidence.
