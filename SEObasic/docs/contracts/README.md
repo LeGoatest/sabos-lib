@@ -7,6 +7,14 @@ A **contract** states what a conforming implementation, workflow, or agent MUST 
 
 Research, standards, practitioner experience, historical lessons, and platform guidance may justify a contract, but they are not interchangeable with the contract.
 
+## Current cross-domain contracts
+
+- [`truth-and-evidence.md`](truth-and-evidence.md) — material claims and signals must remain truthful and supported.
+- [`channel-boundaries.md`](channel-boundaries.md) — source material may be reused across channels without pretending their mechanics, policies, conversion roles, or metrics are interchangeable.
+- [`evidence-classification.md`](evidence-classification.md) — material claims must preserve evidence class, consumer/platform scope, publication status, review date, and generalization limits where applicable.
+
+Measurement-specific binding semantics live under [`../measurement/contracts/`](../measurement/contracts/README.md).
+
 ## Knowledge-to-contract model
 
 ```text
@@ -24,6 +32,8 @@ standards + research evidence
             ↓
        validation evidence
 ```
+
+The [`Evidence Classification Contract`](evidence-classification.md) governs the provenance and scope of the material claims feeding this model. A platform statement, research paper, practitioner observation, or historical reference does not become a contract merely by being documented.
 
 ## Contract qualities
 
@@ -93,6 +103,6 @@ This top-level directory owns cross-domain contract conventions and contracts th
 
 ## Change control
 
-A binding contract is not ordinary explanatory documentation. Materially changing a contract changes expected behavior and therefore requires deliberate review under repository [`governance/change-control.md`](../../governance/change-control.md) when the change crosses an established invariant or authority boundary.
+A binding contract is not ordinary explanatory documentation. Materially changing a contract changes expected behavior and therefore requires deliberate review under repository [`governance/change-control.md`](../../../governance/change-control.md) when the change crosses an established invariant or authority boundary.
 
 See [`AGENTS.md`](AGENTS.md) for automated contract work.
