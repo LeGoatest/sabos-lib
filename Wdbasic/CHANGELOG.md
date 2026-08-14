@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Changed
 
+- Audited the v2.1 post-migration authority chain and repaired stale pre-migration routing in the binding implementation-agent contract and repository-level WDBASIC entrypoints without changing WDBASIC semantics.
 - Hardened WDBASIC from v2 to **v2.1**.
 - Reorganized both the conceptual model and the physical `docs/` filesystem into four explicit layers: **Core invariants**, **Experience evaluation**, **Content strategies**, and **Technology profiles**.
 - Moved former top-level subject trees under their owning core domain: forms, components, tokens, authoring, accessibility compliance, glossaries, standards/evidence, research/positions, security/privacy, internationalization, and resilience/sustainability.
