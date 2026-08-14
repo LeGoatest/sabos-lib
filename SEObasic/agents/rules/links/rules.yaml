@@ -1,0 +1,25 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: seobasic.rules.links
+category: links
+authority_class: canonical_projection
+canonical_sources: [../../../docs/strategies/entity-relationships/entity-graph.md, ../../../docs/strategies/on-page/keyword-use.md]
+rules:
+  - id: seobasic.links.descriptive
+    effect: require
+    strength: should
+    requirement: Internal link text and surrounding context describe the destination naturally and usefully.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: warning, reason_code: SEO_LINK_CONTEXT}
+  - id: seobasic.links.relationship-truth
+    effect: require
+    strength: must
+    requirement: Links and graph relationships represent real relationships rather than fabricated authority or relevance.
+    validation: {mode: semantic, automation: human_review}
+    failure: {severity: error, reason_code: SEO_LINK_FALSE_RELATIONSHIP}
+  - id: seobasic.links.no-guarantee
+    effect: forbid
+    strength: must
+    requirement: Internal linking or backlink acquisition is not represented as a deterministic ranking guarantee.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_LINK_RANK_GUARANTEE}

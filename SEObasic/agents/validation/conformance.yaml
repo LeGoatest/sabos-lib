@@ -1,34 +1,18 @@
-spec_version: "0.1.0"
-kind: conformance_definition
-id: seobasic.conformance.machine-interface
-canonical_source: ../../README.md
+spec_version: "0.2.0"
+kind: conformance
+id: seobasic.validation.conformance
+authority_class: canonical_projection
+canonical_sources: [../../docs/invariants/README.md, ../../docs/invariants/evidence-classification.md, ../../docs/measurement/contracts/metric-semantics.md]
 outcomes:
-  - pass
-  - fail
-  - requires_review
-  - not_applicable
-checks:
-  - id: seobasic.check.manifest-schema
-    mode: deterministic
-    requirement: manifest.yaml validates against schemas/manifest.schema.json
-  - id: seobasic.check.unique-ids
-    mode: deterministic
-    requirement: machine record identifiers are unique within SEObasic agents
-  - id: seobasic.check.source-present
-    mode: deterministic
-    requirement: every normative-looking machine record references a canonical source
-  - id: seobasic.check.role-preservation
-    mode: semantic
-    requirement: evidence, evaluation, strategy, surface, measurement, terminology, and examples must not be silently converted into another role
-  - id: seobasic.check.evidence-scope
-    mode: evidence_and_review
-    requirement: platform, consumer, publication, and generalization scope are preserved when material
-  - id: seobasic.check.metric-semantics
-    mode: semantic
-    requirement: materially different metrics are not used interchangeably without an explicit mapping
-  - id: seobasic.check.source-sync
-    mode: review
-    requirement: source changes that affect a mapped record require corresponding machine-interface review
-execution:
-  repository_build_required: false
-  adopting_project_mechanical_checks: preferred_when_practical
+  pass: All applicable MUST requirements pass with required scope and evidence preserved.
+  fail: One or more applicable confirmed MUST requirements fail.
+  not_applicable: The rule or contract does not apply to the evaluated surface, profile, page, consumer, or claim.
+  requires_review: A semantic, platform-current, evidence-quality, or causal question cannot be resolved deterministically.
+  blocked: A required source, scope, metric definition, or reference is missing.
+evaluation_order: [resolve_manifest_context, resolve_profile_page_and_surface, resolve_consumer_scope, validate_schema_and_references, apply_invariants, apply_rule_domains, apply_patterns, verify_evidence_and_metrics, record_unresolved_review]
+rules:
+  source_class_cannot_be_changed_by_yaml: true
+  research_does_not_auto_promote: true
+  platform_guidance_does_not_auto_generalize: true
+  derived_contract_does_not_create_ranking_factor: true
+  metric_substitution_without_mapping: false

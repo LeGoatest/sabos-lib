@@ -1,0 +1,25 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: seobasic.rules.eeat
+category: eeat
+authority_class: platform_guidance_projection
+canonical_sources: [../../../docs/evidence/platform-guidance/google-eeat-and-helpful-content.md, ../../../docs/invariants/evidence-classification.md]
+rules:
+  - id: seobasic.eeat.scope-google
+    effect: require
+    strength: must
+    requirement: E-E-A-T statements are identified as Google guidance/context and are not silently generalized to every search or generative platform.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_EEAT_SCOPE}
+  - id: seobasic.eeat.not-specific-ranking-factor
+    effect: forbid
+    strength: must
+    requirement: Do not describe E-E-A-T itself as a single specific ranking factor.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_EEAT_FACTOR}
+  - id: seobasic.eeat.trust-support
+    effect: require
+    strength: should
+    requirement: Relevant authorship, firsthand experience, expertise, reputation, sourcing, and accountability signals should support user trust when appropriate to the topic.
+    validation: {mode: semantic, automation: human_review}
+    failure: {severity: warning, reason_code: SEO_EEAT_TRUST}

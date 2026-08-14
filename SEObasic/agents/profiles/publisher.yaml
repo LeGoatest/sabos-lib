@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: profile
+id: seobasic.profile.publisher
+authority_class: derived_machine_profile
+canonical_sources: [../../docs/strategies/content/README.md, ../../docs/invariants/evidence-classification.md]
+applies_when: {business_model: publisher}
+priority_rule_domains: [content, metadata, links, entities, eeat, aeo, geo, crawl, indexing]
+recommended_page_types: [seobasic.page.article, seobasic.page.faq]
+recommended_patterns: [seobasic.pattern.topic-coverage, seobasic.pattern.information-gain, seobasic.pattern.answer-first]
+constraints: {derived_profile_is_not_platform_policy: true, source_provenance_required_for_material_claims: true}

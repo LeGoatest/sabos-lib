@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"urn:sabos:seobasic:agents:evidence:0.2.0","type":"object","required":["spec_version","kind","id"],"properties":{"id":{"type":"string","pattern":"^seobasic\\."},"source_classes":{"type":"array","uniqueItems":true},"sources":{"type":"array"}},"additionalProperties":true}

@@ -1,10 +1,9 @@
-spec_version: "0.1.0"
+spec_version: "0.2.0"
 kind: sabos.machine-interface
 id: seobasic.agents
 system:
   id: seobasic
   version: evolving
-_authority_note: Machine-readable projection; canonical Markdown sources retain their existing authority.
 authority:
   mode: projection
   canonical_entrypoint: ../README.md
@@ -15,29 +14,67 @@ projection:
   maintained: manual
   last_reviewed: 2026-08-14
   sync_required_when_sources_change: true
-load_order:
-  - standard.yaml
-  - rules/invariants.yaml
-  - evaluation/registry.yaml
-  - strategies/registry.yaml
-  - surfaces/registry.yaml
-  - evidence/registry.yaml
-  - measurement/registry.yaml
-  - terminology/registry.yaml
-  - validation/conformance.yaml
+context_policy:
+  strategy: progressive_disclosure
+  load_all_by_default: false
+  bootstrap: [standard.yaml, vocabulary/terms.yaml]
+  select_by: [task_scope, active_profile, page_type, applicable_rule_domains, patterns, consumer_or_platform_scope]
+  require_transitive_dependencies: true
+  reject_unresolved_references: true
 collections:
-  rules: rules/invariants.yaml
+  rules:
+    crawl: rules/crawl/rules.yaml
+    indexing: rules/indexing/rules.yaml
+    metadata: rules/metadata/rules.yaml
+    content: rules/content/rules.yaml
+    links: rules/links/rules.yaml
+    entities: rules/entities/rules.yaml
+    structured_data: rules/structured-data/rules.yaml
+    local: rules/local/rules.yaml
+    eeat: rules/eeat/rules.yaml
+    aeo: rules/aeo/rules.yaml
+    geo: rules/geo/rules.yaml
+    performance: rules/performance/rules.yaml
+  profiles:
+    local_service: profiles/local-service.yaml
+    ecommerce: profiles/ecommerce.yaml
+    publisher: profiles/publisher.yaml
+    professional_service: profiles/professional-service.yaml
+  page_types:
+    homepage: page-types/homepage.yaml
+    service: page-types/service.yaml
+    service_area: page-types/service-area.yaml
+    article: page-types/article.yaml
+    case_study: page-types/case-study.yaml
+    faq: page-types/faq.yaml
+  patterns:
+    topic_coverage: patterns/topic-coverage.yaml
+    pain_solution: patterns/pain-solution.yaml
+    answer_first: patterns/answer-first.yaml
+    information_gain: patterns/information-gain.yaml
+  vocabulary: vocabulary/terms.yaml
+  evidence:
+    sources: evidence/sources.yaml
+    mappings: evidence/mappings.yaml
+schemas:
+  manifest: schemas/manifest.schema.json
+  rule_set: schemas/rule-set.schema.json
+  profile: schemas/profile.schema.json
+  page_type: schemas/page-type.schema.json
+  pattern: schemas/pattern.schema.json
+  evidence: schemas/evidence.schema.json
+  vocabulary: schemas/vocabulary.schema.json
+validation:
+  checks: validation/checks.yaml
+  conformance: validation/conformance.yaml
+compatibility_indexes:
+  invariants: rules/invariants.yaml
   evaluation: evaluation/registry.yaml
   strategies: strategies/registry.yaml
   surfaces: surfaces/registry.yaml
   evidence: evidence/registry.yaml
   measurement: measurement/registry.yaml
   terminology: terminology/registry.yaml
-schemas:
-  manifest: schemas/manifest.schema.json
-  record: schemas/record.schema.json
-validation:
-  conformance: validation/conformance.yaml
 human_sources:
   root: ../README.md
   docs: ../docs/

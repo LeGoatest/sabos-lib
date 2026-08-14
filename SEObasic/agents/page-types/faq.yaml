@@ -1,0 +1,9 @@
+spec_version: "0.2.0"
+kind: page_type
+id: seobasic.page.faq
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/strategies/content/README.md, ../../docs/strategies/answer-discovery/answer-engine-optimization.md]
+purpose: Answer genuine recurring questions clearly without manufacturing questions solely for markup or keyword coverage.
+required_capabilities: [real_question, direct_answer, necessary_context, truthful_claims]
+applicable_patterns: [seobasic.pattern.answer-first]
+constraints: {invented_question_volume: forbidden, repetitive_answer_padding: forbidden, rich_result_guarantee: forbidden}

@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: pattern
+id: seobasic.pattern.topic-coverage
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/strategies/content/README.md, ../../docs/strategies/on-page/keyword-use.md]
+applicability: {use_when: topic_requires_more_than_a_single_fact, universal: false}
+intent: Cover the subject and user intent comprehensively enough to be useful without targeting a phrase repetition count.
+include_when_relevant: [problem_or_need, service_or_solution, applications_or_fit, process, proof, location_context, questions, next_action]
+forbidden: [keyword_density_target, phrase_repetition_target, semantic_padding]
+validation: {mode: semantic, outcomes: [pass, fail, not_applicable, requires_review]}

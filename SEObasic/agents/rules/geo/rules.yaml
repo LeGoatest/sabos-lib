@@ -1,0 +1,26 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: seobasic.rules.geo
+category: geo
+authority_class: canonical_projection
+canonical_sources: [../../../docs/strategies/answer-discovery/generative-engine-optimization.md, ../../../docs/evidence/research/answer-generative-discovery.md, ../../../docs/measurement/generative-search/ai-discovery.md]
+rules:
+  - id: seobasic.geo.stage-separation
+    effect: require
+    strength: must
+    requirement: Access, retrieval/source selection, visible citation, answer contribution, referral opportunity, referral session, conversion, and revenue remain distinct stages.
+    validation: {mode: structural, automation: partial}
+    failure: {severity: error, reason_code: SEO_GEO_STAGE_COLLAPSE}
+  - id: seobasic.geo.research-scope
+    effect: require
+    strength: must
+    applies_when: {research_claim: true}
+    requirement: GEO benchmark and experimental findings preserve dataset, task, model, publication status, and generalization limits.
+    validation: {mode: external, automation: human_review}
+    failure: {severity: error, reason_code: SEO_GEO_RESEARCH_SCOPE}
+  - id: seobasic.geo.no-universal-ai-factor
+    effect: forbid
+    strength: must
+    requirement: Do not turn a crawler rule, platform statement, third-party metric, RAG experiment, or observed citation pattern into a universal AI ranking factor.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_GEO_UNIVERSAL_FACTOR}

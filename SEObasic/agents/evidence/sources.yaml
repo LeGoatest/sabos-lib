@@ -1,0 +1,17 @@
+spec_version: "0.2.0"
+kind: evidence_sources
+id: seobasic.evidence.sources
+authority_class: informative_mapping
+source_classes: [formal_standard_specification, platform_vendor_guidance, peer_reviewed_research, preprint_research, benchmark_dataset_evidence, practitioner_position, practitioner_observation, inference_hypothesis, historical_reference, example, measurement_definition]
+sources:
+  - {id: seobasic.source.truth, class: binding_invariant, path: ../../docs/invariants/truth-and-evidence.md}
+  - {id: seobasic.source.classification, class: binding_invariant, path: ../../docs/invariants/evidence-classification.md}
+  - {id: seobasic.source.metric-semantics, class: measurement_definition, path: ../../docs/measurement/contracts/metric-semantics.md}
+  - {id: seobasic.source.google-eeat, class: platform_vendor_guidance, path: ../../docs/evidence/platform-guidance/google-eeat-and-helpful-content.md}
+  - {id: seobasic.source.ai-platform-guidance, class: platform_vendor_guidance, path: ../../docs/evidence/platform-guidance/ai-search-platform-guidance.md}
+  - {id: seobasic.source.generative-research, class: research_registry, path: ../../docs/evidence/research/answer-generative-discovery.md}
+requirements:
+  preserve_source_class: true
+  preserve_consumer_scope_when_material: true
+  preserve_publication_status: true
+  preserve_review_date_when_behavior_can_change: true

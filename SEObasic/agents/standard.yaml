@@ -1,38 +1,28 @@
-spec_version: "0.1.0"
+spec_version: "0.2.0"
 kind: standard_projection
 id: seobasic
-status: evolving_knowledge_framework_projection
-canonical_source: ../README.md
+authority_class: evolving_knowledge_framework_projection
+canonical_sources: [../README.md, ../docs/invariants/README.md]
+authority:
+  canonical_sources_win_conflicts: true
+  structured_record_does_not_change_source_class: true
+  platform_scope_must_be_preserved: true
+  research_does_not_auto_promote_to_invariant: true
 roles:
-  - id: seobasic.role.invariants
-    question: what_must_remain_true
-    canonical_source: ../docs/invariants/README.md
-  - id: seobasic.role.evaluation
-    question: what_is_evaluated
-    canonical_source: ../docs/evaluation/README.md
-  - id: seobasic.role.strategies
-    question: what_we_deliberately_do
-    canonical_source: ../docs/strategies/README.md
-  - id: seobasic.role.surfaces
-    question: where_behavior_varies
-    canonical_source: ../docs/surfaces/README.md
-  - id: seobasic.role.evidence
-    question: why_we_believe_something
-    canonical_source: ../docs/evidence/README.md
-  - id: seobasic.role.measurement
-    question: how_outcomes_are_defined
-    canonical_source: ../docs/measurement/README.md
-  - id: seobasic.role.terminology
-    question: what_words_mean
-    canonical_source: ../docs/terminology/README.md
-knowledge_flow:
-  - invariants
-  - evaluation
-  - strategy
-  - surface_application
-  - measurement
-  - evidence_and_outcomes
-  - retain_revise_or_falsify
+  - {id: seobasic.role.invariants, question: what_must_remain_true, canonical_source: ../docs/invariants/README.md}
+  - {id: seobasic.role.evaluation, question: what_is_evaluated, canonical_source: ../docs/evaluation/README.md}
+  - {id: seobasic.role.strategies, question: what_we_deliberately_do, canonical_source: ../docs/strategies/README.md}
+  - {id: seobasic.role.surfaces, question: where_behavior_varies, canonical_source: ../docs/surfaces/README.md}
+  - {id: seobasic.role.evidence, question: why_we_believe_something, canonical_source: ../docs/evidence/README.md}
+  - {id: seobasic.role.measurement, question: how_outcomes_are_defined, canonical_source: ../docs/measurement/README.md}
+  - {id: seobasic.role.terminology, question: what_words_mean, canonical_source: ../docs/terminology/README.md}
+knowledge_flow: [invariants, evaluation, strategy, surface_application, measurement, evidence_and_outcomes, retain_revise_or_falsify]
+record_semantics:
+  effects: [require, forbid, allow, inform]
+  strengths: [must, should, may]
+  validation_modes: [structural, deterministic, semantic, external, mixed]
+  outcomes: [pass, fail, not_applicable, requires_review, blocked]
+  authority_classes: [canonical_projection, derived_machine_contract, derived_machine_profile, platform_guidance_projection, research_projection, practitioner_position_projection, informative_mapping]
 boundaries:
   evidence_is_invariant: false
   evaluation_is_tactic: false
@@ -41,3 +31,15 @@ boundaries:
   metric_is_causal_mechanism: false
   terminology_is_requirement: false
   example_is_authority: false
+  crawl_is_indexing: false
+  indexing_is_ranking: false
+  ranking_is_visibility: false
+  citation_is_referral: false
+  referral_is_conversion: false
+failure_policy:
+  fabricated_claim: fail
+  scope_loss: fail
+  unsupported_universalization: fail
+  semantic_uncertainty: requires_review
+  stale_platform_claim: requires_review
+  missing_source: blocked

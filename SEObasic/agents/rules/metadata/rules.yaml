@@ -1,0 +1,28 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: seobasic.rules.metadata
+category: metadata
+authority_class: canonical_projection
+canonical_sources: [../../../docs/surfaces/owned-web/technical/metadata.md, ../../../docs/strategies/on-page/keyword-use.md]
+rules:
+  - id: seobasic.metadata.title
+    effect: require
+    strength: must
+    applies_when: {indexable_page: true}
+    requirement: Pages expose a meaningful title that describes the page topic and is not mechanically duplicated across distinct pages.
+    validation: {mode: mixed, automation: partial}
+    failure: {severity: error, reason_code: SEO_META_TITLE}
+  - id: seobasic.metadata.canonical
+    effect: require
+    strength: should
+    applies_when: {canonicalization_relevant: true}
+    requirement: Canonical signals describe the intended canonical resource and do not contradict routing or indexing intent.
+    validation: {mode: mixed, automation: partial}
+    failure: {severity: warning, reason_code: SEO_META_CANONICAL}
+  - id: seobasic.metadata.consumer-support
+    effect: require
+    strength: must
+    applies_when: {consumer_specific_metadata_claim: true}
+    requirement: Consumer-specific support such as meta keywords, noarchive, nocache, or other metadata is not generalized beyond documented support.
+    validation: {mode: external, automation: assisted}
+    failure: {severity: error, reason_code: SEO_META_SCOPE}

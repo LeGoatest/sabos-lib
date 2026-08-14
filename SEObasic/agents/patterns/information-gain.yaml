@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: pattern
+id: seobasic.pattern.information-gain
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/strategies/content/README.md, ../../docs/invariants/truth-and-evidence.md]
+applicability: {use_when: drafting_or_expanding_content, universal: true_for_generated_expansion}
+intent: Ensure additional content adds new utility rather than merely changing wording.
+acceptable_gain: [new_fact, new_context, new_evidence, new_example, new_distinction, new_limitation, new_decision_support, new_local_detail]
+forbidden: [semantic_repetition, ai_paraphrase_padding, unsupported_specificity, fabricated_examples]
+validation: {mode: semantic, outcomes: [pass, fail, not_applicable, requires_review]}

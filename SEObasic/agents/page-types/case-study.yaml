@@ -1,0 +1,9 @@
+spec_version: "0.2.0"
+kind: page_type
+id: seobasic.page.case-study
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/invariants/truth-and-evidence.md, ../../docs/strategies/content/README.md]
+purpose: Provide first-party evidence about a real problem, process, implementation, and outcome.
+required_capabilities: [real_context, problem_or_objective, work_or_method, verifiable_outcome, limitations_when_material]
+applicable_rule_domains: [content, eeat, entities, links]
+constraints: {fabricated_results: forbidden, unsupported_attribution: forbidden}

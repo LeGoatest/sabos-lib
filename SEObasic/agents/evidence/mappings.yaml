@@ -1,0 +1,9 @@
+spec_version: "0.2.0"
+kind: evidence_mappings
+id: seobasic.evidence.mappings
+mappings:
+  - {subject: seobasic.rules.eeat, sources: [seobasic.source.google-eeat, seobasic.source.classification]}
+  - {subject: seobasic.rules.aeo, sources: [seobasic.source.ai-platform-guidance, seobasic.source.metric-semantics]}
+  - {subject: seobasic.rules.geo, sources: [seobasic.source.generative-research, seobasic.source.ai-platform-guidance, seobasic.source.metric-semantics]}
+  - {subject: seobasic.page.*, sources: [seobasic.source.truth]}
+  - {subject: seobasic.pattern.*, sources: [seobasic.source.truth], note: Pattern structure does not create a platform guarantee.}

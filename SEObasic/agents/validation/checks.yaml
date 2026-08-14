@@ -1,0 +1,14 @@
+spec_version: "0.2.0"
+kind: validation_checks
+id: seobasic.validation.checks
+checks:
+  - {id: SEO-VAL-001, name: canonical-source-exists, mode: deterministic, severity: error, assertion: Every canonical_sources path resolves.}
+  - {id: SEO-VAL-002, name: stable-id-unique, mode: deterministic, severity: error, assertion: Every machine record ID is unique within SEObasic.}
+  - {id: SEO-VAL-003, name: platform-scope-preserved, mode: semantic, severity: error, assertion: Platform or crawler behavior is not generalized beyond its evidence scope.}
+  - {id: SEO-VAL-004, name: evidence-class-preserved, mode: structural, severity: error, assertion: Material claims preserve evidence class and publication status where applicable.}
+  - {id: SEO-VAL-005, name: metric-semantics, mode: structural, severity: error, assertion: Rank visibility traffic citation referral conversion and revenue are not used interchangeably without an explicit mapping.}
+  - {id: SEO-VAL-006, name: derived-authority-protection, mode: semantic, severity: error, assertion: Derived page types profiles and patterns are not represented as platform policy or universal ranking rules.}
+  - {id: SEO-VAL-007, name: service-area-uniqueness, mode: semantic, severity: error, assertion: Service-area pages contain actual local value rather than city-name substitution or duplicate doorway copy.}
+  - {id: SEO-VAL-008, name: information-gain, mode: semantic, severity: error, assertion: Added content contributes facts context evidence examples distinctions limitations or utility rather than paraphrase padding.}
+  - {id: SEO-VAL-009, name: structured-data-match, mode: mixed, severity: error, assertion: Structured data is valid and materially matches visible content and entity facts.}
+  - {id: SEO-VAL-010, name: no-universal-ai-factor, mode: semantic, severity: error, assertion: No benchmark crawler statement citation pattern or RAG experiment is promoted into a universal AI ranking factor.}

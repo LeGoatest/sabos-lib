@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: profile
+id: seobasic.profile.local-service
+authority_class: derived_machine_profile
+canonical_sources: [../../docs/surfaces/local-maps/README.md, ../../docs/strategies/content/README.md, ../../docs/strategies/entity-relationships/entity-graph.md]
+applies_when: {business_model: local_service}
+priority_rule_domains: [local, content, entities, links, metadata, structured_data, crawl, indexing]
+recommended_page_types: [seobasic.page.homepage, seobasic.page.service, seobasic.page.service-area, seobasic.page.case-study, seobasic.page.faq]
+recommended_patterns: [seobasic.pattern.topic-coverage, seobasic.pattern.information-gain, seobasic.pattern.pain-solution]
+constraints: {derived_profile_is_not_platform_policy: true, actual_service_area_required: true}

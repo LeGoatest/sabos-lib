@@ -1,0 +1,20 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: seobasic.rules.entities
+category: entities
+authority_class: canonical_projection
+canonical_sources: [../../../docs/strategies/entity-relationships/entity-graph.md]
+rules:
+  - id: seobasic.entities.explicit-identity
+    effect: require
+    strength: should
+    requirement: Important organizations, people, services, locations, and products have sufficiently clear identity and relationships for the surface and task.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: warning, reason_code: SEO_ENTITY_CLARITY}
+  - id: seobasic.entities.sameas-truth
+    effect: require
+    strength: must
+    applies_when: {same_as_or_identity_link_present: true}
+    requirement: Identity equivalence and sameAs relationships must be factually true and controlled or authoritative enough for the claim being made.
+    validation: {mode: external, automation: human_review}
+    failure: {severity: error, reason_code: SEO_ENTITY_FALSE_EQUIVALENCE}

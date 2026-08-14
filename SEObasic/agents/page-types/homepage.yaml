@@ -1,0 +1,9 @@
+spec_version: "0.2.0"
+kind: page_type
+id: seobasic.page.homepage
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/strategies/content/README.md, ../../docs/strategies/entity-relationships/entity-graph.md, ../../docs/surfaces/owned-web/README.md]
+purpose: Establish entity identity, primary offering/topic scope, major paths, trust context, and next action.
+required_capabilities: [clear_entity_identity, primary_topic_or_offering, crawlable_major_paths, truthful_trust_signals, appropriate_next_action]
+applicable_rule_domains: [metadata, content, links, entities, structured_data]
+constraints: {keyword_repetition_target: null, fixed_section_order: false}

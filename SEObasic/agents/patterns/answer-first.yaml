@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: pattern
+id: seobasic.pattern.answer-first
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/strategies/answer-discovery/answer-engine-optimization.md, ../../docs/strategies/content/README.md]
+applicability: {use_when: query_has_a_direct_answerable_core, universal: false}
+intent: Provide the direct answer early, followed by the context, evidence, limitations, and next detail required for accuracy.
+sequence: [direct_answer, necessary_context, evidence_or_source_when_material, caveat_or_scope_when_material, deeper_detail]
+forbidden: [false_certainty, context_stripping, citation_without_support]
+validation: {mode: semantic, outcomes: [pass, fail, not_applicable, requires_review]}

@@ -1,0 +1,28 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: seobasic.rules.local
+category: local
+authority_class: canonical_projection
+canonical_sources: [../../../docs/surfaces/local-maps/README.md, ../../../docs/invariants/truth-and-evidence.md]
+rules:
+  - id: seobasic.local.actual-service-area
+    effect: require
+    strength: must
+    applies_when: {service_area_page_or_claim: true}
+    requirement: Claimed service areas reflect actual service availability.
+    validation: {mode: external, automation: human_review}
+    failure: {severity: error, reason_code: SEO_LOCAL_FALSE_AREA}
+  - id: seobasic.local.unique-local-value
+    effect: require
+    strength: must
+    applies_when: {page_type: service_area}
+    requirement: Service-area content adds meaningful local context or utility rather than swapping a city name into substantially duplicate copy.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_LOCAL_DOORWAY}
+  - id: seobasic.local.local-proof
+    effect: require
+    strength: must
+    applies_when: {local_project_review_or_business_fact_present: true}
+    requirement: Local proof, addresses, reviews, business facts, and location relationships are factual and attributable where material.
+    validation: {mode: external, automation: human_review}
+    failure: {severity: error, reason_code: SEO_LOCAL_FALSE_PROOF}

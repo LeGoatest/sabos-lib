@@ -1,0 +1,16 @@
+spec_version: "0.2.0"
+kind: vocabulary
+id: seobasic.vocabulary
+authority_class: informative_mapping
+canonical_sources: [../../docs/terminology/seo-and-marketing.md, ../../docs/terminology/measurement-and-analytics.md, ../../docs/measurement/contracts/metric-semantics.md]
+terms:
+  - {term: crawl, meaning: A consumer fetching or attempting to fetch a resource; not indexing or ranking.}
+  - {term: indexing, meaning: A consumer-specific state in which content may be stored or eligible for retrieval; not ranking or display.}
+  - {term: rank, meaning: Position or ordering in a defined result context; not visibility, traffic, or conversion.}
+  - {term: visibility, meaning: Exposure or presence under a defined measurement method; not traffic.}
+  - {term: answer presence, meaning: Whether an answer or generative result includes the tracked entity or content under a defined observation.}
+  - {term: citation presence, meaning: Whether a visible source citation or reference is present; distinct from answer contribution and referral.}
+  - {term: AEO, meaning: Answer-oriented discoverability and representation practices; not a universal replacement for SEO.}
+  - {term: GEO, meaning: Practices and research concerning generative retrieval, source selection, citation, representation, and outcomes; not a universal AI ranking-factor system.}
+  - {term: E-E-A-T, meaning: Google's experience, expertise, authoritativeness, and trustworthiness framing; not one specific ranking factor.}
+  - {term: information gain, meaning: Additional facts, context, evidence, examples, distinctions, limitations, or utility beyond semantic rewording.}

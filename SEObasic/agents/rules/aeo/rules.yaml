@@ -1,0 +1,26 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: seobasic.rules.aeo
+category: aeo
+authority_class: canonical_projection
+canonical_sources: [../../../docs/strategies/answer-discovery/answer-engine-optimization.md, ../../../docs/measurement/generative-search/ai-discovery.md]
+rules:
+  - id: seobasic.aeo.answer-clarity
+    effect: require
+    strength: should
+    applies_when: {answer_oriented_query: true}
+    requirement: Important questions can be answered clearly and directly while retaining necessary context, evidence, and caveats.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: warning, reason_code: SEO_AEO_CLARITY}
+  - id: seobasic.aeo.not-replacement
+    effect: forbid
+    strength: must
+    requirement: Do not present AEO as a universal replacement for SEO or as an independent guaranteed ranking system.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_AEO_OVERCLAIM}
+  - id: seobasic.aeo.metric-separation
+    effect: require
+    strength: must
+    requirement: Answer presence, citation presence, referral traffic, conversion, and business outcomes remain separate metrics.
+    validation: {mode: structural, automation: partial}
+    failure: {severity: error, reason_code: SEO_AEO_METRIC_COLLAPSE}

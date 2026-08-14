@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: page_type
+id: seobasic.page.service-area
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/surfaces/local-maps/README.md, ../../docs/strategies/content/README.md, ../../docs/invariants/truth-and-evidence.md]
+purpose: Represent genuine local service availability with meaningful location-specific utility rather than doorway duplication.
+required_capabilities: [actual_service_availability, local_context, relevant_services, locally_useful_information, truthful_local_proof_when_available]
+applicable_rule_domains: [local, content, entities, links, metadata]
+applicable_patterns: [seobasic.pattern.topic-coverage, seobasic.pattern.information-gain]
+constraints: {city_name_swap_template: forbidden, fabricated_local_information: forbidden, duplicate_body_copy: forbidden}

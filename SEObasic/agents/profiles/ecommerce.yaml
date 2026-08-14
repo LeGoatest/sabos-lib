@@ -1,0 +1,9 @@
+spec_version: "0.2.0"
+kind: profile
+id: seobasic.profile.ecommerce
+authority_class: derived_machine_profile
+canonical_sources: [../../docs/surfaces/owned-web/README.md, ../../docs/invariants/truth-and-evidence.md]
+applies_when: {business_model: ecommerce}
+priority_rule_domains: [crawl, indexing, metadata, content, links, entities, structured_data, performance]
+recommended_patterns: [seobasic.pattern.topic-coverage, seobasic.pattern.information-gain, seobasic.pattern.answer-first]
+constraints: {derived_profile_is_not_platform_policy: true, product_facts_must_match_actual_offer: true}

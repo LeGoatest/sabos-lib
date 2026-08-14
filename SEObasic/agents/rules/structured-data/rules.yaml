@@ -1,0 +1,27 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: seobasic.rules.structured-data
+category: structured_data
+authority_class: canonical_projection
+canonical_sources: [../../../docs/surfaces/owned-web/technical/structured-data.md]
+rules:
+  - id: seobasic.structured-data.syntax
+    effect: require
+    strength: must
+    applies_when: {structured_data_present: true}
+    requirement: Structured data is syntactically valid for the selected vocabulary and serialization.
+    validation: {mode: deterministic, automation: true}
+    failure: {severity: error, reason_code: SEO_SCHEMA_SYNTAX}
+  - id: seobasic.structured-data.visible-content-match
+    effect: require
+    strength: must
+    applies_when: {structured_data_present: true}
+    requirement: Material structured-data claims match the actual visible content and entity facts.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_SCHEMA_MISMATCH}
+  - id: seobasic.structured-data.no-rich-result-guarantee
+    effect: forbid
+    strength: must
+    requirement: Valid markup is not represented as a guarantee of rich-result eligibility, display, ranking, answer inclusion, or citation.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_SCHEMA_GUARANTEE}

@@ -1,0 +1,33 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: seobasic.rules.content
+category: content
+authority_class: canonical_projection
+canonical_sources: [../../../docs/strategies/content/README.md, ../../../docs/strategies/on-page/keyword-use.md, ../../../docs/invariants/truth-and-evidence.md]
+rules:
+  - id: seobasic.content.primary-topic
+    effect: require
+    strength: should
+    applies_when: {public_content_page: true}
+    requirement: The primary topic and user intent are clear from the page title, primary heading, and substantive content without requiring phrase repetition.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: warning, reason_code: SEO_CONTENT_TOPIC}
+  - id: seobasic.content.keyword-stuffing
+    effect: forbid
+    strength: must
+    requirement: Do not repeat keywords or location phrases unnaturally to manipulate relevance signals.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_CONTENT_STUFFING}
+  - id: seobasic.content.semantic-padding
+    effect: forbid
+    strength: must
+    requirement: Do not expand content by repeatedly paraphrasing the same information without adding facts, context, evidence, examples, distinctions, or utility.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_CONTENT_LOW_INFORMATION_GAIN}
+  - id: seobasic.content.claim-evidence
+    effect: require
+    strength: must
+    applies_when: {material_factual_or_causal_claim: true}
+    requirement: Material claims preserve evidence/source class and do not overstate what the source establishes.
+    validation: {mode: semantic, automation: human_review}
+    failure: {severity: error, reason_code: SEO_CONTENT_EVIDENCE}

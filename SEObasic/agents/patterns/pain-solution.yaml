@@ -1,0 +1,11 @@
+spec_version: "0.2.0"
+kind: pattern
+id: seobasic.pattern.pain-solution
+authority_class: canonical_projection
+canonical_sources: [../../docs/strategies/content/customer-pain-and-solution-framing.md]
+applicability: {use_when: customer_problem_is_real_and_relevant, universal: false}
+intent: Present the real problem, proportionate stakes, solution, proof, and next action without manipulative exaggeration.
+sequence: [problem, stakes_when_useful, solution, proof_when_available, next_action]
+sequence_is_fixed: false
+forbidden: [fabricated_pain, exaggerated_threat, repetitive_rewording]
+validation: {mode: semantic, outcomes: [pass, fail, not_applicable, requires_review]}

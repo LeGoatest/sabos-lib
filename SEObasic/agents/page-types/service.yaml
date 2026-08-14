@@ -1,0 +1,9 @@
+spec_version: "0.2.0"
+kind: page_type
+id: seobasic.page.service
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/strategies/content/README.md, ../../docs/strategies/on-page/keyword-use.md]
+purpose: Satisfy the intent around a specific service or solution with substantive, non-repetitive coverage.
+required_capabilities: [service_identity, user_problem_or_need_when_relevant, scope_and_outcomes, process_or_fit_when_useful, proof_when_claimed, next_action]
+applicable_patterns: [seobasic.pattern.topic-coverage, seobasic.pattern.information-gain, seobasic.pattern.pain-solution]
+constraints: {keyword_stuffing: forbidden, semantic_padding: forbidden, fixed_section_order: false}

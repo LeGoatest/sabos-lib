@@ -1,0 +1,26 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: seobasic.rules.indexing
+category: indexing
+authority_class: canonical_projection
+canonical_sources: [../../../docs/surfaces/owned-web/technical/README.md, ../../../docs/surfaces/generative-search/ai-discovery-controls.md]
+rules:
+  - id: seobasic.indexing.eligibility-separation
+    effect: require
+    strength: must
+    requirement: Indexing eligibility is distinct from crawling, ranking, visible placement, generative retrieval, and citation.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_INDEX_STAGE_COLLAPSE}
+  - id: seobasic.indexing.directive-scope
+    effect: require
+    strength: must
+    applies_when: {indexing_directive_claim: true}
+    requirement: Indexing and snippet directives preserve standards status and consumer-specific support behavior.
+    validation: {mode: external, automation: assisted}
+    failure: {severity: error, reason_code: SEO_INDEX_SCOPE}
+  - id: seobasic.indexing.no-guarantee
+    effect: forbid
+    strength: must
+    requirement: Do not present indexability or indexed state as a guarantee of ranking, traffic, answer presence, citation, or conversion.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_INDEX_GUARANTEE}

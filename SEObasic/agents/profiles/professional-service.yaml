@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: profile
+id: seobasic.profile.professional-service
+authority_class: derived_machine_profile
+canonical_sources: [../../docs/strategies/content/README.md, ../../docs/evidence/platform-guidance/google-eeat-and-helpful-content.md]
+applies_when: {business_model: professional_service}
+priority_rule_domains: [content, eeat, entities, metadata, links, structured_data, aeo, local]
+recommended_page_types: [seobasic.page.homepage, seobasic.page.service, seobasic.page.case-study, seobasic.page.faq]
+recommended_patterns: [seobasic.pattern.topic-coverage, seobasic.pattern.information-gain, seobasic.pattern.pain-solution]
+constraints: {derived_profile_is_not_platform_policy: true, expertise_and_outcome_claims_must_be_supportable: true}

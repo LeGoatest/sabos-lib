@@ -1,0 +1,26 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: seobasic.rules.crawl
+category: crawl
+authority_class: canonical_projection
+canonical_sources: [../../../docs/surfaces/owned-web/technical/README.md, ../../../docs/surfaces/generative-search/ai-discovery-controls.md]
+rules:
+  - id: seobasic.crawl.discovery-separation
+    effect: require
+    strength: must
+    requirement: URL discovery, crawl access, indexing eligibility, retrieval, citation, and display remain distinct states.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_CRAWL_STAGE_COLLAPSE}
+  - id: seobasic.crawl.consumer-scope
+    effect: require
+    strength: must
+    applies_when: {crawler_or_platform_claim: true}
+    requirement: Crawler behavior and robots controls preserve the named consumer or platform scope and review date when material.
+    validation: {mode: external, automation: assisted}
+    failure: {severity: error, reason_code: SEO_CRAWL_SCOPE}
+  - id: seobasic.crawl.discovery-not-guarantee
+    effect: forbid
+    strength: must
+    requirement: Do not present sitemap submission, IndexNow, internal discovery, or crawl permission as a guarantee of indexing, ranking, retrieval, or citation.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_CRAWL_GUARANTEE}

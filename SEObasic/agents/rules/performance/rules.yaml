@@ -1,0 +1,20 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: seobasic.rules.performance
+category: performance
+authority_class: canonical_projection
+canonical_sources: [../../../docs/evaluation/README.md, ../../../docs/measurement/README.md, ../../../docs/surfaces/owned-web/technical/README.md]
+rules:
+  - id: seobasic.performance.measure-separately
+    effect: require
+    strength: must
+    requirement: Technical performance is measured as a distinct evaluation dimension and is not silently equated with ranking, visibility, traffic, or conversion.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_PERF_METRIC_COLLAPSE}
+  - id: seobasic.performance.causal-claims
+    effect: require
+    strength: must
+    applies_when: {causal_search_claim: true}
+    requirement: Causal claims about performance and search outcomes require appropriately scoped evidence rather than correlation alone.
+    validation: {mode: external, automation: human_review}
+    failure: {severity: error, reason_code: SEO_PERF_CAUSALITY}

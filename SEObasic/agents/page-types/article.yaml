@@ -1,0 +1,9 @@
+spec_version: "0.2.0"
+kind: page_type
+id: seobasic.page.article
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/strategies/content/README.md, ../../docs/invariants/evidence-classification.md]
+purpose: Answer or explore a topic with sufficient context, evidence, provenance, and information gain.
+required_capabilities: [clear_topic, intent_alignment, substantive_information, source_provenance_for_material_claims, useful_internal_relationships]
+applicable_patterns: [seobasic.pattern.answer-first, seobasic.pattern.topic-coverage, seobasic.pattern.information-gain]
+constraints: {semantic_padding: forbidden, unsupported_causal_claims: forbidden}

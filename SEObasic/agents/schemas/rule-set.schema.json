@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sabos:seobasic:agents:rule-set:0.2.0",
+  "type": "object",
+  "required": ["spec_version", "kind", "id", "authority_class", "canonical_sources", "rules"],
+  "properties": {
+    "kind": {"const": "rule_set"},
+    "id": {"type": "string", "pattern": "^seobasic\\."},
+    "authority_class": {"type": "string"},
+    "canonical_sources": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "effect", "strength", "requirement", "validation", "failure"],
+        "properties": {
+          "effect": {"enum": ["require", "forbid", "allow", "inform"]},
+          "strength": {"enum": ["must", "should", "may"]},
+          "validation": {"type": "object"},
+          "failure": {"type": "object"}
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}
