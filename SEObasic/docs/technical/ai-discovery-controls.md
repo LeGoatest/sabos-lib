@@ -1,23 +1,27 @@
 # AI Search Crawlers, Retrieval Access, and Discovery Controls
 
 > **Status:** Technical/platform-specific guidance  
-> **Scope:** Crawling, indexing, robots controls, search-specific AI crawlers, snippet/preview controls, sitemaps, IndexNow and related inclusion/exclusion mechanics for answer/generative discovery  
+> **Scope:** Crawling, indexing, URL discovery, robots controls, search-specific AI crawlers, snippet/preview controls, sitemaps, IndexNow and related inclusion/exclusion mechanics for answer/generative discovery  
 > **Last reviewed:** 2026-08-14
 
 AI/search discovery controls are **platform-specific**. Do not treat one crawler name, robots rule or indexing path as a universal AI-discovery standard.
 
+Read the binding [`Evidence Classification Contract`](../contracts/evidence-classification.md) when making platform-support claims.
+
 ## Core distinction
 
 ```text
-crawl permission
-    ≠ indexing guarantee
-    ≠ retrieval guarantee
-    ≠ citation guarantee
-    ≠ ranking/placement guarantee
+URL discovery
+    ≠ crawler/content access
+    ≠ indexing eligibility
+    ≠ retrieval/source selection
+    ≠ citation/link presentation
+    ≠ ranking/placement
+    ≠ snippet/summary generation
     ≠ model-training permission
 ```
 
-A crawler can be allowed while a page is not selected. A page can be indexed without being cited. Search crawling and model-training controls may use different user agents or policies.
+A crawler can be allowed while a page is not selected. A page can be indexed without being cited. A platform can learn that a URL exists through a path other than its direct content crawler. Search crawling and model-training controls may use different user agents, directives, or policies.
 
 ## Google Search / AI Overviews / AI Mode
 
@@ -35,12 +39,22 @@ Google states that blocking Googlebot affects Google Search, including Google Se
 
 ### Eligibility
 
-For a page to be eligible as a supporting link in AI Overviews or AI Mode, Google states that it must be indexed and eligible to appear in Search with a snippet. There is no separate documented AEO/GEO crawler requirement.
+Google's current generative-Search guidance describes more than one eligibility layer:
+
+1. A page must satisfy normal Google Search technical/indexing requirements and be indexed/eligible to appear in Search with a snippet for supporting-link eligibility.
+2. Google's current rollout/guidance also refers to the site being included in Search generative AI features in Search Console.
+
+Meeting these conditions does **not** guarantee retrieval, citation, linking, ranking, or display.
+
+There is no separate documented AEO/GEO crawler requirement for Google's generative Search features.
 
 Sources:
 
 - https://developers.google.com/search/docs/appearance/ai-features
 - https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
+- https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports
+
+Because Search Console generative reporting/eligibility is evolving, re-check Google's current documentation before treating a specific property as eligible or ineligible.
 
 ### Robots/index controls
 
@@ -90,6 +104,24 @@ Source:
 
 - https://www.bing.com/webmasters/help/robots-meta-tags-and-attributes-that-bing-supports-5198d240
 
+### `noarchive` and `nocache`
+
+Do not inherit Google's current `noarchive`/`nocache` status into Bing.
+
+Microsoft/Bing documentation assigns current Bing/Copilot-related behavior to these directives, including restrictions on generative presentation/content use under the documented conditions. Their exact semantics MUST be checked against current Microsoft documentation before production changes.
+
+Sources:
+
+- https://www.bing.com/webmasters/help/robots-meta-tags-and-attributes-that-bing-supports-5198d240
+- https://blogs.bing.com/webmaster/september-2023/Announcing-new-options-for-webmasters-to-control-usage-of-their-content-in-Bing-Chat
+
+This is a canonical example of why:
+
+```text
+unused by Google
+    ≠ unused by Bing
+```
+
 ### `data-nosnippet`
 
 Bing added support for the `data-nosnippet` HTML attribute in 2025 to keep selected page content out of Bing Search snippets and AI-generated previews while preserving the rest of the page's discoverability under Bing's documented behavior.
@@ -113,7 +145,7 @@ A successful IndexNow response indicates that the URL notification was received;
 
 ### Search crawler: `OAI-SearchBot`
 
-OpenAI states that publishers who want their public content discoverable, surfaced, clearly cited and linked in ChatGPT search summaries/snippets should not block **`OAI-SearchBot`**.
+OpenAI states that publishers who want public content discoverable, surfaced, clearly cited and linked in ChatGPT search summaries/snippets should not block **`OAI-SearchBot`**.
 
 Primary source:
 
@@ -131,6 +163,24 @@ Do not add this blindly. Confirm the site's publishing/content-use policy and cu
 ### Searchbot IP/resource data
 
 - https://openai.com/searchbot.json
+
+### URL discovery versus content inclusion
+
+Blocking `OAI-SearchBot` does **not** prove that OpenAI cannot learn that a URL exists through another documented discovery path.
+
+OpenAI's publisher documentation describes cases where a disallowed page URL may still be learned through another source, with a link/title potentially surfaced even though normal page-content inclusion/summarization is restricted.
+
+Therefore preserve these states separately:
+
+```text
+URL known/discovered
+    ≠ page crawled by OAI-SearchBot
+    ≠ page content available for summary/snippet generation
+    ≠ page visibly cited/linked
+    ≠ model-training permission
+```
+
+Do not infer more than the current OpenAI documentation establishes for the specific surface.
 
 ### `noindex`
 
@@ -161,7 +211,7 @@ User-agent: PerplexityBot
 Allow: /
 ```
 
-Perplexity documents crawler/IP details and states that its different crawler settings operate independently. Verify current documentation before configuring production controls.
+Perplexity documents multiple crawler/user-agent purposes. Do not use `PerplexityBot` as shorthand for every possible Perplexity fetch path. Verify current crawler/IP documentation before configuring production controls.
 
 ## Robots Exclusion Protocol baseline
 
@@ -198,10 +248,12 @@ discovery_access:
   platform: <google|bing|openai|perplexity|other>
   surface: <search-or-ai-surface>
   crawler: <documented-user-agent-or-unknown>
+  url_discovered: true | false | unknown
   robots_allowed: true | false | unknown
   http_access: <status-or-result>
   index_control: <index|noindex|platform-specific|unknown>
   snippet_control: <value-or-unknown>
+  training_control: <value-or-unknown>
   sitemap_present: true | false | not-applicable
   indexnow_used: true | false | not-applicable
   verified_platform_source: <url>
@@ -229,10 +281,11 @@ Do not:
 - block all AI-named bots without distinguishing search discovery from training or other purposes;
 - claim that one robots rule covers Google, Bing, ChatGPT and Perplexity;
 - use `noindex` and robots.txt interchangeably;
+- infer that a blocked search crawler means the platform cannot know the URL exists;
 - promise citation after crawler access is enabled;
 - treat `llms.txt` as a universal AI crawler-control standard;
 - spoof or trust user-agent strings without verification when security matters.
 
 ## Governing rule
 
-> **Control each documented crawler for its documented purpose. Preserve the difference between access, indexing, retrieval, citation, ranking and training.**
+> **Control each documented crawler for its documented purpose. Preserve the difference between URL discovery, content access, indexing, retrieval, citation, ranking, snippets/summaries, and training.**
