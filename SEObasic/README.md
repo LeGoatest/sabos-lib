@@ -94,7 +94,7 @@ A common industry practice does not automatically override an explicit practitio
 SEObasic treats **AEO** and **GEO** as useful scoped terms, not replacements for SEO and not universal ranking systems.
 
 - [`docs/discovery/answer-engine-optimization.md`](docs/discovery/answer-engine-optimization.md) defines AEO around answer-oriented discoverability and representation.
-- [`docs/discovery/generative-engine-optimization.md`](docs/discovery/generative-engine-optimization.md) defines GEO around generative source selection, citation, representation and experimentally measurable source influence.
+- [`docs/discovery/generative-engine-optimization.md`](docs/discovery/generative-engine-optimization.md) defines GEO around generative source selection, citation, representation and **experimental source-influence research constructs**.
 - [`docs/technical/ai-discovery-controls.md`](docs/technical/ai-discovery-controls.md) owns crawler/access controls.
 - [`docs/measurement/ai-discovery.md`](docs/measurement/ai-discovery.md) owns answer/citation/referral measurement semantics.
 - [`docs/standards/ai-search-platform-guidance.md`](docs/standards/ai-search-platform-guidance.md) preserves current Google, Bing/Microsoft, OpenAI, Perplexity and protocol guidance.
