@@ -6,7 +6,7 @@
 
 This document preserves academic/research evidence separately from current platform guidance.
 
-Read [`AGENTS.md`](AGENTS.md) before changing research interpretation.
+Read [`AGENTS.md`](AGENTS.md) before changing research interpretation. Claim/publication status is governed by the binding [`Evidence Classification Contract`](../contracts/evidence-classification.md).
 
 ## Evidence classification
 
@@ -20,6 +20,8 @@ Use these labels:
 | **Research index** | Discovery/citation index such as Google Scholar; useful for finding research, not independent evidence for a substantive claim. |
 
 Do not convert a preprint into a universal SEObasic contract. Do not assume a peer-reviewed result generalizes beyond its tested models, domains, prompts, retrieval systems or time period.
+
+A record labeled **Preprint** MUST be checked for a subsequent peer-reviewed publication before its review/verification date is advanced. When a peer-reviewed version exists, use that publication as the publication-status authority while retaining the preprint when useful for manuscript access/version history.
 
 # Foundational GEO research
 
@@ -87,10 +89,17 @@ Do not assume source ecosystems and retrieval behavior are identical between tra
 
 ## Evaluating Verifiability in Generative Search Engines
 
-**Status:** Preprint — 2023.  
-**Authors:** Nelson F. Liu, Tianyi Zhang, Percy Liang.
+**Status:** Peer-reviewed conference publication — Findings of EMNLP 2023.  
+**Authors:** Nelson F. Liu, Tianyi Zhang, Percy Liang.  
+**Venue:** Findings of the Association for Computational Linguistics: EMNLP 2023.  
+**Pages:** 7001–7025.  
+**DOI:** `10.18653/v1/2023.findings-emnlp.467`
 
-- arXiv: https://arxiv.org/abs/2304.09848
+Primary records:
+
+- ACL Anthology: https://aclanthology.org/2023.findings-emnlp.467/
+- DOI: https://doi.org/10.18653/v1/2023.findings-emnlp.467
+- arXiv manuscript: https://arxiv.org/abs/2304.09848
 
 ### Contribution
 
@@ -100,11 +109,12 @@ The study found substantial gaps between fluent answers and fully supported/corr
 
 ### SEObasic implication
 
-A visible citation is not proof that every associated claim is supported by that citation.
+A visible citation is not proof that every associated claim is supported by that citation. The study's measured rates are historical experimental results for the systems tested, not current universal platform quality rates.
 
 ## From Citation Selection to Citation Absorption
 
 **Status:** Preprint — 2026.  
+**Evidence maturity:** Emerging experimental research construct; not a standardized platform metric.  
 **Authors:** Zhang Kai, He Xinyue, Yao Jingang.
 
 - arXiv: https://arxiv.org/abs/2604.25707
@@ -115,7 +125,7 @@ Proposes separating **citation selection** from **citation absorption**, where a
 
 ### SEObasic implication
 
-Citation count and substantive source influence should not be treated as the same metric.
+Citation count and substantive source influence should not be treated as the same metric. `Citation absorption` MUST retain this paper/tool's methodology when used and must not be turned into a generic provider-neutral GEO percentage or a claimed first-party commercial-platform metric.
 
 ## What Gets Cited: Competitive GEO in AI Answer Engines
 
@@ -162,6 +172,10 @@ Analyzes an attribution gap between relevant pages accessed by web-enabled LLMs 
 
 Publisher exposure can differ materially between retrieval and visible attribution; citation monitoring may underestimate source use.
 
+# Adjacent citation-attribution methodology
+
+The works in this section inform **citation correctness, attribution methodology, RAG grounding and evidence-based text generation**. They are useful for measurement/design concepts but MUST NOT be presented as direct evidence of publisher ranking, source inclusion or citation behavior in Google AI Overviews/AI Mode, ChatGPT Search, Bing/Copilot, Perplexity, or another production search surface unless the study actually evaluates that surface.
+
 ## CiteGuard: Faithful Citation Attribution for LLMs via Retrieval-Augmented Validation
 
 **Status:** Peer-reviewed — ACL 2026.  
@@ -176,7 +190,7 @@ Research on validating citation attribution alignment in LLM-generated text.
 
 ### SEObasic implication
 
-Citation quality itself is an evaluable property and should not be assumed from citation presence.
+Citation quality itself is an evaluable property and should not be assumed from citation presence. This is adjacent citation-attribution methodology, not direct commercial-search ranking evidence.
 
 ## CiteFix: Enhancing RAG Accuracy Through Post-Processing Citation Correction
 
@@ -431,13 +445,16 @@ Acronym-only searches can miss relevant information-retrieval, RAG, QA and attri
 When research suggests an optimization tactic:
 
 1. identify paper status (peer-reviewed/preprint);
-2. record dataset/benchmark and domain;
-3. record models/retrieval/generative-engine setup;
-4. record the exact visibility/citation metric;
-5. preserve negative/null results and limitations;
-6. compare with current production-platform documentation;
-7. classify the result as research evidence, not platform fact;
-8. only create a practitioner position or contract after deliberate synthesis.
+2. check whether a preprint has a subsequent peer-reviewed publication;
+3. record dataset/benchmark and domain;
+4. record models/retrieval/generative-engine setup;
+5. record the exact visibility/citation metric;
+6. preserve negative/null results and limitations;
+7. compare with current production-platform documentation;
+8. classify the result as research evidence, not platform fact;
+9. only create a practitioner position or contract after deliberate synthesis.
+
+See the binding [`Evidence Classification Contract`](../contracts/evidence-classification.md).
 
 ## Governing maxim
 
