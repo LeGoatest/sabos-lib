@@ -11,4 +11,8 @@ A position may deliberately diverge from common industry/framework practice. Rec
 
 A position does not weaken an existing binding WDBASIC contract. If a position becomes a normative obligation, adopt/update the controlling contract deliberately.
 
+## Positions
+
+- [`pas-content-architecture.md`](pas-content-architecture.md) — WDBASIC's Problem–Agitate–Solution content-architecture position, including semantic progression, anti-repetition rules, direct PAS scoring structure, evidence boundaries, and the 2026 research/source record.
+
 Use [`AGENTS.md`](AGENTS.md) for automated maintenance.
