@@ -1,31 +1,17 @@
-spec_version: "0.1.0"
-kind: conformance_definition
-id: wdbasic.conformance.machine-interface
-canonical_source: ../../README.md
+spec_version: "0.2.0"
+kind: conformance
+id: wdbasic.validation.conformance
+authority_class: canonical_projection
+canonical_sources: [../../docs/core-invariants/README.md, ../../docs/core-invariants/measurable-evidence/engineering-validation.md]
 outcomes:
-  - pass
-  - fail
-  - requires_review
-  - not_applicable
-checks:
-  - id: wdbasic.check.manifest-schema
-    mode: deterministic
-    requirement: manifest.yaml validates against schemas/manifest.schema.json
-  - id: wdbasic.check.unique-ids
-    mode: deterministic
-    requirement: machine record identifiers are unique within WDBASIC agents
-  - id: wdbasic.check.source-present
-    mode: deterministic
-    requirement: every normative-looking machine record references a canonical source
-  - id: wdbasic.check.authority-projection
-    mode: semantic
-    requirement: a machine record must not claim greater authority than its canonical source
-  - id: wdbasic.check.no-invented-contracts
-    mode: semantic
-    requirement: empty component or token registries must not be populated without an adopted canonical contract
-  - id: wdbasic.check.source-sync
-    mode: review
-    requirement: source changes that affect a mapped record require corresponding machine-interface review
-execution:
-  repository_build_required: false
-  adopting_project_mechanical_checks: preferred_when_practical
+  pass: All applicable MUST requirements pass.
+  fail: One or more applicable deterministic or confirmed semantic MUST requirements fail.
+  not_applicable: The record does not apply to the evaluated artifact.
+  requires_review: A material semantic or external question cannot be resolved deterministically.
+  blocked: A required source or reference is missing or a non-compensatory invariant blocks conformance.
+evaluation_order: [resolve_manifest_and_context, resolve_applicability, validate_schemas_and_references, evaluate_core_invariants, evaluate_selected_profile_and_page_type, evaluate_patterns_components_and_tokens, record_evidence_and_unresolved_review]
+rules:
+  warnings_do_not_override_errors: true
+  failed_core_invariant_cannot_be_offset: true
+  derived_record_cannot_self_promote: true
+  canonical_source_conflict_blocks_projection: true

@@ -1,0 +1,27 @@
+{
+  "spec_version": "0.2.0",
+  "kind": "token_catalog",
+  "id": "wdbasic.tokens.typography",
+  "authority_class": "canonical_projection",
+  "canonical_sources": ["../../docs/core-invariants/semantics/tokens/typography.md"],
+  "dtcg_alignment": {"target": "2025.10", "interchange_intent": true},
+  "resolved_values_profile_owned": true,
+  "value_policy": "profile_defined_preserve_semantic_distinction",
+  "required_roles": [
+    "font-display", "font-body", "font-mono", "font-ui",
+    "text-xs", "text-sm", "text-base", "text-lg", "text-xl",
+    "text-heading-sm", "text-heading-md", "text-heading-lg", "text-display",
+    "text-label", "text-caption", "text-code",
+    "leading-tight", "leading-heading", "leading-body", "leading-relaxed",
+    "measure-narrow", "measure-body", "measure-wide",
+    "weight-regular", "weight-medium", "weight-semibold", "weight-bold",
+    "tracking-tight", "tracking-normal", "tracking-wide"
+  ],
+  "constraints": {
+    "mobile_form_control_text_min_px": 16,
+    "body_line_height_guidance": [1.5, 1.65],
+    "long_form_measure_guidance_characters": [50, 75],
+    "system_fallback_required": true,
+    "essential_text_must_survive_font_load_failure": true
+  }
+}

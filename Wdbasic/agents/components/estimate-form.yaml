@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: component
+id: wdbasic.component.estimate-form
+authority_class: derived_component_specialization
+canonical_sources: [../../docs/core-invariants/semantics/components/component-contracts.md, ../../docs/core-invariants/semantics/forms/README.md, ../../docs/core-invariants/semantics/forms/validation.md, ../../docs/core-invariants/semantics/forms/security.md]
+purpose: Collect estimate or quote request data safely and accessibly.
+semantic_root: form
+required_states: [default, focus-visible, pending, validating, invalid, error, success, conflict, rate-limited, expired]
+requirements: [explicit_field_allowlist, visible_labels, server_authoritative_validation, csrf_auth_security_as_applicable, error_summary_and_field_recovery, duplicate_submission_policy]
+validation: {mode: mixed, outcomes: [pass, fail, not_applicable, requires_review]}

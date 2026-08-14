@@ -1,0 +1,11 @@
+spec_version: "0.2.0"
+kind: page_type
+id: wdbasic.page.service-area
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/core-invariants/README.md, ../../docs/experience-evaluation/profiles/field-service.md, ../../docs/experience-evaluation/discoverability.md]
+purpose: Explain genuine service availability and locally useful context for a geographic area.
+required_capabilities: [actual_service_availability, location_context, relevant_services, locally_useful_information, truthful_proof_when_available]
+optional_capabilities: [local_project_proof, area_specific_faq]
+applicable_patterns: [wdbasic.pattern.local-service, wdbasic.pattern.social-proof]
+constraints: {city_name_swap_template: forbidden, fabricated_local_information: forbidden, fixed_section_order: false}
+validation: {mode: mixed, outcomes: [pass, fail, not_applicable, requires_review]}

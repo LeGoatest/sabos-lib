@@ -1,0 +1,27 @@
+{
+  "spec_version": "0.2.0",
+  "kind": "token_catalog",
+  "id": "wdbasic.tokens.color",
+  "authority_class": "canonical_projection",
+  "canonical_sources": ["../../docs/core-invariants/semantics/tokens/semantic-colors.md"],
+  "dtcg_alignment": {"target": "2025.10", "interchange_intent": true},
+  "resolved_values_profile_owned": true,
+  "value_policy": "profile_defined_semantic_role",
+  "required_roles": [
+    "brand-primary", "brand-secondary", "brand-accent",
+    "action-primary", "action-primary-hover", "action-primary-active", "action-primary-text",
+    "action-secondary", "action-secondary-hover", "action-secondary-active", "action-secondary-text",
+    "surface", "surface-muted", "surface-strong", "surface-inverse", "surface-overlay",
+    "text-primary", "text-secondary", "text-muted", "text-inverse", "text-link", "text-link-hover",
+    "border", "border-strong", "border-interactive", "focus", "focus-offset",
+    "success", "success-text", "success-surface", "warning", "warning-text", "warning-surface",
+    "danger", "danger-text", "danger-surface", "info", "info-text", "info-surface",
+    "disabled", "on-disabled", "selection", "on-selection"
+  ],
+  "constraints": [
+    "components consume semantic roles rather than raw palette names",
+    "color is not the sole carrier of meaning",
+    "foreground and background pairs are validated in context",
+    "brand color may remain decorative when it cannot safely carry required meaning"
+  ]
+}

@@ -1,0 +1,30 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: wdbasic.rules.semantics
+category: semantics
+authority_class: canonical_projection
+canonical_sources:
+  - ../../../docs/core-invariants/semantics/README.md
+  - ../../../docs/core-invariants/semantics/components/component-contracts.md
+  - ../../../docs/core-invariants/semantics/forms/README.md
+rules:
+  - id: wdbasic.semantics.html-first
+    effect: require
+    strength: must
+    requirement: Use semantic HTML and meaningful source order before styling or enhancement.
+    validation: {mode: mixed, automation: partial}
+    failure: {severity: error, reason_code: SEM_HTML}
+  - id: wdbasic.semantics.component-contract
+    effect: require
+    strength: must
+    applies_when: {reusable_component: true}
+    requirement: Reusable components expose explicit inputs, semantic structure, token dependencies, state variants, accessibility contract, fallback, and version/deprecation status.
+    validation: {mode: structural, automation: partial}
+    failure: {severity: error, reason_code: SEM_COMPONENT_CONTRACT}
+  - id: wdbasic.semantics.form-contract
+    effect: require
+    strength: must
+    applies_when: {form_or_field: true}
+    requirement: Forms expose field schemas, labels, submitted value shape, validation, authorization, CSRF/security, error recovery, and server-authoritative outcomes.
+    validation: {mode: mixed, automation: partial}
+    failure: {severity: error, reason_code: SEM_FORM_CONTRACT}

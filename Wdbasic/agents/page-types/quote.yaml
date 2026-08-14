@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: page_type
+id: wdbasic.page.quote
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/core-invariants/semantics/forms/README.md, ../../docs/core-invariants/semantics/forms/validation.md, ../../docs/core-invariants/semantics/forms/security.md]
+purpose: Collect sufficient information for an estimate or quote without unnecessary friction.
+required_capabilities: [scope_identifying_fields, labels_and_instructions, validation_and_error_recovery, privacy_and_security, submission_outcome]
+optional_capabilities: [progressive_disclosure, conditional_fields]
+constraints: {server_validation_authoritative: true, unexpected_fields_policy_required: true}
+validation: {mode: mixed, outcomes: [pass, fail, not_applicable, requires_review]}

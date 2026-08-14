@@ -1,4 +1,4 @@
-spec_version: "0.1.0"
+spec_version: "0.2.0"
 kind: sabos.machine-interface
 id: wdbasic.agents
 system:
@@ -14,28 +14,81 @@ projection:
   maintained: manual
   last_reviewed: 2026-08-14
   sync_required_when_sources_change: true
-load_order:
-  - standard.yaml
-  - rules/core-invariants.yaml
-  - profiles/technology-profiles.yaml
-  - profiles/experience-profiles.yaml
-  - strategies/content-strategies.yaml
-  - components/registry.yaml
-  - tokens/registry.yaml
-  - validation/conformance.yaml
+context_policy:
+  strategy: progressive_disclosure
+  load_all_by_default: false
+  bootstrap:
+    - standard.yaml
+    - vocabulary/terms.yaml
+  select_by:
+    - task_scope
+    - active_profile
+    - page_type
+    - applicable_rules
+    - referenced_patterns
+    - referenced_components
+  require_transitive_dependencies: true
+  reject_unresolved_references: true
 collections:
-  rules: rules/core-invariants.yaml
+  rules:
+    accessibility: rules/accessibility/rules.yaml
+    architecture: rules/architecture/rules.yaml
+    conversion: rules/conversion/rules.yaml
+    interaction: rules/interaction/rules.yaml
+    performance: rules/performance/rules.yaml
+    responsive: rules/responsive/rules.yaml
+    semantics: rules/semantics/rules.yaml
   profiles:
-    technology: profiles/technology-profiles.yaml
-    experience: profiles/experience-profiles.yaml
-  strategies: strategies/content-strategies.yaml
-  components: components/registry.yaml
-  tokens: tokens/registry.yaml
+    field_service: profiles/field-service.yaml
+    professional_services: profiles/professional-services.yaml
+    custom_brand: profiles/custom-brand.yaml
+    technology_index: profiles/technology-profiles.yaml
+  page_types:
+    homepage: page-types/homepage.yaml
+    service: page-types/service.yaml
+    service_area: page-types/service-area.yaml
+    case_study: page-types/case-study.yaml
+    contact: page-types/contact.yaml
+    quote: page-types/quote.yaml
+  patterns:
+    pain_solution: patterns/pain-solution.yaml
+    conversion_sequence: patterns/conversion-sequence.yaml
+    social_proof: patterns/social-proof.yaml
+    local_service: patterns/local-service.yaml
+  components:
+    hero: components/hero.yaml
+    navigation: components/navigation.yaml
+    service_card: components/service-card.yaml
+    testimonial: components/testimonial.yaml
+    faq: components/faq.yaml
+    estimate_form: components/estimate-form.yaml
+  tokens:
+    color: tokens/color.tokens.json
+    typography: tokens/typography.tokens.json
+    spacing: tokens/spacing.tokens.json
+    accessibility: tokens/accessibility.tokens.json
+  vocabulary: vocabulary/terms.yaml
+  evidence:
+    sources: evidence/sources.yaml
+    mappings: evidence/mappings.yaml
 schemas:
   manifest: schemas/manifest.schema.json
-  record: schemas/record.schema.json
+  rule_set: schemas/rule-set.schema.json
+  profile: schemas/profile.schema.json
+  page_type: schemas/page-type.schema.json
+  pattern: schemas/pattern.schema.json
+  component: schemas/component.schema.json
+  token_catalog: schemas/token-catalog.schema.json
+  evidence: schemas/evidence.schema.json
 validation:
+  checks: validation/checks.yaml
   conformance: validation/conformance.yaml
+compatibility_indexes:
+  core_invariants: rules/core-invariants.yaml
+  experience_profiles: profiles/experience-profiles.yaml
+  content_strategies: strategies/content-strategies.yaml
+  component_registry: components/registry.yaml
+  token_registry: tokens/registry.yaml
 human_sources:
   root: ../README.md
   docs: ../docs/

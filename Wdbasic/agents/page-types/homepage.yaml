@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: page_type
+id: wdbasic.page.homepage
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/core-invariants/README.md, ../../docs/experience-evaluation/README.md, ../../docs/content-strategies/README.md]
+purpose: Orient users to the organization, primary value, major paths, proof, and next actions.
+required_capabilities: [clear_identity_and_value, primary_navigation, major_service_or_solution_paths, truthful_proof_when_available, appropriate_next_action]
+applicable_patterns: [wdbasic.pattern.conversion-sequence, wdbasic.pattern.social-proof]
+constraints: {fixed_section_order: false, core_invariants_required: true, profile_and_intent_may_change_composition: true}
+validation: {mode: mixed, outcomes: [pass, fail, not_applicable, requires_review]}

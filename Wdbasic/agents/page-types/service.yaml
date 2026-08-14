@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: page_type
+id: wdbasic.page.service
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/core-invariants/README.md, ../../docs/experience-evaluation/README.md, ../../docs/content-strategies/README.md]
+purpose: Explain a specific service or solution and support an informed next action.
+required_capabilities: [service_identity, scope_or_outcomes, fit_or_use_cases, truthful_proof_when_claimed, next_action]
+applicable_patterns: [wdbasic.pattern.pain-solution, wdbasic.pattern.social-proof]
+constraints: {fixed_section_order: false, core_invariants_required: true}
+validation: {mode: mixed, outcomes: [pass, fail, not_applicable, requires_review]}

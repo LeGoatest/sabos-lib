@@ -1,0 +1,28 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: wdbasic.rules.responsive
+category: responsive
+authority_class: canonical_projection
+canonical_sources:
+  - ../../../docs/core-invariants/semantics/tokens/spacing.md
+  - ../../../docs/core-invariants/semantics/tokens/accessibility.md
+rules:
+  - id: wdbasic.responsive.reflow
+    effect: require
+    strength: must
+    requirement: Content reflows and remains operable under supported zoom and narrow-screen conditions without avoidable two-dimensional scrolling.
+    validation: {mode: mixed, automation: partial}
+    failure: {severity: error, reason_code: RESP_REFLOW}
+  - id: wdbasic.responsive.target-size
+    effect: require
+    strength: must
+    applies_when: {interactive_target: true}
+    requirement: Interactive targets preserve the accessibility target-size contract even when visible icons or dense layouts are smaller.
+    validation: {mode: mixed, automation: partial}
+    failure: {severity: error, reason_code: RESP_TARGET_SIZE}
+  - id: wdbasic.responsive.content-width
+    effect: require
+    strength: should
+    requirement: Content width follows reading and task needs rather than viewport width alone.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: warning, reason_code: RESP_CONTENT_WIDTH}

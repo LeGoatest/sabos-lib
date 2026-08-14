@@ -1,0 +1,25 @@
+{
+  "spec_version": "0.2.0",
+  "kind": "token_catalog",
+  "id": "wdbasic.tokens.spacing",
+  "authority_class": "canonical_projection",
+  "canonical_sources": ["../../docs/core-invariants/semantics/tokens/spacing.md"],
+  "dtcg_alignment": {"target": "2025.10", "interchange_intent": true},
+  "resolved_values_profile_owned": true,
+  "value_policy": "profile_defined_preserve_role_and_ordering",
+  "required_roles": [
+    "space-1", "space-2", "space-3", "space-4", "space-5", "space-6", "space-8", "space-10", "space-12", "space-16", "space-20", "space-24",
+    "space-section-sm", "space-section-md", "space-section-lg",
+    "content-narrow", "content-default", "content-wide",
+    "control-height-sm", "control-height-md", "control-height-lg", "target-min",
+    "radius-control", "radius-card", "radius-panel", "radius-pill",
+    "shadow-card", "shadow-elevated", "shadow-overlay",
+    "layer-base", "layer-sticky", "layer-dropdown", "layer-overlay", "layer-modal", "layer-toast", "layer-tooltip"
+  ],
+  "constraints": [
+    "use a deliberate scale instead of unrelated one-off values",
+    "content widths follow reading and task needs",
+    "layering follows a controlled order",
+    "target size is an accessibility requirement"
+  ]
+}

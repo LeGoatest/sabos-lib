@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: component
+id: wdbasic.component.faq
+authority_class: derived_component_specialization
+canonical_sources: [../../docs/core-invariants/semantics/components/component-contracts.md, ../../docs/core-invariants/semantics/tokens/accessibility.md]
+purpose: Expose questions and answers with accessible disclosure behavior.
+semantic_root: section
+required_states: [default, focus-visible, expanded, collapsed]
+requirements: [question_remains_understandable, answer_state_truthful, native_disclosure_preferred_when_suitable]
+validation: {mode: mixed, outcomes: [pass, fail, not_applicable, requires_review]}

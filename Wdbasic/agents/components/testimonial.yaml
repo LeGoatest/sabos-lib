@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: component
+id: wdbasic.component.testimonial
+authority_class: derived_component_specialization
+canonical_sources: [../../docs/core-invariants/semantics/components/component-contracts.md, ../../docs/core-invariants/truthful-content/README.md]
+purpose: Present attributable, truthful customer proof.
+semantic_root: figure
+required_states: [default]
+requirements: [quotation_semantics_when_quoting, attribution_when_available, no_fabricated_or_materially_altered_claim]
+validation: {mode: semantic, outcomes: [pass, fail, not_applicable, requires_review]}

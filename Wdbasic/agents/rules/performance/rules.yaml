@@ -1,0 +1,22 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: wdbasic.rules.performance
+category: performance
+authority_class: canonical_projection
+canonical_sources:
+  - ../../../docs/experience-evaluation/performance.md
+  - ../../../docs/core-invariants/measurable-evidence/engineering-validation.md
+rules:
+  - id: wdbasic.performance.independent-dimension
+    effect: require
+    strength: must
+    requirement: Performance is evaluated as an independent experience dimension and is not assumed from implementation style.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: PERF_UNMEASURED_ASSUMPTION}
+  - id: wdbasic.performance.evidence
+    effect: require
+    strength: should
+    applies_when: {performance_claim_present: true}
+    requirement: Material performance claims identify measurement conditions and evidence.
+    validation: {mode: external, automation: assisted}
+    failure: {severity: warning, reason_code: PERF_EVIDENCE}

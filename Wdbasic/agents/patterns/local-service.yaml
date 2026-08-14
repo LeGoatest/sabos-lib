@@ -1,0 +1,11 @@
+spec_version: "0.2.0"
+kind: pattern
+id: wdbasic.pattern.local-service
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/experience-evaluation/profiles/field-service.md, ../../docs/experience-evaluation/discoverability.md]
+applicability: {use_when: organization_genuinely_serves_geographic_market, universal: false}
+intent: Connect real service capability to useful local context.
+sequence: [service_relevance, area_specific_context, proof_if_available, contact_or_estimate_path]
+sequence_is_fixed: false
+forbidden: [city_name_swap_template, fabricated_local_facts, doorway_only_content]
+validation: {mode: semantic, outcomes: [pass, fail, not_applicable, requires_review]}

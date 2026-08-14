@@ -1,0 +1,11 @@
+spec_version: "0.2.0"
+kind: pattern
+id: wdbasic.pattern.social-proof
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/experience-evaluation/trust.md, ../../docs/core-invariants/truthful-content/README.md]
+applicability: {use_when: real_proof_is_available, universal: false}
+intent: Reduce uncertainty using verifiable evidence.
+sequence: [proof_item, context, attribution_or_source_when_appropriate]
+sequence_is_fixed: false
+forbidden: [fabricated_testimonial, unsupported_superlative, misleading_aggregate]
+validation: {mode: semantic, outcomes: [pass, fail, not_applicable, requires_review]}

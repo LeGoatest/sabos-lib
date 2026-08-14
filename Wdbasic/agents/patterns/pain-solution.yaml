@@ -1,0 +1,11 @@
+spec_version: "0.2.0"
+kind: pattern
+id: wdbasic.pattern.pain-solution
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/content-strategies/pas.md, ../../docs/core-invariants/truthful-content/README.md]
+applicability: {use_when: real_problem_and_stakes_improve_relevance, universal: false}
+intent: Explain a real problem, proportionate stakes, and a credible solution without manipulation.
+sequence: [problem_or_context, stakes_when_useful, solution, support_or_proof_when_available, appropriate_next_action]
+sequence_is_fixed: false
+forbidden: [fabricated_pain, exaggerated_threat, repetitive_paraphrase, universal_problem_first_ordering]
+validation: {mode: semantic, outcomes: [pass, fail, not_applicable, requires_review]}

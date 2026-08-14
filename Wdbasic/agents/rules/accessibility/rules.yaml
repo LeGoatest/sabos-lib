@@ -1,0 +1,43 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: wdbasic.rules.accessibility
+category: accessibility
+authority_class: canonical_projection
+canonical_sources:
+  - ../../../docs/core-invariants/accessibility/README.md
+  - ../../../docs/core-invariants/semantics/tokens/accessibility.md
+rules:
+  - id: wdbasic.accessibility.native-first
+    effect: require
+    strength: must
+    applies_when: {interactive_or_semantic_content: true}
+    requirement: Use the native HTML element matching the behavior when a suitable native element exists.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: A11Y_NATIVE_SEMANTICS}
+  - id: wdbasic.accessibility.truthful-aria
+    effect: forbid
+    strength: must
+    applies_when: {aria_present: true}
+    requirement: ARIA must not claim behavior, state, value, or relationships that do not exist.
+    validation: {mode: mixed, automation: assisted}
+    failure: {severity: error, reason_code: A11Y_FALSE_ARIA}
+  - id: wdbasic.accessibility.keyboard
+    effect: require
+    strength: must
+    applies_when: {interactive_functionality: true}
+    requirement: All functionality is keyboard operable with logical order and visible focus.
+    validation: {mode: mixed, automation: partial}
+    failure: {severity: error, reason_code: A11Y_KEYBOARD}
+  - id: wdbasic.accessibility.document-structure
+    effect: require
+    strength: must
+    applies_when: {artifact: complete_page}
+    requirement: [language_metadata, meaningful_unique_title, main_region, logical_heading_hierarchy, bypass_mechanism, meaningful_source_order]
+    validation: {mode: mixed, automation: partial}
+    failure: {severity: error, reason_code: A11Y_DOCUMENT_STRUCTURE}
+  - id: wdbasic.accessibility.contrast
+    effect: require
+    strength: must
+    requirement: {normal_text_min_ratio: 4.5, large_text_min_ratio: 3.0, color_only_meaning: false}
+    validation: {mode: deterministic, automation: partial}
+    failure: {severity: error, reason_code: A11Y_CONTRAST}

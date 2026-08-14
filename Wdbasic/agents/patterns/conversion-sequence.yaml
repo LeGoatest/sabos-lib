@@ -1,0 +1,11 @@
+spec_version: "0.2.0"
+kind: pattern
+id: wdbasic.pattern.conversion-sequence
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/experience-evaluation/conversion.md, ../../docs/content-strategies/README.md]
+applicability: {use_when: page_has_conversion_objective, universal: false}
+intent: Create a coherent decision path.
+sequence: [relevance_or_value, supporting_detail, proof_or_trust_where_needed, next_action]
+sequence_is_fixed: false
+forbidden: [accessibility_tradeoff, truthfulness_tradeoff, forced_section_count]
+validation: {mode: semantic, outcomes: [pass, fail, not_applicable, requires_review]}

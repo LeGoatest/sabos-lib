@@ -1,0 +1,11 @@
+spec_version: "0.2.0"
+kind: evidence_mappings
+id: wdbasic.evidence.mappings
+mappings:
+  - {subject: wdbasic.rules.accessibility, sources: [wdbasic.source.accessibility, wdbasic.source.standards]}
+  - {subject: wdbasic.component.*, sources: [wdbasic.source.components, wdbasic.source.accessibility]}
+  - {subject: wdbasic.component.estimate-form, sources: [wdbasic.source.forms, wdbasic.source.accessibility]}
+  - {subject: wdbasic.rules.performance, sources: [wdbasic.source.engineering-validation]}
+  - subject: wdbasic.pattern.*
+    sources: [wdbasic.source.core, wdbasic.source.research]
+    note: Research and practitioner positions do not auto-promote to binding invariants.

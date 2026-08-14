@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: component
+id: wdbasic.component.service-card
+authority_class: derived_component_specialization
+canonical_sources: [../../docs/core-invariants/semantics/components/component-contracts.md]
+purpose: Summarize and link to a service or solution.
+semantic_root: article
+required_states: [default, hover, focus-visible]
+requirements: [clear_service_identity, real_destination_link, no_nested_interactive_controls, semantic_tokens]
+validation: {mode: mixed, outcomes: [pass, fail, not_applicable, requires_review]}

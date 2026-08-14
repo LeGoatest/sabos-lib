@@ -1,0 +1,28 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: wdbasic.rules.interaction
+category: interaction
+authority_class: canonical_projection
+canonical_sources:
+  - ../../../docs/core-invariants/semantics/components/component-contracts.md
+  - ../../../docs/core-invariants/semantics/forms/README.md
+rules:
+  - id: wdbasic.interaction.state-completeness
+    effect: require
+    strength: must
+    requirement: Reusable interactive components define all relevant normal, focus, disabled, loading, empty, error, success, invalid, conflict, rate-limit, unavailable, and recovery states.
+    validation: {mode: structural, automation: partial}
+    failure: {severity: error, reason_code: INT_STATE_INCOMPLETE}
+  - id: wdbasic.interaction.semantic-controls
+    effect: require
+    strength: must
+    requirement: Actions use action controls, navigation uses links, and form controls preserve label/name/value semantics.
+    validation: {mode: mixed, automation: partial}
+    failure: {severity: error, reason_code: INT_SEMANTICS}
+  - id: wdbasic.interaction.server-consistency
+    effect: require
+    strength: must
+    applies_when: {server_backed_interaction: true}
+    requirement: Enhanced and baseline response paths preserve the same authoritative validation, authorization, and security outcomes.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: INT_STATE_DIVERGENCE}

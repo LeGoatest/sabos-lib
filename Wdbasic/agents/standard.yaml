@@ -1,37 +1,62 @@
-spec_version: "0.1.0"
+spec_version: "0.2.0"
 kind: standard_projection
 id: wdbasic
 version: "2.1"
-canonical_source: ../README.md
-status: binding_framework_projection
-domains:
-  - id: wdbasic.core-invariants
-    role: invariant
-    canonical_source: ../docs/core-invariants/README.md
-    non_compensatory: true
-  - id: wdbasic.experience-evaluation
-    role: evaluation
-    canonical_source: ../docs/experience-evaluation/README.md
-  - id: wdbasic.content-strategies
-    role: strategy
-    canonical_source: ../docs/content-strategies/README.md
-    selection: intent_dependent
-  - id: wdbasic.technology-profiles
-    role: implementation_profile
-    canonical_source: ../docs/technology-profiles/README.md
-    core_invariant: false
-authority_order:
+authority_class: binding_framework_projection
+canonical_sources:
+  - ../README.md
   - ../docs/core-invariants/README.md
-  - applicable_invariant_subdomain_contracts
-  - ../docs/core-invariants/measurable-evidence/README.md
-  - ../docs/experience-evaluation/README.md
-  - ../docs/content-strategies/README.md
-  - ../docs/technology-profiles/README.md
-  - product_specific_requirements_and_explicit_exceptions
+authority:
+  canonical_sources_win_conflicts: true
+  machine_records_do_not_self_promote: true
+  derived_records_require_explicit_classification: true
+precedence:
+  - scope: core_invariants
+    source: ../docs/core-invariants/README.md
+    compensatory: false
+  - scope: applicable_invariant_subdomain
+    source: nearest_applicable_contract
+    compensatory: false
+  - scope: measurable_evidence
+    source: ../docs/core-invariants/measurable-evidence/README.md
+  - scope: experience_evaluation
+    source: ../docs/experience-evaluation/README.md
+  - scope: content_strategy
+    source: ../docs/content-strategies/README.md
+    applicability_required: true
+  - scope: technology_profile
+    source: ../docs/technology-profiles/README.md
+    core_invariant: false
+  - scope: adopting_product
+    source: product_specific_requirements
+    may_not_silently_override_core_invariants: true
+record_semantics:
+  effects: [require, forbid, allow, inform]
+  strengths: [must, should, may]
+  validation_modes: [structural, deterministic, semantic, external, mixed]
+  outcomes: [pass, fail, not_applicable, requires_review, blocked]
+  authority_classes:
+    - canonical_projection
+    - derived_machine_contract
+    - practitioner_position_projection
+    - external_requirement_projection
+    - informative_mapping
+applicability:
+  default: explicit
+  no_rule_is_universal_from_folder_placement: true
+  strategy_requires_fit: true
+  technology_requires_selected_profile: true
 boundaries:
   core_invariants_non_compensatory: true
+  accessibility_cannot_be_traded_for_conversion: true
+  security_privacy_cannot_be_traded_for_convenience: true
+  truthful_content_cannot_be_traded_for_persuasion: true
   pas_universal: false
   problem_first_ordering_universal: false
   technology_choice_is_core_invariant: false
-  javascript_free_content_is_google_universal_requirement: false
   heuristic_scores_are_external_requirements: false
+failure_policy:
+  invariant_failure: blocked
+  deterministic_failure: fail
+  semantic_uncertainty: requires_review
+  missing_required_source: blocked

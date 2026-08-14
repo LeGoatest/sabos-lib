@@ -1,0 +1,18 @@
+{
+  "spec_version": "0.2.0",
+  "kind": "token_catalog",
+  "id": "wdbasic.tokens.accessibility",
+  "authority_class": "canonical_projection",
+  "canonical_sources": ["../../docs/core-invariants/semantics/tokens/accessibility.md"],
+  "resolved_values_profile_owned": false,
+  "requirements": {
+    "normal_text_contrast_min": 4.5,
+    "large_text_contrast_min": 3.0,
+    "text_resize_percent_min": 200,
+    "keyboard_operability": true,
+    "visible_focus": true,
+    "color_only_meaning": false,
+    "truthful_aria": true
+  },
+  "related_semantic_roles": ["focus", "focus-offset", "target-min", "danger", "success", "warning", "disabled"]
+}

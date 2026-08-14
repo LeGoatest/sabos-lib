@@ -1,0 +1,12 @@
+spec_version: "0.2.0"
+kind: profile
+id: wdbasic.profile.professional-services
+authority_class: canonical_projection
+canonical_sources: [../../docs/experience-evaluation/profiles/professional-services.md]
+extends: [wdbasic.core]
+applies_when: {business_model: professional_services}
+priorities: [expertise_clarity, trust, process_clarity, qualified_inquiry_conversion]
+recommended_page_types: [wdbasic.page.homepage, wdbasic.page.service, wdbasic.page.case-study, wdbasic.page.contact]
+recommended_patterns: [wdbasic.pattern.social-proof, wdbasic.pattern.conversion-sequence]
+constraints: {core_invariants_remain_non_compensatory: true}
+validation: {mode: semantic, outcomes: [pass, fail, not_applicable, requires_review]}

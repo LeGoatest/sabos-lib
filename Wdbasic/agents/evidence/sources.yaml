@@ -1,0 +1,12 @@
+spec_version: "0.2.0"
+kind: evidence_sources
+id: wdbasic.evidence.sources
+authority_class: informative_mapping
+sources:
+  - {id: wdbasic.source.core, type: binding_wdbasic_contract, path: ../../docs/core-invariants/README.md}
+  - {id: wdbasic.source.accessibility, type: binding_wdbasic_contract, path: ../../docs/core-invariants/semantics/tokens/accessibility.md}
+  - {id: wdbasic.source.components, type: binding_wdbasic_contract, path: ../../docs/core-invariants/semantics/components/component-contracts.md}
+  - {id: wdbasic.source.forms, type: binding_wdbasic_contract, path: ../../docs/core-invariants/semantics/forms/README.md}
+  - {id: wdbasic.source.standards, type: standards_registry, path: ../../docs/core-invariants/measurable-evidence/standards.md}
+  - {id: wdbasic.source.engineering-validation, type: validation_guidance, path: ../../docs/core-invariants/measurable-evidence/engineering-validation.md}
+  - {id: wdbasic.source.research, type: research_and_positions, path: ../../docs/core-invariants/measurable-evidence/research/README.md}

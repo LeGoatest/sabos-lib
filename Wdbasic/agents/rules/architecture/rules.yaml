@@ -1,0 +1,34 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: wdbasic.rules.architecture
+category: architecture
+authority_class: canonical_projection
+canonical_sources:
+  - ../../../docs/core-invariants/http-url-integrity/architecture-rules.md
+  - ../../../docs/core-invariants/semantics/architecture_rules.md
+rules:
+  - id: wdbasic.architecture.authoritative-state
+    effect: require
+    strength: must
+    requirement: Trusted, permission, validation, security, and integrity outcomes remain authoritative at the server or trusted platform boundary.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: ARCH_TRUSTED_STATE}
+  - id: wdbasic.architecture.url-integrity
+    effect: require
+    strength: must
+    applies_when: {web_navigation: true}
+    requirement: Navigable resources and canonical destinations use meaningful, stable, reconstructable URLs where the selected platform supports them.
+    validation: {mode: mixed, automation: partial}
+    failure: {severity: error, reason_code: ARCH_URL_INTEGRITY}
+  - id: wdbasic.architecture.profile-neutral-core
+    effect: forbid
+    strength: must
+    requirement: Do not promote HTMX, SSR, static rendering, a JavaScript application, Tailwind, or another implementation profile into a universal core invariant.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: ARCH_PROFILE_PROMOTION}
+  - id: wdbasic.architecture.resilient-baseline
+    effect: require
+    strength: should
+    requirement: Essential content and core task outcomes should remain robust when optional enhancements fail, subject to the selected technology profile.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: warning, reason_code: ARCH_RESILIENCE}

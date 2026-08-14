@@ -1,0 +1,11 @@
+spec_version: "0.2.0"
+kind: component
+id: wdbasic.component.hero
+authority_class: derived_component_specialization
+canonical_sources: [../../docs/core-invariants/semantics/components/component-contracts.md]
+purpose: Orient the user to page identity, value, and primary next action.
+semantic_root: section
+required_states: [default]
+requirements: [semantic_heading, concise_supporting_content, action_hierarchy_when_actions_exist, media_alternatives_when_media_is_meaningful]
+base_contract: {inputs_explicit: true, token_dependencies_explicit: true, accessibility_defined: true, fallback_defined_when_enhanced: true}
+validation: {mode: mixed, outcomes: [pass, fail, not_applicable, requires_review]}

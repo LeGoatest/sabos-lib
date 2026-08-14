@@ -1,0 +1,20 @@
+spec_version: "0.2.0"
+kind: vocabulary
+id: wdbasic.vocabulary
+authority_class: informative_mapping
+canonical_sources: [../../README.md, ../../docs/core-invariants/README.md]
+terms:
+  - term: core invariant
+    meaning: A non-compensatory requirement that cannot be traded away by score, strategy, profile, or conversion goal.
+  - term: experience evaluation
+    meaning: An independent diagnostic dimension; it does not itself prescribe an implementation tactic.
+  - term: content strategy
+    meaning: An applicability-controlled way of structuring or presenting content, not universal architecture.
+  - term: technology profile
+    meaning: An implementation approach selected for a product, not a core invariant.
+  - term: semantic token
+    meaning: A named role describing purpose rather than a literal implementation value.
+  - term: component contract
+    meaning: Explicit inputs, semantics, states, accessibility, fallback, rendering, validation, security, and version behavior for a reusable component.
+  - term: conformance
+    meaning: The result of evaluating applicable machine-readable and canonical requirements against an artifact.

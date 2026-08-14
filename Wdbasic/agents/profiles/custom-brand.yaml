@@ -1,0 +1,14 @@
+spec_version: "0.2.0"
+kind: profile
+id: wdbasic.profile.custom-brand
+authority_class: canonical_projection
+canonical_sources: [../../docs/experience-evaluation/profiles/custom-brand.md]
+extends: [wdbasic.core]
+applies_when: {brand_system: custom}
+priorities: [brand_expression, semantic_consistency, accessibility, content_clarity]
+recommended_page_types: [wdbasic.page.homepage, wdbasic.page.service, wdbasic.page.case-study, wdbasic.page.contact]
+recommended_patterns: [wdbasic.pattern.social-proof]
+constraints:
+  core_invariants_remain_non_compensatory: true
+  visual_expression_may_not_break_semantics_or_accessibility: true
+validation: {mode: semantic, outcomes: [pass, fail, not_applicable, requires_review]}

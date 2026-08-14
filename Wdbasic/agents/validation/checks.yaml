@@ -1,0 +1,12 @@
+spec_version: "0.2.0"
+kind: validation_checks
+id: wdbasic.validation.checks
+checks:
+  - {id: WDBASIC-VAL-001, name: canonical-source-exists, mode: deterministic, severity: error, assertion: Every canonical_sources path resolves.}
+  - {id: WDBASIC-VAL-002, name: stable-id-unique, mode: deterministic, severity: error, assertion: Every machine record ID is unique within WDBASIC.}
+  - {id: WDBASIC-VAL-003, name: reference-resolution, mode: deterministic, severity: error, assertion: Profile page-type pattern component token and evidence references resolve.}
+  - {id: WDBASIC-VAL-004, name: rule-validation-metadata, mode: structural, severity: error, assertion: Every rule declares effect strength validation mode and failure semantics.}
+  - {id: WDBASIC-VAL-005, name: derived-authority-protection, mode: semantic, severity: error, assertion: Derived machine contracts are not represented as external requirements or canonical invariants.}
+  - {id: WDBASIC-VAL-006, name: component-contract-completeness, mode: mixed, severity: error, assertion: Reusable components preserve semantics states accessibility fallback and security or validation dependencies when applicable.}
+  - {id: WDBASIC-VAL-007, name: token-role-coverage, mode: deterministic, severity: error, assertion: Required semantic token roles remain present even when profiles change values.}
+  - {id: WDBASIC-VAL-008, name: invariant-noncompensation, mode: semantic, severity: error, assertion: No conversion profile strategy or score waives a failed core invariant.}

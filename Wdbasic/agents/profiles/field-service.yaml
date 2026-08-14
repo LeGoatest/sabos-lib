@@ -1,0 +1,14 @@
+spec_version: "0.2.0"
+kind: profile
+id: wdbasic.profile.field-service
+authority_class: canonical_projection
+canonical_sources: [../../docs/experience-evaluation/profiles/field-service.md]
+extends: [wdbasic.core]
+applies_when: {business_model: field_service}
+priorities: [local_relevance, service_clarity, trust, estimate_or_contact_conversion, mobile_usability]
+recommended_page_types: [wdbasic.page.homepage, wdbasic.page.service, wdbasic.page.service-area, wdbasic.page.case-study, wdbasic.page.contact, wdbasic.page.quote]
+recommended_patterns: [wdbasic.pattern.local-service, wdbasic.pattern.social-proof, wdbasic.pattern.conversion-sequence]
+constraints:
+  core_invariants_remain_non_compensatory: true
+  profile_may_adjust_values_not_remove_semantic_roles: true
+validation: {mode: semantic, outcomes: [pass, fail, not_applicable, requires_review]}

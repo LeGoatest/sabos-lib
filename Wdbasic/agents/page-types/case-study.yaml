@@ -1,0 +1,10 @@
+spec_version: "0.2.0"
+kind: page_type
+id: wdbasic.page.case-study
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/core-invariants/truthful-content/README.md, ../../docs/experience-evaluation/trust.md]
+purpose: Document a real project, problem, process, and outcome as evidence.
+required_capabilities: [truthful_context, problem_or_objective, work_or_process, verifiable_outcome, material_limitations_when_needed]
+applicable_patterns: [wdbasic.pattern.social-proof]
+constraints: {fabricated_outcome: forbidden, unsupported_before_after_claim: forbidden}
+validation: {mode: semantic, outcomes: [pass, fail, not_applicable, requires_review]}

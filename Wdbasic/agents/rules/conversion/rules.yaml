@@ -1,0 +1,36 @@
+spec_version: "0.2.0"
+kind: rule_set
+id: wdbasic.rules.conversion
+category: conversion
+authority_class: canonical_projection
+canonical_sources:
+  - ../../../docs/experience-evaluation/conversion.md
+  - ../../../docs/content-strategies/README.md
+  - ../../../docs/core-invariants/truthful-content/README.md
+rules:
+  - id: wdbasic.conversion.invariant-priority
+    effect: forbid
+    strength: must
+    requirement: Conversion optimization may not override accessibility, security, privacy, truthfulness, URL integrity, or required evidence.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: CONV_INVARIANT_TRADEOFF}
+  - id: wdbasic.conversion.relevance-before-persuasion
+    effect: require
+    strength: should
+    requirement: Relevance must precede or accompany persuasion; do not force a universal problem-first page order.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: warning, reason_code: CONV_RELEVANCE}
+  - id: wdbasic.conversion.action-hierarchy
+    effect: require
+    strength: should
+    applies_when: {conversion_action_present: true}
+    requirement: Primary and secondary actions have distinguishable purpose and local hierarchy.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: warning, reason_code: CONV_ACTION_HIERARCHY}
+  - id: wdbasic.conversion.claim-proof
+    effect: require
+    strength: must
+    applies_when: {proof_claim_present: true}
+    requirement: Proof, testimonials, outcomes, guarantees, and trust claims must be truthful and supportable.
+    validation: {mode: semantic, automation: human_review}
+    failure: {severity: error, reason_code: CONV_UNSUPPORTED_PROOF}

@@ -1,0 +1,9 @@
+spec_version: "0.2.0"
+kind: page_type
+id: wdbasic.page.contact
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/core-invariants/semantics/forms/README.md, ../../docs/core-invariants/accessibility/README.md]
+purpose: Provide clear, accessible contact paths and expectations.
+required_capabilities: [contact_methods, accessible_form_or_alternative, privacy_and_security_handling, expected_next_step]
+constraints: {core_invariants_required: true}
+validation: {mode: mixed, outcomes: [pass, fail, not_applicable, requires_review]}
