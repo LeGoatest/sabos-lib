@@ -51,6 +51,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Changed
 
+- Reorganized SEObasic long-form knowledge by role: `invariants/`, `evaluation/`, `strategies/`, `surfaces/`, `evidence/`, `measurement/`, and `terminology/`, so the tree answers what must remain true, what is evaluated, what is deliberately done, where behavior varies, why a claim is believed, how outcomes are defined, and what terms mean.
+- Migrated the former `contracts/` material into cross-domain `invariants/`; content/discovery/entity/on-page guidance into `strategies/`; owned-web, technical, local/maps, social, paid, YouTube, and generative-access mechanics into `surfaces/`; research/platform-guidance/practitioner-position/historical material into `evidence/`; and glossaries into `terminology/`.
+- Added `evaluation/` as an explicit cross-surface role so observations such as discoverability, eligibility, visibility, intent alignment, citation/attribution, trust, local relevance, engagement, conversion, and technical performance are separated from the tactic chosen in response.
+- Moved answer/generative measurement from `docs/measurement/ai-discovery.md` to `docs/measurement/generative-search/ai-discovery.md` while retaining measurement as a first-class cross-surface layer.
+- Clarified that taxonomy moves do not change a document's authority by themselves: evidence does not become an invariant, evaluation is not a tactic, strategy is not a platform guarantee, a surface rule is not universal law, a metric is not a causal mechanism, and terminology is not a requirement.
+- Preserved canonical T.E.S.T.I.N.G. philosophy, historical source excerpts, binding metric semantics, AEO/GEO research evidence, metadata status rules, and adversarial-audit corrections through the structural move before repairing authority/routing paths.
+- Kept `examples/` outside `docs/` as a non-normative artifact boundary and retained the rule that future surface, standards, intent, pattern, or playbook directories should be created only when real governed material exists rather than for visual symmetry.
 - Applied an adversarial evidence audit across SEObasic and adopted its corrections rather than preserving prior wording where stronger evidence showed the framework was too broad, incomplete, or incorrectly classified.
 - Reclassified `<meta name="keywords">` as a standards-defined WHATWG metadata name that is unused by Google Search for web ranking, rather than globally treating the HTML metadata name itself as obsolete.
 - Reworked metadata status around consumer/surface/purpose so `noarchive` and `nocache` can be historical/ignored for Google while retaining current Bing/Copilot semantics documented by Microsoft.
