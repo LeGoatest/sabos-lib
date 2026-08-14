@@ -6,7 +6,7 @@
 
 This document preserves academic/research evidence separately from current platform guidance.
 
-Read [`AGENTS.md`](AGENTS.md) before changing research interpretation. Claim/publication status is governed by the binding [`Evidence Classification Contract`](../contracts/evidence-classification.md).
+Read [`AGENTS.md`](AGENTS.md) before changing research interpretation. Claim/publication status is governed by the binding [`Evidence Classification Contract`](../../invariants/evidence-classification.md).
 
 ## Evidence classification
 
@@ -454,7 +454,7 @@ When research suggests an optimization tactic:
 8. classify the result as research evidence, not platform fact;
 9. only create a practitioner position or contract after deliberate synthesis.
 
-See the binding [`Evidence Classification Contract`](../contracts/evidence-classification.md).
+See the binding [`Evidence Classification Contract`](../../invariants/evidence-classification.md).
 
 ## Governing maxim
 
