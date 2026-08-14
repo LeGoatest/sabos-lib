@@ -2,7 +2,7 @@
 
 > **Status:** Binding  
 > **Scope:** Material factual, causal, platform-behavior, research, measurement, optimization, and historical claims across SEObasic  
-> **Owner:** `SEObasic/docs/contracts/`
+> **Owner:** `SEObasic/docs/invariants/`
 
 ## Requirement
 
