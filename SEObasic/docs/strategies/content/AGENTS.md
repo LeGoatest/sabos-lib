@@ -25,6 +25,24 @@ When adapting content strategy to a company, owned website, social platform, pai
 - preserve truth, permission, attribution, and evidence requirements;
 - avoid treating engagement metrics as the sole definition of useful content.
 
+## Publishable website copy
+
+For generation, rewriting, expansion, or review of publishable website copy, read [`web-copy-source-of-truth-and-quality.md`](web-copy-source-of-truth-and-quality.md).
+
+Agents MUST:
+
+- use verified business/project facts as the source of truth;
+- treat Google Business Profile exports as factual inputs that may be incomplete or stale, not as permission to invent missing details;
+- omit or explicitly mark unknown required inputs during drafting rather than fabricating plausible claims;
+- reject unresolved placeholders, example contact data, and template variables from production copy;
+- reject unsupported superiority, credential, guarantee, availability, response-time, pricing, or numerical claims;
+- distinguish intentionally shared components from accidental boilerplate;
+- make service and service-area pages substantively useful rather than token-swapped variants;
+- compare sibling pages for exact and near-duplicate body copy before publication;
+- treat internal similarity/readability thresholds as SEObasic QA heuristics, not platform ranking rules or WCAG AA requirements.
+
+If a page cannot be made useful without inventing facts or padding, reduce the page, leave the required field unresolved for follow-up, or do not publish the standalone page yet.
+
 ## Cross-surface work
 
 A piece of source material may support several outputs, but agents MUST account for surface differences rather than mechanically duplicating content.
