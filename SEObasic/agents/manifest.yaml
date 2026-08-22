@@ -12,7 +12,7 @@ authority:
   binding_by_presence: false
 projection:
   maintained: manual
-  last_reviewed: 2026-08-14
+  last_reviewed: 2026-08-22
   sync_required_when_sources_change: true
 context_policy:
   strategy: progressive_disclosure
