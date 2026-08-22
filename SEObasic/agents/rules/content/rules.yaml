@@ -3,7 +3,7 @@ kind: rule_set
 id: seobasic.rules.content
 category: content
 authority_class: canonical_projection
-canonical_sources: [../../../docs/strategies/content/README.md, ../../../docs/strategies/on-page/keyword-use.md, ../../../docs/invariants/truth-and-evidence.md]
+canonical_sources: [../../../docs/strategies/content/README.md, ../../../docs/strategies/content/web-copy-source-of-truth-and-quality.md, ../../../docs/strategies/on-page/keyword-use.md, ../../../docs/invariants/truth-and-evidence.md]
 rules:
   - id: seobasic.content.primary-topic
     effect: require
@@ -31,3 +31,66 @@ rules:
     requirement: Material claims preserve evidence/source class and do not overstate what the source establishes.
     validation: {mode: semantic, automation: human_review}
     failure: {severity: error, reason_code: SEO_CONTENT_EVIDENCE}
+  - id: seobasic.content.business-source-of-truth
+    effect: require
+    strength: must
+    applies_when: {publishable_business_copy: true}
+    requirement: Business facts used in publishable copy must come from a verified project source of truth or an explicitly identified current evidence source; absent data must not be treated as permission to infer a plausible fact.
+    validation: {mode: mixed, automation: assisted}
+    failure: {severity: error, reason_code: SEO_CONTENT_SOURCE_OF_TRUTH}
+  - id: seobasic.content.unknowns-not-invented
+    effect: forbid
+    strength: must
+    applies_when: {publishable_business_copy: true}
+    requirement: Do not fabricate credentials, guarantees, response times, pricing, service availability, years in business, biographies, review metrics, numerical outcomes, process details, or other material facts that are unknown.
+    validation: {mode: semantic, automation: human_review}
+    failure: {severity: error, reason_code: SEO_CONTENT_FABRICATED_FACT}
+  - id: seobasic.content.production-placeholders
+    effect: forbid
+    strength: must
+    applies_when: {publishable_business_copy: true}
+    requirement: Publishable output must not contain unresolved placeholders, example contact information, draft markers, or unresolved template variables such as Lorem ipsum, TBD, TODO, Your Company, bracket tokens, 555 example numbers, example.com, NEEDS_INPUT markers, or equivalent template syntax.
+    validation: {mode: deterministic, automation: automatable}
+    failure: {severity: error, reason_code: SEO_CONTENT_PLACEHOLDER}
+  - id: seobasic.content.unsupported-marketing-claims
+    effect: forbid
+    strength: must
+    applies_when: {publishable_business_copy: true}
+    requirement: Superlatives, credentials, guarantees, availability promises, response-time promises, pricing claims, review claims, ownership/history claims, and numerical performance claims require evidence appropriate to the claim.
+    validation: {mode: mixed, automation: assisted}
+    failure: {severity: error, reason_code: SEO_CONTENT_UNSUPPORTED_CLAIM}
+  - id: seobasic.content.shared-component-boundary
+    effect: require
+    strength: must
+    applies_when: {multi_page_site: true}
+    requirement: Repeated text must be intentionally classified as a shared component or shared factual statement; non-shared body copy must not rely on accidental boilerplate duplication.
+    validation: {mode: mixed, automation: assisted}
+    failure: {severity: error, reason_code: SEO_CONTENT_BOILERPLATE}
+  - id: seobasic.content.service-page-substantive-difference
+    effect: require
+    strength: must
+    applies_when: {page_type: service}
+    requirement: A service page must differ through actual service-specific problems, applications, materials or surfaces, inclusions or exclusions, preparation, process, pricing factors, limitations, proof, FAQs, or other user utility rather than service-name substitution.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_CONTENT_SERVICE_SWAP}
+  - id: seobasic.content.location-page-substantive-difference
+    effect: require
+    strength: must
+    applies_when: {page_type: service_area}
+    requirement: A location page must contain meaningful verified local utility and must not be produced by city-name substitution, generic local praise, or unsupported locality claims. If meaningful local inputs are unavailable, do not pad the page merely to justify a standalone URL.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_CONTENT_LOCATION_SWAP}
+  - id: seobasic.content.near-duplicate-review
+    effect: require
+    strength: should
+    applies_when: {multi_page_site: true}
+    requirement: Compare non-shared body copy across sibling commercial pages for exact and near-duplicate passages. Internal similarity thresholds may trigger review but must not be represented as Google ranking thresholds.
+    validation: {mode: mixed, automation: assisted}
+    failure: {severity: warning, reason_code: SEO_CONTENT_NEAR_DUPLICATE}
+  - id: seobasic.content.gbp-scope
+    effect: require
+    strength: must
+    applies_when: {source_type: google_business_profile}
+    requirement: Google Business Profile data may establish the fields it actually contains, such as displayed name, categories, listed services, service areas, hours, website, description, and business type, subject to freshness review. Missing or unlisted fields remain unknown and the profile must not be treated as proof of unrelated claims.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_CONTENT_GBP_SCOPE}
