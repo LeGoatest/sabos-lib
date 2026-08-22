@@ -94,6 +94,16 @@ crawler permission
 
 Preserve consumer, product surface, purpose, and review/freshness context when platform behavior is material.
 
+## Publishable web-copy routing
+
+For generation, rewriting, expansion, or review of publishable website copy, read:
+
+1. [`docs/strategies/content/web-copy-source-of-truth-and-quality.md`](docs/strategies/content/web-copy-source-of-truth-and-quality.md)
+2. [`agents/rules/content/rules.yaml`](agents/rules/content/rules.yaml)
+3. the applicable page-type contract under [`agents/page-types/`](agents/page-types/)
+
+Agents MUST NOT use placeholder text, generic praise, unsupported claims, service-name swaps, city-name swaps, or sentence-level paraphrase padding as substitutes for missing business/project information. Unknown material facts remain unresolved until verified.
+
 ## Invariants
 
 Current cross-domain binding invariants live under [`docs/invariants/`](docs/invariants/README.md), including:
