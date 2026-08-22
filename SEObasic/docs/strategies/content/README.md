@@ -18,6 +18,7 @@ Content knowledge in SEObasic can include:
 ## Current content guidance
 
 - [`customer-pain-and-solution-framing.md`](customer-pain-and-solution-framing.md) — customer pain points and PAS-style **Problem → Agitate/Stakes → Solution** framing, extended with proof and an appropriate next action while preserving truth and avoiding manipulative exaggeration or repetitive paraphrasing.
+- [`web-copy-source-of-truth-and-quality.md`](web-copy-source-of-truth-and-quality.md) — source-of-truth, page-specific copy strategy, anti-placeholder/anti-boilerplate rules, claim verification, service/location-page differentiation, AI generation constraints, duplicate-content QA heuristics, and editorial/automation checks for publishable website copy.
 
 ## Canonical T.E.S.T.I.N.G. documents
 
