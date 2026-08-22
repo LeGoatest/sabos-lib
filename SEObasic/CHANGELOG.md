@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Added
 
+- `docs/strategies/content/web-copy-source-of-truth-and-quality.md` documenting verified business-input hierarchy, Google Business Profile scope, page-by-page copy requirements, service/location-page differentiation, AI-assisted generation constraints, anti-placeholder/anti-boilerplate rules, duplicate-content QA heuristics, editorial/automation checks, and a worked MyRestorePro example grounded in the supplied Business Profile export.
+- Machine-readable web-copy validation covering production placeholders, business source-of-truth, unsupported claims, sibling-page near-duplication, service-page substitution, Google Business Profile scope, and agent routing into the new content strategy.
 - `agents/` as SEObasic's machine-readable projection namespace, with a deterministic manifest, role/standard projection, invariant registry, evaluation/strategy/surface/evidence/measurement/terminology registries, JSON Schemas, and conformance definitions.
 - Machine-interface provenance safeguards that preserve canonical source, knowledge role, platform/consumer scope, evidence class, and metric semantics instead of allowing structured records to silently become universal rules.
 - Expanded the machine interface to specification version `0.2.0` with dedicated crawl, indexing, metadata, content, links, entities, structured-data, local, E-E-A-T, AEO, GEO, and performance rule domains; local-service/ecommerce/publisher/professional-service profiles; homepage/service/service-area/article/case-study/FAQ page contracts; topic-coverage, pain-solution, answer-first, and information-gain patterns; controlled vocabulary; evidence source/mapping records; type-specific schemas; progressive-disclosure context loading; and explicit conformance/failure semantics.
@@ -54,6 +56,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Changed
 
+- Routed publishable website-copy work through the new source-of-truth strategy and synchronized `SEObasic/AGENTS.md`, content-strategy `AGENTS.md`, content rules, validation checks, and the machine-interface review date so agents must reject fabricated facts, unresolved placeholders, token-swapped location/service pages, and accidental boilerplate.
 - Reorganized SEObasic long-form knowledge by role: `invariants/`, `evaluation/`, `strategies/`, `surfaces/`, `evidence/`, `measurement/`, and `terminology/`, so the tree answers what must remain true, what is evaluated, what is deliberately done, where behavior varies, why a claim is believed, how outcomes are defined, and what terms mean.
 - Migrated the former `contracts/` material into cross-domain `invariants/`; content/discovery/entity/on-page guidance into `strategies/`; owned-web, technical, local/maps, social, paid, YouTube, and generative-access mechanics into `surfaces/`; research/platform-guidance/practitioner-position/historical material into `evidence/`; and glossaries into `terminology/`.
 - Added `evaluation/` as an explicit cross-surface role so observations such as discoverability, eligibility, visibility, intent alignment, citation/attribution, trust, local relevance, engagement, conversion, and technical performance are separated from the tactic chosen in response.
