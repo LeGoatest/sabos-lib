@@ -16,7 +16,7 @@ The repository currently contains four complementary `*basic` systems plus repos
 | **TCBasic** | Tailwind CSS v4 semantic architecture, contracts, practitioner positions, canonical reference CSS, and adoption examples. | Evolving knowledge framework | [`TCbasic/README.md`](TCbasic/README.md) |
 | **SEObasic** | Websites, technical SEO, content, entities/internal linking, local search/GBP/Maps, social, paid media/PPC, YouTube, measurement/analytics, research, standards, contracts, references, and examples. | Evolving knowledge framework | [`SEObasic/README.md`](SEObasic/README.md) |
 | **READMEbasic** | Evidence-backed README/documentation knowledge, integrity contracts, profiles, templates, research, standards, references, resources, and examples. | Evolving knowledge framework | [`READMEbasic/README.md`](READMEbasic/README.md) |
-| **Governance** | Repository-wide authority, invariants, knowledge-system structure, change control, validation, and anti-regression rules. | Binding | [`governance/README.md`](governance/README.md) |
+| **Governance** | Repository-wide authority, invariants, knowledge-system structure, change control, agent operations, validation, and anti-regression rules. | Binding | [`governance/README.md`](governance/README.md) |
 
 ## Shared system shape
 
@@ -55,6 +55,7 @@ The binding structural model is [`governance/knowledge-system-model.md`](governa
 SABOS Lib
 │
 ├── governance   → authority, invariants, knowledge model, change control
+│   └── agent-operations/ → context, continuity, execution, verification
 │
 ├── WDBASIC
 │   └── docs/    → web architecture and implementation contracts
@@ -80,7 +81,7 @@ The systems are complementary rather than interchangeable.
 - **TCBasic** specializes semantic Tailwind CSS architecture and provides reference CSS without making SABOS Lib a package/build repository.
 - **SEObasic** governs discovery, content, local search, channels, and measurement semantics.
 - **READMEbasic** governs evidence-backed project entrypoint documentation.
-- **Governance** defines how these bodies of knowledge evolve without silent contract drift.
+- **Governance** defines how these bodies of knowledge evolve without silent contract drift and how agents recover context, preserve task state, execute within scope, and validate work.
 
 ## Knowledge model
 
@@ -124,6 +125,7 @@ Important distinctions are intentional:
 | Work on SEO, local search, content, PPC, social, YouTube, or measurement | [`SEObasic/README.md`](SEObasic/README.md) |
 | Create or improve README documentation | [`READMEbasic/README.md`](READMEbasic/README.md) |
 | Understand repository agent/change-control rules | [`AGENTS.md`](AGENTS.md), [`governance/README.md`](governance/README.md) |
+| Apply practical agent context/task/execution controls | [`governance/agent-operations/README.md`](governance/agent-operations/README.md), [`governance/agent-operations/patterns/README.md`](governance/agent-operations/patterns/README.md) |
 | Understand the structural/authority model | [`governance/knowledge-system-model.md`](governance/knowledge-system-model.md) |
 
 ## High-value canonical paths
@@ -132,6 +134,9 @@ Important distinctions are intentional:
 | --- | --- |
 | Repository change history | [`CHANGELOG.md`](CHANGELOG.md) |
 | Repository agent entrypoint | [`AGENTS.md`](AGENTS.md) |
+| Agent Operations governance | [`governance/agent-operations/README.md`](governance/agent-operations/README.md) |
+| Agent execution/verification contract | [`governance/agent-operations/contracts/execution-verification.md`](governance/agent-operations/contracts/execution-verification.md) |
+| Practical agent-operation patterns | [`governance/agent-operations/patterns/README.md`](governance/agent-operations/patterns/README.md) |
 | Knowledge-system structural model | [`governance/knowledge-system-model.md`](governance/knowledge-system-model.md) |
 | WDBASIC framework/core contract | [`Wdbasic/docs/core-invariants/contract.md`](Wdbasic/docs/core-invariants/contract.md) |
 | WDBASIC architecture rules | [`Wdbasic/docs/core-invariants/http-url-integrity/architecture-rules.md`](Wdbasic/docs/core-invariants/http-url-integrity/architecture-rules.md) |
@@ -172,6 +177,10 @@ Across SABOS Lib:
 The governing doctrine is:
 
 > **Agents may implement within established contracts. They may not silently redefine those contracts.**
+
+The practical Agent Operations baseline is intentionally evidence-driven: keep persistent instructions scoped and high-salience, discover exact commands rather than guessing, define observable acceptance criteria for material work, gate dependent checks on prerequisites, move stable hard rules into executable enforcement where practical, and use independent/fresh-context review for substantial changes. Durable checkpoints and decision records are used only when their recoverability value justifies them.
+
+See [`governance/agent-operations/contracts/execution-verification.md`](governance/agent-operations/contracts/execution-verification.md) and [`governance/agent-operations/patterns/README.md`](governance/agent-operations/patterns/README.md).
 
 Unrequested architectural refactors, contract changes, canonical-definition changes, framework replacements, and comparable mutations follow [`governance/change-control.md`](governance/change-control.md).
 
