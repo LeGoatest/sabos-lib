@@ -35,9 +35,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Root `MACHINE-READABLE-AGENT-SPECS-RESEARCH.md` evidence review evaluating machine-readable WDBASIC/SEObasic specifications, agent-context research, schemas, design tokens, provenance, deterministic validation, and the risks of context bloat and dual sources of truth.
 - `Wdbasic/agents/` and `SEObasic/agents/` machine-readable projection layers with deterministic manifests, source-linked registries, schemas, and conformance definitions while retaining the existing Markdown authority model.
 - Expanded WDBASIC and SEObasic machine interfaces to specification version `0.2.0` with granular rule domains, profiles, page-type contracts, patterns, vocabulary, evidence mappings, type-specific schemas, progressive-disclosure context policies, and explicit conformance/failure semantics; WDBASIC additionally exposes component specializations and JSON semantic-token catalogs.
-- `governance/agent-operations/` as a structured repository-wide domain for selective context engineering, repository-first context recovery, task/approval continuity, practitioner positions, research synthesis, and source provenance.
+- `governance/agent-operations/` as a structured repository-wide domain for selective context engineering, repository-first context recovery, task/approval continuity, practitioner positions, reusable operational patterns, research synthesis, and source provenance.
 - Binding repository-wide continuity semantics allowing concise approvals to advance an already-defined actionable scope without authorizing unrelated refactors, redesign, deployment, or additional mutations.
-- Evidence synthesis spanning DORA, OpenAI/Codex, GitHub Copilot, Google/Gemini, Anthropic, academic repository-agent research, established Google engineering practice, and Thoughtworks/Martin Fowler practitioner literature.
+- Binding context-freshness/supersession and proportional task-checkpointing contracts so repository-local context is not assumed current and materially resumable work can survive interaction/context boundaries.
+- Optional lightweight decision-record and task-checkpoint patterns for durable consequential decisions and long-running/handoff work without requiring those artifacts for trivial tasks.
+- Evidence synthesis spanning DORA, OpenAI/Codex, GitHub Copilot, Google/Gemini, Anthropic, academic repository-agent research, established Google engineering practice, ADR/decision-record practice, and Thoughtworks/Martin Fowler practitioner literature.
 
 ### Changed
 
@@ -61,8 +63,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Clarified that local `AGENTS.md` files belong at meaningful authority/evidence/source-of-truth boundaries rather than being mechanically duplicated into every leaf folder.
 - Clarified that practitioner positions may intentionally diverge from common industry/vendor practice and must not be silently normalized or mislabeled as external standards.
 - Separated detailed governance and research from persistent agent instruction context to reduce duplication and instruction bloat.
-- Extended repository governance so authority resolution and context recovery are explicitly distinct, durable project state is recovered from repository evidence before incomplete conversational recollection, and approved task state survives phase/tool transitions unless superseded by new evidence or user direction.
-- Extended mutation and validation workflows to preserve scope-bound shorthand approval, reconcile approved scope against actual changes, and prefer mechanical enforcement for stable testable constraints.
+- Extended repository governance so authority resolution and context recovery are explicitly distinct, durable project state is recovered from repository evidence before incomplete conversational recollection, context freshness/supersession is reconciled, and approved task state survives phase/tool/context transitions unless superseded by new evidence or user direction.
+- Extended mutation and validation workflows to preserve scope-bound shorthand approval, reconcile approved scope against actual changes, keep active checkpoint/plan state synchronized when used, and prefer mechanical enforcement for stable testable constraints.
+- Re-audited agent-operation evidence and corrected source framing, including Anthropic context-loading/compaction behavior, OpenAI durable execution-plan practice, Khatri's context-file ablation counterevidence, and tighter CodePlan reporting.
+- Corrected repository validation routing to the canonical WDBASIC engineering-validation path.
 
 ### Removed
 
