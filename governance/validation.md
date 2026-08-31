@@ -35,7 +35,8 @@ Depending on scope, evidence may include:
 - link resolution;
 - accessibility checks;
 - security controls;
-- regression comparison.
+- regression comparison;
+- reconciliation of approved task scope against actual changes.
 
 Do not claim broad correctness from a narrow happy-path check.
 
@@ -49,9 +50,12 @@ Before material changes, determine when practical:
 - whether the assumed file or subsystem exists;
 - whether the requested change conflicts with architecture;
 - which tests or build commands actually govern the affected area;
-- whether generated output is current.
+- whether generated output is current;
+- whether prior decisions, current task state, or repository history materially affect the implementation.
 
 A pre-existing failure MUST be distinguished from a failure introduced by the current task.
+
+When durable prior state matters, recover it according to [`agent-operations/contracts/repository-recovery.md`](agent-operations/contracts/repository-recovery.md) rather than relying on conversational recollection alone.
 
 ## 3. Systematic
 
@@ -59,16 +63,18 @@ Use a repeatable change loop:
 
 ```text
 inspect
+→ selectively recover relevant context
 → resolve authority and scope
 → establish baseline
+→ preserve current task/approval state
 → make smallest coherent change
 → run local validation
 → inspect integration/generated output
-→ compare against baseline
+→ compare against baseline and approved scope
 → report evidence and gaps
 ```
 
-Do not substitute repeated guessing or repeated re-inspection for a defined validation process.
+Do not substitute repeated guessing, repeated re-inspection, or repeated plan restatement for a defined validation process.
 
 ## 4. Transparent
 
@@ -80,7 +86,8 @@ Validation reporting MUST distinguish:
 - checks unavailable or not run;
 - pre-existing failures;
 - newly introduced failures;
-- unresolved uncertainty.
+- unresolved uncertainty;
+- material deviations from the approved plan or scope.
 
 A skipped, blocked, unavailable, or unperformed check MUST NOT be reported as passed.
 
@@ -98,6 +105,8 @@ Examples:
 - use a separate validator for serialized or standards-based output where appropriate.
 
 Independent validation reduces the chance that the implementation and its check share the same mistaken assumption.
+
+For agent-authored changes, human-readable instructions alone are not independent proof that the agent followed them. Stable, testable requirements SHOULD use executable checks in the adopting implementation when practical.
 
 ## 6. Non-destructive
 
@@ -152,7 +161,21 @@ When a test fails after a change:
 3. do not automatically update expected output or snapshots;
 4. update the test only if the behavior change is intentional and in scope.
 
-## 10. Definition of done
+## 10. Task-state reconciliation
+
+Before completion, compare:
+
+1. the user's requested outcome;
+2. applicable repository authority;
+3. established findings/constraints;
+4. approved actionable scope;
+5. files/behavior actually changed;
+6. validation actually performed;
+7. unresolved deviations or blockers.
+
+A task MUST NOT be reported complete merely because edits exist. The completed state must still correspond to the approved task state under [`agent-operations/contracts/task-continuity.md`](agent-operations/contracts/task-continuity.md).
+
+## 11. Definition of done
 
 A material task is not complete until, as applicable:
 
@@ -161,12 +184,13 @@ A material task is not complete until, as applicable:
 - relevant validation was run;
 - required generated output was regenerated from canonical sources;
 - the result was compared with baseline behavior where meaningful;
+- actual changes were reconciled with approved scope;
 - unrelated behavioral drift was checked;
 - pre-existing and newly introduced failures were distinguished;
 - unperformed validation was disclosed;
 - no unapproved governed mutation was introduced.
 
-## 11. Mechanical enforcement
+## 12. Mechanical enforcement
 
 Stable requirements SHOULD move from prose into executable checks when practical.
 
