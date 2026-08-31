@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Ensure agents receive enough relevant project context to act correctly without treating context volume as a proxy for correctness.
+Ensure agents receive enough relevant, current project context to act correctly without treating context volume as a proxy for correctness.
 
 ## Requirements
 
@@ -71,7 +71,7 @@ Broad repository exploration requires a concrete reason such as cross-cutting be
 
 ### CE-06 — Context must be inspectable where practical
 
-When the agent platform exposes active instruction/context inspection, teams SHOULD use it for debugging instruction conflicts or stale context.
+When the agent platform exposes active instruction/context inspection, teams SHOULD use it for debugging instruction conflicts, missing context, or stale context.
 
 Governance MUST NOT depend on such a vendor-specific feature being available.
 
@@ -80,6 +80,8 @@ Governance MUST NOT depend on such a vendor-specific feature being available.
 Project facts that materially affect future implementation SHOULD be recorded in an appropriate repository source of truth when they are stable enough to outlive the current conversation.
 
 Conversational memory alone SHOULD NOT be the sole durable record of architecture, contracts, approved project decisions, build/deployment procedures, or persistent implementation state.
+
+Long-running/resumable work follows [`task-checkpointing.md`](task-checkpointing.md) when losing active interaction state would create material ambiguity or rediscovery.
 
 ### CE-08 — Security and least privilege apply to retrieval
 
@@ -93,6 +95,20 @@ RAG, search, embeddings, MCP, indexes, code search, memories, and similar mechan
 
 They MUST NOT determine which conflicting source is authoritative. Authority resolution follows repository governance.
 
+### CE-10 — Repository-local does not imply current
+
+Context selection MUST account for freshness where the task depends on state that can become stale.
+
+A versioned document, cached retrieval result, memory, checkpoint, or generated index MUST NOT be treated as current merely because it is repository-local or previously correct.
+
+Freshness and supersession follow [`context-freshness.md`](context-freshness.md).
+
+### CE-11 — Context compaction and summarization are lossy boundaries
+
+When a tool compacts, summarizes, truncates, or otherwise compresses active context, agents SHOULD assume some detail may be lost unless the platform explicitly guarantees preservation.
+
+Material constraints or task state that must survive such boundaries SHOULD live in durable/reloadable sources appropriate to their scope rather than only in transient conversation text.
+
 ## Validation
 
 A context-engineering implementation is consistent with this contract when:
@@ -103,8 +119,10 @@ A context-engineering implementation is consistent with this contract when:
 - irrelevant or stale context is not indiscriminately loaded;
 - provenance/authority distinctions remain visible;
 - durable decisions are not dependent solely on transient conversation history;
+- material resumable work can preserve state when needed;
+- retrieved context is reconciled for freshness when material;
 - retrieval does not bypass access controls.
 
 ## Rationale
 
-External evidence converges on selective, hierarchical, repository-grounded context rather than monolithic instruction files. The evidence and limitations are recorded under [`../research/`](../research/).
+External evidence converges on selective, hierarchical, repository-grounded context rather than monolithic instruction files. Current vendor documentation also shows that context loading, compaction, and instruction persistence differ by tool, reinforcing the need for durable repository state rather than dependence on one session mechanism. The evidence and limitations are recorded under [`../research/`](../research/).
