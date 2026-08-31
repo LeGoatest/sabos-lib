@@ -17,7 +17,7 @@ For any repository change:
 1. Read [`governance/README.md`](governance/README.md).
 2. Read [`governance/authority.md`](governance/authority.md).
 3. Read [`governance/invariants.md`](governance/invariants.md).
-4. For prior-state recovery, multi-phase work, approval/continuation semantics, or material context uncertainty, read [`governance/agent-operations/README.md`](governance/agent-operations/README.md) and the applicable contracts.
+4. For prior-state recovery, multi-phase/resumable work, approval/continuation semantics, or material context uncertainty/freshness, read [`governance/agent-operations/README.md`](governance/agent-operations/README.md) and the applicable contracts.
 5. For `*basic` work, read [`governance/knowledge-system-model.md`](governance/knowledge-system-model.md).
 6. Read the affected subsystem `README.md` and `AGENTS.md`.
 7. Read the subsystem's `docs/README.md` / `docs/AGENTS.md` when present.
@@ -35,6 +35,7 @@ Agents MUST:
 - make the smallest coherent change that fully satisfies the request;
 - inspect actual repository state before asserting implementation facts;
 - recover durable project state from repository sources before relying on incomplete conversational recollection when the repository can reasonably resolve it;
+- distinguish current repository context from historical, stale, or superseded material when freshness affects the task;
 - preserve established findings, constraints, decisions, and approved scope across analysis, implementation, validation, and documentation unless new evidence or the user changes them;
 - preserve user-established architecture, naming, terminology, workflow, and knowledge authority unless explicitly changed;
 - preserve the distinction between practitioner positions, contracts, standards, research, references, examples, glossaries, subject artifacts, and validation evidence;
@@ -96,9 +97,11 @@ Concise approval/continuation semantics are governed by [`governance/agent-opera
 ```text
 inspect
 → selectively recover relevant context
+→ reconcile material freshness/supersession
 → resolve authority and scope
 → establish baseline when material
 → preserve current task/approval state
+→ checkpoint only when resumability/complexity warrants it
 → make smallest coherent change
 → validate available evidence
 → compare against baseline/contract
@@ -127,9 +130,9 @@ Implementation/review validation guidance: [`Wdbasic/docs/core-invariants/measur
 Read:
 
 1. [`TCbasic/README.md`](TCbasic/README.md)
-2. [`TCbasic/AGENTS.md`](TCbasic/AGENTS.md)
-3. [`TCbasic/docs/README.md`](TCbasic/docs/README.md)
-4. [`TCbasic/docs/architecture/rules.md`](TCbasic/docs/architecture/rules.md)
+2. Read [`TCbasic/AGENTS.md`](TCbasic/AGENTS.md)
+3. Read [`TCbasic/docs/README.md`](TCbasic/docs/README.md)
+4. Read [`TCbasic/docs/architecture/rules.md`](TCbasic/docs/architecture/rules.md)
 5. nearest local `AGENTS.md` and applicable contracts/positions
 6. [`TCbasic/src/`](TCbasic/src/) only as canonical reference CSS when implementation detail matters
 7. [`TCbasic/examples/`](TCbasic/examples/) only as illustrative adoption evidence
@@ -182,6 +185,7 @@ A material task is complete only when, as applicable:
 - canonical paths and local authority links are correct;
 - relevant available validation/evidence was reviewed;
 - approved scope and actual changes were reconciled;
+- active durable checkpoints/plans were updated or completed when the task used them;
 - unrelated drift was checked;
 - pre-existing and new failures were distinguished;
 - unperformed validation was disclosed;
