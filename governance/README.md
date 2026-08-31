@@ -2,7 +2,7 @@
 
 > **Status:** Binding  
 > **Scope:** Entire repository  
-> **Purpose:** Define the authority, invariants, knowledge-system structure, change-control process, agent-operation contracts, and validation expectations that agent instructions route into.
+> **Purpose:** Define the authority, invariants, knowledge-system structure, change-control process, agent-operation contracts, execution/verification discipline, and validation expectations that agent instructions route into.
 
 The repository uses a layered governance model:
 
@@ -49,7 +49,7 @@ The operating rule is:
 
 For agent context and execution state, the complementary rule is:
 
-> **Retrieve selectively. Preserve established task state. Keep durable context current. Distinguish authority from evidence.**
+> **Retrieve selectively. Preserve established task state. Keep durable context current. Execute from explicit scope. Validate before claiming completion. Distinguish authority from evidence.**
 
 ## Governance primitives
 
@@ -61,7 +61,7 @@ The framework uses five primitives:
 4. **Mutation** — an intentional change to an invariant, architecture, public contract, artifact role, or governance rule.
 5. **Evidence** — tests, builds, rendered output, artifacts, measurements, research records, platform records, or other observable results used to evaluate a contract or decision.
 
-Agent operations applies these primitives to context acquisition, freshness, task-state continuity, checkpointing, approval semantics, and repository recovery; it does not create a competing authority hierarchy.
+Agent operations applies these primitives to context acquisition, freshness, task-state continuity, checkpointing, approval semantics, repository recovery, execution prerequisites, and completion evidence; it does not create a competing authority hierarchy.
 
 ## Document map
 
@@ -84,7 +84,7 @@ Defines when normal work becomes a governed mutation and what approval is requir
 Defines the evidence model and the Thorough, Early, Systematic, Transparent, Independent, Non-destructive, Gradual engineering-validation philosophy.
 
 ### [`agent-operations/`](agent-operations/README.md)
-Defines how repository agents selectively recover context, distinguish current from historical/superseded material, preserve task state, checkpoint resumable work, interpret concise approvals, and separate evidence retrieval from authority resolution. Binding operational contracts are separated from practitioner positions, reusable patterns, and research evidence.
+Defines how repository agents selectively recover context, distinguish current from historical/superseded material, preserve task state, checkpoint resumable work, interpret concise approvals, execute from explicit acceptance criteria and authoritative commands, respect prerequisite gates, and separate evidence retrieval from authority resolution. Binding operational contracts are separated from practitioner positions, reusable patterns, and research evidence.
 
 ### [`research-basis.md`](research-basis.md)
 Records the external and internal evidence used to design the root governance model. It is informative rather than normative; detailed current agent-operation evidence is maintained under [`agent-operations/research/`](agent-operations/research/).
@@ -144,8 +144,23 @@ Repository context is not synonymous with authority, and repository-local does n
 - **Task continuity** preserves established findings, constraints, approvals, and progress across work phases.
 - **Task checkpointing** preserves minimum sufficient resumable state when material work cannot safely depend on one interaction window.
 - **Approval semantics** allows concise approvals to inherit a clearly established actionable scope without broadening it.
+- **Execution verification** requires material work to identify observable outcomes/acceptance criteria, authoritative commands, dependency/prerequisite order, independent evidence, and precise completion status.
 
-Detailed contracts live under [`agent-operations/contracts/`](agent-operations/contracts/). Optional reusable operational patterns live under [`agent-operations/patterns/`](agent-operations/patterns/). Research and practitioner positions remain separate so evidence is not silently promoted into law.
+Detailed contracts live under [`agent-operations/contracts/`](agent-operations/contracts/). The practical execution contract is [`agent-operations/contracts/execution-verification.md`](agent-operations/contracts/execution-verification.md). Optional reusable operational patterns live under [`agent-operations/patterns/`](agent-operations/patterns/). Research and practitioner positions remain separate so evidence is not silently promoted into law.
+
+## Practical adoption order
+
+When an adopting repository cannot implement every Agent Operations practice at once, prefer this sequence:
+
+1. concise and scoped persistent agent instructions;
+2. authoritative build/test/validation command discovery;
+3. observable acceptance criteria for material work;
+4. prerequisite-gated execution and validation;
+5. mechanical enforcement for stable high-impact constraints;
+6. independent/fresh-context review for substantial or high-risk changes;
+7. durable checkpoints and decision records only when interruption or future reconstruction cost justifies them.
+
+Reusable forms are indexed under [`agent-operations/patterns/`](agent-operations/patterns/).
 
 ## Layering rule
 
@@ -157,7 +172,7 @@ Governance should be loaded progressively rather than copied into every agent in
 - Nested `AGENTS.md` files specialize behavior where a subject establishes a distinct authority, evidence, terminology, measurement, source-of-truth, artifact, generated-output, or contract boundary.
 - Detailed architecture, standards, research, references, glossaries, examples, measurements, and procedures remain in their canonical locations.
 - Agent-operation research remains outside persistent context unless rationale or evidence is material to the task.
-- Build/test commands belong to the adopting package/application/tooling context that actually owns them.
+- Build/test/validation commands belong to the adopting package/application/tooling context that actually owns them and should be referenced exactly rather than guessed from convention.
 - Mechanical requirements should migrate into tests, CI, schema validation, linters, or other executable checks when a real executable context exists and the check is practical.
 
 Not every leaf directory requires its own `AGENTS.md`; local agent files should correspond to real authority/behavior boundaries rather than duplicate identical text throughout the tree.
@@ -188,6 +203,8 @@ Where a rule is stable and mechanically testable, prefer encoding it in the impl
 - metric/schema validation;
 - link/freshness/status consistency checks for governed durable context;
 - repository/project-specific linters.
+
+Use [`agent-operations/patterns/verification-matrix.md`](agent-operations/patterns/verification-matrix.md) when it is useful to make the distinction between mechanical enforcement, independent observation, manual review, and guidance-only rules explicit.
 
 SABOS Lib itself need not acquire build tooling merely because an adopting project can validate a contract mechanically.
 
