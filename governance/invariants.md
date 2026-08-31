@@ -141,6 +141,16 @@ Retrieved context MUST retain its provenance and authority class.
 
 Detailed context rules: [`agent-operations/contracts/context-engineering.md`](agent-operations/contracts/context-engineering.md).
 
+## INV-17 — Durable context must preserve current-vs-historical state
+
+Repository-local documentation, plans, decision records, checkpoints, and generated knowledge MUST NOT be treated as current merely because they are versioned.
+
+When freshness materially affects implementation, agents MUST distinguish current guidance/state from historical, completed, deprecated, superseded, or uncertain material.
+
+Approved changes that directly invalidate durable governing context SHOULD update or explicitly supersede that context as part of the coherent change.
+
+Detailed freshness rules: [`agent-operations/contracts/context-freshness.md`](agent-operations/contracts/context-freshness.md).
+
 ## Enforcement
 
 A detected invariant violation requires one of three outcomes:
@@ -149,4 +159,4 @@ A detected invariant violation requires one of three outcomes:
 2. **Use the mutation process** when the invariant or contract genuinely needs to change.
 3. **Report the blocker** when neither can be done safely within current authority.
 
-Agents MUST NOT resolve an invariant conflict by silently broadening scope, erasing approved task state, or loading unrelated context until a preferred answer appears.
+Agents MUST NOT resolve an invariant conflict by silently broadening scope, erasing approved task state, trusting stale context without reconciliation, or loading unrelated context until a preferred answer appears.
