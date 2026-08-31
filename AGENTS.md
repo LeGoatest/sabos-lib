@@ -130,9 +130,9 @@ Implementation/review validation guidance: [`Wdbasic/docs/core-invariants/measur
 Read:
 
 1. [`TCbasic/README.md`](TCbasic/README.md)
-2. Read [`TCbasic/AGENTS.md`](TCbasic/AGENTS.md)
-3. Read [`TCbasic/docs/README.md`](TCbasic/docs/README.md)
-4. Read [`TCbasic/docs/architecture/rules.md`](TCbasic/docs/architecture/rules.md)
+2. [`TCbasic/AGENTS.md`](TCbasic/AGENTS.md)
+3. [`TCbasic/docs/README.md`](TCbasic/docs/README.md)
+4. [`TCbasic/docs/architecture/rules.md`](TCbasic/docs/architecture/rules.md)
 5. nearest local `AGENTS.md` and applicable contracts/positions
 6. [`TCbasic/src/`](TCbasic/src/) only as canonical reference CSS when implementation detail matters
 7. [`TCbasic/examples/`](TCbasic/examples/) only as illustrative adoption evidence
@@ -164,7 +164,7 @@ For README creation/material restructuring or READMEbasic changes, read:
 3. [`READMEbasic/docs/README.md`](READMEbasic/docs/README.md)
 4. [`READMEbasic/docs/contracts/readme-integrity.md`](READMEbasic/docs/contracts/readme-integrity.md)
 5. applicable profile/position/local `AGENTS.md`
-6. research, standards, references, resources, templates, or examples only when relevant
+6. research, standards, references, resources, templates, or examples only as relevant
 
 [`READMEbasic/templates/README-template.md`](READMEbasic/templates/README-template.md) is a reusable starting artifact, not a mandatory checklist. README claims must be verified against project evidence.
 
