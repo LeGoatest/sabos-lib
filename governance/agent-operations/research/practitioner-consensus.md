@@ -56,6 +56,41 @@ Agent-operations relevance:
 - supports converting recurring mistakes into durable repository knowledge or executable validation;
 - supports feedback loops from agent outcomes back into governance/tooling.
 
+## Durable architecture/project decision records
+
+### Martin Fowler — Architecture Decision Record
+
+Source: https://martinfowler.com/bliki/ArchitectureDecisionRecord.html
+
+Fowler describes an ADR as a short record of a single consequential decision containing the decision, its context, and significant ramifications. When a decision changes, the historical record should remain and link to the superseding decision rather than being rewritten as though the prior decision never existed.
+
+### Thoughtworks — Lightweight Architecture Decision Records
+
+Source: https://www.thoughtworks.com/content/dam/thoughtworks/documents/report/thoughtworks-enterprise-architecture-playbook-v4
+
+Thoughtworks recommends lightweight decision records for important architecture decisions, including context and consequences, and recommends keeping them in source control so they remain close to the evolving system.
+
+### AWS Prescriptive Guidance — Architecture decision records
+
+Sources:
+
+- https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/introduction.html
+- https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html
+
+AWS describes missing justification and uncaptured decisions as recurring decision anti-patterns. Its ADR process uses explicit lifecycle/status and treats accepted records as historical records that are superseded by newer records rather than silently mutated.
+
+### Microsoft Azure Well-Architected Framework — Maintain an ADR
+
+Source: https://learn.microsoft.com/en-us/azure/well-architected/architect-role/architecture-decision-record
+
+Microsoft recommends recording architecturally significant decisions with status, context, justification, implications, and supersession, keeping them concise and available in the workload documentation repository.
+
+Agent-operations relevance:
+
+- supports repository-recoverable rationale for decisions future agents might otherwise reconstruct incorrectly;
+- supports explicit status/supersession rather than treating every historical record as current;
+- supports lightweight records only for consequential decisions rather than documenting every implementation detail.
+
 ## Cross-practitioner convergence
 
 Across established software-engineering guidance and current agent-focused practitioner writing, several themes recur:
@@ -64,7 +99,9 @@ Across established software-engineering guidance and current agent-focused pract
 2. refactoring should not be casually mixed with unrelated behavior changes;
 3. relevant context should be supplied deliberately rather than maximized;
 4. repeated failures should produce durable improvements to instructions, architecture, tests, or tooling;
-5. human-readable guidance should be complemented by deterministic validation for high-confidence constraints.
+5. human-readable guidance should be complemented by deterministic validation for high-confidence constraints;
+6. consequential decisions should preserve their context/rationale and lifecycle so future contributors do not have to reconstruct them from code or conversation;
+7. historical documentation should remain truthful while superseded/current state stays discoverable.
 
 ## Consensus limitation
 
