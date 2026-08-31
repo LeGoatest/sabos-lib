@@ -26,6 +26,8 @@ An explicit request for the exact rename, refactor, migration, reorganization, f
 
 However, when the requested change alters an invariant, architecture contract, or governance rule, it is still a **governed mutation**. The affected governance or contract documents must be updated deliberately rather than allowing implementation/artifacts and governance to diverge.
 
+Concise approval may authorize an already-explicit actionable proposal according to [`agent-operations/contracts/approval-semantics.md`](agent-operations/contracts/approval-semantics.md). Concision does not broaden the proposal's scope.
+
 ## 3. No agent self-amendment
 
 An agent may identify a governance problem and propose an amendment.
@@ -84,7 +86,9 @@ READMEbasic does not own or authorize changes to an implementation merely becaus
 
 ### Repository governance
 
-`governance/` owns repository-wide authority, invariants, knowledge-system structure, change control, validation expectations, and governance research rationale.
+`governance/` owns repository-wide authority, invariants, knowledge-system structure, agent-operation contracts, change control, validation expectations, and governance research rationale.
+
+[`agent-operations/`](agent-operations/README.md) is a governed subdomain that owns context acquisition, repository recovery, task continuity, and approval semantics. It does not redefine subsystem subject-matter authority.
 
 Cross-subsystem changes must respect the controlling contract of each affected subsystem. One subsystem must not redefine another subsystem's authority by implication.
 
@@ -107,3 +111,25 @@ If evidence conflicts with binding governance or a binding subsystem contract:
 When authority is ambiguous and the narrower change can preserve existing behavior, preserve existing behavior.
 
 When resolution requires changing an invariant, public contract, architecture, persistent data semantics, user-established pattern, canonical philosophy, measurement definition, subject-artifact role, or binding knowledge-system contract, stop at the mutation gate and obtain explicit authority unless the current request already provides it.
+
+## 8. Context recovery is not authority order
+
+The sequence used to **find** relevant project context is not the same as the sequence used to **resolve conflicts** between sources.
+
+For example:
+
+- current source code may be inspected early because it reveals present implementation state;
+- a changelog may be essential to explain a prior migration;
+- a handover may identify unfinished work;
+- conversation history may help recover recent intent.
+
+None of those facts automatically outranks a current explicit user instruction, repository invariant, or binding contract.
+
+Agents MUST preserve this distinction:
+
+```text
+context recovery → discover what is relevant and what happened
+authority resolution → determine what controls when sources disagree
+```
+
+Repository recovery behavior is governed by [`agent-operations/contracts/repository-recovery.md`](agent-operations/contracts/repository-recovery.md).
