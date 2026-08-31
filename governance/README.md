@@ -20,6 +20,7 @@ governance/
     └── agent-operations/
         ├── contracts/
         ├── positions/
+        ├── patterns/
         ├── research/
         └── references/
     ↓
@@ -48,7 +49,7 @@ The operating rule is:
 
 For agent context and execution state, the complementary rule is:
 
-> **Retrieve selectively. Preserve established task state. Distinguish authority from evidence.**
+> **Retrieve selectively. Preserve established task state. Keep durable context current. Distinguish authority from evidence.**
 
 ## Governance primitives
 
@@ -60,7 +61,7 @@ The framework uses five primitives:
 4. **Mutation** — an intentional change to an invariant, architecture, public contract, artifact role, or governance rule.
 5. **Evidence** — tests, builds, rendered output, artifacts, measurements, research records, platform records, or other observable results used to evaluate a contract or decision.
 
-Agent operations applies these primitives to context acquisition, task-state continuity, approval semantics, and repository recovery; it does not create a competing authority hierarchy.
+Agent operations applies these primitives to context acquisition, freshness, task-state continuity, checkpointing, approval semantics, and repository recovery; it does not create a competing authority hierarchy.
 
 ## Document map
 
@@ -83,7 +84,7 @@ Defines when normal work becomes a governed mutation and what approval is requir
 Defines the evidence model and the Thorough, Early, Systematic, Transparent, Independent, Non-destructive, Gradual engineering-validation philosophy.
 
 ### [`agent-operations/`](agent-operations/README.md)
-Defines how repository agents selectively recover context, preserve task state, interpret concise approvals, and separate evidence retrieval from authority resolution. Binding operational contracts are separated from practitioner positions and research evidence.
+Defines how repository agents selectively recover context, distinguish current from historical/superseded material, preserve task state, checkpoint resumable work, interpret concise approvals, and separate evidence retrieval from authority resolution. Binding operational contracts are separated from practitioner positions, reusable patterns, and research evidence.
 
 ### [`research-basis.md`](research-basis.md)
 Records the external and internal evidence used to design the root governance model. It is informative rather than normative; detailed current agent-operation evidence is maintained under [`agent-operations/research/`](agent-operations/research/).
@@ -135,14 +136,16 @@ Repository governance itself remains a dedicated `governance/` namespace. Struct
 
 ## Agent-operations rule
 
-Repository context is not synonymous with authority.
+Repository context is not synonymous with authority, and repository-local does not automatically mean current.
 
 - **Authority resolution** determines what controls when sources conflict.
 - **Context recovery** determines where an agent should look to reconstruct relevant project state.
+- **Context freshness** distinguishes current, historical, completed, deprecated, superseded, and uncertain context.
 - **Task continuity** preserves established findings, constraints, approvals, and progress across work phases.
+- **Task checkpointing** preserves minimum sufficient resumable state when material work cannot safely depend on one interaction window.
 - **Approval semantics** allows concise approvals to inherit a clearly established actionable scope without broadening it.
 
-Detailed contracts live under [`agent-operations/contracts/`](agent-operations/contracts/). Research and practitioner positions remain separate so evidence is not silently promoted into law.
+Detailed contracts live under [`agent-operations/contracts/`](agent-operations/contracts/). Optional reusable operational patterns live under [`agent-operations/patterns/`](agent-operations/patterns/). Research and practitioner positions remain separate so evidence is not silently promoted into law.
 
 ## Layering rule
 
@@ -183,6 +186,7 @@ Where a rule is stable and mechanically testable, prefer encoding it in the impl
 - build checks;
 - generated-output checks;
 - metric/schema validation;
+- link/freshness/status consistency checks for governed durable context;
 - repository/project-specific linters.
 
 SABOS Lib itself need not acquire build tooling merely because an adopting project can validate a contract mechanically.
