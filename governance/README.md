@@ -2,7 +2,7 @@
 
 > **Status:** Binding  
 > **Scope:** Entire repository  
-> **Purpose:** Define the authority, invariants, knowledge-system structure, change-control process, and validation expectations that agent instructions route into.
+> **Purpose:** Define the authority, invariants, knowledge-system structure, change-control process, agent-operation contracts, and validation expectations that agent instructions route into.
 
 The repository uses a layered governance model:
 
@@ -16,7 +16,12 @@ governance/
     ├── knowledge-system-model.md
     ├── change-control.md
     ├── validation.md
-    └── research-basis.md
+    ├── research-basis.md
+    └── agent-operations/
+        ├── contracts/
+        ├── positions/
+        ├── research/
+        └── references/
     ↓
 subsystem entrypoints
     ├── Wdbasic/
@@ -41,6 +46,10 @@ The operating rule is:
 
 > **Preserve invariants. Minimize scope. Validate independently. Escalate mutations.**
 
+For agent context and execution state, the complementary rule is:
+
+> **Retrieve selectively. Preserve established task state. Distinguish authority from evidence.**
+
 ## Governance primitives
 
 The framework uses five primitives:
@@ -50,6 +59,8 @@ The framework uses five primitives:
 3. **Scope** — the smallest area governed or changed by a rule or task.
 4. **Mutation** — an intentional change to an invariant, architecture, public contract, artifact role, or governance rule.
 5. **Evidence** — tests, builds, rendered output, artifacts, measurements, research records, platform records, or other observable results used to evaluate a contract or decision.
+
+Agent operations applies these primitives to context acquisition, task-state continuity, approval semantics, and repository recovery; it does not create a competing authority hierarchy.
 
 ## Document map
 
@@ -71,8 +82,11 @@ Defines when normal work becomes a governed mutation and what approval is requir
 ### [`validation.md`](validation.md)
 Defines the evidence model and the Thorough, Early, Systematic, Transparent, Independent, Non-destructive, Gradual engineering-validation philosophy.
 
+### [`agent-operations/`](agent-operations/README.md)
+Defines how repository agents selectively recover context, preserve task state, interpret concise approvals, and separate evidence retrieval from authority resolution. Binding operational contracts are separated from practitioner positions and research evidence.
+
 ### [`research-basis.md`](research-basis.md)
-Records the external and internal evidence used to design this governance model. It is informative rather than normative.
+Records the external and internal evidence used to design the root governance model. It is informative rather than normative; detailed current agent-operation evidence is maintained under [`agent-operations/research/`](agent-operations/research/).
 
 ## Knowledge-system rule
 
@@ -117,7 +131,18 @@ Current examples:
 
 Do not create artifact directories merely to make trees match. Use `dist/` only for actual generated/distribution output.
 
-Repository governance itself remains a dedicated `governance/` namespace and does not need a redundant `governance/docs/` layer.
+Repository governance itself remains a dedicated `governance/` namespace. Structured governance subdomains such as `agent-operations/` are appropriate when they represent a real authority/evidence boundary rather than cosmetic nesting.
+
+## Agent-operations rule
+
+Repository context is not synonymous with authority.
+
+- **Authority resolution** determines what controls when sources conflict.
+- **Context recovery** determines where an agent should look to reconstruct relevant project state.
+- **Task continuity** preserves established findings, constraints, approvals, and progress across work phases.
+- **Approval semantics** allows concise approvals to inherit a clearly established actionable scope without broadening it.
+
+Detailed contracts live under [`agent-operations/contracts/`](agent-operations/contracts/). Research and practitioner positions remain separate so evidence is not silently promoted into law.
 
 ## Layering rule
 
@@ -128,6 +153,7 @@ Governance should be loaded progressively rather than copied into every agent in
 - `docs/AGENTS.md` routes long-form knowledge when the subsystem uses a `docs/` tree.
 - Nested `AGENTS.md` files specialize behavior where a subject establishes a distinct authority, evidence, terminology, measurement, source-of-truth, artifact, generated-output, or contract boundary.
 - Detailed architecture, standards, research, references, glossaries, examples, measurements, and procedures remain in their canonical locations.
+- Agent-operation research remains outside persistent context unless rationale or evidence is material to the task.
 - Build/test commands belong to the adopting package/application/tooling context that actually owns them.
 - Mechanical requirements should migrate into tests, CI, schema validation, linters, or other executable checks when a real executable context exists and the check is practical.
 
@@ -142,7 +168,7 @@ Subsystems retain authority over their own domain:
 - `SEObasic/` — search/discovery/marketing knowledge spanning websites, technical SEO, content, local search/GBP/Maps, organic social, paid media/PPC, YouTube, entities, measurement/analytics semantics, contracts, research, standards, references, positions, examples, and glossaries; long-form knowledge is under `SEObasic/docs/`.
 - `READMEbasic/` — README/documentation knowledge spanning profiles, integrity contracts, positions, research, standards, references, resources, glossaries, templates, examples, and agent behavior; long-form knowledge is under `READMEbasic/docs/`, reusable template artifacts under `READMEbasic/templates/`.
 
-A subsystem may strengthen repository-wide requirements but may not silently weaken repository invariants.
+A subsystem may strengthen repository-wide requirements but may not silently weaken repository invariants or agent-operation contracts.
 
 ## Enforcement direction
 
