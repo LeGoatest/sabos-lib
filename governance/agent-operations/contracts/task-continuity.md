@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Prevent agents from discarding established findings, constraints, approved scope, or implementation state when work moves from analysis into execution, validation, or documentation.
+Prevent agents from discarding established findings, constraints, approved scope, or implementation state when work moves from analysis into execution, validation, documentation, interruption, or resumption.
 
 ## Required task state
 
@@ -22,6 +22,8 @@ For material work, the agent SHOULD be able to identify the currently relevant:
 - validation status.
 
 This state may be represented in repository artifacts, the current interaction, or both. It does not require a new task file for every change.
+
+When losing interaction state would make material work difficult or unsafe to resume, follow [`task-checkpointing.md`](task-checkpointing.md).
 
 ## Requirements
 
@@ -73,9 +75,11 @@ Information established in an earlier phase remains usable in later phases unles
 
 ### TC-06 — Interruptions do not reset scope
 
-A tool failure, context switch, user interruption, partial implementation, or resumed session MUST NOT by itself redefine the task.
+A tool failure, context switch, user interruption, context compaction, partial implementation, agent handoff, or resumed session MUST NOT by itself redefine the task.
 
 On resumption, recover the latest valid task state from available repository and interaction evidence before continuing.
+
+If a durable checkpoint exists, reconcile it against the current repository state rather than executing it blindly.
 
 ### TC-07 — Completion requires state reconciliation
 
@@ -87,6 +91,12 @@ Before claiming completion, reconcile:
 - what validation was actually performed;
 - what remains unresolved.
 
+### TC-08 — Preserve state proportionally
+
+Continuity does not justify heavyweight process for trivial work.
+
+Use transient interaction state for small, self-contained tasks when sufficient. Use a durable checkpoint when the work meets the trigger in [`task-checkpointing.md`](task-checkpointing.md).
+
 ## Failure patterns
 
 The following violate this contract when unsupported by new evidence:
@@ -96,8 +106,9 @@ The following violate this contract when unsupported by new evidence:
 - treating `continue` as a new task;
 - silently replacing an approved narrow fix with a broad rewrite;
 - forgetting previously stated constraints during execution;
+- resuming a stale plan without checking repository drift;
 - claiming completion without reconciling partial work.
 
 ## Validation
 
-A task satisfies continuity when its final implementation and report can be traced to the established request, applicable repository authority, approved scope, and validation evidence without unexplained scope resets.
+A task satisfies continuity when its final implementation and report can be traced to the established request, applicable repository authority, approved scope, current repository state, and validation evidence without unexplained scope resets.
