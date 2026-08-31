@@ -88,7 +88,7 @@ READMEbasic does not own or authorize changes to an implementation merely becaus
 
 `governance/` owns repository-wide authority, invariants, knowledge-system structure, agent-operation contracts, change control, validation expectations, and governance research rationale.
 
-[`agent-operations/`](agent-operations/README.md) is a governed subdomain that owns context acquisition, repository recovery, task continuity, and approval semantics. It does not redefine subsystem subject-matter authority.
+[`agent-operations/`](agent-operations/README.md) is a governed subdomain that owns context acquisition and freshness, repository recovery, task continuity and checkpointing, approval semantics, and the related reusable patterns/evidence model. It does not redefine subsystem subject-matter authority.
 
 Cross-subsystem changes must respect the controlling contract of each affected subsystem. One subsystem must not redefine another subsystem's authority by implication.
 
@@ -132,4 +132,4 @@ context recovery → discover what is relevant and what happened
 authority resolution → determine what controls when sources disagree
 ```
 
-Repository recovery behavior is governed by [`agent-operations/contracts/repository-recovery.md`](agent-operations/contracts/repository-recovery.md).
+Repository recovery behavior is governed by [`agent-operations/contracts/repository-recovery.md`](agent-operations/contracts/repository-recovery.md), while freshness/supersession behavior is governed by [`agent-operations/contracts/context-freshness.md`](agent-operations/contracts/context-freshness.md).
