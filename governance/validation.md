@@ -17,7 +17,7 @@ The governing principles are:
 - **Non-destructive**
 - **Gradual**
 
-WDBASIC expands these principles for governed implementations in [`../Wdbasic/engineering-validation.md`](../Wdbasic/engineering-validation.md).
+WDBASIC expands these principles for governed implementations in [`../Wdbasic/docs/core-invariants/measurable-evidence/engineering-validation.md`](../Wdbasic/docs/core-invariants/measurable-evidence/engineering-validation.md).
 
 ## 1. Thorough
 
@@ -36,7 +36,8 @@ Depending on scope, evidence may include:
 - accessibility checks;
 - security controls;
 - regression comparison;
-- reconciliation of approved task scope against actual changes.
+- reconciliation of approved task scope against actual changes;
+- freshness/supersession checks for durable context invalidated by the change.
 
 Do not claim broad correctness from a narrow happy-path check.
 
@@ -51,6 +52,7 @@ Before material changes, determine when practical:
 - whether the requested change conflicts with architecture;
 - which tests or build commands actually govern the affected area;
 - whether generated output is current;
+- whether retrieved documentation/plans are current, historical, or superseded when that distinction matters;
 - whether prior decisions, current task state, or repository history materially affect the implementation.
 
 A pre-existing failure MUST be distinguished from a failure introduced by the current task.
@@ -64,13 +66,16 @@ Use a repeatable change loop:
 ```text
 inspect
 → selectively recover relevant context
+→ reconcile material freshness/supersession
 → resolve authority and scope
 → establish baseline
 → preserve current task/approval state
+→ checkpoint when resumability/complexity requires it
 → make smallest coherent change
 → run local validation
 → inspect integration/generated output
 → compare against baseline and approved scope
+→ update/supersede directly invalidated durable context
 → report evidence and gaps
 ```
 
@@ -87,7 +92,8 @@ Validation reporting MUST distinguish:
 - pre-existing failures;
 - newly introduced failures;
 - unresolved uncertainty;
-- material deviations from the approved plan or scope.
+- material deviations from the approved plan or scope;
+- known stale/superseded context that affected interpretation.
 
 A skipped, blocked, unavailable, or unperformed check MUST NOT be reported as passed.
 
@@ -102,7 +108,8 @@ Examples:
 - inspect generated JSON-LD rather than trusting the generator function;
 - render or inspect output rather than assuming a template is correct;
 - compare behavior before and after a refactor;
-- use a separate validator for serialized or standards-based output where appropriate.
+- use a separate validator for serialized or standards-based output where appropriate;
+- inspect current repository/runtime state rather than trusting an old plan or changelog entry to describe it.
 
 Independent validation reduces the chance that the implementation and its check share the same mistaken assumption.
 
@@ -171,11 +178,29 @@ Before completion, compare:
 4. approved actionable scope;
 5. files/behavior actually changed;
 6. validation actually performed;
-7. unresolved deviations or blockers.
+7. unresolved deviations or blockers;
+8. any active checkpoint/plan state that must be completed, updated, or superseded.
 
 A task MUST NOT be reported complete merely because edits exist. The completed state must still correspond to the approved task state under [`agent-operations/contracts/task-continuity.md`](agent-operations/contracts/task-continuity.md).
 
-## 11. Definition of done
+For checkpointed work, follow [`agent-operations/contracts/task-checkpointing.md`](agent-operations/contracts/task-checkpointing.md).
+
+## 11. Context freshness reconciliation
+
+When a change affects durable project context, verify whether directly dependent records remain accurate.
+
+Depending on scope, check:
+
+- active vs completed/superseded plan state;
+- decision-record status/supersession;
+- agent routing links;
+- architecture/documentation claims;
+- generated documentation freshness;
+- external vendor/platform claims whose current behavior matters.
+
+Follow [`agent-operations/contracts/context-freshness.md`](agent-operations/contracts/context-freshness.md).
+
+## 12. Definition of done
 
 A material task is not complete until, as applicable:
 
@@ -185,12 +210,14 @@ A material task is not complete until, as applicable:
 - required generated output was regenerated from canonical sources;
 - the result was compared with baseline behavior where meaningful;
 - actual changes were reconciled with approved scope;
+- active task checkpoints/plans were updated, completed, or superseded when used;
+- directly invalidated durable context was updated or clearly superseded;
 - unrelated behavioral drift was checked;
 - pre-existing and newly introduced failures were distinguished;
 - unperformed validation was disclosed;
 - no unapproved governed mutation was introduced.
 
-## 12. Mechanical enforcement
+## 13. Mechanical enforcement
 
 Stable requirements SHOULD move from prose into executable checks when practical.
 
@@ -202,6 +229,7 @@ Candidates include:
 - link integrity;
 - generated-output freshness;
 - required metadata;
+- status/supersession consistency for governed artifacts;
 - accessibility rules with reliable automation;
 - security/static checks;
 - package/build consistency.
