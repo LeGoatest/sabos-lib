@@ -3,7 +3,7 @@
 > **Scope:** `governance/agent-operations/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
-This directory governs repository-agent context acquisition, task-state continuity, context freshness, durable checkpointing, and approval interpretation.
+This directory governs repository-agent context acquisition, task-state continuity, context freshness, durable checkpointing, approval interpretation, and execution/verification discipline.
 
 ## Required reading
 
@@ -13,7 +13,7 @@ Before changing this domain, read:
 2. [`../authority.md`](../authority.md)
 3. [`../invariants.md`](../invariants.md)
 4. [`../change-control.md`](../change-control.md)
-5. applicable files under [`contracts/`](contracts/)
+5. applicable files under [`contracts/`](contracts/), including [`contracts/execution-verification.md`](contracts/execution-verification.md) when changing execution, command, prerequisite, validation, or completion behavior
 6. applicable practitioner positions under [`positions/`](positions/)
 7. applicable reusable patterns under [`patterns/`](patterns/) when changing an operational artifact pattern
 8. research only when rationale or evidence is material to the change
@@ -44,7 +44,10 @@ Prefer:
 - freshness/supersession signals where they reduce real ambiguity;
 - versioned repository records for durable project state;
 - lightweight checkpoints only when work is genuinely resumable/complex;
-- executable checks when a stable rule is mechanically testable.
+- explicit acceptance criteria for material work;
+- authoritative commands and prerequisite ordering;
+- executable checks when a stable rule is mechanically testable;
+- independent/fresh-context review for substantial or high-risk changes when practical.
 
 ## Interaction semantics
 
@@ -55,6 +58,19 @@ Exact shorthand words such as `proceed` and `continue` are repository-adopted in
 Do not assume versioned means current. When adding durable context, define enough lifecycle behavior that future agents can distinguish active/current material from completed, archived, deprecated, or superseded records.
 
 For long-running work, preserve minimum sufficient resumable state without copying conversations or creating process artifacts for trivial tasks.
+
+## Practical patterns
+
+The [`patterns/`](patterns/) directory now includes a priority adoption sequence for:
+
+- scoped persistent agent instructions;
+- material task contracts;
+- requirement-to-verification matrices;
+- fresh-context review;
+- resumable checkpoints;
+- durable decision records.
+
+These are reusable forms, not mandatory filenames or ceremony.
 
 ## Governance changes
 
