@@ -53,7 +53,17 @@ Examples:
 
 The agent still MUST identify affected contracts and keep governance synchronized with the approved change.
 
-## 4. No self-authorizing prerequisite
+When a mutation proposal has already been presented with a sufficiently clear actionable scope, concise approval such as `proceed`, `yes`, `do it`, `go ahead`, `implement it`, or `apply it` MAY constitute explicit approval for that exact proposal under [`agent-operations/contracts/approval-semantics.md`](agent-operations/contracts/approval-semantics.md).
+
+The user does not need to restate the proposal merely to approve it.
+
+## 4. Approval remains scope-bound
+
+Approval for one mutation does not authorize a second mutation, unrelated cleanup, broader redesign, deployment/release action, dependency change, or destructive operation unless those actions were reasonably included in the approved proposal.
+
+If execution reveals that an additional governed mutation is required, stop at the new boundary and obtain authority for that new scope unless the current request already covers it.
+
+## 5. No self-authorizing prerequisite
 
 An agent MUST NOT claim that a broad refactor is “necessary” merely because it makes implementation easier.
 
@@ -61,20 +71,22 @@ Before escalating scope, attempt to determine whether the requested result can b
 
 A mutation gate is reached only when the narrower implementation is unsafe, incoherent, impossible, or explicitly rejected by the user.
 
-## 5. Mutation workflow
+## 6. Mutation workflow
 
 For an approved governed mutation:
 
 1. Identify the controlling authority and affected invariants.
-2. Establish the pre-change baseline.
-3. Record the intended new behavior or contract.
-4. Update the authoritative governance/architecture documents deliberately.
-5. Update implementation and directly dependent artifacts as one coherent change.
-6. Run the validation required by [`validation.md`](validation.md).
-7. Compare new behavior against the declared mutation scope.
-8. Report preserved behavior, intentional changes, regressions, and unresolved risk.
+2. Recover the latest relevant repository/task state when prior decisions or progress matter.
+3. Establish the pre-change baseline.
+4. Record the intended new behavior or contract.
+5. Preserve the approved mutation scope across implementation phases.
+6. Update the authoritative governance/architecture documents deliberately.
+7. Update implementation and directly dependent artifacts as one coherent change.
+8. Run the validation required by [`validation.md`](validation.md).
+9. Compare new behavior against the declared mutation scope.
+10. Report preserved behavior, intentional changes, regressions, and unresolved risk.
 
-## 6. Atomicity
+## 7. Atomicity
 
 A governance mutation SHOULD leave the repository internally coherent at the end of the change.
 
@@ -88,7 +100,7 @@ Do not intentionally land a state where:
 
 When a migration genuinely requires staged coexistence, document the transitional state and removal condition explicitly.
 
-## 7. Regression discovered during mutation
+## 8. Regression discovered during mutation
 
 An approved architecture change is not permission to accept unrelated regressions.
 
@@ -100,7 +112,9 @@ If unrelated behavior breaks:
 4. narrow the implementation;
 5. request additional authority only if preserving that behavior requires a second mutation.
 
-## 8. Governance amendments
+New evidence that invalidates one part of an approved plan SHOULD revise the smallest affected portion first rather than resetting the whole task.
+
+## 9. Governance amendments
 
 Agents may propose improvements to this governance system, but MUST NOT silently weaken it while performing an unrelated task.
 
