@@ -3,7 +3,7 @@
 > **Scope:** `governance/agent-operations/`  
 > **Parent authority:** [`../AGENTS.md`](../AGENTS.md)
 
-This directory governs repository-agent context acquisition, task-state continuity, and approval interpretation.
+This directory governs repository-agent context acquisition, task-state continuity, context freshness, durable checkpointing, and approval interpretation.
 
 ## Required reading
 
@@ -15,7 +15,8 @@ Before changing this domain, read:
 4. [`../change-control.md`](../change-control.md)
 5. applicable files under [`contracts/`](contracts/)
 6. applicable practitioner positions under [`positions/`](positions/)
-7. research only when rationale or evidence is material to the change
+7. applicable reusable patterns under [`patterns/`](patterns/) when changing an operational artifact pattern
+8. research only when rationale or evidence is material to the change
 
 ## Knowledge-type discipline
 
@@ -23,10 +24,13 @@ Keep these categories distinct:
 
 - `contracts/` — binding adopted requirements;
 - `positions/` — deliberate practitioner preferences or conventions;
+- `patterns/` — optional reusable ways to operationalize contracts;
 - `research/` — evidence and synthesis, not automatic authority;
 - `references/` — provenance/source records.
 
 Do not move a claim from research into a binding contract merely because multiple sources repeat it. Determine independence, applicability, limitations, and whether explicit adoption is justified.
+
+Do not turn a pattern into a mandatory repository structure merely because it is documented here.
 
 ## Context discipline
 
@@ -37,12 +41,20 @@ Prefer:
 - concise routing instructions;
 - selective retrieval;
 - local authority near the affected domain;
+- freshness/supersession signals where they reduce real ambiguity;
 - versioned repository records for durable project state;
+- lightweight checkpoints only when work is genuinely resumable/complex;
 - executable checks when a stable rule is mechanically testable.
 
 ## Interaction semantics
 
 Exact shorthand words such as `proceed` and `continue` are repository-adopted interaction conventions, not external scientific standards. Preserve that distinction in research and contracts.
+
+## Durable state
+
+Do not assume versioned means current. When adding durable context, define enough lifecycle behavior that future agents can distinguish active/current material from completed, archived, deprecated, or superseded records.
+
+For long-running work, preserve minimum sufficient resumable state without copying conversations or creating process artifacts for trivial tasks.
 
 ## Governance changes
 
