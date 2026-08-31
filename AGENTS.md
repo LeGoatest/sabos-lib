@@ -17,7 +17,7 @@ For any repository change:
 1. Read [`governance/README.md`](governance/README.md).
 2. Read [`governance/authority.md`](governance/authority.md).
 3. Read [`governance/invariants.md`](governance/invariants.md).
-4. For prior-state recovery, multi-phase/resumable work, approval/continuation semantics, or material context uncertainty/freshness, read [`governance/agent-operations/README.md`](governance/agent-operations/README.md) and the applicable contracts.
+4. For prior-state recovery, multi-phase/resumable work, approval/continuation semantics, material context uncertainty/freshness, or material agent execution/verification, read [`governance/agent-operations/README.md`](governance/agent-operations/README.md) and the applicable contracts, especially [`governance/agent-operations/contracts/execution-verification.md`](governance/agent-operations/contracts/execution-verification.md) for command/prerequisite/completion behavior.
 5. For `*basic` work, read [`governance/knowledge-system-model.md`](governance/knowledge-system-model.md).
 6. Read the affected subsystem `README.md` and `AGENTS.md`.
 7. Read the subsystem's `docs/README.md` / `docs/AGENTS.md` when present.
@@ -98,13 +98,15 @@ Concise approval/continuation semantics are governed by [`governance/agent-opera
 inspect
 → selectively recover relevant context
 → reconcile material freshness/supersession
-→ resolve authority and scope
+→ resolve authority, outcome, scope, and acceptance criteria
+→ discover authoritative commands and prerequisite order
 → establish baseline when material
 → preserve current task/approval state
 → checkpoint only when resumability/complexity warrants it
 → make smallest coherent change
-→ validate available evidence
+→ run prerequisite-gated validation
 → compare against baseline/contract
+→ reconcile scope/completion evidence
 → report evidence and gaps
 ```
 
@@ -171,6 +173,8 @@ For README creation/material restructuring or READMEbasic changes, read:
 ## Commands and evidence
 
 Never invent build/test commands from convention. Read the owning project manifest/workflow/documentation when an adopting implementation actually has commands.
+
+For material agent work, follow [`governance/agent-operations/contracts/execution-verification.md`](governance/agent-operations/contracts/execution-verification.md): identify observable acceptance criteria, respect prerequisite order, do not run dependent checks on invalid prerequisites, and distinguish prose guidance from mechanical enforcement.
 
 SABOS Lib itself is primarily a knowledge repository; absence of repository build tooling is not a validation failure.
 
