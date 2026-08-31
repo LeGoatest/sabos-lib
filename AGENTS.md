@@ -17,14 +17,15 @@ For any repository change:
 1. Read [`governance/README.md`](governance/README.md).
 2. Read [`governance/authority.md`](governance/authority.md).
 3. Read [`governance/invariants.md`](governance/invariants.md).
-4. For `*basic` work, read [`governance/knowledge-system-model.md`](governance/knowledge-system-model.md).
-5. Read the affected subsystem `README.md` and `AGENTS.md`.
-6. Read the subsystem's `docs/README.md` / `docs/AGENTS.md` when present.
-7. Read the nearest local `AGENTS.md`, binding contracts, and applicable practitioner positions.
-8. Use [`governance/change-control.md`](governance/change-control.md) when the task crosses a mutation gate.
-9. Validate according to [`governance/validation.md`](governance/validation.md).
+4. For prior-state recovery, multi-phase work, approval/continuation semantics, or material context uncertainty, read [`governance/agent-operations/README.md`](governance/agent-operations/README.md) and the applicable contracts.
+5. For `*basic` work, read [`governance/knowledge-system-model.md`](governance/knowledge-system-model.md).
+6. Read the affected subsystem `README.md` and `AGENTS.md`.
+7. Read the subsystem's `docs/README.md` / `docs/AGENTS.md` when present.
+8. Read the nearest local `AGENTS.md`, binding contracts, and applicable practitioner positions.
+9. Use [`governance/change-control.md`](governance/change-control.md) when the task crosses a mutation gate.
+10. Validate according to [`governance/validation.md`](governance/validation.md).
 
-The research supporting this structure is recorded in [`governance/research-basis.md`](governance/research-basis.md); it is not ordinary required reading.
+The research supporting this structure is recorded in [`governance/research-basis.md`](governance/research-basis.md) and [`governance/agent-operations/research/`](governance/agent-operations/research/); it is not ordinary required reading.
 
 ## Non-negotiable invariants
 
@@ -33,6 +34,8 @@ Agents MUST:
 - preserve working behavior outside requested scope;
 - make the smallest coherent change that fully satisfies the request;
 - inspect actual repository state before asserting implementation facts;
+- recover durable project state from repository sources before relying on incomplete conversational recollection when the repository can reasonably resolve it;
+- preserve established findings, constraints, decisions, and approved scope across analysis, implementation, validation, and documentation unless new evidence or the user changes them;
 - preserve user-established architecture, naming, terminology, workflow, and knowledge authority unless explicitly changed;
 - preserve the distinction between practitioner positions, contracts, standards, research, references, examples, glossaries, subject artifacts, and validation evidence;
 - distinguish pre-existing failures from failures introduced by the current change;
@@ -47,7 +50,8 @@ Agents MUST NOT:
 - weaken tests/contracts to accommodate a regression;
 - overwrite unrelated user work or use destructive shortcuts for validation;
 - silently reinterpret canonical terminology, acronyms, historical material, practitioner positions, or subsystem contracts;
-- turn one research source, platform recommendation, example, or common industry practice into a binding contract without explicit adoption.
+- turn one research source, platform recommendation, example, or common industry practice into a binding contract without explicit adoption;
+- solve context uncertainty by indiscriminately loading all available repository documentation.
 
 Full invariant definitions: [`governance/invariants.md`](governance/invariants.md).
 
@@ -85,19 +89,23 @@ Then obtain explicit approval.
 
 If the user explicitly requested that exact mutation, additional permission is not required; keep affected governance, documentation, artifacts, and changelogs synchronized.
 
+Concise approval/continuation semantics are governed by [`governance/agent-operations/contracts/approval-semantics.md`](governance/agent-operations/contracts/approval-semantics.md).
+
 ## Required workflow
 
 ```text
 inspect
+→ selectively recover relevant context
 → resolve authority and scope
 → establish baseline when material
+→ preserve current task/approval state
 → make smallest coherent change
 → validate available evidence
 → compare against baseline/contract
 → report evidence and gaps
 ```
 
-Do not repeatedly re-inspect unchanged material without a concrete reason.
+Do not repeatedly re-inspect unchanged material without a concrete reason. Do not restart a completed task phase or discard approved scope merely because work moves into a later phase.
 
 ## Subsystem routing
 
@@ -173,6 +181,7 @@ A material task is complete only when, as applicable:
 - intended files were actually changed;
 - canonical paths and local authority links are correct;
 - relevant available validation/evidence was reviewed;
+- approved scope and actual changes were reconciled;
 - unrelated drift was checked;
 - pre-existing and new failures were distinguished;
 - unperformed validation was disclosed;
