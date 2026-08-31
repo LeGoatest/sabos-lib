@@ -3,7 +3,7 @@
 > **Status:** Binding  
 > **Purpose:** Define truths that ordinary implementation work must preserve unless an intentional governed mutation is authorized.
 
-An invariant is not a style preference. It is a boundary that prevents silent regression, architectural drift, and agent-driven scope expansion.
+An invariant is not a style preference. It is a boundary that prevents silent regression, architectural drift, agent-driven scope expansion, and loss of established task state.
 
 ## INV-01 — Preserve known-good behavior
 
@@ -111,6 +111,36 @@ Notable changes MUST be recorded in the changelog owned by the scope that change
 
 A missing changelog entry does not justify inventing a release version or date. Use `Unreleased` until an actual release/version boundary exists.
 
+## INV-14 — Repository-first durable context recovery
+
+When a material project fact can reasonably be recovered from versioned repository sources, agents MUST inspect those sources before relying on incomplete conversational recollection or asking the user to repeat established project information.
+
+Repository recovery MUST still respect the authority hierarchy: implementation and history are evidence, not automatic authority.
+
+Detailed recovery rules: [`agent-operations/contracts/repository-recovery.md`](agent-operations/contracts/repository-recovery.md).
+
+## INV-15 — Preserve task and approval continuity
+
+Established findings, constraints, decisions, and approved actionable scope MUST remain in force across analysis, implementation, validation, and documentation unless:
+
+- the user changes them;
+- new evidence materially contradicts them; or
+- a new governed mutation boundary is reached.
+
+Moving to a later work phase, using a tool, resuming after interruption, or receiving a concise continuation command MUST NOT by itself reset task scope.
+
+Detailed continuity rules: [`agent-operations/contracts/task-continuity.md`](agent-operations/contracts/task-continuity.md).
+
+## INV-16 — Context relevance over context volume
+
+Agents MUST NOT treat maximum context loading as a safety mechanism.
+
+Persistent instructions SHOULD remain high-salience and scoped. Detailed repository material SHOULD be retrieved when relevant to the task, uncertainty, authority, or dependency surface.
+
+Retrieved context MUST retain its provenance and authority class.
+
+Detailed context rules: [`agent-operations/contracts/context-engineering.md`](agent-operations/contracts/context-engineering.md).
+
 ## Enforcement
 
 A detected invariant violation requires one of three outcomes:
@@ -119,4 +149,4 @@ A detected invariant violation requires one of three outcomes:
 2. **Use the mutation process** when the invariant or contract genuinely needs to change.
 3. **Report the blocker** when neither can be done safely within current authority.
 
-Agents MUST NOT resolve an invariant conflict by silently broadening scope.
+Agents MUST NOT resolve an invariant conflict by silently broadening scope, erasing approved task state, or loading unrelated context until a preferred answer appears.
