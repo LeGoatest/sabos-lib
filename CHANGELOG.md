@@ -38,6 +38,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - `governance/agent-operations/` as a structured repository-wide domain for selective context engineering, repository-first context recovery, task/approval continuity, practitioner positions, reusable operational patterns, research synthesis, and source provenance.
 - Binding repository-wide continuity semantics allowing concise approvals to advance an already-defined actionable scope without authorizing unrelated refactors, redesign, deployment, or additional mutations.
 - Binding context-freshness/supersession and proportional task-checkpointing contracts so repository-local context is not assumed current and materially resumable work can survive interaction/context boundaries.
+- Binding agent execution/verification contract covering observable outcomes and acceptance criteria, dependency-aware impact inspection, authoritative commands, prerequisite-gated validation, mechanical enforcement, independent evidence, and completion reconciliation.
+- Practical Agent Operations patterns for scoped persistent instructions, material task contracts, verification matrices, and fresh-context substantial-change review.
 - Optional lightweight decision-record and task-checkpoint patterns for durable consequential decisions and long-running/handoff work without requiring those artifacts for trivial tasks.
 - Evidence synthesis spanning DORA, OpenAI/Codex, GitHub Copilot, Google/Gemini, Anthropic, academic repository-agent research, established Google engineering practice, ADR/decision-record practice, and Thoughtworks/Martin Fowler practitioner literature.
 
@@ -65,6 +67,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Separated detailed governance and research from persistent agent instruction context to reduce duplication and instruction bloat.
 - Extended repository governance so authority resolution and context recovery are explicitly distinct, durable project state is recovered from repository evidence before incomplete conversational recollection, context freshness/supersession is reconciled, and approved task state survives phase/tool/context transitions unless superseded by new evidence or user direction.
 - Extended mutation and validation workflows to preserve scope-bound shorthand approval, reconcile approved scope against actual changes, keep active checkpoint/plan state synchronized when used, and prefer mechanical enforcement for stable testable constraints.
+- Converted the agent-operations research findings into a practical priority sequence: scoped operational instructions first, then authoritative commands and observable acceptance criteria, prerequisite gates, mechanical hard-rule enforcement, independent review, and only then durable checkpoints/decision records when warranted.
 - Re-audited agent-operation evidence and corrected source framing, including Anthropic context-loading/compaction behavior, OpenAI durable execution-plan practice, Khatri's context-file ablation counterevidence, and tighter CodePlan reporting.
 - Corrected repository validation routing to the canonical WDBASIC engineering-validation path.
 
