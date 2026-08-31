@@ -21,11 +21,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - `validation.md` defining evidence expectations and progressive validation principles.
 - `research-basis.md` documenting vendor guidance, empirical research, Google engineering/SRE practices, and SAGE patterns used to justify the model.
 - Changelog traceability invariant requiring notable subsystem changes to update the nearest changelog and cross-subsystem changes to update the root changelog.
-- `agent-operations/` structured governance domain for repository-agent context engineering, repository-first state recovery, task continuity, approval semantics, evidence synthesis, practitioner positions, and source provenance.
-- Binding agent-operation contracts for selective context retrieval, repository recovery, task-state preservation, and scope-bound shorthand approval.
-- Agent-operation evidence review incorporating DORA AI/software-delivery research, OpenAI/Codex, GitHub Copilot, Google/Gemini, Anthropic, repository-agent academic research, established Google engineering practice, and Thoughtworks/Martin Fowler practitioner synthesis.
+- `agent-operations/` structured governance domain for repository-agent context engineering, repository-first state recovery, task continuity, approval semantics, evidence synthesis, practitioner positions, reusable operational patterns, and source provenance.
+- Binding agent-operation contracts for selective context retrieval, repository recovery, context freshness/supersession, task-state preservation, proportional durable task checkpointing, and scope-bound shorthand approval.
+- Optional decision-record and task-checkpoint patterns for consequential decisions and materially resumable work without imposing a single repository artifact format.
+- Agent-operation evidence review incorporating DORA AI/software-delivery research, OpenAI/Codex, GitHub Copilot, Google/Gemini, Anthropic, repository-agent academic research, established Google engineering practice, ADR/decision-record practice, and Thoughtworks/Martin Fowler practitioner synthesis.
 - Agent-operation source registry that prefers primary papers/publisher/vendor records while treating Google Scholar and similar academic indexes as discovery/cross-check tools rather than substantive authority.
-- Repository invariants for repository-first durable context recovery, task/approval continuity, and context relevance over context volume.
+- Repository invariants for repository-first durable context recovery, task/approval continuity, context relevance over context volume, and current-vs-historical/superseded context distinction.
 - This governance changelog.
 
 ### Changed
@@ -40,5 +41,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Clarified that executable checks belong to the adopting implementation/project that actually owns executable behavior; SABOS Lib does not need build tooling merely because an adopter can mechanically validate a contract.
 - Distinguished context-recovery order from authority order so implementation/history can be inspected early without silently outranking current binding governance.
 - Extended change control so concise approvals can authorize an immediately preceding explicit mutation proposal without requiring redundant restatement, while remaining strictly scope-bound.
-- Extended validation to preserve/reconcile task state and approved scope across analysis, implementation, validation, and completion reporting.
-- Extended root agent routing to recover durable project state from repository evidence before relying on incomplete conversational recollection and to avoid indiscriminate context loading.
+- Extended validation to preserve/reconcile task state and approved scope across analysis, implementation, validation, resumption, and completion reporting; corrected the canonical WDBASIC engineering-validation link.
+- Extended root agent routing to recover durable project state from repository evidence before relying on incomplete conversational recollection, reconcile context freshness/supersession, checkpoint only when complexity/resumability warrants it, and avoid indiscriminate context loading.
+- Re-audited agent-operation research for source accuracy and counterevidence, correcting Anthropic loading semantics, adding OpenAI durable execution-plan practice and Khatri's context-file ablation study, and tightening claims around planning/checkpoint evidence.
+- Expanded repository governance to require direct dependent durable context to be updated or explicitly superseded when an approved change makes it stale.
