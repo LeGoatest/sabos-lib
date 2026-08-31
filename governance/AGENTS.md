@@ -14,7 +14,8 @@ Before changing governance, read:
 3. [`invariants.md`](invariants.md)
 4. [`change-control.md`](change-control.md)
 5. [`validation.md`](validation.md)
-6. [`research-basis.md`](research-basis.md) when rationale/evidence is relevant
+6. [`agent-operations/README.md`](agent-operations/README.md) when context acquisition, repository recovery, approval semantics, task continuity, or agent execution state is affected
+7. [`research-basis.md`](research-basis.md) or the applicable agent-operations research record when rationale/evidence is relevant
 
 ## Governance mutation rule
 
@@ -32,7 +33,18 @@ A material governance change MUST:
 
 ## Research rule
 
-Research can justify governance changes but does not automatically become governance. Keep informative evidence in `research-basis.md` or another appropriate evidence record and make the adopted rule explicit in the binding file.
+Research can justify governance changes but does not automatically become governance.
+
+- Keep root-level governance rationale in `research-basis.md`.
+- Keep detailed agent-context/execution evidence under `agent-operations/research/`.
+- Keep practitioner conventions under `agent-operations/positions/`.
+- Keep adopted binding behavior under `agent-operations/contracts/`.
+
+Do not turn source count into authority. Prefer convergence across independent evidence classes and preserve counterevidence/limitations.
+
+## Context rule
+
+Do not solve instruction or memory problems by expanding always-loaded governance indiscriminately. Keep root routing concise and move detailed agent-operation material into the scoped domain.
 
 ## Regression rule
 
