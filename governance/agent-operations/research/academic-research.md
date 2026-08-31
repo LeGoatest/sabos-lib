@@ -7,7 +7,7 @@ This record summarizes research relevant to repository-agent context, retrieval,
 
 ## Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?
 
-Gloaguen, Mündler, Müller, Raychev, Vechev (2026).  
+Gloaguen, Mündler, Müller, Raychev, Vechev (2026 preprint).  
 Source: https://arxiv.org/abs/2602.11988
 
 Key findings:
@@ -21,11 +21,12 @@ Key findings:
 Governance relevance:
 
 - direct counterevidence against indiscriminately expanding persistent context;
-- supports concise, high-salience instructions and selective retrieval.
+- supports concise, high-salience instructions and selective retrieval;
+- cautions against assuming a repository overview is useful merely because providers recommend one.
 
 ## Configuration Smells in AGENTS.md Files
 
-dos Santos, Costa, Montandon, Silva, Valente (2026).  
+dos Santos, Costa, Montandon, Silva, Valente (2026 preprint).  
 Source: https://arxiv.org/abs/2606.15828
 
 Key findings across 100 popular repositories:
@@ -38,11 +39,29 @@ Key findings across 100 popular repositories:
 Governance relevance:
 
 - supports separating global rules from specialized procedures;
-- supports local/scoped instructions and avoiding duplicated instruction manuals.
+- supports local/scoped instructions and avoiding duplicated instruction manuals;
+- supports auditing conflicts and redundant mechanically-enforced rules out of persistent context.
+
+## Do Context Files Help Coding Agents? A Two-Agent Ablation Study on Real Repositories
+
+Khatri (2026 preprint).  
+Source: https://arxiv.org/abs/2607.27250
+
+Key findings reported across Claude Code and Codex tasks:
+
+- context-injection strategy produced no measurable correctness gain in the evaluated tasks;
+- the study bounded plausible gains in its setting and found failures were more often implementation-skill problems than missing repository knowledge;
+- results differed by agent/task difficulty, reinforcing that context effectiveness is task- and agent-dependent.
+
+Governance relevance:
+
+- additional counterevidence against treating context files as a correctness mechanism;
+- supports requiring validation independently of instruction presence;
+- supports keeping persistent context focused on constraints/knowledge the agent cannot reliably infer rather than generic repository summaries.
 
 ## Agent READMEs: An Empirical Study of Context Files for Agentic Coding
 
-Chatlatanagulchai et al. (2025).  
+Chatlatanagulchai et al. (2025 preprint).  
 Source: https://arxiv.org/abs/2511.12884
 
 Key findings:
@@ -50,7 +69,7 @@ Key findings:
 - studied 2,303 context files from 1,925 repositories;
 - context files evolve like configuration artifacts rather than static prose;
 - build/run commands, implementation details, and architecture dominate their content;
-- security and performance requirements appear much less frequently.
+- security and performance requirements appeared in only 14.5% of studied files each.
 
 Governance relevance:
 
@@ -77,14 +96,14 @@ Governance relevance:
 
 ## Repoformer: Selective Retrieval for Repository-Level Code Completion
 
-Wu et al. (2024).  
+Wu et al. (ICML 2024; arXiv record below).  
 Source: https://arxiv.org/abs/2403.10059
 
 Key findings:
 
 - retrieval is not uniformly helpful;
 - irrelevant/noisy retrieved context can harm code-language-model performance;
-- selective retrieval improved efficiency without sacrificing evaluated performance.
+- selective retrieval improved efficiency without sacrificing evaluated performance and reported substantial inference-speed gains.
 
 Governance relevance:
 
@@ -98,16 +117,18 @@ Sources:
 
 - https://www.microsoft.com/en-us/research/publication/codeplan-repository-level-coding-using-llms-and-planning-2/
 - https://arxiv.org/abs/2309.12499
+- https://2024.esec-fse.org/details/fse-2024-research-papers/66/CodePlan-Repository-level-Coding-using-LLMs-and-Planning
 
 Key findings:
 
-- repository-level changes are framed as a planning problem because files are interdependent and repository context is too large to provide naively;
+- repository-level changes are framed as a planning problem because files are interdependent and the repository may be too large to provide naively;
 - the system combines dependency analysis, change-impact analysis, and adaptive multi-step planning;
-- planning substantially outperformed the evaluated non-planning baselines on repository-level validity checks.
+- the FSE evaluation reports 5/7 repositories passing validity checks with CodePlan while the non-planning baselines passed none in that evaluation.
 
 Governance relevance:
 
 - supports explicit task state/planning for material cross-file changes;
+- supports carrying previous edits and task-specific instructions forward through multi-step work;
 - does not justify heavyweight planning for every small edit.
 
 ## SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering
@@ -116,7 +137,7 @@ Yang et al. (NeurIPS 2024).
 Sources:
 
 - https://arxiv.org/abs/2405.15793
-- https://openreview.net/forum?id=7b9425730150fb166d4e6c77995f67ea38638fca
+- https://proceedings.neurips.cc/
 
 Key finding:
 
@@ -135,19 +156,29 @@ Key findings reported by the paper:
 
 - natural-language agent instructions are passive and can drift during autonomous execution;
 - the proposed system derives executable checks including AST analysis, shell interception, and architectural validators;
-- the work reports large-scale synthesis of executable constraints and improved compliance over prompt-only approaches in its evaluations.
+- evaluation across 723 repositories reports more than 46,000 synthesized checks with 99.997% syntax validity.
 
 Governance relevance:
 
 - direct support for moving stable, testable constraints into mechanical checks where practical;
 - preprint status means results should not be treated as settled universal evidence.
 
+## Limits of direct evidence for continuity/checkpoint semantics
+
+The reviewed academic evidence directly addresses instruction files, retrieval, planning, interfaces, and enforcement more than long-running human-agent conversational continuity.
+
+Therefore:
+
+- durable checkpointing for complex work is supported by repository-planning evidence and vendor operational practice, but its exact trigger/format remains a governance choice;
+- exact shorthand meanings such as `proceed` and `continue` remain practitioner conventions;
+- the framework should not present those conventions as peer-reviewed findings.
+
 ## Research synthesis
 
 Together, these studies reject two simplistic claims:
 
 1. **"More context always improves agents."** False in the reviewed evidence.
-2. **"Repository context is unnecessary."** Also false; relevant repository retrieval and repository-aware planning can materially help.
+2. **"Repository context is unnecessary."** Also false; relevant repository retrieval and repository-aware planning can materially help in tasks that require nonlocal context.
 
 The more defensible operating position is:
 
