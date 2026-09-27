@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Added
 
+- HTMX 4 research snapshot documenting the 2026-09-27 InfoWorld review, verification against current HTMX 4 primary documentation, and the resulting WDBASIC profile changes.
 - `agents/` as WDBASIC's machine-readable projection namespace, with a deterministic `manifest.yaml` entry point, standard/domain projection, core-invariant registry, technology-profile registry, content-strategy registry, component/token registries, JSON Schemas, and conformance definitions.
 - Machine-interface provenance rules requiring mapped records to reference canonical WDBASIC sources and preventing structured files from silently becoming independent authority.
 - Expanded the machine interface to specification version `0.2.0` with granular accessibility, architecture, conversion, interaction, performance, responsive, and semantics rule domains; individual experience profiles; page-type contracts; reusable patterns; component specializations; JSON semantic-token catalogs; vocabulary; evidence mappings; type-specific schemas; progressive-disclosure context loading; and explicit validation/failure semantics.
@@ -23,6 +24,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Changed
 
+- Updated the HTMX/hypermedia technology profile for HTMX 4.x: explicit attribute inheritance, HTML-first response contracts, target/swap/indicator/trigger contracts, `hx-boost` progressive navigation, HTMX 4 history re-fetch behavior, optional `sessionStorage` history caching, deliberate `4xx`/`5xx` error-fragment handling, current JavaScript/event interop, manual `htmx.process()` boundaries, and extension/streaming governance.
+- Corrected stale HTMX 2-era history guidance that described `localStorage` snapshots and `hx-history` behavior as applicable defaults; HTMX 4 now re-fetches history by default and makes local caching opt-in through `hx-history-cache`.
 - Audited the v2.1 post-migration authority chain and repaired stale pre-migration routing in the binding implementation-agent contract and repository-level WDBASIC entrypoints without changing WDBASIC semantics.
 - Hardened WDBASIC from v2 to **v2.1**.
 - Reorganized both the conceptual model and the physical `docs/` filesystem into four explicit layers: **Core invariants**, **Experience evaluation**, **Content strategies**, and **Technology profiles**.
