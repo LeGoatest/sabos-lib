@@ -24,6 +24,7 @@ jobs:
     timeout-minutes: 20
     env:
       APP_ENV: testing
+      APP_KEY: base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
       APP_URL: http://localhost
       DB_CONNECTION: sqlite
       DB_DATABASE: ${{ github.workspace }}/database/database.sqlite
@@ -55,10 +56,8 @@ jobs:
       - name: Install locked PHP dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
 
-      - name: Prepare test environment
+      - name: Prepare test database
         run: |
-          if [ -f .env.example ] && [ ! -f .env ]; then cp .env.example .env; fi
-          php artisan key:generate --force
           mkdir -p database
           touch database/database.sqlite
 
@@ -73,7 +72,6 @@ jobs:
 
   frontend:
     name: Frontend build
-    if: ${{ hashFiles('package-lock.json') != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -81,14 +79,28 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v7
 
+      - name: Detect locked frontend build
+        id: frontend
+        shell: bash
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "No package-lock.json; frontend build is not defined by this template."
+          fi
+
       - name: Set up Node.js
+        if: steps.frontend.outputs.enabled == 'true'
         uses: actions/setup-node@v7
         with:
           node-version: '24' # Confirm against the adopting project.
           cache: npm
 
       - name: Install locked frontend dependencies
+        if: steps.frontend.outputs.enabled == 'true'
         run: npm ci --no-audit --no-fund
 
       - name: Build browser assets
+        if: steps.frontend.outputs.enabled == 'true'
         run: npm run build
