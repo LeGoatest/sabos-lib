@@ -10,6 +10,12 @@ TCBasic is maintained as a Tailwind CSS semantic-architecture knowledge framewor
 
 Do not assume SABOS Lib builds, packages, publishes, or releases TCBasic. Package/build tooling mentioned in TCBasic documentation belongs to adopter environments unless explicitly stated otherwise.
 
+## DevOpsbasic
+
+DevOpsbasic contains reusable branch, CI/CD, deployment, cPanel, and framework-operation contracts plus workflow templates. Its templates are adopter artifacts, not active SABOS Lib deployment workflows.
+
+Before changing DevOpsbasic, read [`../DevOpsbasic/README.md`](../DevOpsbasic/README.md), [`../DevOpsbasic/AGENTS.md`](../DevOpsbasic/AGENTS.md), and the applicable documentation contract. Keep provider-specific behavior and project-specific deployment facts distinct from reusable DevOpsbasic rules.
+
 ## Other systems
 
 For WDBASIC, SEObasic, READMEbasic, or governance changes:
