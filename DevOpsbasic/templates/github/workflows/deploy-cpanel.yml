@@ -45,8 +45,9 @@ jobs:
           test -n "$CPANEL_HOST"
           test -n "$CPANEL_USERNAME"
           test -n "$CPANEL_API_TOKEN"
-          if printf '%s' "$CPANEL_HOST" | grep -q '/cpsess'; then
-            echo "CPANEL_HOST must be the cPanel host, not a browser cpsess URL." >&2
+
+          if printf '%s' "$CPANEL_HOST" | grep -Eq '(^https?://|/cpsess|/)'; then
+            echo "CPANEL_HOST must be only the cPanel server hostname or IP, without protocol, path, or cpsess URL." >&2
             exit 1
           fi
 
