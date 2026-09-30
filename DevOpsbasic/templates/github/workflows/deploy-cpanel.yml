@@ -1,81 +1,142 @@
-name: Deploy cPanel
+name: Deploy cPanel Git checkout
 
 on:
-  push:
-    branches:
-      - dev
-      - prod
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: cpanel-${{ github.ref_name }}
-  cancel-in-progress: false
+  group: deploy-cpanel-development
+  cancel-in-progress: true
 
 jobs:
   deploy:
-    name: Deploy ${{ github.ref_name }}
+    name: Deploy development
     runs-on: ubuntu-latest
-    environment:
-      name: ${{ github.ref_name == 'prod' && 'production' || 'development' }}
+    environment: development
+
+    env:
+      CPANEL_HOST: ${{ vars.CPANEL_HOST }}
+      CPANEL_IP: ${{ vars.CPANEL_IP }}
+      CPANEL_USER: ${{ vars.CPANEL_USER }}
+      REPOSITORY_ROOT: ${{ vars.CPANEL_REPOSITORY_ROOT }}
+      DEPLOY_BRANCH: dev
+      CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
 
     steps:
-      - name: Reject unsupported deployment source
+      - name: Validate deployment configuration
         shell: bash
         run: |
-          case "${GITHUB_REF_NAME}" in
-            dev|prod) ;;
-            *) echo "Unsupported deployment branch: ${GITHUB_REF_NAME}" >&2; exit 1 ;;
-          esac
+          set -euo pipefail
 
-      - name: Check out exact deployment source
-        uses: actions/checkout@v7
-        with:
-          ref: ${{ github.sha }}
-
-      - name: Validate cPanel configuration
-        env:
-          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
-          CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
-          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
-        shell: bash
-        run: |
-          test -n "$CPANEL_HOST"
-          test -n "$CPANEL_USERNAME"
-          test -n "$CPANEL_API_TOKEN"
+          test -n "${CPANEL_HOST:-}" || { echo "CPANEL_HOST is missing." >&2; exit 1; }
+          test -n "${CPANEL_USER:-}" || { echo "CPANEL_USER is missing." >&2; exit 1; }
+          test -n "${REPOSITORY_ROOT:-}" || { echo "CPANEL_REPOSITORY_ROOT is missing." >&2; exit 1; }
+          test -n "${DEPLOY_BRANCH:-}" || { echo "DEPLOY_BRANCH is missing." >&2; exit 1; }
+          test -n "${CPANEL_API_TOKEN:-}" || { echo "CPANEL_API_TOKEN is missing." >&2; exit 1; }
 
           if printf '%s' "$CPANEL_HOST" | grep -Eq '(^https?://|/cpsess|/)'; then
-            echo "CPANEL_HOST must be only the cPanel server hostname or IP, without protocol, path, or cpsess URL." >&2
+            echo "CPANEL_HOST must be only the cPanel hostname or IP, without protocol, path, or cpsess URL." >&2
             exit 1
           fi
 
-      - name: Verify cPanel API authentication
-        env:
-          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
-          CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
-          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+      - name: Verify cPanel repository
         shell: bash
         run: |
-          response="$(curl --fail --silent --show-error \
-            -H "Authorization: cpanel ${CPANEL_USERNAME}:${CPANEL_API_TOKEN}" \
-            "https://${CPANEL_HOST}:2083/execute/Variables/get_user_information")"
-          printf '%s' "$response" | jq -e '.result.status == 1' >/dev/null
+          set -euo pipefail
 
-      - name: Require project-owned deployment adapter
-        run: test -x scripts/deploy/cpanel.sh
+          curl_args=(
+            --silent
+            --show-error
+            --fail-with-body
+            -H "Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}"
+          )
 
-      - name: Deploy exact source
-        env:
-          DEPLOY_ENV: ${{ github.ref_name == 'prod' && 'production' || 'development' }}
-          DEPLOY_SHA: ${{ github.sha }}
-          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
-          CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
-          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
-        run: scripts/deploy/cpanel.sh
+          if [ -n "${CPANEL_IP:-}" ]; then
+            curl_args+=(--resolve "${CPANEL_HOST}:2083:${CPANEL_IP}")
+          fi
 
-      - name: Record deployment source
+          response="$(curl "${curl_args[@]}" \
+            "https://${CPANEL_HOST}:2083/execute/VersionControl/retrieve")"
+
+          RESPONSE="$response" python3 - <<'PY'
+          import json
+          import os
+
+          payload = json.loads(os.environ['RESPONSE'])
+          result = payload.get('result') if isinstance(payload.get('result'), dict) else payload
+
+          if str(result.get('status')) != '1':
+              raise SystemExit(
+                  'cPanel VersionControl/retrieve failed: '
+                  + str(result.get('errors') or result.get('messages') or result)
+              )
+
+          expected = os.environ['REPOSITORY_ROOT']
+          data = result.get('data') or []
+          if isinstance(data, dict):
+              repositories = data.get('repositories') if isinstance(data.get('repositories'), list) else [data]
+          elif isinstance(data, list):
+              repositories = data
+          else:
+              repositories = []
+
+          roots = []
+          for repo in repositories:
+              if not isinstance(repo, dict):
+                  continue
+              root = repo.get('repository_root') or repo.get('repository_root_path') or repo.get('root')
+              if root:
+                  roots.append(root)
+
+          if expected not in roots:
+              raise SystemExit(
+                  f'cPanel API works, but {expected} is not listed as a managed Git repository. '
+                  f'Found repository roots: {roots}'
+              )
+          PY
+
+      - name: Update cPanel Git checkout
+        shell: bash
         run: |
-          echo "branch=${GITHUB_REF_NAME}"
-          echo "sha=${GITHUB_SHA}"
+          set -euo pipefail
+
+          curl_args=(
+            --silent
+            --show-error
+            --fail-with-body
+            -H "Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}"
+          )
+
+          if [ -n "${CPANEL_IP:-}" ]; then
+            curl_args+=(--resolve "${CPANEL_HOST}:2083:${CPANEL_IP}")
+          fi
+
+          response="$(curl "${curl_args[@]}" \
+            --get \
+            --data-urlencode "repository_root=${REPOSITORY_ROOT}" \
+            --data-urlencode "branch=${DEPLOY_BRANCH}" \
+            "https://${CPANEL_HOST}:2083/execute/VersionControl/update")"
+
+          RESPONSE="$response" python3 - <<'PY'
+          import json
+          import os
+
+          payload = json.loads(os.environ['RESPONSE'])
+          result = payload.get('result') if isinstance(payload.get('result'), dict) else payload
+
+          if str(result.get('status')) != '1':
+              raise SystemExit(
+                  'cPanel VersionControl/update failed: '
+                  + str(result.get('errors') or result.get('messages') or result)
+              )
+
+          print(
+              'cPanel successfully updated '
+              + os.environ['REPOSITORY_ROOT']
+              + ' from '
+              + os.environ['DEPLOY_BRANCH']
+              + '.'
+          )
+          PY
