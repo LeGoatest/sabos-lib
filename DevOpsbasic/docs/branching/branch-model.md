@@ -12,10 +12,10 @@
 - governance and architecture records;
 - `AGENTS.md` and related agent instructions;
 - changelogs;
-- reusable workflow policy/templates;
+- workflow definitions and operational policy;
 - project metadata and other non-runtime control material.
 
-`main` MUST NOT be interpreted as production merely because it is the GitHub default branch.
+`main` MUST NOT be interpreted as production merely because it is the GitHub default branch or because a manually dispatched deployment workflow is defined there.
 
 ### `dev` — current development
 
@@ -27,7 +27,7 @@ Normal code flow is:
 feature/* or fix/* → dev
 ```
 
-A push/merge to `dev` MAY trigger CI and a development/staging deployment. It MUST NOT trigger production deployment under this model.
+A development deployment MUST resolve its runtime source from `dev` under the standard model. The GitHub Actions workflow that initiates that deployment MAY live on `main` as part of the control plane.
 
 ### `prod` — production line
 
@@ -39,7 +39,32 @@ Normal promotion is:
 dev → prod
 ```
 
-A production deployment MUST resolve its source commit from `prod`. A deployment system MUST NOT silently substitute `main`, `dev`, the default branch, or the caller's local checkout.
+A production deployment MUST resolve its runtime source commit from `prod`. A deployment system MUST NOT silently substitute `main`, `dev`, the default branch, or the caller's local checkout.
+
+## Trigger branch versus deployment source
+
+The branch/ref from which GitHub evaluates a workflow is not automatically the branch that should be deployed.
+
+DevOpsbasic distinguishes:
+
+```text
+workflow/control source → where the deployment instructions live
+deployment/runtime source → the branch or artifact being deployed
+```
+
+A valid manual cPanel model is therefore:
+
+```text
+main/.github/workflows/deploy-dev.yml
+          ↓ workflow_dispatch
+explicit DEPLOY_BRANCH=dev
+          ↓ cPanel VersionControl/update
+dev runtime source → development server
+```
+
+Likewise a production workflow MAY live on `main` while explicitly deploying only `prod`.
+
+The deployment source MUST be explicit and auditable. The workflow's location or default branch MUST NOT implicitly select the runtime source.
 
 ## Production gate
 
@@ -49,15 +74,17 @@ A standard production promotion SHOULD require:
 2. a pull request or otherwise auditable promotion from `dev` to `prod`;
 3. required review/approval when configured;
 4. production environment authorization where supported;
-5. deployment evidence tied to the exact `prod` commit SHA.
+5. deployment evidence tied to the exact `prod` commit or immutable artifact built from it.
 
 ## Control-plane projections
 
-GitHub Actions and repository agents operate from files available in the branch/ref they evaluate. Therefore, an adopting project MAY maintain synchronized copies of required control-plane files on `dev` and `prod`, including:
+Some GitHub Actions triggers require a workflow to exist on the ref being evaluated. When that applies, an adopting project MAY maintain synchronized copies of required control-plane files on `dev` and `prod`, including:
 
 - `.github/workflows/**` required on those refs;
 - scoped `AGENTS.md` files required for branch-local automated work;
 - small machine-readable deployment metadata required by CI.
+
+This is not required for a manual control-plane workflow on `main` that explicitly directs cPanel to update another branch.
 
 The canonical policy remains on `main`. Projected files MUST NOT be edited independently in ways that create competing governance.
 
