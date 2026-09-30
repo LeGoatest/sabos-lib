@@ -2,45 +2,73 @@
 
 > **Scope:** cPanel/UAPI-backed deployments from GitHub Actions or comparable automation
 
+## Baseline deployment model
+
+The baseline DevOpsbasic cPanel pattern is intentionally simple and mirrors a proven project workflow:
+
+```text
+manual workflow_dispatch
+        ↓
+verify CPANEL_API_TOKEN
+        ↓
+VersionControl/retrieve
+        ↓
+confirm expected managed repository root
+        ↓
+VersionControl/update
+        ↓
+cPanel pulls explicit DEPLOY_BRANCH
+```
+
+The GitHub workflow MAY live on `main` as part of the project's control plane. The branch deployed to the server is selected explicitly by `DEPLOY_BRANCH`; workflow location and default-branch status do not choose the runtime source.
+
+For the standard branch model:
+
+```text
+DEPLOY_BRANCH=dev  → development/staging target
+DEPLOY_BRANCH=prod → production target
+main               → control/governance source, not runtime source
+```
+
+A baseline deployment does **not** require a project-owned shell deployment adapter when cPanel Git Version Control is itself the deployment mechanism.
+
 ## Identity fields
 
 Keep these concepts distinct:
 
 - **cPanel host** — server hostname or IP used to reach cPanel, stored without protocol, port, or browser-session path when the workflow constructs the UAPI URL itself.
+- **cPanel IP** — optional fixed address used with `curl --resolve` when the project deliberately pins the cPanel hostname to a known server address.
 - **cPanel username** — account username authorized for the API token.
 - **cPanel API token** — secret credential generated for API access.
 - **browser session URL** — a temporary interface URL that may contain `/cpsess.../`; it is not the canonical API host and MUST NOT be stored as deployment configuration.
-- **deployment target/root** — project-specific filesystem/repository destination on the hosting account.
+- **repository root** — exact cPanel-managed Git repository path, for example `/home/account/dev.example.com`.
+- **deployment branch** — explicit Git branch cPanel should update, such as `dev` or `prod`.
 
 An agent MUST NOT infer one field from another when the project has authoritative configuration available.
 
-## Secret model
+## Secret and variable model
 
-Recommended environment-scoped secret names:
+At minimum, protect the API token as a GitHub secret:
 
 ```text
-CPANEL_HOST
-CPANEL_USERNAME
 CPANEL_API_TOKEN
 ```
 
-Project-specific non-secret variables may additionally define the repository/deployment root and application URL.
-
-Development and production SHOULD use separate GitHub Environments and separate credentials/targets when practical.
-
-## Branch mapping
+The following are commonly project/environment configuration rather than secrets:
 
 ```text
-dev  → development/staging cPanel target
-prod → production cPanel target
-main → no runtime deployment
+CPANEL_HOST
+CPANEL_IP            # optional
+CPANEL_USER
+REPOSITORY_ROOT
+DEPLOY_BRANCH
 ```
 
-The workflow MUST derive the deployment environment from an explicit branch/environment mapping, not from whichever branch happens to be default.
+A project MAY store additional values as secrets when its threat model requires it.
 
-## Authentication verification
+Development and production SHOULD use separate GitHub Environments and distinct repository roots. Separate credentials are preferred when practical.
 
-Before mutating the server, a workflow SHOULD perform a read-only API authentication check and fail clearly if the host, username, token, TLS connection, or expected cPanel response is invalid.
+## Authentication
 
 For cPanel UAPI token authentication, cPanel documents the header form:
 
@@ -56,46 +84,110 @@ https://server.example:2083/execute/Module/function
 
 cPanel documents port `2083` for secure UAPI calls as a cPanel account and explicitly warns custom automation not to use cPanel interface URLs such as `/cpsess.../frontend/...` in place of API functions.
 
-Do not print the authorization header or token response data unnecessarily.
+Do not print the authorization header or token unnecessarily.
 
-## Deployment adapter
+## Repository verification
 
-Provider authentication and application deployment are different responsibilities.
-
-Prefer a project-owned adapter such as:
+Before changing server state, the baseline workflow SHOULD call:
 
 ```text
-scripts/deploy/cpanel.sh
+VersionControl/retrieve
 ```
 
-The workflow owns:
+and verify that the expected `REPOSITORY_ROOT` is present in cPanel's managed Git repositories.
 
-- branch/environment gating;
-- secret loading;
-- API connectivity/authentication verification;
-- selecting the exact source SHA/artifact;
-- invoking the adapter;
-- recording deployment evidence;
-- post-deploy health checking.
+This establishes two separate facts:
 
-The project adapter owns project-specific cPanel behavior such as repository paths, extraction paths, symlinks, maintenance mode, Composer behavior, migrations, cache operations, and rollback mechanics.
+1. the token can successfully call cPanel UAPI; and
+2. the intended deployment target is actually registered with cPanel Git Version Control.
 
-This prevents a generic SABOS template from guessing a cPanel account's filesystem or application topology.
+A successful API response without the expected repository root MUST NOT be treated as a valid deployment target.
+
+## Repository update
+
+After repository verification succeeds, the workflow calls:
+
+```text
+VersionControl/update
+```
+
+with explicit parameters equivalent to:
+
+```text
+repository_root=<REPOSITORY_ROOT>
+branch=<DEPLOY_BRANCH>
+```
+
+The update MUST fail closed if cPanel reports an unsuccessful status.
+
+The workflow SHOULD print a concise success message identifying the environment/repository and branch, but MUST NOT expose the API token.
+
+## Manual dispatch as baseline
+
+The baseline template uses:
+
+```yaml
+on:
+  workflow_dispatch:
+```
+
+This keeps deployment separate from ordinary code pushes. A human or authorized agent explicitly starts the deployment after the desired source branch is ready.
+
+Projects MAY adopt automatic deployment from `dev`/`prod`, but that is a separate policy decision and MUST NOT be inferred merely because CI succeeds.
+
+## Enhanced deployment-and-validation pattern
+
+Post-deployment browser validation, request-file authorization, screenshots, health checks, artifact upload, and workflow-heartbeat diagnostics are valuable **enhancements**, not prerequisites for the baseline cPanel Git update.
+
+A project may extend the baseline sequence to:
+
+```text
+explicit deploy authorization
+        ↓
+VersionControl/retrieve
+        ↓
+VersionControl/update
+        ↓
+validate the actually deployed site
+        ↓
+publish reports/screenshots
+        ↓
+fail if deployed-result validation fails
+```
+
+The cPanel update result and the application validation result MUST remain separate states. A successful `VersionControl/update` proves that cPanel accepted the repository update; it does not independently prove that the deployed application renders or behaves correctly.
+
+See [`post-deploy-validation.md`](post-deploy-validation.md) for the enhanced pattern.
+
+## Artifact-based deployments
+
+Some applications, especially Laravel projects on shared hosting, may instead deploy a verified build artifact containing compiled assets and production dependencies. That is a different deployment strategy from cPanel Git `VersionControl/update`.
+
+DevOpsbasic MUST preserve the distinction:
+
+```text
+cPanel Git deployment → server updates a managed Git checkout
+artifact deployment   → CI builds/verifies immutable package, server installs that package
+```
+
+Do not insert an application-specific shell adapter into the Git-update baseline merely because another project uses artifact deployment.
 
 ## Fail-closed conditions
 
-Production deployment MUST stop when any of these are unresolved:
+A cPanel Git deployment MUST stop when any of these are unresolved:
 
-- source branch is not `prod`;
-- target environment is not explicitly production;
+- `DEPLOY_BRANCH` is missing or not authorized for the selected target environment;
+- `REPOSITORY_ROOT` is missing;
 - cPanel host is missing, includes a protocol/path, or appears to be a transient `/cpsess.../` browser URL;
-- API authentication fails;
-- deployment adapter is missing;
-- expected artifact/source SHA cannot be identified;
-- required pre-deployment CI has failed or is unavailable under the adopting project's policy.
+- API token is missing;
+- `VersionControl/retrieve` fails;
+- the expected repository root is not returned;
+- `VersionControl/update` fails.
+
+For production, `DEPLOY_BRANCH` MUST resolve to the project's production branch (`prod` under the standard model), regardless of where the workflow definition itself lives.
 
 ## Provider references
 
 - cPanel API Tokens: https://api.docs.cpanel.net/cpanel/tokens
 - cPanel UAPI introduction: https://api.docs.cpanel.net/cpanel/introduction
-- cPanel Variables guidance recommending `Variables::get_user_information`: https://api.docs.cpanel.net/guides/guide-to-cpanel-variables
+- cPanel Git Version Control UAPI: https://api.docs.cpanel.net/openapi/cpanel/operation/VersionControl-retrieve/
