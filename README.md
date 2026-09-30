@@ -1,12 +1,12 @@
 # SABOS Lib
 
-A governed library of reusable knowledge systems, implementation contracts, practitioner positions, standards, research, references, glossaries, examples, and subject artifacts for web architecture, semantic Tailwind CSS, search/digital marketing, README quality, and regression-resistant agent-assisted work.
+A governed library of reusable knowledge systems, implementation contracts, practitioner positions, standards, research, references, glossaries, examples, and subject artifacts for web architecture, semantic Tailwind CSS, search/digital marketing, README quality, DevOps/CI/CD operations, and regression-resistant agent-assisted work.
 
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
 
 `sabos-lib` is the umbrella repository. It is **not** a Tailwind package, application, or build repository.
 
-The repository currently contains four complementary `*basic` systems plus repository-wide governance. Each system owns a distinct professional subject area while sharing one structural model for preserving knowledge without flattening its authority.
+The repository currently contains five complementary `*basic` systems plus repository-wide governance. Each system owns a distinct professional subject area while sharing one structural model for preserving knowledge without flattening its authority.
 
 ## What lives here
 
@@ -16,6 +16,7 @@ The repository currently contains four complementary `*basic` systems plus repos
 | **TCBasic** | Tailwind CSS v4 semantic architecture, contracts, practitioner positions, canonical reference CSS, and adoption examples. | Evolving knowledge framework | [`TCbasic/README.md`](TCbasic/README.md) |
 | **SEObasic** | Websites, technical SEO, content, entities/internal linking, local search/GBP/Maps, social, paid media/PPC, YouTube, measurement/analytics, research, standards, contracts, references, and examples. | Evolving knowledge framework | [`SEObasic/README.md`](SEObasic/README.md) |
 | **READMEbasic** | Evidence-backed README/documentation knowledge, integrity contracts, profiles, templates, research, standards, references, resources, and examples. | Evolving knowledge framework | [`READMEbasic/README.md`](READMEbasic/README.md) |
+| **DevOpsbasic** | Branch semantics, GitHub Actions, CI/CD, environment separation, production promotion, cPanel API deployment adapters, Laravel CI guidance, and reusable workflow templates. | Evolving knowledge framework | [`DevOpsbasic/README.md`](DevOpsbasic/README.md) |
 | **Governance** | Repository-wide authority, invariants, knowledge-system structure, change control, agent operations, validation, and anti-regression rules. | Binding | [`governance/README.md`](governance/README.md) |
 
 ## Shared system shape
@@ -41,6 +42,7 @@ A subject artifact exists only when the subject genuinely has one. Current examp
 
 - `TCbasic/src/` — canonical reference CSS;
 - `READMEbasic/templates/` — reusable README starting artifacts;
+- `DevOpsbasic/templates/` — reusable CI/CD and deployment workflow starting artifacts;
 - `examples/` — illustrative uses/cases where useful.
 
 SEObasic may gain a `playbooks/` artifact layer when real reusable operational playbooks exist. WDBASIC may gain separate templates/examples when a meaningful artifact boundary warrants it. Empty symmetry is explicitly discouraged.
@@ -69,10 +71,14 @@ SABOS Lib
 │   ├── docs/    → search/discovery/marketing/measurement knowledge
 │   └── examples/
 │
-└── READMEbasic
-    ├── docs/    → README knowledge/contracts/evidence
-    ├── templates/
-    └── examples/
+├── READMEbasic
+│   ├── docs/    → README knowledge/contracts/evidence
+│   ├── templates/
+│   └── examples/
+│
+└── DevOpsbasic
+    ├── docs/    → branch, CI/CD, deployment, provider/framework knowledge
+    └── templates/ → reusable workflow starting artifacts
 ```
 
 The systems are complementary rather than interchangeable.
@@ -81,6 +87,7 @@ The systems are complementary rather than interchangeable.
 - **TCBasic** specializes semantic Tailwind CSS architecture and provides reference CSS without making SABOS Lib a package/build repository.
 - **SEObasic** governs discovery, content, local search, channels, and measurement semantics.
 - **READMEbasic** governs evidence-backed project entrypoint documentation.
+- **DevOpsbasic** governs reusable branch, CI/CD, environment, promotion, and deployment semantics for adopting projects without making SABOS Lib itself a deployment target.
 - **Governance** defines how these bodies of knowledge evolve without silent contract drift and how agents recover context, preserve task state, execute within scope, and validate work.
 
 ## Knowledge model
@@ -124,6 +131,7 @@ Important distinctions are intentional:
 | Work with semantic Tailwind architecture | [`TCbasic/README.md`](TCbasic/README.md) |
 | Work on SEO, local search, content, PPC, social, YouTube, or measurement | [`SEObasic/README.md`](SEObasic/README.md) |
 | Create or improve README documentation | [`READMEbasic/README.md`](READMEbasic/README.md) |
+| Define branch roles, CI/CD, production promotion, or cPanel deployment behavior | [`DevOpsbasic/README.md`](DevOpsbasic/README.md) |
 | Understand repository agent/change-control rules | [`AGENTS.md`](AGENTS.md), [`governance/README.md`](governance/README.md) |
 | Apply practical agent context/task/execution controls | [`governance/agent-operations/README.md`](governance/agent-operations/README.md), [`governance/agent-operations/patterns/README.md`](governance/agent-operations/patterns/README.md) |
 | Understand the structural/authority model | [`governance/knowledge-system-model.md`](governance/knowledge-system-model.md) |
@@ -154,6 +162,10 @@ Important distinctions are intentional:
 | README Integrity Contract | [`READMEbasic/docs/contracts/readme-integrity.md`](READMEbasic/docs/contracts/readme-integrity.md) |
 | README template artifact | [`READMEbasic/templates/README-template.md`](READMEbasic/templates/README-template.md) |
 | README resources | [`READMEbasic/docs/resources.md`](READMEbasic/docs/resources.md) |
+| DevOpsbasic branch/promotion contract | [`DevOpsbasic/docs/branching/branch-model.md`](DevOpsbasic/docs/branching/branch-model.md) |
+| DevOpsbasic GitHub Actions guidance | [`DevOpsbasic/docs/ci-cd/github-actions.md`](DevOpsbasic/docs/ci-cd/github-actions.md) |
+| DevOpsbasic cPanel deployment contract | [`DevOpsbasic/docs/deployment/cpanel-api.md`](DevOpsbasic/docs/deployment/cpanel-api.md) |
+| DevOpsbasic workflow templates | [`DevOpsbasic/templates/github/workflows/`](DevOpsbasic/templates/github/workflows/) |
 
 ## Shared repository principles
 

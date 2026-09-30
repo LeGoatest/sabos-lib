@@ -1,0 +1,30 @@
+name: Branch Policy
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+      - prod
+
+permissions:
+  contents: read
+
+jobs:
+  promotion-policy:
+    name: Validate promotion path
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require dev as the source of production promotion
+        if: github.base_ref == 'prod'
+        shell: bash
+        run: |
+          if [ "${GITHUB_HEAD_REF}" != "dev" ]; then
+            echo "Production promotion must come from dev; got ${GITHUB_HEAD_REF} -> prod." >&2
+            exit 1
+          fi
+
+      - name: Confirm branch roles
+        run: |
+          echo "base=${{ github.base_ref }}"
+          echo "head=${{ github.head_ref }}"

@@ -42,6 +42,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Practical Agent Operations patterns for scoped persistent instructions, material task contracts, verification matrices, and fresh-context substantial-change review.
 - Optional lightweight decision-record and task-checkpoint patterns for durable consequential decisions and long-running/handoff work without requiring those artifacts for trivial tasks.
 - Evidence synthesis spanning DORA, OpenAI/Codex, GitHub Copilot, Google/Gemini, Anthropic, academic repository-agent research, established Google engineering practice, ADR/decision-record practice, and Thoughtworks/Martin Fowler practitioner literature.
+- `DevOpsbasic/` as a governed operational knowledge system for `main` / `dev` / `prod` branch semantics, CI/CD, GitHub Actions, environment separation, production promotion, cPanel API deployment adapters, Laravel CI/shared-hosting guidance, and deployment evidence.
+- `DevOpsbasic/templates/` as a reusable workflow-artifact layer with branch-policy, Laravel CI, and cPanel deployment starting workflows while keeping SABOS Lib itself a knowledge/reference repository rather than an application deployment target.
 
 ### Changed
 
@@ -71,6 +73,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 - Updated root `README.md`, root `AGENTS.md`, governance routing, and Agent Operations routing so the practical execution-verification contract and reusable adoption patterns are directly discoverable from normal repository entrypoints.
 - Re-audited agent-operation evidence and corrected source framing, including Anthropic context-loading/compaction behavior, OpenAI durable execution-plan practice, Khatri's context-file ablation counterevidence, and tighter CodePlan reporting.
 - Corrected repository validation routing to the canonical WDBASIC engineering-validation path.
+- Expanded root README, agent routing, contribution guidance, and governance authority to recognize DevOpsbasic as the fifth governed `*basic` system while preserving the distinction between SABOS Lib's knowledge role and adopter-project CI/CD execution.
 
 ### Removed
 

@@ -170,6 +170,20 @@ For README creation/material restructuring or READMEbasic changes, read:
 
 [`READMEbasic/templates/README-template.md`](READMEbasic/templates/README-template.md) is a reusable starting artifact, not a mandatory checklist. README claims must be verified against project evidence.
 
+### DevOpsbasic
+
+For branch strategy, GitHub Actions, CI/CD, cPanel deployment, environment separation, or framework-specific operational pipelines, read:
+
+1. [`DevOpsbasic/README.md`](DevOpsbasic/README.md)
+2. [`DevOpsbasic/AGENTS.md`](DevOpsbasic/AGENTS.md)
+3. [`DevOpsbasic/docs/README.md`](DevOpsbasic/docs/README.md)
+4. [`DevOpsbasic/docs/branching/branch-model.md`](DevOpsbasic/docs/branching/branch-model.md) when `main` / `dev` / `prod` semantics or promotion are in scope
+5. [`DevOpsbasic/docs/deployment/cpanel-api.md`](DevOpsbasic/docs/deployment/cpanel-api.md) for cPanel API/deployment work
+6. [`DevOpsbasic/docs/frameworks/laravel-ci.md`](DevOpsbasic/docs/frameworks/laravel-ci.md) for Laravel CI/shared-hosting pipelines
+7. [`DevOpsbasic/templates/`](DevOpsbasic/templates/README.md) only as reusable starting artifacts; inspect the adopting project's actual manifests, scripts, paths, versions, and secrets before adoption
+
+Do not infer production from the default branch. Under the standard DevOpsbasic model, `main` is the governance/control plane, `dev` is active development, and `prod` is the production line. Production deployment must resolve from `prod` unless the adopting project explicitly defines another contract.
+
 ## Commands and evidence
 
 Never invent build/test commands from convention. Read the owning project manifest/workflow/documentation when an adopting implementation actually has commands.

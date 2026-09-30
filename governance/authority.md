@@ -84,6 +84,16 @@ Long-form knowledge lives under [`../READMEbasic/docs/`](../READMEbasic/docs/REA
 
 READMEbasic does not own or authorize changes to an implementation merely because a README documents that implementation.
 
+### DevOpsbasic
+
+`DevOpsbasic/` owns reusable operational knowledge for branch semantics, CI/CD, GitHub Actions, environment separation, production promotion, deployment validation, cPanel API deployment adapters, framework-specific CI guidance, and reusable workflow templates.
+
+Its canonical branch model defines `main` as the governance/control plane, `dev` as current development, and `prod` as the production line when that model is adopted. It does not make SABOS Lib itself an application or deployment repository.
+
+Provider-specific behavior remains subject to the provider's actual platform contract. Workflow templates under [`../DevOpsbasic/templates/`](../DevOpsbasic/templates/README.md) are reusable subject artifacts and do not independently become active repository CI/CD.
+
+DevOpsbasic does not own application architecture, application-specific deployment paths, secrets, runtime versions, build commands, or migration policy unless an adopting project explicitly adopts corresponding operational contracts.
+
 ### Repository governance
 
 `governance/` owns repository-wide authority, invariants, knowledge-system structure, agent-operation contracts, change control, validation expectations, and governance research rationale.

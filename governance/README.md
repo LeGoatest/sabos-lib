@@ -28,11 +28,12 @@ subsystem entrypoints
     ├── Wdbasic/
     ├── TCbasic/
     ├── SEObasic/
-    └── READMEbasic/
+    ├── READMEbasic/
+    └── DevOpsbasic/
     ↓
 docs/ knowledge + subject artifacts + examples
     ↓
-implementation / campaigns / documentation practice
+implementation / campaigns / documentation / operational practice
     ↓
 measurement + validation evidence
 ```
@@ -128,6 +129,7 @@ Current examples:
 
 - `TCbasic/src/` — canonical reference CSS;
 - `READMEbasic/templates/` — reusable README starting artifacts;
+- `DevOpsbasic/templates/` — reusable CI/CD and deployment workflow starting artifacts;
 - `SEObasic/examples/` and `READMEbasic/examples/` — illustrative artifacts.
 
 Do not create artifact directories merely to make trees match. Use `dist/` only for actual generated/distribution output.
@@ -185,6 +187,7 @@ Subsystems retain authority over their own domain:
 - `TCbasic/` — Tailwind CSS semantic architecture, token/component/integration knowledge, practitioner positions, compatibility guidance, canonical reference CSS under `TCbasic/src/`, and illustrative examples. Current SABOS Lib does not build/package/release TCBasic.
 - `SEObasic/` — search/discovery/marketing knowledge spanning websites, technical SEO, content, local search/GBP/Maps, organic social, paid media/PPC, YouTube, entities, measurement/analytics semantics, contracts, research, standards, references, positions, examples, and glossaries; long-form knowledge is under `SEObasic/docs/`.
 - `READMEbasic/` — README/documentation knowledge spanning profiles, integrity contracts, positions, research, standards, references, resources, glossaries, templates, examples, and agent behavior; long-form knowledge is under `READMEbasic/docs/`, reusable template artifacts under `READMEbasic/templates/`.
+- `DevOpsbasic/` — branch semantics, CI/CD, GitHub Actions, environment separation, promotion/deployment contracts, cPanel API adapter guidance, Laravel CI/shared-hosting guidance, and reusable workflow templates; long-form knowledge is under `DevOpsbasic/docs/`, reusable workflow artifacts under `DevOpsbasic/templates/`.
 
 A subsystem may strengthen repository-wide requirements but may not silently weaken repository invariants or agent-operation contracts.
 
