@@ -6,10 +6,10 @@
 
 Keep these concepts distinct:
 
-- **cPanel host** — hostname used to reach cPanel, normally without a browser-session path.
+- **cPanel host** — server hostname or IP used to reach cPanel, stored without protocol, port, or browser-session path when the workflow constructs the UAPI URL itself.
 - **cPanel username** — account username authorized for the API token.
 - **cPanel API token** — secret credential generated for API access.
-- **browser session URL** — a temporary URL that may contain `/cpsess.../`; it is not the canonical API host and MUST NOT be stored as deployment configuration.
+- **browser session URL** — a temporary interface URL that may contain `/cpsess.../`; it is not the canonical API host and MUST NOT be stored as deployment configuration.
 - **deployment target/root** — project-specific filesystem/repository destination on the hosting account.
 
 An agent MUST NOT infer one field from another when the project has authoritative configuration available.
@@ -42,7 +42,19 @@ The workflow MUST derive the deployment environment from an explicit branch/envi
 
 Before mutating the server, a workflow SHOULD perform a read-only API authentication check and fail clearly if the host, username, token, TLS connection, or expected cPanel response is invalid.
 
-For cPanel UAPI, authentication commonly uses an `Authorization: cpanel USER:TOKEN` header against the account's cPanel HTTPS endpoint. Exact endpoint/module use remains provider behavior and should be verified against current cPanel documentation when implemented.
+For cPanel UAPI token authentication, cPanel documents the header form:
+
+```text
+Authorization: cpanel username:APITOKEN
+```
+
+against an HTTPS UAPI URL shaped like:
+
+```text
+https://server.example:2083/execute/Module/function
+```
+
+cPanel documents port `2083` for secure UAPI calls as a cPanel account and explicitly warns custom automation not to use cPanel interface URLs such as `/cpsess.../frontend/...` in place of API functions.
 
 Do not print the authorization header or token response data unnecessarily.
 
@@ -76,8 +88,14 @@ Production deployment MUST stop when any of these are unresolved:
 
 - source branch is not `prod`;
 - target environment is not explicitly production;
-- cPanel host is missing or appears to be a transient `/cpsess.../` browser URL;
+- cPanel host is missing, includes a protocol/path, or appears to be a transient `/cpsess.../` browser URL;
 - API authentication fails;
 - deployment adapter is missing;
 - expected artifact/source SHA cannot be identified;
 - required pre-deployment CI has failed or is unavailable under the adopting project's policy.
+
+## Provider references
+
+- cPanel API Tokens: https://api.docs.cpanel.net/cpanel/tokens
+- cPanel UAPI introduction: https://api.docs.cpanel.net/cpanel/introduction
+- cPanel Variables guidance recommending `Variables::get_user_information`: https://api.docs.cpanel.net/guides/guide-to-cpanel-variables
