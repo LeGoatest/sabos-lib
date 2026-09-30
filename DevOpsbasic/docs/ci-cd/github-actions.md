@@ -7,14 +7,38 @@ Under the standard DevOpsbasic branch model:
 | Event | Intended action |
 | --- | --- |
 | Pull request to `dev` | Validate candidate development change. |
-| Push/merge to `dev` | Validate integrated development state; optionally deploy staging/development. |
+| Push/merge to `dev` | Validate integrated development state. May automatically deploy development only when the project explicitly adopts automatic deployment. |
+| Manual development deployment | A control-plane workflow may live on `main` and explicitly deploy/update `dev`. |
 | Pull request `dev → prod` | Run production-candidate validation. |
-| Push/merge to `prod` | Deploy the exact merged `prod` commit to production. |
-| Changes to `main` | Validate governance/control material; never implicitly deploy production. |
+| Push/merge to `prod` | Establish/update the production deployment source. Automatic production deployment is optional policy, not implied by the branch name. |
+| Manual production deployment | A control-plane workflow may live on `main` and explicitly deploy/update `prod`, subject to production authorization. |
+| Changes to `main` | Validate governance/control material; never implicitly make `main` the runtime deployment source. |
+
+CI success and deployment authorization are separate states.
+
+## Workflow branch versus deployment branch
+
+A GitHub Actions workflow can be evaluated from one ref while acting on another explicitly named deployment source.
+
+For example, the baseline cPanel Git pattern may use:
+
+```text
+main/.github/workflows/deploy-dev.yml
+      ↓ workflow_dispatch
+DEPLOY_BRANCH=dev
+      ↓ VersionControl/update
+development server
+```
+
+The workflow definition's branch is control-plane context. `DEPLOY_BRANCH` is runtime deployment context.
+
+Do not infer one from the other.
 
 ## Workflow availability
 
-Do not assume a workflow stored only on `main` will govern every event on another branch. The adopting project must ensure required workflow definitions are available in the refs GitHub evaluates for those events, or use a supported reusable-workflow/control-plane design.
+For push/pull-request events, do not assume a workflow stored only on `main` will govern every event on another branch. The adopting project must ensure required workflow definitions are available in the refs GitHub evaluates for those events, or use a supported reusable-workflow/control-plane design.
+
+This limitation does not require duplicating a manually dispatched `main` deployment controller that explicitly updates another branch through an external API.
 
 ## Permissions
 
@@ -45,9 +69,11 @@ For environments such as shared cPanel hosting, build dependencies may not exist
 4. package only deployment-required files;
 5. tie the artifact to the source SHA;
 6. deploy that artifact or exact validated source state;
-7. run post-deploy health checks.
+7. run post-deploy health checks when required by the adopted deployment policy.
 
 Do not silently compile a different revision on the server.
+
+This artifact model is distinct from the baseline cPanel Git `VersionControl/update` model, where cPanel updates a managed checkout from an explicit branch.
 
 ## Project-owned commands
 
