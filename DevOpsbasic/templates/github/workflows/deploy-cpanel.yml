@@ -1,0 +1,80 @@
+name: Deploy cPanel
+
+on:
+  push:
+    branches:
+      - dev
+      - prod
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cpanel-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy ${{ github.ref_name }}
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref_name == 'prod' && 'production' || 'development' }}
+
+    steps:
+      - name: Reject unsupported deployment source
+        shell: bash
+        run: |
+          case "${GITHUB_REF_NAME}" in
+            dev|prod) ;;
+            *) echo "Unsupported deployment branch: ${GITHUB_REF_NAME}" >&2; exit 1 ;;
+          esac
+
+      - name: Check out exact deployment source
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Validate cPanel configuration
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+        shell: bash
+        run: |
+          test -n "$CPANEL_HOST"
+          test -n "$CPANEL_USERNAME"
+          test -n "$CPANEL_API_TOKEN"
+          if printf '%s' "$CPANEL_HOST" | grep -q '/cpsess'; then
+            echo "CPANEL_HOST must be the cPanel host, not a browser cpsess URL." >&2
+            exit 1
+          fi
+
+      - name: Verify cPanel API authentication
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+        shell: bash
+        run: |
+          response="$(curl --fail --silent --show-error \
+            -H "Authorization: cpanel ${CPANEL_USERNAME}:${CPANEL_API_TOKEN}" \
+            "https://${CPANEL_HOST}:2083/execute/Variables/get_user_information")"
+          printf '%s' "$response" | jq -e '.result.status == 1' >/dev/null
+
+      - name: Require project-owned deployment adapter
+        run: test -x scripts/deploy/cpanel.sh
+
+      - name: Deploy exact source
+        env:
+          DEPLOY_ENV: ${{ github.ref_name == 'prod' && 'production' || 'development' }}
+          DEPLOY_SHA: ${{ github.sha }}
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+        run: scripts/deploy/cpanel.sh
+
+      - name: Record deployment source
+        run: |
+          echo "branch=${GITHUB_REF_NAME}"
+          echo "sha=${GITHUB_SHA}"

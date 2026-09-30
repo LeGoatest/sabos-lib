@@ -1,0 +1,94 @@
+name: Laravel CI
+
+on:
+  pull_request:
+    branches:
+      - dev
+      - prod
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: laravel-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: Backend validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      APP_ENV: testing
+      APP_URL: http://localhost
+      DB_CONNECTION: sqlite
+      DB_DATABASE: ${{ github.workspace }}/database/database.sqlite
+      CACHE_STORE: array
+      SESSION_DRIVER: array
+      QUEUE_CONNECTION: sync
+      MAIL_MAILER: array
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4' # Confirm against the adopting project.
+          extensions: mbstring, intl, bcmath, pdo_sqlite, sqlite3
+          tools: composer:v2
+          coverage: none
+
+      - name: Validate project shape
+        run: |
+          test -f composer.json
+          test -f artisan
+
+      - name: Validate Composer metadata
+        run: composer validate --strict
+
+      - name: Install locked PHP dependencies
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Prepare test environment
+        run: |
+          if [ -f .env.example ] && [ ! -f .env ]; then cp .env.example .env; fi
+          php artisan key:generate --force
+          mkdir -p database
+          touch database/database.sqlite
+
+      - name: Verify Laravel boots
+        run: php artisan route:list
+
+      - name: Verify migrations
+        run: php artisan migrate:fresh --force
+
+      - name: Run Laravel tests
+        run: php artisan test
+
+  frontend:
+    name: Frontend build
+    if: ${{ hashFiles('package-lock.json') != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24' # Confirm against the adopting project.
+          cache: npm
+
+      - name: Install locked frontend dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Build browser assets
+        run: npm run build
