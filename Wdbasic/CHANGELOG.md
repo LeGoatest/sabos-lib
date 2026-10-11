@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Added
 
+- Dated dashboard/administration UI/UX research snapshot analyzing seven supplied bento and tenant-dashboard visual references, separating observed aesthetics from vendor guidance, WCAG requirements, and unverified recommendations; records pending Deep Research report reconciliation.
+- Informative dashboard/admin experience-evaluation guide covering screen taxonomy, task-first hierarchy, role-aware navigation, responsive bento usage, components, interactive states, and explicit acceptance checks; linked from the experience and research indexes.
 - HTMX 4 research snapshot documenting the 2026-09-27 InfoWorld review, verification against current HTMX 4 primary documentation, and the resulting WDBASIC profile changes.
 - `agents/` as WDBASIC's machine-readable projection namespace, with a deterministic `manifest.yaml` entry point, standard/domain projection, core-invariant registry, technology-profile registry, content-strategy registry, component/token registries, JSON Schemas, and conformance definitions.
 - Machine-interface provenance rules requiring mapped records to reference canonical WDBASIC sources and preventing structured files from silently becoming independent authority.

@@ -27,6 +27,7 @@ Do not collapse these dimensions into a universal compensatory total that can hi
 - [`discoverability.md`](discoverability.md)
 - [`intent-alignment.md`](intent-alignment.md)
 - [`usability.md`](usability.md)
+- [`admin-dashboard-ux.md`](admin-dashboard-ux.md) — informative dashboard, administration, and bento-layout evaluation guide
 - [`trust.md`](trust.md)
 - [`conversion.md`](conversion.md)
 - [`performance.md`](performance.md)
