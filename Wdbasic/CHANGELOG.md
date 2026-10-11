@@ -26,6 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Changed
 
+- Added a dated, source-qualified assessment of Rosalie's 2025 dashboard design article to the dashboard research and linked experience guide; classified its overlapping checklist as secondary practitioner guidance and clarified conditional navigation, semantic accessibility, and query/caching verification.
 - Updated the HTMX/hypermedia technology profile for HTMX 4.x: explicit attribute inheritance, HTML-first response contracts, target/swap/indicator/trigger contracts, `hx-boost` progressive navigation, HTMX 4 history re-fetch behavior, optional `sessionStorage` history caching, deliberate `4xx`/`5xx` error-fragment handling, current JavaScript/event interop, manual `htmx.process()` boundaries, and extension/streaming governance.
 - Corrected stale HTMX 2-era history guidance that described `localStorage` snapshots and `hx-history` behavior as applicable defaults; HTMX 4 now re-fetches history by default and makes local caching opt-in through `hx-history-cache`.
 - Audited the v2.1 post-migration authority chain and repaired stale pre-migration routing in the binding implementation-agent contract and repository-level WDBASIC entrypoints without changing WDBASIC semantics.

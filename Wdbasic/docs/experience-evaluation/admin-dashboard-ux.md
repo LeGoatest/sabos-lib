@@ -57,6 +57,10 @@ Suggested starting dimensions from the evidence snapshot (not mandated WDBASIC t
 
 A dashboard is not automatically the correct landing screen for every authenticated role.
 
+## Supporting practitioner reading
+
+Rosalie's [2025 admin dashboard checklist](https://rosalie24.medium.com/best-practices-for-admin-dashboard-design-a-designers-guide-3854e8349157) complements these diagnostics with eight basic categories: roles, hierarchy, simplicity, visualization, responsiveness, navigation, accessibility and performance. The [research snapshot's 2026-10-11 evaluation](../core-invariants/measurable-evidence/research/admin-dashboard-bento-ux-2026-10-11.md#additional-2025-practitioner-reference--reviewed-2026-10-11) documents coverage, limitations, and conditional interpretation. Include **representative cross-browser checks and actual query/caching performance evidence** where relevant. Sticky menus and breadcrumbs are contextual choices, not universal requirements.
+
 ## Review checklist and acceptance criteria
 
 - [ ] Role and top task are explicit, with a credible first action.

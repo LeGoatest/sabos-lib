@@ -204,6 +204,27 @@ Do not treat aesthetic popularity, screenshots, gallery likes, or vendor example
 9. Is the visual grid rearranged for content priority on compact screens without breaking focus/reading order?
 10. Were actual users and representative tasks tested before elevating this visual pattern into a product-wide standard?
 
+## Additional 2025 practitioner reference — reviewed 2026-10-11
+
+**Reference [S10]:** Rosalie, *Best Practices for Admin Dashboard Design: A Designer’s Guide* (Medium, 2025-02-12). This is a short **secondary practitioner article**, not original usability research, a design system specification, or a conformance standard.
+
+The article organizes practical advice into eight areas: (1) identify user roles, core metrics and scenarios; (2) establish high-level metric hierarchy, drilldown and logical grouping; (3) simplify presentation, colors and component styles; (4) choose appropriate charts, expose trends and support filtering/sorting/updates; (5) adapt layout and controls across devices and browsers; (6) make navigation, breadcrumbs and search usable; (7) enable keyboard, semantic/screen-reader use and text contrast; and (8) reduce loading/server cost through lazy loading, caching, query efficiency and recurring performance checks.
+
+### Comparison with this evidence review
+
+| Article theme | Earlier coverage | Additional application note |
+|---|---|---|
+| Roles, goals and scenarios | §1, §10 | Convert abstract role identification into **top tasks per role** and permission-aware initial navigation; do not assume all roles land on the dashboard. |
+| Prioritized summary and drilldown | §1–2 | Tie a summary tile to a real detailed route; preserve selected context when returning. |
+| Simplified and consistent visuals | §2, §6 | Keep varied bento spans but **standardize** controls, states, typography, and token semantics across panels. |
+| Chart choice and interactive analysis | §3–4 | Test whether a chart helps a decision; dynamic filters, updates and animations are optional and must preserve clarity/focus. |
+| Responsive and cross-browser layout | §5, §7 | Validate reflow and interaction in supported viewport/input/browser combinations, not just a resized mockup. |
+| Sticky nav, breadcrumbs and search | §1, §4 | **Conditional, not universal**: sticky elements can obscure content/focus; breadcrumbs help when navigation depth warrants them; search must deliver useful results. |
+| Keyboard, screen reader and contrast | §7 | Native HTML comes first; **ARIA should supplement missing semantics**, not be added indiscriminately. WCAG is authoritative for conformance, not this article. |
+| Loading, caching and database efficiency | §4, §7 | Measure end-to-end perceived latency and data freshness; tune actual slow queries and caching rules rather than assuming all lazy loading improves UX. |
+
+**Evidence judgment:** The article largely **corroborates established design heuristics** and has no described sample, controlled test, comparative data, or quantified outcomes. Its clearest practical reminder is to include **backend query/caching performance** and **cross-browser verification** in dashboard quality reviews. Do not treat it as authority for exact breakpoints, fixed sticky menus, required use of every chart type, ARIA on native controls, or universal component choices.
+
 ## Evidence and source register
 
 Primary external sources and research relevant as of 2026-10-11. Source dates below are publication dates where identifiable; otherwise the pages were consulted on the review date.
@@ -217,6 +238,7 @@ Primary external sources and research relevant as of 2026-10-11. Source dates be
 - **S7 — Ant Design** (vendor design guidance; accessed 2026-10-11), *Introduction*, *Design values*, and *Layout*: <https://ant.design/docs/spec/introduce/>, <https://ant.design/docs/spec/values/>, <https://ant.design/docs/spec/layout/>.
 - **S8 — W3C** (normative standard, WCAG 2.2 Recommendation with applicable current publication/errata), *Web Content Accessibility Guidelines (WCAG) 2.2*: <https://www.w3.org/TR/WCAG22/>. Informative explanations of newer criteria: <https://www.w3.org/WAI/standards-guidelines/wcag/new-in-22/>.
 - **S9 — W3C WAI** (informative implementation guidance), *ARIA Authoring Practices Guide*: <https://www.w3.org/WAI/ARIA/apg/>.
+- **S10 — Rosalie** (2025-02-12; secondary practitioner article; evaluated 2026-10-11), *Best Practices for Admin Dashboard Design: A Designer’s Guide*. Role-aware information priority, consistency, analytics, responsiveness, search, accessibility and performance; not empirical usability evidence: <https://rosalie24.medium.com/best-practices-for-admin-dashboard-design-a-designers-guide-3854e8349157>.
 
 ## Open items and later reconciliation
 
