@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Added
 
+- Recognized SETUPbasic as a separate site/application structural-architecture knowledge domain, with explicit boundaries against WDBASIC, DBbasic, DevOpsbasic and the other governed systems; updated governance routing without weakening existing invariants.
+
 - `README.md` defining the layered governance model and five governance primitives: Authority, Invariant, Scope, Mutation, and Evidence.
 - `AGENTS.md` defining rules for automated edits to repository governance itself.
 - `authority.md` defining repository and subsystem authority boundaries.

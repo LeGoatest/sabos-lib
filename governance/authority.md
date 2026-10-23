@@ -100,6 +100,10 @@ DevOpsbasic does not own application architecture, application-specific deployme
 
 Its research and practitioner positions are informative; proposed contracts are not binding unless deliberately adopted. The SQLite example under [`../DBbasic/examples/sqlite/`](../DBbasic/examples/sqlite/README.md) is illustrative and does not describe an application's live schema, roles or migrations. DBbasic does not supersede WDBASIC application/security contracts or DevOpsbasic deployment/governance.
 
+### SETUPbasic
+
+[`../SETUPbasic/`](../SETUPbasic/README.md) owns web site/application setup and structural architecture knowledge: system/deployment topology, source-tree and module packaging, MVC/HMVC/DDD and other architecture-model classification, dependency boundaries, names/assets, architectural selection and illustrative project trees. It does not supersede WDBASIC web behavior/security/accessibility/HTTP contracts, DBbasic SQL/modeling, TCBasic CSS semantics, DevOpsbasic actual branch/release/deployment policy, READMEbasic documentation integrity or repository governance. SETUPbasic catalogs and examples are informative unless a binding project or subsystem contract deliberately adopts them; its initial structure-review contract is **proposed**.
+
 ### Repository governance
 
 `governance/` owns repository-wide authority, invariants, knowledge-system structure, agent-operation contracts, change control, validation expectations, and governance research rationale.

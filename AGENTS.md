@@ -197,6 +197,19 @@ For relational schema design, SQL integrity, keys/junction tables, tenant isolat
 
 DBbasic's research is evidence, not an automatic binding standard. Its schema-integrity contract remains **proposed** until deliberately adopted. Do not infer or change an application's actual schema, permissions, secrets or deployment solely from the DBbasic example.
 
+### SETUPbasic
+
+For site or application architecture selection, MVC/HMVC/DDD, module and package boundaries, folder conventions, naming, source/generated output or reference repository trees, read:
+
+1. [`SETUPbasic/README.md`](SETUPbasic/README.md)
+2. [`SETUPbasic/AGENTS.md`](SETUPbasic/AGENTS.md)
+3. [`SETUPbasic/docs/README.md`](SETUPbasic/docs/README.md)
+4. [`SETUPbasic/docs/models/README.md`](SETUPbasic/docs/models/README.md) and applicable model family
+5. [`SETUPbasic/docs/selection/decision-guide.md`](SETUPbasic/docs/selection/decision-guide.md) when selecting or comparing layouts
+6. Applicable user-established/project architecture and governing neighboring subsystem contracts
+
+Model definitions and examples are guidance, not automatic authorization to restructure existing projects. SETUPbasic's structure-review contract is **proposed**, not binding.
+
 ## Commands and evidence
 
 Never invent build/test commands from convention. Read the owning project manifest/workflow/documentation when an adopting implementation actually has commands.

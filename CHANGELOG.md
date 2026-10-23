@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Added
 
+- Added SETUPbasic as the seventh governed knowledge system covering site/application setup, MVC/HMVC and complementary architectural models, module/package boundaries, repository/folder conventions, model-combination decisions, named assets, source/generated separation and illustrative website/Laravel layouts.
+- Routed SETUPbasic through root repository entrypoints and governance authority while preserving WDBASIC, DBbasic and DevOpsbasic subject boundaries.
+
 - Added DBbasic as a sixth governed `*basic` system for relational schema engineering, cross tables, tenant-safe data relationships, SQL integrity, transactions/indexing, database automation, migrations/recovery and engine-specific guidance.
 - Preserved the dated relational-database deep research synthesis and primary-source catalog; separated practitioner positions from an explicitly unadopted contract proposal.
 - Added SQLite executable reference schema with memberships, photo and messaging cross tables, composite tenant FKs, audit trigger, examples and 10 automated integrity tests; routed the new system through root README/AGENTS and governance authority.
