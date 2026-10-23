@@ -94,6 +94,12 @@ Provider-specific behavior remains subject to the provider's actual platform con
 
 DevOpsbasic does not own application architecture, application-specific deployment paths, secrets, runtime versions, build commands, or migration policy unless an adopting project explicitly adopts corresponding operational contracts.
 
+### DBbasic
+
+[`../DBbasic/`](../DBbasic/README.md) owns reusable relational database design knowledge: schemas, keys and many-to-many junction tables, transactions, indexing, triggers, multiuser/tenant integrity modeling, engine-specific profiles, database migrations/recovery, validation methods, and related research.
+
+Its research and practitioner positions are informative; proposed contracts are not binding unless deliberately adopted. The SQLite example under [`../DBbasic/examples/sqlite/`](../DBbasic/examples/sqlite/README.md) is illustrative and does not describe an application's live schema, roles or migrations. DBbasic does not supersede WDBASIC application/security contracts or DevOpsbasic deployment/governance.
+
 ### Repository governance
 
 `governance/` owns repository-wide authority, invariants, knowledge-system structure, agent-operation contracts, change control, validation expectations, and governance research rationale.
