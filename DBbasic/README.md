@@ -22,6 +22,8 @@ DBbasic is SABOS Lib's governed collection of database principles, practitioner 
 | SQLite / PostgreSQL / MySQL profiles | [docs/engines/README.md](docs/engines/README.md) |
 | Source-cited deep research | [docs/research/2026-10-23-relational-database-research.md](docs/research/2026-10-23-relational-database-research.md) |
 | Source links and provenance | [docs/references/primary-sources.md](docs/references/primary-sources.md) |
+| Database anti-pattern catalog | [docs/patterns/anti-patterns.md](docs/patterns/anti-patterns.md) |
+| Database terminology | [docs/glossary.md](docs/glossary.md) |
 | Schema design/review checklist | [docs/checklists/database-review.md](docs/checklists/database-review.md) |
 | Executable illustrative SQLite schema | [examples/sqlite/README.md](examples/sqlite/README.md) |
 
