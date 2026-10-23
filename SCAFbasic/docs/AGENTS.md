@@ -1,6 +1,6 @@
 # Documentation Routing
 
-Inherit [SETUPbasic/AGENTS.md](../AGENTS.md) and [repository governance](../../governance/README.md).
+Inherit [SCAFbasic/AGENTS.md](../AGENTS.md) and [repository governance](../../governance/README.md).
 
 When adding or revising a model:
 1. Identify its **axis** and whether it is a full architecture, composition technique, delivery model, data pattern, or deployment pattern.

@@ -86,4 +86,4 @@ Good fit: larger modular monoliths with distinct capability ownership, well-defi
 
 ## Migration policy
 
-Adoption into a real project requires repository inspection, a dependency inventory, framework/autoload verification, unchanged-route tests, rollback planning and an explicit user-approved scope. SETUPbasic **does not authorize** a refactor by reference alone.
+Adoption into a real project requires repository inspection, a dependency inventory, framework/autoload verification, unchanged-route tests, rollback planning and an explicit user-approved scope. SCAFbasic **does not authorize** a refactor by reference alone.

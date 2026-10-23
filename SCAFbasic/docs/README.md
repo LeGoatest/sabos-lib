@@ -1,4 +1,4 @@
-# SETUPbasic Knowledge Index
+# SCAFbasic Knowledge Index
 
 | Area | Location | Authority |
 | --- | --- | --- |
@@ -19,7 +19,7 @@
 
 ## Boundary rules
 
-1. SETUPbasic selects **how the application is composed and arranged**, not the business feature list.
+1. SCAFbasic selects **how the application is composed and arranged**, not the business feature list.
 2. Architecture labels across different axes can coexist. Treat exclusions as specific to the proposed composition, not to the words themselves.
 3. A model catalog can never enumerate every historical variant or trade name. Entries define a substantial, extensible baseline and an addition rule, rather than making a false claim of universal exhaustiveness.
 4. Do not migrate a working application merely to achieve a cleaner example tree.

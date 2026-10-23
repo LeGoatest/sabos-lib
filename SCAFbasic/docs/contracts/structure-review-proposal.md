@@ -1,6 +1,6 @@
 # Proposed Structure Review Contract
 
-> **Status:** PROPOSED — not binding on SETUPbasic adopters until explicitly adopted.
+> **Status:** PROPOSED — not binding on SCAFbasic adopters until explicitly adopted.
 > **Purpose:** Candidate verification criteria for a project choosing to formalize setup and structure.
 
 An adopting project may define these checks in its own architecture contract:

@@ -31,7 +31,7 @@ subsystem entrypoints
     ├── READMEbasic/
     ├── DevOpsbasic/
     ├── DBbasic/
-    └── SETUPbasic/
+    └── SCAFbasic/
     ↓
 docs/ knowledge + subject artifacts + examples
     ↓
@@ -190,7 +190,7 @@ Subsystems retain authority over their own domain:
 - `SEObasic/` — search/discovery/marketing knowledge spanning websites, technical SEO, content, local search/GBP/Maps, organic social, paid media/PPC, YouTube, entities, measurement/analytics semantics, contracts, research, standards, references, positions, examples, and glossaries; long-form knowledge is under `SEObasic/docs/`.
 - `READMEbasic/` — README/documentation knowledge spanning profiles, integrity contracts, positions, research, standards, references, resources, glossaries, templates, examples, and agent behavior; long-form knowledge is under `READMEbasic/docs/`, reusable template artifacts under `READMEbasic/templates/`.
 - `DBbasic/` — relational database design, integrity, cross tables, multiuser and tenant data boundaries, engine profiles, migration/recovery guidance, independent research records and illustrative SQLite schema/tests; knowledge lives under `DBbasic/docs/`, examples under `DBbasic/examples/`.
-- `SETUPbasic/` — website/application setup, architecture taxonomy, deployment topology vs domain/code/presentation patterns, module boundaries, naming and project layout; long-form knowledge under `SETUPbasic/docs/`, illustrative trees under `SETUPbasic/examples/`. Its architecture-review contract is a proposal, not binding.
+- `SCAFbasic/` — website/application setup, architecture taxonomy, deployment topology vs domain/code/presentation patterns, module boundaries, naming and project layout; long-form knowledge under `SCAFbasic/docs/`, illustrative trees under `SCAFbasic/examples/`. Its architecture-review contract is a proposal, not binding.
 - `DevOpsbasic/` — branch semantics, CI/CD, GitHub Actions, environment separation, promotion/deployment contracts, cPanel API adapter guidance, Laravel CI/shared-hosting guidance, and reusable workflow templates; long-form knowledge is under `DevOpsbasic/docs/`, reusable workflow artifacts under `DevOpsbasic/templates/`.
 
 A subsystem may strengthen repository-wide requirements but may not silently weaken repository invariants or agent-operation contracts.

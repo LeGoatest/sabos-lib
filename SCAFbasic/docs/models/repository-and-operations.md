@@ -17,4 +17,4 @@
 | Infrastructure as Code | Desired infrastructure is represented by declarative, version-controlled definitions. | Reproducible environments. | Provider-specific state and secret management. |
 | Immutable releases | Deploy a versioned release artifact/directory instead of modifying active files in place. | Safer rollback and reproducibility. | Shared writable state and migration orchestration. |
 
-Folder convention alone never establishes which branch is actually deployed. [DevOpsbasic](../../../DevOpsbasic/README.md) owns branch and delivery contracts; [SETUPbasic naming](../structure/naming-and-assets.md) owns file organization guidance.
+Folder convention alone never establishes which branch is actually deployed. [DevOpsbasic](../../../DevOpsbasic/README.md) owns branch and delivery contracts; [SCAFbasic naming](../structure/naming-and-assets.md) owns file organization guidance.

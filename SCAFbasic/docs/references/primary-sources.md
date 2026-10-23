@@ -21,7 +21,7 @@ These references support catalog definitions and trade-off discussions. Vendor r
 
 ## Internal primary project sources
 
-- [SETUPbasic examples](../../examples/README.md): patterns synthesized as illustrations, not assertions of any current project code.
+- [SCAFbasic examples](../../examples/README.md): patterns synthesized as illustrations, not assertions of any current project code.
 - [SABOS governance](../../../governance/README.md): authority/contract boundaries.
 - [WDBASIC](../../../Wdbasic/README.md), [DBbasic](../../../DBbasic/README.md), [DevOpsbasic](../../../DevOpsbasic/README.md): controlling adjacent subject authorities.
 

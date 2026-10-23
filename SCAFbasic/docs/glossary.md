@@ -1,4 +1,4 @@
-# SETUPbasic Glossary
+# SCAFbasic Glossary
 
 | Term | Meaning |
 | --- | --- |
@@ -10,7 +10,7 @@
 | Domain | Business concepts, behaviors and rules independent of transport/storage details. |
 | Application layer | Use-case orchestration and coordination around domain behavior. |
 | Infrastructure | Concrete interaction with databases, networks, external APIs and framework mechanisms. |
-| Contract | Published interface or adopted normative obligation; SETUPbasic explicitly labels the sense intended. |
+| Contract | Published interface or adopted normative obligation; SCAFbasic explicitly labels the sense intended. |
 | Port | Abstract interface exposing an interaction at a system/module boundary. |
 | Adapter | Implementation translating to/from a port and external technology. |
 | Controller | Presentation/request coordination; not equivalent to business-domain service. |

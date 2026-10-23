@@ -1,10 +1,10 @@
-# SETUPbasic
+# SCAFbasic
 
 > **Status:** Initial architecture and project-structure knowledge system; practitioner preferences and proposed review contract, not an automatic mandate
 > **Scope:** Website, web application and platform composition, source-tree organization, architecture-model selection and boundaries
 > **Not:** A framework, starter kit, application generator or license to refactor existing projects
 
-SETUPbasic captures reusable **site/application setup and structure** patterns from projects using traditional PHP MVC, Laravel, static sites, progressive web applications, capability packages and other stacks. Its job is to make *structural options and their consequences* explicit instead of imposing one folder tree or calling different architecture axes mutually exclusive.
+SCAFbasic captures reusable **site/application setup and structure** patterns from projects using traditional PHP MVC, Laravel, static sites, progressive web applications, capability packages and other stacks. Its job is to make *structural options and their consequences* explicit instead of imposing one folder tree or calling different architecture axes mutually exclusive.
 
 ## Find the right material
 
@@ -32,7 +32,7 @@ An application can simultaneously be a **modular monolith** (one deployment boun
 
 ## Relationship to the rest of SABOS Lib
 
-- **SETUPbasic** owns architecture taxonomy, repository/application layout, module boundaries, dependency direction and organization decisions.
+- **SCAFbasic** owns architecture taxonomy, repository/application layout, module boundaries, dependency direction and organization decisions.
 - [WDBASIC](../Wdbasic/README.md) owns web semantics, accessibility, HTTP/URL behavior, security/privacy, progressive enhancement and implementation contracts.
 - [TCbasic](../TCbasic/README.md) owns semantic Tailwind CSS source architecture.
 - [DBbasic](../DBbasic/README.md) owns database integrity, modeling, migrations and engine-specific SQL.

@@ -18,7 +18,7 @@ The repository currently contains seven complementary `*basic` systems plus repo
 | **READMEbasic** | Evidence-backed README/documentation knowledge, integrity contracts, profiles, templates, research, standards, references, resources, and examples. | Evolving knowledge framework | [`READMEbasic/README.md`](READMEbasic/README.md) |
 | **DevOpsbasic** | Branch semantics, GitHub Actions, CI/CD, environment separation, production promotion, cPanel API deployment adapters, Laravel CI guidance, and reusable workflow templates. | Evolving knowledge framework | [`DevOpsbasic/README.md`](DevOpsbasic/README.md) |
 | **DBbasic** | Relational data modeling, cross tables, SQL constraints, multiuser/tenant integrity, transactions, indexing, SQLite/MySQL/PostgreSQL profiles, migrations, recovery, and validation examples. | Research-backed knowledge framework; proposed schema contract | [`DBbasic/README.md`](DBbasic/README.md) |
-| **SETUPbasic** | Site and application setup: architecture models, directory organization, capability boundaries, code/asset naming, deployment topology distinctions, selection guides and reference trees. | Evolving knowledge framework; proposed review contract | [`SETUPbasic/README.md`](SETUPbasic/README.md) |
+| **SCAFbasic** | Site and application setup: architecture models, directory organization, capability boundaries, code/asset naming, deployment topology distinctions, selection guides and reference trees. | Evolving knowledge framework; proposed review contract | [`SCAFbasic/README.md`](SCAFbasic/README.md) |
 | **Governance** | Repository-wide authority, invariants, knowledge-system structure, change control, agent operations, validation, and anti-regression rules. | Binding | [`governance/README.md`](governance/README.md) |
 
 ## Shared system shape
@@ -46,7 +46,7 @@ A subject artifact exists only when the subject genuinely has one. Current examp
 - `READMEbasic/templates/` — reusable README starting artifacts;
 - `DevOpsbasic/templates/` — reusable CI/CD and deployment workflow starting artifacts;
 - `DBbasic/examples/sqlite/` — executable illustrative schema, queries, migration and integrity tests;
-- `SETUPbasic/examples/` — illustrative MVC, Laravel modular DDD and static-site directory layouts;
+- `SCAFbasic/examples/` — illustrative MVC, Laravel modular DDD and static-site directory layouts;
 - `examples/` — illustrative uses/cases where useful.
 
 SEObasic may gain a `playbooks/` artifact layer when real reusable operational playbooks exist. WDBASIC may gain separate templates/examples when a meaningful artifact boundary warrants it. Empty symmetry is explicitly discouraged.
@@ -88,14 +88,14 @@ SABOS Lib
 │   ├── docs/    → relational design, data integrity, research, engine profiles
 │   └── examples/sqlite/ → validated illustrative relational schema
 │
-└── SETUPbasic
+└── SCAFbasic
     ├── docs/    → architecture model catalog, selection and structure guidance
     └── examples/ → illustrative site/application trees
 ```
 
 The systems are complementary rather than interchangeable.
 
-- **SETUPbasic** governs how a website or application is structurally composed, packaged and organized, distinguishing deployment topology, code organization, domain boundaries, web delivery and integration models.
+- **SCAFbasic** governs how a website or application is structurally composed, packaged and organized, distinguishing deployment topology, code organization, domain boundaries, web delivery and integration models.
 - **WDBASIC** governs framework-independent web implementation behavior.
 - **TCBasic** specializes semantic Tailwind CSS architecture and provides reference CSS without making SABOS Lib a package/build repository.
 - **SEObasic** governs discovery, content, local search, channels, and measurement semantics.
