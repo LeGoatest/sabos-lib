@@ -17,7 +17,7 @@ SCAFbasic captures reusable **site/application setup and structure** patterns fr
 | Data access, CQRS, event sourcing, integration and consistency | [Data and integration patterns](docs/models/data-and-integration.md) |
 | Repository and operating layouts: monorepo/polyrepo, source/public/generated, branching | [Repository and operations models](docs/models/repository-and-operations.md) |
 | Choosing and combining models | [Decision guide](docs/selection/decision-guide.md) |
-| Directory boundaries | [Directory conventions](docs/structure/directory-conventions.md) |
+| Directory boundaries and implementation-state evidence | [Directory conventions](docs/structure/directory-conventions.md) |
 | Filenames, case, assets and generated source | [Naming and asset conventions](docs/structure/naming-and-assets.md) |
 | Explicit preferred starting stance | [Practitioner position](docs/positions/architecture-selection.md) |
 | Candidate structure-review checks | [Proposed contract](docs/contracts/structure-review-proposal.md) |
@@ -40,4 +40,4 @@ An application can simultaneously be a **modular monolith** (one deployment boun
 - [READMEbasic](../READMEbasic/README.md) owns README integrity and documentation entrypoints.
 - [Governance](../governance/README.md) owns authority, change-control and evidence.
 
-Do not reorganize existing projects solely to match an example. Verify framework requirements, runtime constraints and present code before any adoption.
+Do not reorganize existing projects solely to match an example. Verify framework requirements, runtime constraints and present code before any adoption. If a user explicitly authorizes placeholder scaffolding, distinguish empty tracked folders from code-bearing, tested or deployed modules; the scaffold must not be represented as a completed feature.

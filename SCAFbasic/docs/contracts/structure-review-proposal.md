@@ -14,7 +14,9 @@ An adopting project may define these checks in its own architecture contract:
 7. **Change-control:** File moves, class namespace changes, asset renames, route changes and storage migration require regression checks.
 8. **Non-regression:** Preserve equivalent functionality unless the new behavior is explicitly approved.
 9. **Evidence:** Claims like "modular", "tested", "deployment-ready" and "migration-safe" are backed by concrete source, checks and operational observations.
-10. **Proportionality:** Only directories, interfaces, packages and test gates that represent real responsibilities are created.
+10. **Proportionality:** Only directories, interfaces, packages and test gates that represent real responsibilities are created, except deliberately authorized, explicitly labeled empty scaffold directories.
+11. **State fidelity:** Distinguish design/placeholder/source-present/validated/deployed states and identify the evidence for each without calling a template or manifest an implemented runtime.
+12. **Asset release readiness:** Verify that editable source, installed dependencies/lockfile, compiled output, runtime references and deployed release artifacts form a tested chain; a command or placeholder output folder alone is insufficient.
 
 **Illustrative acceptance checklist** (adapt to project's commands and sources):
 
@@ -25,5 +27,7 @@ An adopting project may define these checks in its own architecture contract:
 - [ ] Identify direct cross-module coupling.
 - [ ] Run applicable unit/integration/browser checks at the owning project's authoritative commands.
 - [ ] Record new/old baseline differences, failures and rollback guidance.
+- [ ] Mark approved placeholders as unimplemented; name the evidence required to promote them to code-present or validated.
+- [ ] Check the real build tool, lockfile, compiled asset, runtime integration and deployment evidence separately.
 
 This proposal does not supersede WDBASIC security contracts, DBbasic SQL integrity or DevOpsbasic release policy. Adoption requires an explicit decision.

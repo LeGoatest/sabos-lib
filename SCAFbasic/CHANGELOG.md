@@ -5,6 +5,9 @@ SCAFbasic changes are tracked here; repository-wide routing changes also appear 
 ## [Unreleased]
 
 ### Changed
+- Clarified explicit user-authorized placeholder scaffolds as an exception to the default preference for only needed folders; tracked folders are not proof of implemented or registered capabilities.
+- Distinguished proposed, placeholder, code-present, validated and deployed states in directory guidance, selection criteria and the proposed review contract.
+- Expanded source/generated-asset evidence guidance and the Laravel example without requiring any particular build tool or forcing application refactors.
 - Renamed the original SETUPbasic documentation scope to SCAFbasic (scaffolding) while preserving the architecture catalog and examples.
 
 ### Added

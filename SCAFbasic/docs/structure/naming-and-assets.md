@@ -25,6 +25,8 @@ public/
 
 The filenames are project examples, not a mandatory global naming rule. A Laravel app may generate public/assets/css/app.css; another PHP site may generate static/css/styles.css. Define the source→output mapping once in the project's own build contract and do not edit generated CSS manually.
 
+Source presence and a declared build command **do not establish** that dependencies resolve, a lockfile exists, the compiled artifact was generated, Blade/templates reference it, or the deploy pipeline includes it. Record each separately. A build tool (Tailwind CLI, another CSS processor, or a bundler when a project explicitly chooses one) is an independent project decision rather than an implication of Laravel, DDD or a directory tree. Build-time Node need not run on production shared hosting when validated prebuilt assets are delivered.
+
 A repository can use vendor/ or node_modules/ as local installed dependencies; whether they are committed is a separate versioning/deployment decision. Use dist/ only when it **actually contains generated/distribution output**.
 
 ## Public/private file decision

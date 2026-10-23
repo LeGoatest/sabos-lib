@@ -81,8 +81,22 @@ Good fit: larger modular monoliths with distinct capability ownership, well-defi
 - Never confuse framework's ORM model with a DDD entity or data-model term; the roles may overlap but are not identical.
 - External Composer/npm packages are dependency units, not automatically separate deployables.
 - Tenant identity and row-level authorization are security responsibilities, not consequences of moving files into Modules/.
-- Do not over-nest directories or create placeholders; add folders only for real material and meaningful ownership.
+- Avoid unrequested placeholder folders or over-nesting; prefer folders backed by real responsibilities. An **explicitly requested** scaffold may use tracked placeholder directories when the README records that they are empty, unregistered and not a working capability.
 - Keep the public document root narrow and intentionally configured. Sensitive assets must remain outside it regardless of folder labels.
+
+## Documented scaffold versus implemented architecture
+
+A directory tree may describe a **proposed topology**, an **intentional scaffold** or a **verified implementation**. Label the state clearly:
+
+| State | Evidence | What must not be inferred |
+| --- | --- | --- |
+| Proposed | Design document or example | That files or runtime code exist |
+| Placeholder | Tracked empty folder or `.gitkeep`, explicitly approved in scope | Registered module, working service or installed theme |
+| Source present | Concrete files, package manifest, class/provider/route/migration registration as applicable | Successful build, complete feature behavior or compatibility |
+| Validated | Passing relevant builds/tests, linked asset output, integration and release evidence | Unchecked environments or unrelated subsystems |
+| Deployed | Verified release identity and operational checks on the intended target | That the default branch equals live production |
+
+A module's entrypoint README should identify its owned routes, persistent tables/migrations, public contracts, dependencies, excluded responsibilities and current state. Placeholders do not require fake Composer manifests, service providers, migrations or stub classes. If a user asks to create a scaffolding tree, preserve existing working source, indicate placeholders in documentation and leave deployment claims unchanged.
 
 ## Migration policy
 

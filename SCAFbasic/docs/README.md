@@ -8,7 +8,7 @@
 | Web delivery styles | [models/presentation-delivery.md](models/presentation-delivery.md) | Informative |
 | Data/integration styles | [models/data-and-integration.md](models/data-and-integration.md) | Informative; DBbasic controls relational substance |
 | Repository and operations patterns | [models/repository-and-operations.md](models/repository-and-operations.md) | Informative; DevOpsbasic governs deployment policy |
-| Folder responsibilities | [structure/directory-conventions.md](structure/directory-conventions.md) | Practitioner guidance |
+| Folder responsibilities and scaffold-state evidence | [structure/directory-conventions.md](structure/directory-conventions.md) | Practitioner guidance |
 | Naming and assets | [structure/naming-and-assets.md](structure/naming-and-assets.md) | Practitioner guidance |
 | Architecture selection | [selection/decision-guide.md](selection/decision-guide.md) | Decision procedure, not a mandatory architecture |
 | Default preferences | [positions/architecture-selection.md](positions/architecture-selection.md) | Explicit preference, not a universal contract |
@@ -24,3 +24,4 @@
 3. A model catalog can never enumerate every historical variant or trade name. Entries define a substantial, extensible baseline and an addition rule, rather than making a false claim of universal exhaustiveness.
 4. Do not migrate a working application merely to achieve a cleaner example tree.
 5. Public/private storage and secrets must respect adopted WDBASIC and framework security contracts. SQL integrity remains DBbasic's domain.
+6. A documented tree, tracked empty folder, source implementation, validated build and deployed release are different evidence levels. State the level explicitly, especially when the user requests placeholder scaffolding.

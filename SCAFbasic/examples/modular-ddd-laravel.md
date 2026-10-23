@@ -1,6 +1,6 @@
 # Example: Laravel Capability Packages + Domain Boundaries
 
-**Status:** Illustrative target topology, not a current PhotoSync or other Laravel implementation report. Preserve framework-owned directories.
+**Status:** Illustrative target topology, not a report of any current Laravel repository. Preserve framework-owned directories and existing project build choices.
 
 ~~~text
 project/
@@ -56,6 +56,8 @@ project/
 ├── AGENTS.md
 └── CHANGELOG.md
 ~~~
+
+**Status and build:** This is a directory *example*, not a compiled application, dependency lock, routing or CI report. Where a project uses Tailwind CSS CLI, it may explicitly map editable `resources/css/input.css` to generated `public/assets/css/styles.css`; other framework-compatible source/output filenames also remain valid. A theme-specific stylesheet can have an independent source/output contract. Empty folders are optional and should only be deliberately scaffolded and labeled.
 
 **Boundary rule:** a Media application use case can call another capability's published contract, not its private controller/repository. The domain must not depend on Laravel HTTP request classes or concrete storage. For simple operations, omit unnecessary folders/classes; packages/ requires deliberate PSR-4 Composer autoload mappings and service-provider wiring.
 

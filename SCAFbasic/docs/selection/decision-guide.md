@@ -45,6 +45,7 @@ Document: product type, business domain complexity, expected users and tenants, 
 - Do **not** use plugins for all feature separation; plugin extension and capability modularity serve different purposes.
 - Do **not** move a legacy application without documenting autoload, routes, scripts, database migration, deployment and compatibility effects.
 - Do **not** treat any named pattern as a performance, security or compliance guarantee.
+- Do **not** infer that an intended package, documented route, placeholder folder, build script or framework-version target is already functioning or tested.
 
 ## Step 5 — Record an evidence-backed decision
 
@@ -59,6 +60,8 @@ Explicitly rejected alternatives:
 Known costs and security/operational constraints:
 Folders and dependencies affected:
 Validation / acceptance criteria:
+Implementation state (proposed, placeholder, code present, validated or deployed):
+Evidence and outstanding checks (source, build, lockfile, runtime link, CI, hosting):
 Migration and rollback if applicable:
 References / date:
 ~~~
