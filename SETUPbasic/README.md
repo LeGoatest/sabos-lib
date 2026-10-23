@@ -15,6 +15,7 @@ SETUPbasic captures reusable **site/application setup and structure** patterns f
 | MVC, HMVC, DDD, vertical slices, layered, clean, hexagonal | [Application organization](docs/models/application-organization.md) |
 | MPA, SPA, SSR, SSG, hybrid, headless, PWA | [Web presentation and delivery](docs/models/presentation-delivery.md) |
 | Data access, CQRS, event sourcing, integration and consistency | [Data and integration patterns](docs/models/data-and-integration.md) |
+| Repository and operating layouts: monorepo/polyrepo, source/public/generated, branching | [Repository and operations models](docs/models/repository-and-operations.md) |
 | Choosing and combining models | [Decision guide](docs/selection/decision-guide.md) |
 | Directory boundaries | [Directory conventions](docs/structure/directory-conventions.md) |
 | Filenames, case, assets and generated source | [Naming and asset conventions](docs/structure/naming-and-assets.md) |

@@ -7,6 +7,7 @@
 | Code/domain styles | [models/application-organization.md](models/application-organization.md) | Informative |
 | Web delivery styles | [models/presentation-delivery.md](models/presentation-delivery.md) | Informative |
 | Data/integration styles | [models/data-and-integration.md](models/data-and-integration.md) | Informative; DBbasic controls relational substance |
+| Repository and operations patterns | [models/repository-and-operations.md](models/repository-and-operations.md) | Informative; DevOpsbasic governs deployment policy |
 | Folder responsibilities | [structure/directory-conventions.md](structure/directory-conventions.md) | Practitioner guidance |
 | Naming and assets | [structure/naming-and-assets.md](structure/naming-and-assets.md) | Practitioner guidance |
 | Architecture selection | [selection/decision-guide.md](selection/decision-guide.md) | Decision procedure, not a mandatory architecture |

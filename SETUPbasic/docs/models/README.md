@@ -8,6 +8,7 @@ This catalog describes the principal **models used to structure web sites, appli
 | Application/domain organization | How are implementation and business responsibilities divided? | [Application patterns](application-organization.md) |
 | Browser presentation and delivery | What renders the interface, when and where? | [Presentation patterns](presentation-delivery.md) |
 | Data and integration | How does state flow, persist and synchronize? | [Data and integration patterns](data-and-integration.md) |
+| Repository/operations | How is source, build, release and ownership organized? | [Repository and operations patterns](repository-and-operations.md) |
 
 ## Entry contract
 
