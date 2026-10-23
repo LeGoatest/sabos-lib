@@ -14,6 +14,8 @@ DBbasic separates responsibilities by **authority and technical purpose**, not b
 | Engine profiles | [engines/README.md](engines/README.md) | Vendor-scoped behavior |
 | Research and synthesis | [research/2026-10-23-relational-database-research.md](research/2026-10-23-relational-database-research.md) | Informative evidence |
 | Source catalog | [references/primary-sources.md](references/primary-sources.md) | Original-source provenance |
+| Database anti-patterns | [patterns/anti-patterns.md](patterns/anti-patterns.md) | Practitioner guidance |
+| Terminology | [glossary.md](glossary.md) | Descriptive definitions |
 | Review checklist | [checklists/database-review.md](checklists/database-review.md) | Voluntary verification workflow |
 | Executable example | [../examples/sqlite/README.md](../examples/sqlite/README.md) | Illustrative, not production |
 
