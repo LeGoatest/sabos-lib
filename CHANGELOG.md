@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Added
 
+- Added DBbasic as a sixth governed `*basic` system for relational schema engineering, cross tables, tenant-safe data relationships, SQL integrity, transactions/indexing, database automation, migrations/recovery and engine-specific guidance.
+- Preserved the dated relational-database deep research synthesis and primary-source catalog; separated practitioner positions from an explicitly unadopted contract proposal.
+- Added SQLite executable reference schema with memberships, photo and messaging cross tables, composite tenant FKs, audit trigger, examples and 10 automated integrity tests; routed the new system through root README/AGENTS and governance authority.
+
 - Repository-wide `governance/` layer for authority, invariants, change control, validation, and research evidence.
 - Compact root `AGENTS.md` that routes automated work into scoped governance instead of duplicating the full policy surface.
 - `governance/AGENTS.md` for controlled edits to repository governance itself.
