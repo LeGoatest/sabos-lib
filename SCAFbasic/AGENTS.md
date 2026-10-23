@@ -11,6 +11,8 @@ Before material SCAFbasic work read [root instructions](../AGENTS.md), [authorit
 - Never claim an architecture model guarantees modularity, security, performance, isolation or testability without concrete constraints and validation.
 - If a framework dictates root/public/bootstrap/autoload conventions, preserve them. Never move credentials, private assets or user uploads into the public web root as a side effect of restructuring.
 - Keep model definitions, comparisons, decision criteria, costs, compatibility and counterexamples synchronized.
+- For capabilities and operations distinguish conceptual workflows, stable operation identifiers, published interfaces, policy decisions, implementation state, transport routes and language abstractions. Operation IDs are neither URLs nor permission grants; never infer a live implementation from a documented catalog.
+- Do not encode one project's workflows, role names or internal provider methods as universal abstractions. Treat sensitive-data prohibitions and negative interfaces explicitly.
 - Cross-link to WDBASIC, DBbasic, DevOpsbasic, TCBasic and READMEbasic rather than redefining their binding rules.
 - Update SCAFbasic/CHANGELOG.md for substantive changes and root CHANGELOG.md when subsystem routing changes. Governance changes also update governance/CHANGELOG.md.
 - Check relative links, duplicate catalog entries and distinction between proposed and adopted obligations. No build or integration tests are implied by Markdown-only examples.

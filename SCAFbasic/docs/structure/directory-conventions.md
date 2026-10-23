@@ -84,6 +84,12 @@ Good fit: larger modular monoliths with distinct capability ownership, well-defi
 - Avoid unrequested placeholder folders or over-nesting; prefer folders backed by real responsibilities. An **explicitly requested** scaffold may use tracked placeholder directories when the README records that they are empty, unregistered and not a working capability.
 - Keep the public document root narrow and intentionally configured. Sensitive assets must remain outside it regardless of folder labels.
 
+## Contracts and capability operations
+
+A business capability may publish semantic commands and queries through interfaces, DTOs, operation catalogs or adapters. The conceptual shape is documented in [Contracts, Abstractions and Capability Operations](../abstractions/README.md). Operation identifiers such as `<capability>.<resource>.<action>` are not file paths, URL routes, database permissions or evidence of implemented code.
+
+Within a capability, keep public contracts distinguishable from private application/domain/infrastructure internals. A language-level interface or abstract class is optional, not mandatory scaffolding. Authorization remains a server-side resource/scope decision even when a caller uses role-aware workflows.
+
 ## Documented scaffold versus implemented architecture
 
 A directory tree may describe a **proposed topology**, an **intentional scaffold** or a **verified implementation**. Label the state clearly:

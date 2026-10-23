@@ -17,6 +17,8 @@ SCAFbasic captures reusable **site/application setup and structure** patterns fr
 | Data access, CQRS, event sourcing, integration and consistency | [Data and integration patterns](docs/models/data-and-integration.md) |
 | Repository and operating layouts: monorepo/polyrepo, source/public/generated, branching | [Repository and operations models](docs/models/repository-and-operations.md) |
 | Choosing and combining models | [Decision guide](docs/selection/decision-guide.md) |
+| Contracts, abstractions, conceptual operations and role-aware workflows | [Capability abstraction index](docs/abstractions/README.md) |
+| Generic operation profile and ownership rules | [Operation profile](docs/abstractions/operation-profile.md) |
 | Directory boundaries and implementation-state evidence | [Directory conventions](docs/structure/directory-conventions.md) |
 | Filenames, case, assets and generated source | [Naming and asset conventions](docs/structure/naming-and-assets.md) |
 | Explicit preferred starting stance | [Practitioner position](docs/positions/architecture-selection.md) |
@@ -32,7 +34,7 @@ An application can simultaneously be a **modular monolith** (one deployment boun
 
 ## Relationship to the rest of SABOS Lib
 
-- **SCAFbasic** owns architecture taxonomy, repository/application layout, module boundaries, dependency direction and organization decisions.
+- **SCAFbasic** owns architecture taxonomy, repository/application layout, capability abstractions, operation identity, published contract shapes, module boundaries, dependency direction and organization decisions. Its operation examples are not installed systems or authorization grants.
 - [WDBASIC](../Wdbasic/README.md) owns web semantics, accessibility, HTTP/URL behavior, security/privacy, progressive enhancement and implementation contracts.
 - [TCbasic](../TCbasic/README.md) owns semantic Tailwind CSS source architecture.
 - [DBbasic](../DBbasic/README.md) owns database integrity, modeling, migrations and engine-specific SQL.

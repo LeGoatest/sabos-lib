@@ -8,11 +8,14 @@
 | Web delivery styles | [models/presentation-delivery.md](models/presentation-delivery.md) | Informative |
 | Data/integration styles | [models/data-and-integration.md](models/data-and-integration.md) | Informative; DBbasic controls relational substance |
 | Repository and operations patterns | [models/repository-and-operations.md](models/repository-and-operations.md) | Informative; DevOpsbasic governs deployment policy |
+| Capability abstractions, contracts and operations | [abstractions/README.md](abstractions/README.md) | Informative models, not installed operations or adopted grants |
+| Reusable operation profile | [abstractions/operation-profile.md](abstractions/operation-profile.md) | Documentation template only |
 | Folder responsibilities and scaffold-state evidence | [structure/directory-conventions.md](structure/directory-conventions.md) | Practitioner guidance |
 | Naming and assets | [structure/naming-and-assets.md](structure/naming-and-assets.md) | Practitioner guidance |
 | Architecture selection | [selection/decision-guide.md](selection/decision-guide.md) | Decision procedure, not a mandatory architecture |
 | Default preferences | [positions/architecture-selection.md](positions/architecture-selection.md) | Explicit preference, not a universal contract |
 | Structure review | [contracts/structure-review-proposal.md](contracts/structure-review-proposal.md) | **Proposed, not adopted** |
+| Example conceptual capability contract | [../examples/capability-operation.md](../examples/capability-operation.md) | Illustrative only |
 | Examples | [../examples/README.md](../examples/README.md) | Illustrative only |
 | Glossary | [glossary.md](glossary.md) | Terminology |
 | Primary references | [references/primary-sources.md](references/primary-sources.md) | Sources, vendor-qualified |

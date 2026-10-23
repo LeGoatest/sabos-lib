@@ -18,6 +18,8 @@ An adopting project may define these checks in its own architecture contract:
 11. **State fidelity:** Distinguish design/placeholder/source-present/validated/deployed states and identify the evidence for each without calling a template or manifest an implemented runtime.
 12. **Asset release readiness:** Verify that editable source, installed dependencies/lockfile, compiled output, runtime references and deployed release artifacts form a tested chain; a command or placeholder output folder alone is insufficient.
 
+13. **Capability contract fidelity:** When a project adopts an operation registry or published capability interface, distinguish semantic operation names from routes, permissions and implementation. Verify owner, stable request/result/error semantics, resource/tenant policies, restricted disclosures and side-effect contracts.
+
 **Illustrative acceptance checklist** (adapt to project's commands and sources):
 
 - [ ] Determine current architecture from source, not screenshots alone.
@@ -29,5 +31,6 @@ An adopting project may define these checks in its own architecture contract:
 - [ ] Record new/old baseline differences, failures and rollback guidance.
 - [ ] Mark approved placeholders as unimplemented; name the evidence required to promote them to code-present or validated.
 - [ ] Check the real build tool, lockfile, compiled asset, runtime integration and deployment evidence separately.
+- [ ] Where capability abstractions apply, verify operation-to-implementation mapping, forbidden paths, policy checks and sanitized result/event shapes.
 
 This proposal does not supersede WDBASIC security contracts, DBbasic SQL integrity or DevOpsbasic release policy. Adoption requires an explicit decision.

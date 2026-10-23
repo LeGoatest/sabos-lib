@@ -11,6 +11,14 @@
 | Application layer | Use-case orchestration and coordination around domain behavior. |
 | Infrastructure | Concrete interaction with databases, networks, external APIs and framework mechanisms. |
 | Contract | Published interface or adopted normative obligation; SCAFbasic explicitly labels the sense intended. |
+| Capability | Coherent business responsibility with an accountable owner, invariants and controlled consumer interactions. |
+| Capability operation | Named semantic command or query of a capability, independent of transport or a concrete implementation. |
+| Operation identifier | Stable internal protocol name such as `<capability>.<resource>.<action>`; not inherently a URL, permission or executable method. |
+| Role-aware workflow | Caller experience exposing actions according to actor/context; never a substitute for server-side authorization. |
+| Published interface | Supported callable/data/event boundary consumers may rely upon, with compatibility and access constraints. |
+| Negative interface | Explicitly prohibited access, disclosure or operation, such as private internals or credentials. |
+| DTO | Data transfer object or schema used to define safe request/response data without exposing private models. |
+| Abstract class | Programming-language inheritance abstraction with shared implementation; not required for conceptual capability operations. |
 | Port | Abstract interface exposing an interaction at a system/module boundary. |
 | Adapter | Implementation translating to/from a port and external technology. |
 | Controller | Presentation/request coordination; not equivalent to business-domain service. |

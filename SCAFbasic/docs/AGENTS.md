@@ -10,3 +10,4 @@ When adding or revising a model:
 5. Preserve user-selected design decisions as project-specific evidence, not binding rules for all adopters.
 6. Update model index, glossary, decision guide and examples where affected, maintaining valid relative links.
 7. Do not promote reference material to a binding requirement without intentional governance change.
+8. For capability operation abstractions, read [abstractions/README.md](abstractions/README.md) and distinguish documentation templates from code-level interfaces or abstract classes. Keep cross-module ownership, policy/scope enforcement and prohibited disclosure independent of a caller UI.
