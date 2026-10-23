@@ -184,6 +184,19 @@ For branch strategy, GitHub Actions, CI/CD, cPanel deployment, environment separ
 
 Do not infer production from the default branch. Under the standard DevOpsbasic model, `main` is the governance/control plane, `dev` is active development, and `prod` is the production line. Production deployment must resolve from `prod` unless the adopting project explicitly defines another contract.
 
+### DBbasic
+
+For relational schema design, SQL integrity, keys/junction tables, tenant isolation, triggers, transaction concurrency, indexing, engine selection, or database migration/recovery, read:
+
+1. [`DBbasic/README.md`](DBbasic/README.md)
+2. [`DBbasic/AGENTS.md`](DBbasic/AGENTS.md)
+3. [`DBbasic/docs/README.md`](DBbasic/docs/README.md)
+4. [`DBbasic/docs/positions/relational-design.md`](DBbasic/docs/positions/relational-design.md)
+5. applicable DBbasic engine profile and primary sources
+6. [`DBbasic/examples/sqlite/`](DBbasic/examples/sqlite/README.md) only when illustrative SQLite behavior is relevant
+
+DBbasic's research is evidence, not an automatic binding standard. Its schema-integrity contract remains **proposed** until deliberately adopted. Do not infer or change an application's actual schema, permissions, secrets or deployment solely from the DBbasic example.
+
 ## Commands and evidence
 
 Never invent build/test commands from convention. Read the owning project manifest/workflow/documentation when an adopting implementation actually has commands.
