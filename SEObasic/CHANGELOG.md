@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Added
 
+- `docs/surfaces/owned-web/service-area-page-strategy.md` as the governed guide to Google doorway-abuse policy, useful regional service-area hubs, evidence-backed use cases for legitimately independent city pages, and relevant redirect/retirement practices (reviewed 2026-11-21).
+- Synchronized owned-web/local-maps indexes, web-copy guidance, and machine-readable service-area page/rule projections to favor substantive regional coverage over city-name-swapped doorway landing pages.
+
 - `docs/strategies/content/web-copy-source-of-truth-and-quality.md` documenting verified business-input hierarchy, Google Business Profile scope, page-by-page copy requirements, service/location-page differentiation, AI-assisted generation constraints, anti-placeholder/anti-boilerplate rules, duplicate-content QA heuristics, editorial/automation checks, and a worked MyRestorePro example grounded in the supplied Business Profile export.
 - Machine-readable web-copy validation covering production placeholders, business source-of-truth, unsupported claims, sibling-page near-duplication, service-page substitution, Google Business Profile scope, and agent routing into the new content strategy.
 - `agents/` as SEObasic's machine-readable projection namespace, with a deterministic manifest, role/standard projection, invariant registry, evaluation/strategy/surface/evidence/measurement/terminology registries, JSON Schemas, and conformance definitions.
