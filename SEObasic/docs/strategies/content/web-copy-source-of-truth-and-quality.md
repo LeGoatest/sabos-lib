@@ -221,6 +221,8 @@ Every material field should be traceable to a source or explicitly marked unknow
 | Quote/estimate | Collect the information needed to scope the request | service taxonomy, required fields, upload rules, contact preferences, consent | Instruction text may repeat where functionally identical |
 | FAQ | Resolve real buying/process objections | actual policies, service constraints, common customer questions | Do not generate six generic FAQs merely to fill a template |
 
+**Service-area publication decision:** The default is one substantive regional coverage hub; a standalone city page is justified by an independently useful, verified local need. See [Service-Area Hubs, City Pages, and Doorway-Abuse Risk](../../surfaces/owned-web/service-area-page-strategy.md) for the Google-policy distinction, valid use cases, and retirement guidance.
+
 ## Substantive uniqueness rules
 
 ### Service pages
@@ -257,7 +259,7 @@ A location page must earn its existence with local utility. Useful sources inclu
 
 Do **not** create pages where the meaningful body copy is identical after replacing city tokens.
 
-If there is not enough verified local information to make the page useful, keep the city as a crawlable service-area link/list item until stronger content exists.
+If there is not enough verified local information to make a standalone city page useful, list the city as visible text on the regional service-area hub. Do not create a placeholder city link or an indexable city URL merely to capture that city's search query.
 
 ## AI-assisted copy generation contract
 
