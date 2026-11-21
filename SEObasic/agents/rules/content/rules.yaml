@@ -77,7 +77,7 @@ rules:
     effect: require
     strength: must
     applies_when: {page_type: service_area}
-    requirement: A location page must contain meaningful verified local utility and must not be produced by city-name substitution, generic local praise, or unsupported locality claims. If meaningful local inputs are unavailable, do not pad the page merely to justify a standalone URL.
+    requirement: A regional service-area hub may list all verified cities without city landing-page URLs. Publish a separately indexable city page only when it provides an independent verified local user benefit beyond generic regional copy, city-name substitution, or unsupported locality claims. If meaningful local inputs are unavailable, consolidate coverage in the hub instead of padding a city URL.
     validation: {mode: semantic, automation: assisted}
     failure: {severity: error, reason_code: SEO_CONTENT_LOCATION_SWAP}
   - id: seobasic.content.near-duplicate-review
