@@ -29,6 +29,8 @@ This domain can preserve knowledge about:
 - Organic social: [`../social-media/`](../social-media/README.md)
 - Paid media: [`../paid-media/`](../paid-media/README.md)
 
+For decisions about whether serviced cities need distinct indexable website pages, follow the [owned-web regional-hub and city-page strategy](../owned-web/service-area-page-strategy.md). Local map coverage, a listed city, or Google Business Profile service-area selection do not automatically justify an independent landing page.
+
 ## Principle
 
 A profile, citation, review, website page, or local link is evidence only within its real context. SEObasic MUST NOT invent addresses, locations served, reviews, awards, business history, or customer proof to create stronger local signals.
