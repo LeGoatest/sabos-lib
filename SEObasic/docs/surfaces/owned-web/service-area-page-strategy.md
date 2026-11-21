@@ -18,7 +18,7 @@ Google's *scaled content abuse* policy separately addresses large amounts of con
 
 ## Default architecture: regional coverage hub
 
-Use a single, indexable service-area index (for example, `/near-me/` or `/service-areas/`) when neighboring communities share service offerings and environmental concerns.
+Use a single, indexable service-area index (for example, `/service-area/` or `/service-areas/`) when neighboring communities share service offerings and environmental concerns.
 
 The hub should:
 
@@ -66,7 +66,7 @@ A series of nearly identical pages with different city names and generic claims 
 
 **Legitimate stand-alone city page:** A later Inverness page documents real local jobs, substrate assessment findings, clearly attributed project images, applicable municipal project considerations, and practical information specific to Inverness customers that a regional page cannot efficiently provide. A reusable brand/design template is acceptable; the substantive local utility is what matters.
 
-**Poor city page:** A `/near-me/hernando/` page copies the regional service list, changes the H1, substitutes "Hernando" into generic humidity/cement descriptions, and links to the same quote form. Do not publish merely to capture the city query.
+**Poor city page:** A `/service-area/hernando/` page copies the regional service list, changes the H1, substitutes "Hernando" into generic humidity/cement descriptions, and links to the same quote form. Do not publish merely to capture the city query.
 
 ## Retirement and technical implementation
 
