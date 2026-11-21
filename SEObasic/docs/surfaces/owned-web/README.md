@@ -20,6 +20,8 @@ This domain is intentionally broader than technical SEO. It can preserve knowled
 
 - [`keyword-use.md`](keyword-use.md) — current on-page keyword/topic-language guidance covering descriptive URLs, titles, headings, body copy, link text, image alt text, search intent, natural language, and keyword-stuffing boundaries.
 
+- [`service-area-page-strategy.md`](service-area-page-strategy.md) — doorway-abuse warnings, regional service-area hubs, evidence-based city-page use cases, and safe retirement of thin city URLs.
+
 ## Keyword versus meta-keyword boundary
 
 SEObasic distinguishes **keywords used naturally in visible/descriptive website content** from the legacy `<meta name="keywords">` field.
