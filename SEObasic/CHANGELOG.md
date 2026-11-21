@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Added
 
+- `docs/surfaces/owned-web/technical/google-sitelinks.md` recording Google organic sitelink automation, reusable technical/navigation audits, and the distinction from breadcrumb results and the retired sitelinks search box (reviewed 2026-11-21).
+- Synchronized owned-web indexes, legacy metadata context, and machine-readable link/validation rules for truthful canonical destinations without sitelink guarantees.
+
 - `docs/surfaces/owned-web/service-area-page-strategy.md` as the governed guide to Google doorway-abuse policy, useful regional service-area hubs, evidence-backed use cases for legitimately independent city pages, and relevant redirect/retirement practices (reviewed 2026-11-21).
 - Synchronized owned-web/local-maps indexes, web-copy guidance, and machine-readable service-area page/rule projections to favor substantive regional coverage over city-name-swapped doorway landing pages.
 

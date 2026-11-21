@@ -203,7 +203,7 @@ They may still have meaning in other standards, software, accessibility, navigat
 
 Google Search no longer uses this rule because the sitelinks search box feature it controlled no longer exists.
 
-Do not retain or add this tag as a current Google Search requirement.
+Do not retain or add this tag as a current Google Search requirement. The discontinued **sitelinks search box** is distinct from ordinary [Google Search sitelinks](google-sitelinks.md), which Google still selects automatically.
 
 ### Robots rule `noarchive`
 

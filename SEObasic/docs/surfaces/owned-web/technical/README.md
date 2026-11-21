@@ -28,6 +28,7 @@ This domain is expected to grow around topics such as:
 
 - [`metadata.md`](metadata.md) — search presentation metadata, indexing/serving controls, canonical links, browser/document metadata, social-sharing metadata, and explicit legacy/unused status such as `meta keywords` being unused by Google Search.
 - [`structured-data.md`](structured-data.md) — structured-data models, truthful schema selection, serialization, and validation.
+- [`google-sitelinks.md`](google-sitelinks.md) — Google's automated organic sitelinks, navigation audit, and separation from breadcrumb rich results and the retired sitelinks search box.
 - [`ai-discovery-controls.md`](ai-discovery-controls.md) — Google/Bing/OpenAI/Perplexity crawler and access controls, robots/indexing distinctions, sitemaps, IndexNow, and the separation between crawling, indexing, retrieval, citation and model-training permissions.
 
 ## Legacy-status rule

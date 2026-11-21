@@ -3,7 +3,7 @@ kind: rule_set
 id: seobasic.rules.links
 category: links
 authority_class: canonical_projection
-canonical_sources: [../../../docs/strategies/entity-relationships/entity-graph.md, ../../../docs/strategies/on-page/keyword-use.md]
+canonical_sources: [../../../docs/strategies/entity-relationships/entity-graph.md, ../../../docs/strategies/on-page/keyword-use.md, ../../../docs/surfaces/owned-web/technical/google-sitelinks.md]
 rules:
   - id: seobasic.links.descriptive
     effect: require
@@ -23,3 +23,17 @@ rules:
     requirement: Internal linking or backlink acquisition is not represented as a deterministic ranking guarantee.
     validation: {mode: semantic, automation: assisted}
     failure: {severity: error, reason_code: SEO_LINK_RANK_GUARANTEE}
+  - id: seobasic.links.sitelinks-readiness
+    effect: require
+    strength: should
+    applies_when: {google_organic_sitelinks_audit: true}
+    requirement: Review actual canonical index-eligible pages, concise descriptive titles/headings, logical navigation and crawlable internal anchors; flag avoidable links to legacy redirects.
+    validation: {mode: mixed, automation: partial}
+    failure: {severity: warning, reason_code: SEO_SITELINKS_READINESS}
+  - id: seobasic.links.sitelinks-no-control-claim
+    effect: forbid
+    strength: must
+    applies_when: {google_organic_sitelinks_claim: true}
+    requirement: Do not represent site structure, internal links, sitemaps, or structured data as guarantees of Google's ordinary sitelinks selection, order, number or display.
+    validation: {mode: semantic, automation: assisted}
+    failure: {severity: error, reason_code: SEO_SITELINKS_GUARANTEE}

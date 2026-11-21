@@ -21,6 +21,7 @@ This domain is intentionally broader than technical SEO. It can preserve knowled
 - [`keyword-use.md`](keyword-use.md) — current on-page keyword/topic-language guidance covering descriptive URLs, titles, headings, body copy, link text, image alt text, search intent, natural language, and keyword-stuffing boundaries.
 
 - [`service-area-page-strategy.md`](service-area-page-strategy.md) — doorway-abuse warnings, regional service-area hubs, evidence-based city-page use cases, and safe retirement of thin city URLs.
+- [`technical/google-sitelinks.md`](technical/google-sitelinks.md) — Google ordinary sitelinks, truthful link hierarchy, canonical destinations, and automated selection.
 
 ## Keyword versus meta-keyword boundary
 
