@@ -63,6 +63,10 @@ Use a stable base class plus explicit modifiers:
 
 Do not use hidden custom-class inheritance as a substitute for visible component contracts. See [`../components/component-contracts.md`](../components/component-contracts.md).
 
+## Section surface composition
+
+[Section banding guidance](section-banding.md) describes optional inherited, semantic solid, and media-backed section treatments. It reuses existing layout and token roles rather than introducing a mandatory alternation rule or new color palette.
+
 ## Source detection
 
 Tailwind scans source as text, so required candidates must be represented as complete static strings. See [`source-detection.md`](source-detection.md).

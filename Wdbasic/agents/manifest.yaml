@@ -55,6 +55,7 @@ collections:
     conversion_sequence: patterns/conversion-sequence.yaml
     social_proof: patterns/social-proof.yaml
     local_service: patterns/local-service.yaml
+    section_banding: patterns/section-banding.yaml
   components:
     hero: components/hero.yaml
     navigation: components/navigation.yaml

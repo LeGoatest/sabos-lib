@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Added
 
+- Documented optional section banding / visual rhythm as an experience-composition pattern, with a source-linked machine projection and no universal section order, background palette, or parallax requirement.
+
 - Dated dashboard/administration UI/UX research snapshot analyzing seven supplied bento and tenant-dashboard visual references, separating observed aesthetics from vendor guidance, WCAG requirements, and unverified recommendations; records pending Deep Research report reconciliation.
 - Informative dashboard/admin experience-evaluation guide covering screen taxonomy, task-first hierarchy, role-aware navigation, responsive bento usage, components, interactive states, and explicit acceptance checks; linked from the experience and research indexes.
 - HTMX 4 research snapshot documenting the 2026-09-27 InfoWorld review, verification against current HTMX 4 primary documentation, and the resulting WDBASIC profile changes.

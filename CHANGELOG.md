@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 
 ### Added
 
+- Cross-system section banding / visual rhythm guidance: optional WDBASIC experience pattern and machine projection, with TCBasic semantic surface styling conventions; no fixed homepage sequence or new visual tokens.
+
 - Renamed the site/application scaffolding knowledge subsystem from `SETUPbasic/` to `SCAFbasic/`; current references, governance routing and model examples use the new path.
 
 - Added SCAFbasic as the seventh governed knowledge system covering site/application setup, MVC/HMVC and complementary architectural models, module/package boundaries, repository/folder conventions, model-combination decisions, named assets, source/generated separation and illustrative website/Laravel layouts.

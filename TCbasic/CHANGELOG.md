@@ -8,6 +8,8 @@ The historical entries below preserve the framework's earlier package-oriented d
 
 ### Added
 
+- Added optional section-banding styling guidance using the existing `.layout-section`, `.layout-section-muted`, semantic surface roles, and adopter-owned media treatment; no new CSS or token API.
+
 - `docs/` as the canonical home for TCBasic architecture, contracts, standards, positions, profiles, integrations, compliance guidance, references, and glossaries.
 - `docs/references/` for historical and project-specific source material that informs TCBasic without automatically becoming a universal contract.
 - `docs/compliance/browser-and-reference-matrix.md` separating upstream compatibility assumptions from actual adopter validation.

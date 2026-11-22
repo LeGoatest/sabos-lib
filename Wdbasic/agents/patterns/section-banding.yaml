@@ -1,0 +1,12 @@
+spec_version: "0.2.0"
+kind: pattern
+id: wdbasic.pattern.section-banding
+authority_class: derived_machine_contract
+canonical_sources: [../../docs/experience-evaluation/section-banding.md]
+applicability: {use_when: section_background_variation_improves_scanability, universal: false}
+intent: Support content grouping and visual rhythm with context-appropriate section background treatments.
+treatments: [inherited_canvas, semantic_solid_surface, media_backed_surface, optional_parallax_enhancement, existing_cta_treatment]
+sequence_is_fixed: false
+constraints: {required_alternation: false, fixed_section_count: false, new_colors_required: false, parallax_required: false}
+forbidden: [universal_background_sequence, color_only_semantics, illegible_image_overlay, motion_dependent_content]
+validation: {mode: semantic, outcomes: [pass, fail, not_applicable, requires_review]}
